@@ -120,6 +120,8 @@ Class 클래스명 { // 클래스명은 대문자로 시작
 
 <img src="https://raw.githubusercontent.com/JungH200000/JungH200000.github.io/refs/heads/categories-ver2/assets/images/posts_img/til/jvm.png" width=500px>
 
+---
+
 ## <span style="background-color: #FFF9C4">3. 필드(Field)와 메서드(Method)</span>
 
 ### 3-01. 필드(Field)
@@ -211,8 +213,6 @@ class Counter {
 >
 > **필드**는 초기값을 명시하지 않아도 자동으로 0, false, null 등으로 초기화 되지만,
 > **지역 변수**는 반드시 초기값을 설정해야 하며, 그렇지 않으면 컴파일 에러가 발생합니다.
-
----
 
 ### 3-02. 메서드(Method)
 
