@@ -100,11 +100,11 @@ analytics:
 
 # Site Author
 author:
-  name: "박정현 (Park Jung Hyun)" # 블로그 닉네임
+  name: "Jung Hyun" # 블로그 닉네임
   avatar: "/assets/images/meee.png" # 블로그 프로필 사진
-  #   bio              : "hi all!"
-  # location         : "Seoul, Korea"
-  # email            : "youremailhere@xxxxxx.com"
+    bio              : "HI!"
+  location         : "Seoul, Korea"
+  email            : "jhpaxk0604@gmail.com"
 
   links: # 사이트 링크
 #     - label: "Email"
@@ -284,6 +284,7 @@ defaults:
       related: true
       sidebar:
         nav: "categories"
+
 
 
 
