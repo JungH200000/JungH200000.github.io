@@ -13,7 +13,7 @@ toc: true
 toc_sticky: false
 
 date: 2026-01-05
-last_modified_at: 2026-01-05
+last_modified_at: 2026-01-06
 ---
 
 # 오늘의 학습
