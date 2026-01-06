@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-til/sprint-til004/
 
 toc: true
-toc_sticky: true
+toc_sticky: false
 
 date: 2026-01-06
 last_modified_at: 2026-01-06
@@ -531,28 +531,28 @@ class MyClass implements InterfaceEx {
 
 **SOLID**는 객체지향 설계에서 유지보수 가능하고, 확장 가능한 코드를 만들기 위한 **5가지 설계 원칙**의 앞 글자를 모은 약어
 
-### ⭐SRP (**S**ingle **R**esponsibility **P**rinciple) : **단일 책임의 원칙**
+### ⭐2-01. SRP (**S**ingle **R**esponsibility **P**rinciple) : **단일 책임의 원칙**
 
-- **”**하나의 클래스는 하나의 책임만 가져야 한다.”
+- "하나의 클래스는 하나의 책임만 가져야 한다."
 
-### OCP (**O**pen/**C**losed **P**rinciple) : **개방/폐쇄의 원칙**
+### 2-02. OCP (**O**pen/**C**losed **P**rinciple) : **개방/폐쇄의 원칙**
 
-- ”확장에는 열려있고, 수정에는 닫혀있어야 한다.”
+- "확장에는 열려있고, 수정에는 닫혀있어야 한다."
 
-### LSP (**L**iskov’s **S**ubstitution **P**rinciple) : **리스코브 치환의 원칙**
+### 2-03. LSP (**L**iskov’s **S**ubstitution **P**rinciple) : **리스코브 치환의 원칙**
 
-- ”자식 클래스는 반드시 부모 클래스를 대체할 수 있어야 한다.”
+- "자식 클래스는 반드시 부모 클래스를 대체할 수 있어야 한다."
 
-### ISP (**I**nterface **S**egregation **P**rinciple) : **인터페이스 분리의 원칙**
+### 2-04. ISP (**I**nterface **S**egregation **P**rinciple) : **인터페이스 분리의 원칙**
 
-- ”하나의 범용 인터페이스보다 다수의 구체적인 인터페이스가 낫다.”
-- “클라이언트는 사용하지 않는 메소드에 의존하면 안 된다.”
+- "하나의 범용 인터페이스보다 다수의 구체적인 인터페이스가 낫다."
+- "클라이언트는 사용하지 않는 메소드에 의존하면 안 된다."
 
-### ⭐DIP (**D**ependency **I**nversion **P**rinciple) : **의존성 역전의 원칙**
+### ⭐2-05. DIP (**D**ependency **I**nversion **P**rinciple) : **의존성 역전의 원칙**
 
-- ”구체적인 클래스 보다는 인터페이스나 추상 클래스와 관계를 맺어야 한다.”
-- ”상위 모듈은 하위 모듈에 의존하면 안 된다”
-- “추상화에 의존해야지, 구체화에 의존하면 안된다.”
+- "구체적인 클래스 보다는 인터페이스나 추상 클래스와 관계를 맺어야 한다."
+- "상위 모듈은 하위 모듈에 의존하면 안 된다"
+- "추상화에 의존해야지, 구체화에 의존하면 안된다."
 
 ---
 
