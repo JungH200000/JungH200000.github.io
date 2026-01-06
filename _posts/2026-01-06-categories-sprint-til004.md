@@ -5,7 +5,7 @@ excerpt: '객체지향 프로그래밍의 4가지 핵심 개념 ~ SOLID 원칙'
 categories:
   - Sprint TIL
 tags:
-  - [tag1, tag2]
+  - [Codeit Sprint, Codeit Sprint TIL]
 
 permalink: /categories/codeit-sprint/sprint-til/sprint-til004/
 
