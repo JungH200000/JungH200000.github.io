@@ -248,11 +248,11 @@ class Shape {
 ```
 
 > ⚠️ 아래와 같은 형태는 **오버로딩이 불가능**:
-
-- 오직 반환 타입만 다른 경우
-- 매개변수 이름만 다른 경우
-- 접근 제어자만 다른 경우
-- 가변인자의 모호성(ambiguity) : `(int... nums)` 와 `(int[] nums)`
+>
+> - 오직 반환 타입만 다른 경우
+> - 매개변수 이름만 다른 경우
+> - 접근 제어자만 다른 경우
+> - 가변인자의 모호성(ambiguity) : `(int... nums)` 와 `(int[] nums)`
 
 ---
 
@@ -334,7 +334,7 @@ class Constructor {
 
 ### JVM 메모리 구조
 
-<img src="https://raw.githubusercontent.com/JungH200000/JungH200000.github.io/refs/heads/categories-ver2/assets/images/posts_img/post-name-here-4/memory.png" width=700px>
+<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/memory.png?raw=true" width=700px>
 
 JVM은 실행 시 메모리를 크게 다음과 같이 나눠 관리
 
