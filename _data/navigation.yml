@@ -1,12 +1,12 @@
 # main links
 main:
-  - title: "Home"
+  - title: 'Home'
     url: https://choiiis.github.io/
 
-  - title: "About"
+  - title: 'About'
     url: /about/
 
-  - title: "GitHub"
+  - title: 'GitHub'
     url: https://github.com/choiiis
 
   # - title: "Projects"
@@ -18,25 +18,25 @@ main:
 # sidebar navigation (categories)
 # 2022.09.24 sidebar ver2.0 : main-sub version
 categories:
-  - title: "Title1"
+  - title: 'Codeit Sprint'
     children:
-      - title: "Categories1"
-        url: /categories/categories1/
-      - title: "Categories2"
-        url: /categories/categories2/
-      - title: "Categories3"
+      - title: 'Sprint Mission'
+        url: /codeit-sprint/sprint-mission/
+      - title: '연습문제'
+        url: /codeit-sprint/practice-problem/
+      - title: 'Categories3'
         url: /categories/categories3/
-      - title: "Categories4"
+      - title: 'Categories4'
         url: /categories/categories4/
 
-  - title: "Title2"
+  - title: 'Title2'
     children:
-      - title: "Categories5"
+      - title: 'Categories5'
         url: /categories/categories5/
-      - title: "Categories6"
+      - title: 'Categories6'
         url: /categories/categories6/
 
-  - title: "Title3"
+  - title: 'Title3'
     children:
-      - title: "Categories7"
+      - title: 'Categories7'
         url: /categories/categories7/
