@@ -340,6 +340,8 @@ class Constructor {
 
 <image src="../assets/images/posts_img/post-name-here-4/jvm.png" width=700px>
 
+![](../assets/images/posts_img/post-name-here-4/jvm.png)
+
 JVM은 실행 시 메모리를 크게 다음과 같이 나눠 관리
 
 #### 1. Method Area (메서드 영역)
