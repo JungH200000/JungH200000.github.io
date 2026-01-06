@@ -1,7 +1,7 @@
 ---
 title: 'Sprint Mission'
 layout: category
-permalink: /Codeit-Sprint/Sprint-Mission/
+permalink: /codeit-sprint/sprint-mission/
 author_profile: true
 taxonomy: Sprint Mission
 sidebar:
