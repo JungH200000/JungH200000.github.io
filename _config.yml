@@ -11,12 +11,13 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-remote_theme           : "mmistakes/minimal-mistakes"
+remote_theme           : "mmistakes/minimal-mistakes@4.22.0"
 
 # plum skin 활용하여 색상 설정함. 변경하려면 _sass/minimal-mistakes/skins/_plum.scss 에서 변경하거나
 # 해당 디렉토리 내의 다른 테마로 변경 가능 (minimal-mistakes 기본 제공 테마)
-minimal_mistakes_skin: "aqua"
-# "aqua", "air", "default", "plum", ... => `_aqua.scss` 같은 파일에 `$mark-highlight-color` 같은 게 설정 안되어 있어서 오류 발생
+minimal_mistakes_skin: "plum"
+# "aqua", "air", "default", "plum", ... => `_sass/minimal-mistakes/skins/_skin이름.scss` 같은 파일에 `$mark-highlight-color` 같은 변수가 설정 안되어 있어서 오류 발생
+# 즉, "plum" skin에는 사용하는 Github Page에 해당하는 style들이 변수로 생성되어 있지만 다른 skin 파일에는 설정되어 있지 않다.
 
 # Site Settings
 locale: "ko-KR" #"en-US"
@@ -283,6 +284,7 @@ defaults:
       related: true
       sidebar:
         nav: "categories"
+
 
 
 
