@@ -21,9 +21,9 @@ categories:
   - title: 'Codeit Sprint'
     children:
       - title: 'Sprint Mission'
-        url: /category/codeit-sprint/sprint-mission/
+        url: /categories/codeit-sprint/sprint-mission/
       - title: '연습문제'
-        url: /category/codeit-sprint/practice-problem/
+        url: /categories/codeit-sprint/practice-problem/
       - title: 'Categories3'
         url: /categories/categories3/
       - title: 'Categories4'
