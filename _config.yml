@@ -101,7 +101,7 @@ analytics:
 # Site Author
 author:
   name: 'Jung Hyun' # 블로그 닉네임
-  avatar: '/assets/images/ID_photo.png' # 블로그 프로필 사진
+  avatar: '/assets/images/ID_photo.jpg' # 블로그 프로필 사진
   # bio: 'HI!'
   location: 'Seoul, Korea'
   email: 'jhpaxk0604@gmail.com'
