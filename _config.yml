@@ -11,24 +11,24 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-remote_theme           : "mmistakes/minimal-mistakes@4.22.0"
+remote_theme: 'mmistakes/minimal-mistakes@4.22.0'
 
 # plum skin 활용하여 색상 설정함. 변경하려면 _sass/minimal-mistakes/skins/_plum.scss 에서 변경하거나
 # 해당 디렉토리 내의 다른 테마로 변경 가능 (minimal-mistakes 기본 제공 테마)
-minimal_mistakes_skin: "plum"
+minimal_mistakes_skin: 'plum'
 # "aqua", "air", "default", "plum", ... => `_sass/minimal-mistakes/skins/_skin이름.scss` 같은 파일에 `$mark-highlight-color` 같은 변수가 설정 안되어 있어서 오류 발생
 # 즉, "plum" skin에는 사용하는 Github Page에 해당하는 style들이 변수로 생성되어 있지만 다른 skin 파일에는 설정되어 있지 않다.
 
 # Site Settings
-locale: "ko-KR" #"en-US"
+locale: 'ko-KR' #"en-US"
 title: "Jung's DevLog" # 상단 헤더에 보이는 블로그 명
-title_separator: "&#124;"
+title_separator: '&#124;'
 subtitle: # site tagline that appears below site title in masthead
-name: "JungHyun" # 블로그 닉네임 설정
-description: "My DevLogs" # 블로그 설명
-url: "https://JungH200000.github.io/" # 블로그 URL
+name: 'JungHyun' # 블로그 닉네임 설정
+description: 'My DevLogs' # 블로그 설명
+url: 'https://JungH200000.github.io/' # 블로그 URL
 baseurl: # the subpath of your site, e.g. "/blog"
-repository: "JungH200000/JungH200000.github.io" # GitHub Repo 이름
+repository: 'JungH200000/JungH200000.github.io' # GitHub Repo 이름
 teaser: #
 
 # logo                     : # 블로그명 앞에 로고 추가하고 싶을 경우 사용
@@ -36,7 +36,7 @@ masthead_title: # overrides the website title displayed in the masthead, use " "
 # breadcrumbs            : false # true, false (default)
 words_per_minute: 200
 comments:
-  provider: "utterances" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
+  provider: 'utterances' # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
     shortname: # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
@@ -47,8 +47,8 @@ comments:
     num_posts: # 5 (default)
     colorscheme: # "light" (default), "dark"
   utterances:
-    theme: "github-light" # "github-dark"
-    issue_term: "pathname"
+    theme: 'github-light' # "github-dark"
+    issue_term: 'pathname'
   staticman:
     branch: # "master"
     endpoint: # "https://{your Staticman v3 API}/v3/entry/github/"
@@ -92,19 +92,19 @@ social:
 
 # Analytics
 analytics:
-  provider: "google-gtag"
+  provider: 'google-gtag'
   # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id: "your tracking id here"
+    tracking_id: 'your tracking id here'
     anonymize_ip: # true, false (default)
 
 # Site Author
 author:
-  name: "JungHyun" # 블로그 닉네임
-  avatar: "/assets/images/meee.png" # 블로그 프로필 사진
-    bio              : "HI!"
-  location         : "Seoul, Korea"
-  email            : "jhpaxk0604@gmail.com"
+  name: 'JungHyun' # 블로그 닉네임
+  avatar: '/assets/images/meee.png' # 블로그 프로필 사진
+  bio: 'HI!'
+  location: 'Seoul, Korea'
+  email: 'jhpaxk0604@gmail.com'
 
   links: # 사이트 링크
 #     - label: "Email"
@@ -129,23 +129,23 @@ author:
 # Site Footer
 footer:
   links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
+    - label: 'Twitter'
+      icon: 'fab fa-fw fa-twitter-square'
       # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
+    - label: 'Facebook'
+      icon: 'fab fa-fw fa-facebook-square'
       # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
+    - label: 'GitHub'
+      icon: 'fab fa-fw fa-github'
       # url:
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
+    - label: 'GitLab'
+      icon: 'fab fa-fw fa-gitlab'
       # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
+    - label: 'Bitbucket'
+      icon: 'fab fa-fw fa-bitbucket'
       # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
+    - label: 'Instagram'
+      icon: 'fab fa-fw fa-instagram'
       # url:
 
 # Reading Files
@@ -153,8 +153,8 @@ include:
   - .htaccess
   - _pages
 exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
+  - '*.sublime-project'
+  - '*.sublime-workspace'
   - vendor
   - .asset-cache
   - .bundle
@@ -182,8 +182,8 @@ exclude:
 keep_files:
   - .git
   - .svn
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+encoding: 'utf-8'
+markdown_ext: 'markdown,mkdown,mkdn,mkd,md'
 
 # Conversion
 markdown: kramdown
@@ -272,7 +272,7 @@ compress_html:
 defaults:
   # _posts
   - scope:
-      path: ""
+      path: ''
       type: posts
     values:
       layout: single
@@ -283,20 +283,4 @@ defaults:
       # share: true
       related: true
       sidebar:
-        nav: "categories"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        nav: 'categories'
