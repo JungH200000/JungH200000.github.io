@@ -124,13 +124,7 @@ Class 클래스명 { // 클래스명은 대문자로 시작
 - `new` 키워드는 생성된 객체를 **힙 메모리에 넣으라**는 의미
 - `new` 키워드와 생성자를 통해 클래스의 객체를 생성한다는 것은 **해당 객체를 힙 메모리에 넣고 그 주소값을 참조변수에 저장하는 것**과 동일
 
-<image src="https://velog.velcdn.com/images/constellations/post/2b05dbde-79f3-4426-acd2-871ccb6d498c/image.png" width=600px>
-
 ---
-
----
-
-## 3. 필드(Field)와 메서드(Method)
 
 ## 3. 필드(Field)와 메서드(Method)
 
