@@ -18,7 +18,7 @@ last_modified_at: 2026-01-06
 
 # 오늘의 학습
 
-## 1. 객체지향 프로그래밍(OOP)의 개념과 필요성
+## <span style="background-color: #FFF9C4">1. 객체지향 프로그래밍(OOP)의 개념과 필요성</span>
 
 ### 1-01. 객체지향 프로그래밍(OOP; Object-Oriented Programming)
 
@@ -61,9 +61,7 @@ last_modified_at: 2026-01-06
 
 > 즉, 객체지향은 협업, 확장성, 유지보수성이 중요한 프로젝트에서 진가를 발휘한다.
 
----
-
-## 2. Java의 클래스(Class)와 객체(Object)
+## <span style="background-color: #FFF9C4">2. Java의 클래스(Class)와 객체(Object)</span>
 
 ### 2-01. 클래스(Class)
 
@@ -122,9 +120,7 @@ Class 클래스명 { // 클래스명은 대문자로 시작
 
 <img src="https://raw.githubusercontent.com/JungH200000/JungH200000.github.io/refs/heads/categories-ver2/assets/images/posts_img/til/jvm.png" width=500px>
 
----
-
-## 3. 필드(Field)와 메서드(Method)
+## <span style="background-color: #FFF9C4">3. 필드(Field)와 메서드(Method)</span>
 
 ### 3-01. 필드(Field)
 
@@ -170,14 +166,14 @@ public class StaticTest {
 }
 ```
 
-**1. 메모리 저장 위치와 생성 시점**
+(1). 메모리 저장 위치와 생성 시점
 
 | 구분          | 저장 위치   | 생성 시점      | 접근 방법     |
 | ------------- | ----------- | -------------- | ------------- |
 | 인스턴스 멤버 | 힙 영역     | 객체 생성 시   | 객체.멤버     |
 | 정적 멤버     | 클래스 영역 | 클래스 로드 시 | 클래스명.멤버 |
 
-**2. static 메서드**
+(2) static 메서드
 
 static 키워드를 메서드에 붙이면 객체 생성 없이도 호출이 가능한 **정적 메서드**가 됨
 ex) `Math.sqrt()`, `Integer.parseInt()`
@@ -261,9 +257,7 @@ class Shape {
 > - 접근 제어자만 다른 경우
 > - 가변인자의 모호성(ambiguity) : `(int... nums)` 와 `(int[] nums)`
 
----
-
-## 4. 생성자(Constructor)
+## <span style="background-color: #FFF9C4">4. 생성자(Constructor)</span>
 
 ### 4-01. 생성자(Constructor)
 
@@ -325,9 +319,7 @@ class Constructor {
 - `name = name`처럼 작성하면 둘 다 지역 변수로 간주되어 인스턴스 변수 초기화가 되지 않음
 - `this.name`으로 **인스턴스 변수에 명확히 접근**함을 명시해야 함
 
----
-
-## 5. 자바 가상 머신(Java Virtual Machine)
+## <span style="background-color: #FFF9C4">5. 자바 가상 머신(Java Virtual Machine)</span>
 
 ### 5-01. JVM(Java Virtual Machine)
 
