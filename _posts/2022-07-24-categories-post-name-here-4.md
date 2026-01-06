@@ -338,18 +338,9 @@ class Constructor {
 
 ### JVM 메모리 구조
 
-<image src="../assets/images/posts_img/post-name-here-4/jvm.png" width=700px>
-
-JVM은 실행 시 메모리를 크게 다음과 같이 나눠 관리
-
-![](../assets/images/posts_img/post-name-here-4/jvm.png)
-
-'../assets/images/posts_img/post-name-here-4/jvm.png'
-
-'https://raw.githubusercontent.com/JungH200000/JungH200000.github.io/refs/heads/categories-ver2/assets/images/posts_img/post-name-here-4/memory.png'
-
 <image src="https://raw.githubusercontent.com/JungH200000/JungH200000.github.io/refs/heads/categories-ver2/assets/images/posts_img/post-name-here-4/memory.png" width=700px>
 
+JVM은 실행 시 메모리를 크게 다음과 같이 나눠 관리
 
 #### 1. Method Area (메서드 영역)
 
@@ -420,5 +411,6 @@ Person p = new Person();
    - 약한 참조, 캐시 만료 정책, 주기적 clean 또는 remove 처리
 3. **리스너, 콜백 등 이벤트 객체 미해제**
    - 이벤트 등록 후 **반드시 `romoveListener()` 호출** 또는 약한 참조를 사용해 자동 GC 유도
+
 
 
