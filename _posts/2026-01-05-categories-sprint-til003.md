@@ -168,7 +168,7 @@ public class StaticTest {
 }
 ```
 
-(1). 메모리 저장 위치와 생성 시점
+(1) 메모리 저장 위치와 생성 시점
 
 | 구분          | 저장 위치   | 생성 시점      | 접근 방법     |
 | ------------- | ----------- | -------------- | ------------- |
@@ -257,6 +257,8 @@ class Shape {
 > - 접근 제어자만 다른 경우
 > - 가변인자의 모호성(ambiguity) : `(int... nums)` 와 `(int[] nums)`
 
+---
+
 ## <span style="background-color: #FFF9C4">4. 생성자(Constructor)</span>
 
 ### 4-01. 생성자(Constructor)
@@ -271,8 +273,6 @@ class Shape {
     // 인스턴스 초기화 코드
 }
 ```
-
----
 
 ### 4-02. 생성자 오버로딩
 
@@ -293,8 +293,6 @@ class Constructor {
     }
 }
 ```
-
----
 
 ### 4-03. `this()` 키워드
 
