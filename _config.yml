@@ -102,7 +102,7 @@ analytics:
 author:
   name: "JungHyun" # 블로그 닉네임
   avatar: "/assets/images/meee.png" # 블로그 프로필 사진
-    bio              : "HI!"
+  bio              : "HI!"
   location         : "Seoul, Korea"
   email            : "jhpaxk0604@gmail.com"
 
@@ -284,6 +284,7 @@ defaults:
       related: true
       sidebar:
         nav: "categories"
+
 
 
 
