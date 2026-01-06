@@ -7,7 +7,7 @@ categories:
 tags:
   - [tag1, tag2]
 
-permalink: /categories/codeit-sprint/sprint-practice-problem/객체지향 프로그래밍/
+permalink: /categories/codeit-sprint/sprint-practice-problem/practice-problem0001/
 
 toc: true
 toc_sticky: true
