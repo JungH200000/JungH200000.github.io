@@ -21,11 +21,11 @@ categories:
   - title: 'Codeit Sprint'
     children:
       - title: 'Sprint Mission'
-        url: /categories/sprint-mission/
-      - title: '연습문제'
-        url: /categories/practice-problem/
-      - title: 'Categories3'
-        url: /categories/categories3/
+        url: /categories/codeit-sprint/sprint-mission/
+      - title: 'Sprint 연습문제'
+        url: /categories/codeit-sprint/sprint-practice-problem/
+      - title: 'Sprint TIL'
+        url: /categories/codeit-sprint/sprint-til/
       - title: 'Categories4'
         url: /categories/categories4/
 

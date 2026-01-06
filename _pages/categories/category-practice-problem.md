@@ -1,7 +1,7 @@
 ---
 title: '연습문제'
 layout: category
-permalink: /categories/practice-problem/
+permalink: /categories/codeit-sprint/practice-problem/
 author_profile: true
 taxonomy: 연습문제
 sidebar:

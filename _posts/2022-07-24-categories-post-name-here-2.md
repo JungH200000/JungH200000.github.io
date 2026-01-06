@@ -7,7 +7,7 @@ categories:
 tags:
   - [tag1, tag2]
 
-permalink: /practice-problem/post-name-here-2/
+permalink: /categories/codeit-sprint/sprint-mission/post-name-here-2/
 
 toc: true
 toc_sticky: true
