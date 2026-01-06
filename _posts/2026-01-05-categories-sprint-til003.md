@@ -304,8 +304,6 @@ class Constructor {
 - 반드시 **생성자의 첫 번째 줄에** 위치해야 합니다.
   - JDK25 LTS부터는 다른 줄에 위치해도 동작됨
 
----
-
 ### 4-04. `this` 키워드
 
 메서드나 생성자 안에서 **인스턴스 자기 자신을 참조하는 키워드**입니다.
@@ -316,6 +314,8 @@ class Constructor {
 
 - `name = name`처럼 작성하면 둘 다 지역 변수로 간주되어 인스턴스 변수 초기화가 되지 않음
 - `this.name`으로 **인스턴스 변수에 명확히 접근**함을 명시해야 함
+
+---
 
 ## <span style="background-color: #FFF9C4">5. 자바 가상 머신(Java Virtual Machine)</span>
 
