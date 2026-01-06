@@ -9,8 +9,8 @@ tags:
 
 permalink: /categories/codeit-sprint/sprint-til/sprint-til002/
 
-toc: true
-toc_sticky: true
+toc: false
+toc_sticky: false
 
 date: 2025-12-31
 last_modified_at: 2025-01-06
@@ -36,6 +36,8 @@ last_modified_at: 2025-01-06
 - 객체지향 언어(OOP)
 - 자동 메모리 관리(GC)
 - 함수형 프로그래밍 지원
+
+<br>
 
 ### **JDK 구조**
 
@@ -68,6 +70,8 @@ last_modified_at: 2025-01-06
 | 실수 타입 | "float, double         | 4~8 byte             | 실수 저장          |
 | 문자 타입 | char                   | 2 byte               | 유니코드 문자 저장 |
 | 논리 타입 | boolean                | JVM 구현에 따라 다름 | true/false         |
+
+<br>
 
 ### **참조 타입 (Reference Type)**
 
@@ -107,6 +111,8 @@ last_modified_at: 2025-01-06
 
 - 특정 조건에 부합하는 경우 어떤 코드를 실행되도록 할 때 사용됨
 - `if` 문, `if-else` 문, `switch` 문
+
+<br>
 
 ### **반복문**
 

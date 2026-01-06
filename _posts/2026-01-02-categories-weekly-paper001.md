@@ -9,8 +9,8 @@ tags:
 
 permalink: /categories/codeit-sprint/sprint-weekly-paper/weekly-paper001/
 
-toc: true
-toc_sticky: true
+toc: false
+toc_sticky: false
 
 date: 2026-01-02
 last_modified_at: 2026-01-06
@@ -40,11 +40,15 @@ last_modified_at: 2026-01-06
 
     <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/weeklypaper/fast-forward_merge(codingapple).png?raw=true" width=450px>
 
+<br>
+
 ### `git rebase`
 
 한 branch의 시작점을 다른 branch의 최신 commit 끝으로 옮기는 명령어
 
 - history가 한 줄로 다시 정렬됨
+
+<br>
 
 ### **사용 예시**
 
@@ -57,6 +61,8 @@ last_modified_at: 2026-01-06
     - `DB 연결` → `회원가입 API` → `로그인 API` → `이메일 인증` → `권한 확인` → `merge commit`
     - 그래프로 보면 두 branch가 나뉘어 진행되다가 `merge commit`에서 합쳐짐
   - **`git rebase B`** : `DB 연결` → `회원가입 API` → `이메일 인증` → `로그인 API` → `권한 확인`
+
+<br>
 
 ## 2. 사용하기 적절한 상황
 
@@ -86,6 +92,8 @@ last_modified_at: 2026-01-06
 - `git log`로 commit(변경사항)을 확인하고, `git merge` or `git rebase`로 병합
   ⇒ **안전함**
 
+<br>
+
 ### `git pull`
 
 원격 저장소의 최신 commit(변경사항)을 내 로컬 저장소로 가져와 자동 병합까지 수행하는 명령어
@@ -95,11 +103,15 @@ last_modified_at: 2026-01-06
 
 <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/weeklypaper/git.png?raw=true" width=600px>
 
+<br>
+
 ### 사용 예시
 
 - `git fetch origin(원격 저장소 이름)` → `git merge origin/main`
   - 원격 저장소(`origin`)에 있는 최신 commit을 현재 로컬 branch로 가져오는 것
 - `git pull origin main` ( = `git fetch origin` + `git merge origin/main`)
+
+<br>
 
 ## 2. 사용하기 적절한 상황
 

@@ -9,8 +9,8 @@ tags:
 
 permalink: /categories/codeit-sprint/sprint-til/sprint-til001/
 
-toc: true
-toc_sticky: true
+toc: false
+toc_sticky: false
 
 date: 2025-12-30
 last_modified_at: 2025-01-06
@@ -42,6 +42,8 @@ last_modified_at: 2025-01-06
 - "형상 관리를 위한 소프트웨어 개발에서 사용되는 분산 버전 관리 시스템(Distributed Version Controll System, DVCS)"으로,
 - 각 파일의 변경사항 추적 및 버전 관리, 파일 백업, 협업 등을 도와주는 프로그램
 
+<br>
+
 ### **GitHub**
 
 - 백업 기능과 협업 기능을 위해서는 온라인 원격 저장소가 필요한데 이 기능을 제공하는 대표적인 서비스
@@ -66,6 +68,8 @@ last_modified_at: 2025-01-06
 ### **branch**
 
 - Git과 같은 버전 관리 시스템에서 코드의 한 가지 버전 , 즉 분기점을 의미한다. 메인 코드에서 갈라져 나온 **독립적인 개발 공간**으로 병렬 작업을 가능하게 함
+
+<br>
 
 ### **tag**
 

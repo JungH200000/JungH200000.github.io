@@ -9,7 +9,7 @@ tags:
 
 permalink: /categories/codeit-sprint/sprint-til/sprint-til004/
 
-toc: true
+toc: false
 toc_sticky: false
 
 date: 2026-01-06
@@ -50,6 +50,8 @@ class 하위클래스명 extends 상위 클래스명 {
 - 유연성 저하
 - 유지보수 어려움
 
+<br>
+
 #### 1) 상속 vs 포함
 
 | 구분        | 상속 (Inheritance) | 포함/컴포지션 (Composition)   |
@@ -62,6 +64,8 @@ class 하위클래스명 extends 상위 클래스명 {
 | 변경 대응   | 구조 변경에 취약   | 객체 교체로 유연한 대응 가능  |
 
 > 객체지향 설계 원칙 중 하나 : **”가능하다면, 상속보다는 컴포지션을 사용하라!”**
+
+<br>
 
 #### 2) 메서드 오버라이딩
 
@@ -103,6 +107,8 @@ void run() {
 | 반환 타입 | 동일 (또는 호환 가능)         | 무관                                         |
 | 목적      | 부모의 동작을 바꿔 사용       | 다양한 입력을 유연하게 처리                  |
 
+<br>
+
 #### 3) `super`과 `super()` 키워드
 
 | 키워드    | 의미                            | 사용 위치            | 호출 대상                     |
@@ -111,6 +117,8 @@ void run() {
 | `this()`  | 현재 클래스의 다른 생성자 호출  | 생성자 첫 줄         | 자신의 **다른 생성자**        |
 | `super`   | 상위(부모) 클래스의 멤버를 참조 | 인스턴스 메서드 내부 | 부모 클래스의 변수/메서드     |
 | `super()` | 상위 클래스의 생성자 호출       | 생성자 첫 줄         | 부모 클래스의 **생성자** 호출 |
+
+<br>
 
 #### 4) `Object` 클래스
 
@@ -140,6 +148,8 @@ class ParentEX extends Object {
 | `wait()`             | `void`    | 현재 스레드를 일시정지 (멀티스레드 제어에 사용)    |
 | `notify()`           | `void`    | 정지된 스레드 하나를 깨움 (멀티스레드 제어에 사용) |
 
+<br>
+
 ### 1-02. 캡슐화(Encapsulation)
 
 특정 객체 안에 관련된 **속성과 기능을 하나의 단위로 묶고, 외부로부터 데이터를 보호하는 객체지향 프로그래밍(OOP)의 핵심 개념**
@@ -164,6 +174,8 @@ class ParentEX extends Object {
 
 **캡슐화는 접근 제어자와 Getter/Setter 메소드로 구현**
 
+<br>
+
 #### 1) 제어자(Modifier)
 
 클래스, 필드, 메서드, 생성자 등에 부가적인 의미를 부여하는 키워드
@@ -172,6 +184,8 @@ class ParentEX extends Object {
 - 기타 제어자: `static`, `final`, `abstract`, `native`, `synchronized` 등
 
 접근 제어자는 **하나만 적용 가능**하지만, 기타 제어자는 **복수 적용 가능**
+
+<br>
 
 #### 2) 접근 제어자(Access Modifier)
 
@@ -190,6 +204,8 @@ class ParentEX extends Object {
 
 ![](https://s3.ap-northeast-2.amazonaws.com/urclass-images/lXesGoCPFyKEClJVbfwhe-1650186393418.png)
 
+<br>
+
 #### 3) Getter와 Setter 메서드
 
 객체지향 프로그래밍에서 캡슐화를 구현하는 대표적인 방법 중 하나는 **클래스 필드를 `private`로 선언하고, 외부에서는 `public` 메서드를 통해 간접적으로 접근**하게 만드는 것
@@ -204,6 +220,8 @@ class ParentEX extends Object {
 - 데이터 보호
 - 데이터 유효성 검증
 - 내부 구현 변경의 유연성 확보
+
+<br>
 
 #### 4) 패키지(Package)
 
@@ -237,6 +255,8 @@ public class PackageEx {
 import 패키지명.클래스명;
 import 패키지명.*; // import 패키지 내 모든 클래스
 ```
+
+<br>
 
 #### 5) 불변 객체(Immutable Object)
 
@@ -278,6 +298,8 @@ public final class Person {
 }
 ```
 
+<br>
+
 #### 6) Java Bean
 
 일정한 규칙을 따르는 Java 클래스로, **주로 데이터를 저장하고 전달하는 용도(ex: DTO, VO)로 사용**
@@ -317,6 +339,8 @@ public final class Person {
 | setter 제공    | 제공하지 않음            | 반드시 제공                |
 | 용도           | 스레드 안정성, 상태 고정 | 도구와의 연동, 데이터 전달 |
 
+<br>
+
 ### 1-03. 다항성(Polymorphism)
 
 영어로 “poly(여러 개의)” + “morphism(형태)”의 합성어로, **하나의 객체가 여러 형태를 가질 수 있는 성질**
@@ -343,6 +367,8 @@ girlFriend.friendInfo();
 | 장점      | 확장성, 유지보수성, 코드 간결성, 결합도 감소                       |
 | 전제 조건 | 상속 또는 인터페이스 구현 관계                                     |
 
+<br>
+
 #### 1) 업캐스팅(Up-casting) vs 다운캐스팅(Down-casting)
 
 - 참조 변수의 타입 변환(캐스팅)은 상속 관계를 전제
@@ -355,6 +381,8 @@ girlFriend.friendInfo();
 | 안전성       | 안전 (컴파일, 런타임 모두 문제 없음)                       | 위험 (잘못된 캐스팅 시 `ClassCastException` 발생 가능) |
 | 예시         | `Vehicle vehicle = new Car();`                             | `((Car) vehicle).giveRide();`                          |
 
+<br>
+
 #### 2) `instanceof` 연산자
 
 **참조 변수의 타입 변환(캐스팅)이 가능한지 여부를 `boolean` 값으로 반환**하는 연산자로, 참조 변수의 실제 타입 확인 및 안전한 다운 캐스팅에 사용된다.
@@ -366,6 +394,8 @@ girlFriend.friendInfo();
 
 - 참조 변수가 해당 클래스나 그 자식 클래스의 인스턴스라면 `true`를 반환
 - 참조 변수가 `null` 이라면 항성 `false`를 반환
+
+<br>
 
 ### 1-04. 추상화(Abstraction)
 
@@ -389,6 +419,8 @@ girlFriend.friendInfo();
 - **행위 중심 추상화** : 객체가 수행해야 할 기능에 초점을 맞춘 추상화(**”무엇을 할 수 있나”**에 집중)
 - **데이터 중심 추상화** : 객체가 가져야 할 데이터에 초점을 맞춘 추상화(**”무엇을 가지고 있나”**에 집중)
 
+<br>
+
 #### 1) `abstract` 제어자
 
 Java에서 `abstract` 키워드는 “미완성”을 나타내는 제어자로, **추상 클래스(`abstract class`)**와 **추상 메서드(`abstract method`)**를 정의할 때 사용
@@ -411,6 +443,8 @@ abstract class AbstractExample {
   - 추상 메서드를 포함하거나, 직접 객체 생성을 막기 위해 사용합니다.
   - **불완전한 설계도**의 역할을 하며, 이를 상속받는 하위 클래스가 구체적인 구현을 담당합니다.
   - 즉, 추상 클래스는 인스턴스화 불가능
+
+<br>
 
 #### 2) 추상 클래스
 
@@ -437,6 +471,8 @@ abstract class AbstractExample {
 
 **→ 오버라이딩 필수**
 
+<br>
+
 #### 3) `final` 키워드
 
 `final`은 Java에서 **"변경 불가"** 또는 **"확장 불가"**의 의미를 가지는 제어자(modifier)로, **클래스, 메서드, 변수**에 사용할 수 있으며, 사용하는 위치에 따라 의미가 달라짐
@@ -446,6 +482,8 @@ abstract class AbstractExample {
 | 클래스 | 변경 또는 확장과 상속이 불가능한 클래스     |
 | 메서드 | 오버라이딩이 불가능한 메서드                |
 | 변수   | 값 변경이 불가능한 상수 (한 번만 할당 가능) |
+
+<br>
 
 #### 4) 인터페이스(`interface`)
 
@@ -504,39 +542,6 @@ class MyClass implements InterfaceEx {
 
 ---
 
-## <span style="background-color: #E8F5E9">2. SOLID 원칙</span>
-
-**SOLID**는 객체지향 설계에서 유지보수 가능하고, 확장 가능한 코드를 만들기 위한 **5가지 설계 원칙**의 앞 글자를 모은 약어
-
-### ⭐2-01. SRP (**S**ingle **R**esponsibility **P**rinciple) : **단일 책임의 원칙**
-
-- "하나의 클래스는 하나의 책임만 가져야 한다."
-
-### 2-02. OCP (**O**pen/**C**losed **P**rinciple) : **개방/폐쇄의 원칙**
-
-- "확장에는 열려있고, 수정에는 닫혀있어야 한다."
-
-### 2-03. LSP (**L**iskov’s **S**ubstitution **P**rinciple) : **리스코브 치환의 원칙**
-
-- "자식 클래스는 반드시 부모 클래스를 대체할 수 있어야 한다."
-
-### 2-04. ISP (**I**nterface **S**egregation **P**rinciple) : **인터페이스 분리의 원칙**
-
-- "하나의 범용 인터페이스보다 다수의 구체적인 인터페이스가 낫다."
-- "클라이언트는 사용하지 않는 메소드에 의존하면 안 된다."
-
-### ⭐2-05. DIP (**D**ependency **I**nversion **P**rinciple) : **의존성 역전의 원칙**
-
-- "구체적인 클래스 보다는 인터페이스나 추상 클래스와 관계를 맺어야 한다."
-- "상위 모듈은 하위 모듈에 의존하면 안 된다"
-- "추상화에 의존해야지, 구체화에 의존하면 안된다."
-
----
-
-# 오늘의 개선
-
-오늘 배운 내용 전부가 머리에서 튕겨져 나가는 느낌이 들어서 TIL 작성할 때 하나도 축약을 못한 것 같다. 캡슐화부터 좀 더 꼼꼼히 여러 번 봐야 겠다.
-
 ##### (4) 인터페이스 장점
 
 - 역할과 구현의 분리로 인한 유연성 → 유지보수성과 재사용성이 높아짐
@@ -568,15 +573,23 @@ class MyClass implements InterfaceEx {
 
 **SOLID**는 객체지향 설계에서 유지보수 가능하고, 확장 가능한 코드를 만들기 위한 **5가지 설계 원칙**의 앞 글자를 모은 약어
 
+<br>
+
 ### ⭐2-01. SRP (**S**ingle **R**esponsibility **P**rinciple) : **단일 책임의 원칙**
 
 - "하나의 클래스는 하나의 책임만 가져야 한다."
+
+<br>
 
 ### 2-02. OCP (**O**pen/**C**losed **P**rinciple) : **개방/폐쇄의 원칙**
 
 - "확장에는 열려있고, 수정에는 닫혀있어야 한다."
 
+<br>
+
 ### 2-03. LSP (**L**iskov’s **S**ubstitution **P**rinciple) : **리스코브 치환의 원칙**
+
+<br>
 
 - "자식 클래스는 반드시 부모 클래스를 대체할 수 있어야 한다."
 
@@ -584,6 +597,8 @@ class MyClass implements InterfaceEx {
 
 - "하나의 범용 인터페이스보다 다수의 구체적인 인터페이스가 낫다."
 - "클라이언트는 사용하지 않는 메소드에 의존하면 안 된다."
+
+<br>
 
 ### ⭐2-05. DIP (**D**ependency **I**nversion **P**rinciple) : **의존성 역전의 원칙**
 
