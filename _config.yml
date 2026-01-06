@@ -24,7 +24,7 @@ locale: 'ko-KR' #"en-US"
 title: "Jung's DevLog" # 상단 헤더에 보이는 블로그 명
 title_separator: '&#124;'
 subtitle: # site tagline that appears below site title in masthead
-name: 'JungHyun' # 블로그 닉네임 설정
+name: 'Jung Hyun' # 블로그 닉네임 설정
 description: 'My DevLogs' # 블로그 설명
 url: 'https://JungH200000.github.io/' # 블로그 URL
 baseurl: # the subpath of your site, e.g. "/blog"
@@ -100,9 +100,9 @@ analytics:
 
 # Site Author
 author:
-  name: 'JungHyun' # 블로그 닉네임
-  avatar: '/assets/images/ID_photo' # 블로그 프로필 사진
-  bio: 'HI!'
+  name: 'Jung Hyun' # 블로그 닉네임
+  avatar: '/assets/images/ID_photo.png' # 블로그 프로필 사진
+  # bio: 'HI!'
   location: 'Seoul, Korea'
   email: 'jhpaxk0604@gmail.com'
 
