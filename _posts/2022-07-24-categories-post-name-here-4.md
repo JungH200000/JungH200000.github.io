@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-til/post-name-here-4/
 
 toc: true
-toc_sticky: true
+toc_sticky: false
 
 date: 2022-07-24
 last_modified_at: 2022-07-24
@@ -411,6 +411,7 @@ Person p = new Person();
    - 약한 참조, 캐시 만료 정책, 주기적 clean 또는 remove 처리
 3. **리스너, 콜백 등 이벤트 객체 미해제**
    - 이벤트 등록 후 **반드시 `romoveListener()` 호출** 또는 약한 참조를 사용해 자동 GC 유도
+
 
 
 
