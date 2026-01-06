@@ -27,7 +27,7 @@ subtitle: # site tagline that appears below site title in masthead
 name: "JungHyun" # 블로그 닉네임 설정
 description: "My DevLogs" # 블로그 설명
 url: "https://JungH200000.github.io/" # 블로그 URL
-baseurl: "https://jhpaxk02.tistory.com/" # the subpath of your site, e.g. "/blog"
+baseurl: # the subpath of your site, e.g. "/blog"
 repository: "JungH200000/JungH200000.github.io" # GitHub Repo 이름
 teaser: #
 
@@ -100,7 +100,7 @@ analytics:
 
 # Site Author
 author:
-  name: "your name here" # 블로그 닉네임
+  name: "박정현 (Park Jung Hyun)" # 블로그 닉네임
   avatar: "/assets/images/meee.png" # 블로그 프로필 사진
   #   bio              : "hi all!"
   # location         : "Seoul, Korea"
@@ -284,6 +284,7 @@ defaults:
       related: true
       sidebar:
         nav: "categories"
+
 
 
 
