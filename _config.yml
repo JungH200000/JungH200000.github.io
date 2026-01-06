@@ -25,7 +25,7 @@ subtitle: # site tagline that appears below site title in masthead
 name: "JungHyun" # 블로그 닉네임 설정
 description: "My DevLogs" # 블로그 설명
 url: "https://JungH200000.github.io/" # 블로그 URL
-baseurl: "https://jhpaxk02.tistory.com/" # the subpath of your site, e.g. "/blog"
+baseurl: # the subpath of your site, e.g. "/blog"
 repository: "JungH200000/JungH200000.github.io" # GitHub Repo 이름
 teaser: #
 
@@ -282,6 +282,7 @@ defaults:
       related: true
       sidebar:
         nav: "categories"
+
 
 
 
