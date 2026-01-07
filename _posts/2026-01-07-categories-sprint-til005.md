@@ -9,8 +9,8 @@ tags:
 
 permalink: /categories/codeit-sprint/sprint-til/sprint-til005/
 
-toc: false
-toc_sticky: false
+toc: true
+toc_sticky: true
 
 date: 2026-01-07
 last_modified_at: 2026-01-07
