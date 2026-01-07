@@ -235,7 +235,7 @@ class ParentEX extends Object {
 package practicepack.test;
 
 public class PackageEx {
-		// ...
+    // ...
 }
 ```
 
@@ -285,16 +285,16 @@ import 패키지명.*; // import 패키지 내 모든 클래스
 
 ```java
 public final class Person {
-		private final String name;
-		private final int age;
+  private final String name;
+  private final int age;
 
-		public Person(String name, int age) {
-				this.name = name;
-				this.age = age;
-		}
+  public Person(String name, int age) {
+      this.name = name;
+      this.age = age;
+  }
 
-		public String getName() { return name; }
-		public iint getAge() { return age; }
+  public String getName() { return name; }
+  public iint getAge() { return age; }
 }
 ```
 
