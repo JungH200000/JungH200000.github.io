@@ -30,11 +30,11 @@ last_modified_at: 2026-01-06
 
 ```java
 class 상위클래스명 {
-		// 필드와 메서드
+    // 필드와 메서드
 }
 
 class 하위클래스명 extends 상위 클래스명 {
-		// 상위 클래스의 멤버 사용 가능 + 추가 멤버 정의 가능
+    // 상위 클래스의 멤버 사용 가능 + 추가 멤버 정의 가능
 }
 ```
 
@@ -89,7 +89,7 @@ class 하위클래스명 extends 상위 클래스명 {
 ```java
 @Override
 void run() {
-		System.out.println("재정의된 메서드");
+    System.out.println("재정의된 메서드");
 }
 ```
 
@@ -128,11 +128,11 @@ Java에서 모든 클래스를 자동으로 상속받는 클래스로, Java 클�
 
 ```java
 class ParentEX {
-		// 실제로는 컴파일 시 자동으로 `extends Object`가 붙는다.
+    // 실제로는 컴파일 시 자동으로 `extends Object`가 붙는다.
 }
 ⬇️
 class ParentEX extends Object {
-		// ...
+    // ...
 }
 ```
 
@@ -430,7 +430,7 @@ Java에서 `abstract` 키워드는 “미완성”을 나타내는 제어자로,
 
 ```java
 abstract class AbstractExample {
-		abstract void start(); // 추상 메서드
+    abstract void start(); // 추상 메서드
 |
 ```
 
