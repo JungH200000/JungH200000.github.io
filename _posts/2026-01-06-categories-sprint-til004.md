@@ -431,7 +431,7 @@ Java에서 `abstract` 키워드는 “미완성”을 나타내는 제어자로,
 ```java
 abstract class AbstractExample {
     abstract void start(); // 추상 메서드
-|
+}
 ```
 
 ##### (1) `abstract` 특징
