@@ -18,7 +18,7 @@ last_modified_at: 2026-01-06
 
 # 오늘의 학습
 
-## <span style="background-color: #FFF9C4">⭐1. 객체지향 프로그래밍의 4가지 핵심 개념</span>
+## <span style="background-color: #FFF9C4">⭐⭐⭐1. 객체지향 프로그래밍의 4가지 핵심 개념</span>
 
 ### 1-01. 상속(Inheritance)
 
@@ -569,7 +569,7 @@ class MyClass implements InterfaceEx {
 
 ---
 
-## <span style="background-color: #FFF9C4">2. SOLID 원칙</span>
+## <span style="background-color: #FFF9C4">⭐⭐⭐2. SOLID 원칙</span>
 
 **SOLID**는 객체지향 설계에서 유지보수 가능하고, 확장 가능한 코드를 만들기 위한 **5가지 설계 원칙**의 앞 글자를 모은 약어
 
