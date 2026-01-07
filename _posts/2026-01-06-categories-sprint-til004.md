@@ -426,7 +426,7 @@ girlFriend.friendInfo();
 Java에서 `abstract` 키워드는 “미완성”을 나타내는 제어자로, **추상 클래스(`abstract class`)**와 **추상 메서드(`abstract method`)**를 정의할 때 사용
 
 - **`abstract method`(추상 메서드)** : 메서드 시그니처만 존재하고, 본문(메서드 바디)이 없는 메서드
-- **`abstract class`(추상 클래스)** : \*\*\*\*하나 이상의 추상 메서드를 포함하거나, 객체 생성을 제한하기 위해 선언된 클래스
+- **`abstract class`(추상 클래스)** : 하나 이상의 추상 메서드를 포함하거나, 객체 생성을 제한하기 위해 선언된 클래스
 
 ```java
 abstract class AbstractExample {
