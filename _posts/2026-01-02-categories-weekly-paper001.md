@@ -18,6 +18,8 @@ last_modified_at: 2026-01-06
 
 # Q1. `git rebase`와 `git merge`의 차이점을 설명하고, 각각 어떤 상황에서 사용하는 것이 더 적절한지 설명해주세요.
 
+`git rebase`와 `git merge`는 모두 한 branch의 변경사항을 다른 branch에 통합하는 방법이지만, 동작 방식과 결과가 다르다.
+
 ## 1. 차이점
 
 ### `git merge`
@@ -83,6 +85,8 @@ last_modified_at: 2026-01-06
 
 # Q2. `git fetch`와 `git pull`의 차이점을 설명하고, 각각을 사용하는 것이 적절한 상황을 설명해주세요.
 
+`git fetch`와 `git pull`은 원격 저장소의 변경사항을 가져오는 명령어지만, 동작 방식과 사용 목적이 다르다.
+
 ## 1. 차이점
 
 ### `git fetch`
@@ -92,16 +96,15 @@ last_modified_at: 2026-01-06
 - 가져오기만 하고, 자동 병합(merge)하지 않음
 - 현재 작업 branch가 아닌 `origin/main` 같은 별도의 branch에 저장
 - 실제 파일에 영향 없이 `.git` 내부의 history만 업데이트
-- `git log`로 commit(변경사항)을 확인하고, `git merge` or `git rebase`로 병합
-  ⇒ **안전함**
+- `git log`나 `git diff` 명령어로 commit(변경사항)을 검토하고, `git merge` or `git rebase`로 수동 병합 ⇒ 그래서 **안전하다**고 할 수 있다.
 
 <br>
 
 ### `git pull`
 
-원격 저장소의 최신 commit(변경사항)을 내 로컬 저장소로 가져와 자동 병합까지 수행하는 명령어
+원격 저장소의 최신 commit(변경사항)을 내 로컬 저장소로 가져와 현재 작업 중인 branch에 자동 병합까지 수행하는 명령어
 
-- 내부적으로 `git fetch` → `git merge` 로 동작
+- 내부적으로 `git fetch`와 `git merge`를 동시에 수행
 - commit(변경사항)을 가져오자마자 로컬에 있는 코드와 합치기 때문에, 수정 중인 파일이 겹칠 경우 **충돌(conflict)** 발생할 수 있음
 
 <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/weeklypaper/git.png?raw=true" width=600px>
@@ -121,8 +124,11 @@ last_modified_at: 2026-01-06
 ### `git fetch`
 
 - 파일 변경 없이 최신 commit(변경 사항)을 확인하고 싶을 때
+- 병합 전 충돌 가능성을 확인하고 싶을 때
+- 팀원들의 작업 진행 상황을 확인하고 싶을 때
 
 ### `git pull`
 
 - 원격 저장소의 commit(변경사항)을 로컬 저장소에 바로 반영하고 싶을 때
   (+ 충돌이 일어나지 않을 것이라는 확신)
+- 팀원들의 작업을 신뢰할 수 있고 즉시 통합이 필요할 때
