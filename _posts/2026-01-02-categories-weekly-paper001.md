@@ -46,7 +46,9 @@ last_modified_at: 2026-01-06
 
 한 branch의 시작점을 다른 branch의 최신 commit 끝으로 옮기는 명령어
 
-- history가 한 줄로 다시 정렬됨
+- history가 한 줄(선형적)로 다시 정렬됨
+- commit history가 깔끔해지고 가독성이 좋아짐
+- 공개된 branch에서는 사용을 피해야 함
 
 <br>
 
@@ -69,12 +71,13 @@ last_modified_at: 2026-01-06
 ### `git merge`
 
 - 모든 commit history를 보존해야 할 때
-  - 함께 사용하는 공용 branch(Main 등)에 기능을 합칠 때
+  - 함께 사용하는 공개 branch(Main 등)에 기능을 합칠 때
   - 두 기능이 합쳐짐을 명확히 남길 때
 
 ### `git rebase`
 
-- 로컬에서 개인 작업하던 commit history를 정리할 때
+- 개인 branch의 commit history를 정리할 때
+- 로컬의 작업 branch를 최신 main과 동기화할 때
 
 ---
 
