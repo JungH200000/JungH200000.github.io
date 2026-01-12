@@ -38,9 +38,9 @@ last_modified_at: 2026-01-09
 
 # 2. 프로젝트 요구사항
 
-<details><summary>접기/펼치기</summary>
-
 ## 기본 요구사항
+
+<details><summary>접기/펼치기</summary>
 
 **도메인 모델링**
 
@@ -65,8 +65,8 @@ last_modified_at: 2026-01-09
 
 - [O] 도메인 모델 별 CRUD(생성, 읽기, 모두 읽기, 수정, 삭제) 기능을 인터페이스로 선언하세요.
   - [O] 인터페이스 패키지명: `com.sprint.mission.discodeit.service`
-  - [] 인터페이스 네이밍 규칙: `[도메인 모델 이름]Service`
-- [ ] 다음의 조건을 만족하는 서비스 인터페이스의 구현체를 작성하세요.
+  - [O] 인터페이스 네이밍 규칙: `[도메인 모델 이름]Service`
+- [] 다음의 조건을 만족하는 서비스 인터페이스의 구현체를 작성하세요.
   - [ ] 클래스 패키지명: `com.sprint.mission.discodeit.service.jcf`
   - [ ] 클래스 네이밍 규칙: `JCF[인터페이스 이름]`
   - [ ] Java Collections Framework를 활용하여 데이터를 저장할 수 있는 필드(`data`)를 `final`로 선언하고 생성자에서 초기화하세요.
@@ -82,7 +82,11 @@ last_modified_at: 2026-01-09
   - [ ] 삭제
   - [ ] 조회를 통해 삭제되었는지 확인
 
-### 심화 요구 사항
+</details>
+
+## 심화 요구 사항
+
+<details><summary>접기/펼치기</summary>
 
 **서비스 간 의존성 주입**
 

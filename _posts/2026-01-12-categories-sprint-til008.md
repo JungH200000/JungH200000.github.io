@@ -62,12 +62,9 @@ last_modified_at: 2026-01-12
 
 # 2. 프로젝트 요구사항
 
-<details>
-<summary>접기/펼치기</summary>
-
-<br>
-
 ## 기본 요구사항
+
+<details><summary>접기/펼치기</summary>
 
 **도메인 모델링**
 
@@ -109,14 +106,16 @@ last_modified_at: 2026-01-12
   - [ ] 삭제
   - [ ] 조회를 통해 삭제되었는지 확인
 
+</details>
+
 ## 심화 요구 사항
+
+<details><summary>접기/펼치기</summary>
 
 **서비스 간 의존성 주입**
 
 - [ ] 도메인 모델 간 관계를 고려해서 검증하는 로직을 추가하고, 테스트해보세요.
   - 힌트: Message를 생성할 때 연관된 도메인 모델 데이터 확인하기
-
-<br>
 
 </details>
 
