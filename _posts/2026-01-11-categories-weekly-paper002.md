@@ -181,12 +181,13 @@ public class WeeklyMission {
                 Arrays.asList("SQL", "PostgreSQL", "MySQL")
         );
 
-        // stream 안에 stream이 들어있는 중첩 구조
+        // 내부 리스트를 또 다른 stream 객체로 변환만 했음.
+        // 즉, stream 안에 stream이 들어있는 중첩 구조
         subjectList.stream()
                 .map(subject -> subject.stream())
                 .forEach(subject -> System.out.println(subject));
 
-        // 내부 stream이 하나로 합쳐져서 하나의 구조가 됨
+        // 중첩된 stream 구조를 합쳐서 하나의 새로운 stream으로 만듦
         subjectList.stream()
                 .flatMap(subject -> subject.stream())
                 .forEach(subject -> System.out.println(subject));
