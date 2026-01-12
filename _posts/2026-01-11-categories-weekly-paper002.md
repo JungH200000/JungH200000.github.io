@@ -129,11 +129,11 @@ class PaymentService {
 }
 
 class Main {
-		public static void main(String[] args) {
-				PaymentService service =
-						new PaymentService(new KakaoPay()); // 결제 수단 변경 시 이부분만 수정하면 됨.
-				service.processPayment();
-		}
+    public static void main(String[] args) {
+        // 결제 수단 변경 시 이부분만 수정하면 됨.
+        PaymentService service = new PaymentService(new KakaoPay());
+        service.processPayment();
+    }
 }
 ```
 
