@@ -35,10 +35,14 @@ last_modified_at: 2026-01-12
 
    - **입력 파라미터 자체가 비정상("", null)**일 경우
      - 서비스 내부에서 **IllegalArgumentException**을 던지기
-     - 호출자가 잘못함
+     - 호출자가 잘못된 argument를 넘김
      - ex) `throw new IllegalArgumentException("message");`
-   - **입력은 정상인데 결과(데이터)가 없음:** **Optional.empty()**를 반환하여 호출자(메서드를 사용하는 쪽)가 판단하게 함.
-     - 데이터를 찾아봤는데 없음
+   - **입력은 정상인데 결과(데이터)가 없는** 경우
+     - **Optional.empty()**를 반환하여 데이터가 없음을 명시
+     - 호출자(메서드를 사용하는 쪽)가 후속 조치를 하게 함.
+     - ex) `return Optional.empty()`
+   - **컬렉션**이라면?
+     - 반환 타입이 `List`나 `Set`인 **다건 조회**의 경우, 데이터가 없다면 **빈 컬렉션**을 반환해서 호출자가 후속 조치를 하게 함.
      - ex) `return Collections.emptyList();`
 
 4. **`orElseThrow()`:** `Optional` 래핑을 해제하고 내용물 반환하는 메서드
@@ -58,8 +62,9 @@ last_modified_at: 2026-01-12
 
 # 2. 프로젝트 요구사항
 
-<details>
-<summary>접기/펼치기</summary>
+<details><summary>접기/펼치기</summary>
+
+<br>
 
 ## 기본 요구사항
 
@@ -121,6 +126,8 @@ last_modified_at: 2026-01-12
 ### `User.java`
 
 <details><summary>접기/펼치기</summary>
+
+<br>
 
 ```java
 package com.sprint.mission.discodeit.entity;
