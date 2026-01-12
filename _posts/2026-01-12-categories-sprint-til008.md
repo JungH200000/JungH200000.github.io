@@ -62,7 +62,8 @@ last_modified_at: 2026-01-12
 
 # 2. 프로젝트 요구사항
 
-<details><summary>접기/펼치기</summary>
+<details>
+<summary>접기/펼치기</summary>
 
 <br>
 
