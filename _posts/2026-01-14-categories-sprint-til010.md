@@ -43,15 +43,15 @@ last_modified_at: 2026-01-14
    - 구체적인 클래스에 직접 의존하지 말고, 인터페이스(추상화)에 의존하자
    - 잘못된 ex: `JCFMessageService messageService = new JCFMessageService(messageRepo);`
    - 옳은 ex: `MessageService messageService = new JCFMessageService(messageRepo);`
-   - 인터페이스로 타입을 제한하면, MessageService가 약속한 기능만 사용하게 강제된다.
+   - 인터페이스로 타입을 제한하면, `MessageService`가 약속한 기능만 사용하게 강제된다.
 
 5. 문제 상황: 원본 List 내부에서 데이터를 삭제하는 코드로 인한 `ConcurrentModificationException` 예외 발생
 
    - `ConcurrentModificationException` 예외는 순회 도중 인덱스가 늘어나거나 감소하면서 발생하는 문제
    - 해결하는 가장 쉬운 방법은 `ArrayList`로 복사본을 만들고, 해당 복사본으로 작업하는 것
    - 해결 방법1: List를 순회하면서 해당 List 안의 데이터를 삭제할 때는 `new ArrayList<>(원본);`으로 복사본을 만들 것! - `ArrayList`는 내부에 `modCount`라는 변수를 통해 리소스의 수정 횟수를 기록 후 처음 기록한 숫자와 비교
-     - `List<Message> copyMessageList = new ArrayList<>(channel.getChannelMessagesList());
-     - copyMessageList.forEach(message -> messageService.deleteMessage(message.getAuthor().getId(), message.getId()));`
+     - `List<Message> copyMessageList = new ArrayList<>(channel.getChannelMessagesList());`
+     - `copyMessageList.forEach(message -> messageService.deleteMessage(message.getAuthor().getId(), message.getId()));`
    - 해결 방법2: `getChannelMessagesList()`가 `return channelMessagesList.stream().toList();`를 반환하기
      - `stream().toList()`: 원본 데이터를 바탕으로 새롭게 생성된 별개의 List 객체(복사본)
      - 즉, 자바는 현재 복사본을 보고 있지만 `deleteMessage()` 메소드 내에서는 원본을 수정하고 있기 때문에 예외를 발생시키지 않음
