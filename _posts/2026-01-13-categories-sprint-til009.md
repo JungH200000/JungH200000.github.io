@@ -68,10 +68,10 @@ last_modified_at: 2026-01-13
   - [x] 인터페이스 패키지명: `com.sprint.mission.discodeit.service`
   - [x] 인터페이스 네이밍 규칙: `[도메인 모델 이름]Service`
 - [진행 중] 다음의 조건을 만족하는 서비스 인터페이스의 구현체를 작성하세요.
-  - [ ] 클래스 패키지명: `com.sprint.mission.discodeit.service.jcf`
-  - [ ] 클래스 네이밍 규칙: `JCF[인터페이스 이름]`
-  - [ ] Java Collections Framework를 활용하여 데이터를 저장할 수 있는 필드(`data`)를 `final`로 선언하고 생성자에서 초기화하세요.
-  - [ ] `data` 필드를 활용해 생성, 조회, 수정, 삭제하는 메소드를 구현하세요.
+  - [진행 중] 클래스 패키지명: `com.sprint.mission.discodeit.service.jcf`
+  - [진행 중] 클래스 네이밍 규칙: `JCF[인터페이스 이름]`
+  - [진행 중] Java Collections Framework를 활용하여 데이터를 저장할 수 있는 필드(`data`)를 `final`로 선언하고 생성자에서 초기화하세요.
+  - [진행 중] `data` 필드를 활용해 생성, 조회, 수정, 삭제하는 메소드를 구현하세요.
 
 **메인 클래스 구형**
 
@@ -92,6 +92,6 @@ last_modified_at: 2026-01-13
 
 ---
 
-# 3. 구현 코드
+# 3. GitHub Repository 주소
 
-[오늘 구현 코드 모음](https://jungh20000.notion.site/TIL-9-Sprint-Mission2-2e7f59816c028053be4cc2311e431aa1)
+[https://github.com/JungH200000/10-sprint-mission/tree/sprint2](https://github.com/JungH200000/10-sprint-mission/tree/sprint2)

@@ -89,6 +89,6 @@ last_modified_at: 2026-01-09
 
 ---
 
-# 3. 구현 코드
+# 3. GitHub Repository 주소
 
-[오늘 구현 코드 모음](https://jungh20000.notion.site/TIL-7-Sprint-Mission-2-2e3f59816c0280ca80f0d1e5e2637a74)
+[https://github.com/JungH200000/10-sprint-mission/tree/sprint2](https://github.com/JungH200000/10-sprint-mission/tree/sprint2)
