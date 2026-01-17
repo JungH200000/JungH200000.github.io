@@ -1,5 +1,5 @@
 ---
-title: '[TIL 11일차] Sprint Mission2.1 - 디스코드 도메인 모델링 및 서비스 설계'
+title: '[TIL 12일차] Sprint Mission2.1 - 디스코드 도메인 모델링 및 서비스 설계'
 excerpt: ''
 
 categories:
@@ -7,13 +7,13 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til011/
+permalink: /categories/codeit-sprint/sprint-til/sprint-til012/
 
 toc: true
 toc_sticky: true
 
-date: 2026-01-15
-last_modified_at: 2026-01-15
+date: 2026-01-16
+last_modified_at: 2026-01-16
 ---
 
 # 1. 오늘의 성취
@@ -22,15 +22,32 @@ last_modified_at: 2026-01-15
    - 피드백 받은 부분 수정 진행 : [Sprint2-1 Feedback](https://www.notion.so/jungh20000/Sprint2-1-Feedback-2e9f59816c02804295a9f76a9f0d3c62)
    - 전반적으로 메소드의 파라미터에 객체가 아닌 id를 가지도록 리팩토링
    - 전반적으로 메소드명 의미가 명확하게 수정
-   - `UserService`와 ChannelService`, `MessagaeService` 의존 관계 재설정
-   - `JCFUserService`
-     - email, password, userName, nickName, birthday 수정 메소드를 `updateUserInfo()` 메소드로 통합
-     - email과 password로 해당 유저를 찾는 로그인 기능은 CRUD에 필요하지 않음. 추후 db 추가 시 다른 클래스에서 이뤄질 예정
-   - `JCFChannelService`
-     - 의존 관계 `UserService` 추가
-     - user ID 검증 메소드 `validateAndGetUserByUserId` 추가
+   - `UserService`와 ChannelService`, `MessageService` 의존 관계 재설정
+   - `JCFMessageService`
+     - 의존 관계 `UserService`, `ChannelService` 추가
+   - entity 내부 필드를 UUID에서 객체 자체를 저장하게 수정
 
-2. `Map<K, V>`의 `remove(K)` 메소드는 K에 해당하는 V를 삭제하는 메소드로, K에 해당하는 V가 존재하면 V를 삭제하고 삭제된 V를 반환값으로 가지고, K가 존재하지 않는다면 null을 반환한다.
+2. 식별자(id)가 아닌 객체를 저장
+   - 우리가 사용하는 프로그래밍 언어가 자바이기에, 객체로 모든걸(상태와 행위) 바라봐야 한다.
+   - 만약 TV의 리모콘을 우리가 하나의 클래스로 만들어보면
+
+     ```java
+     class Remote {
+         UUID tvId;
+     }
+     ```
+
+   - 실제로 이렇게 만들면 리모콘은 "어떤 TV인지만" 알게 됨
+   - 사용하려면 저 리모콘을 통해 TV를 선별하고 결국 TV에 가서 뭔갈 직접 해야해요
+
+     ```java
+     TV tv = tvService.find(remote.tvId);
+     tv.increaseVolume();
+     ```
+
+   - 즉, id만 사용하면 매번 조회 코드를 추가로 거쳐야 하는데, 객체를 사용하면 바로바로 접근이 가능하다.
+
+3. `removeIf` : 람다식이나 Predicate로 조건을 정해 모든 일치 요소를 안전하게 제거
 
 ---
 
