@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-til/sprint-til003/
 
 toc: true
-toc_sticky: true
+toc_sticky: false
 
 date: 2026-01-05
 last_modified_at: 2026-01-06
@@ -35,9 +35,7 @@ last_modified_at: 2026-01-06
 
 - 객체지향의 핵심은 **현실 세계를 프로그래밍으로 옮기는 것**
 - 객체지향은 “기능을 어떻게 구현할까?” 같은 기능 중심이 아닌 “누가 이 기능을 담당해야 하지?” 같은 **책임 중심 사고 → 역할과 책임이 명확한 코드 구조를 만들 수 있다.**
-
   - **절차지향 vs 객체지향**
-
     - 절차 지향 : “사용자가 입력 → 검증 → 저장 → 출력”
     - 객체 지향 : “사용자는 어떤 객체이고, 입력을 누가 받아서, 어디에 저장하고 출력할까?”
 

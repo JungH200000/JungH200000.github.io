@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-til/sprint-til009/
 
 toc: true
-toc_sticky: true
+toc_sticky: false
 
 date: 2026-01-13
 last_modified_at: 2026-01-13
@@ -19,7 +19,6 @@ last_modified_at: 2026-01-13
 # 1. 오늘의 성취
 
 1. 개발 진행 상황
-
    - `MessageService.java` 인터페이시의 구현체 `JCFMessageService.java` 구현
 
 2. 검증 로직 분리
@@ -27,7 +26,6 @@ last_modified_at: 2026-01-13
    - 클래스 내, 반복되는 검증 메소드를 하나의 메소드로 통합
    - 단일 책임 원칙(SRP) 및 캡슐화 준수
 3. 모든 수정(Update) 메서드에 `Optional` 적용 해제
-
    - 수정(Update)은 대상이 존재함을 전제로 하기 때문에, 대상이 없을 때 예외를 던짐.
    - 결과적으로 항상 `Optional`이라는 상자에 값이 들어있는 상태로 반환되기 때문에, 상자를 해체해야 하는 불필요한 작업을 또 하게 됨
 

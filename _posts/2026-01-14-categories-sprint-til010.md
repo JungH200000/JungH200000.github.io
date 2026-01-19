@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-til/sprint-til010/
 
 toc: true
-toc_sticky: true
+toc_sticky: false
 
 date: 2026-01-14
 last_modified_at: 2026-01-14
@@ -19,34 +19,29 @@ last_modified_at: 2026-01-14
 # 1. 오늘의 성취
 
 1. 개발 진행 현황
-
    - `JCFMessageService.java` 구현체 완성
    - 각 객체 삭제 시 의존 관계 설정
    - 메인 클래스(테스트 용) 구현
    - 피드백 받는 중...
 
 2. 객체 참조
-
    - `new Message(...)`를 하는 순간 자바에서는 힙(Heap) 메모리 영역에 단 하나의 실제 객체가 생성됨
    - 이 객체를 `data.put(...)`, user 객체의 메세지 리스트, channel 객체의 메세지 리스트 등에 **주소**로 저장됨.
    - 즉, 모두 같은 주소를 바라보게 되기 때문에 하나만 수정해도 전체 반영이 됨
    - 다만 **관계의 변경**의 경우 한 쪽에서 연결을 끊는다고 해도 다른 쪽에서는 계속 참조하고 있기 때문에 전부 끊어 주는 게 좋음
 
 3. 불변(Immutable) 리스트
-
    - `stream().toList()`를 사용하면 불변 리스트를 반환
    - ex: `return listA.stream().toList()`하면 반환 받는 외부에서 `listA`를 수정하지 못하게 함
    - 즉, 조회만 가능한 메서드를 만들 때 사용
 
 4. DIP(Dependency Inversion Principle)
-
    - 구체적인 클래스에 직접 의존하지 말고, 인터페이스(추상화)에 의존하자
    - 잘못된 ex: `JCFMessageService messageService = new JCFMessageService(messageRepo);`
    - 옳은 ex: `MessageService messageService = new JCFMessageService(messageRepo);`
    - 인터페이스로 타입을 제한하면, `MessageService`가 약속한 기능만 사용하게 강제된다.
 
 5. 문제 상황: 원본 List 내부에서 데이터를 삭제하는 코드로 인한 `ConcurrentModificationException` 예외 발생
-
    - `ConcurrentModificationException` 예외는 순회 도중 인덱스가 늘어나거나 감소하면서 발생하는 문제
    - 해결하는 가장 쉬운 방법은 `ArrayList`로 복사본을 만들고, 해당 복사본으로 작업하는 것
    - 해결 방법1: List를 순회하면서 해당 List 안의 데이터를 삭제할 때는 `new ArrayList<>(원본);`으로 복사본을 만들 것! - `ArrayList`는 내부에 `modCount`라는 변수를 통해 리소스의 수정 횟수를 기록 후 처음 기록한 숫자와 비교
@@ -57,7 +52,6 @@ last_modified_at: 2026-01-14
      - 즉, 자바는 현재 복사본을 보고 있지만 `deleteMessage()` 메소드 내에서는 원본을 수정하고 있기 때문에 예외를 발생시키지 않음
 
 6. 상황별 Java Exception 종류
-
    - `NullPointerException`: null이 들어오는 건 절대 일어나서는 안 된다.
    - `NoSuchElementException`: 요청한 요소를 찾을 수 없다.
    - `IllegalArgumentException`: 입력 파라미터가 잘못됐다.

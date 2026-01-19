@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-til/sprint-til012/
 
 toc: true
-toc_sticky: true
+toc_sticky: trfalseue
 
 date: 2026-01-16
 last_modified_at: 2026-01-16

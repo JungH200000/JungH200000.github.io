@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-weekly-paper/weekly-paper001/
 
 toc: true
-toc_sticky: true
+toc_sticky: false
 
 date: 2026-01-02
 last_modified_at: 2026-01-06
@@ -30,7 +30,6 @@ last_modified_at: 2026-01-06
 - branch 그래프로 보면 여러 branch가 merge commit에서 합쳐지는 것을 볼 수 있음
 
 - 종류
-
   - 3-way merge
 
     branch에 각각 신규 commit이 1회 이상 있는 경우, `git merge` 를 하면 두 branch의 코드를 합쳐 새로운 merge commit을 자동으로 생성

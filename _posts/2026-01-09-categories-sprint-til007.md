@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-til/sprint-til007/
 
 toc: true
-toc_sticky: true
+toc_sticky: false
 
 date: 2026-01-09
 last_modified_at: 2026-01-09
@@ -19,18 +19,15 @@ last_modified_at: 2026-01-09
 # 1. 오늘의 성취
 
 1. **개발 진행 상황**
-
    - `User` 클래스, `Channel` 클래스, `Message` 클래스의 공통 필드 관리를 위해 `BaseEntity` 클래스를 추상 클래스로 구현
    - 디스코드의 핵심 도메인(`User`, `Channel`, `Message`)을 분석하여 도메인 모델링
    - 도메인 모델 별 CRUD(생성, 읽기, 모두 읽기, 수정, 삭제) 기능을 인터페이스로 선언
 
 2. **오늘 헷갈린 접근 제어자**
-
    - default: "이 필드는 해당 패키지 식구들만 공유하자."
    - protected: "이 필드는 나를 상속받은 자식들에게만 물려줄 것이다."
 
 3. **데이터 부재 처리**
-
    - **단건 조회(`Optional<T>`):** 결과가 존재하지 않을 수 있음을 반환 타입을 Optional로 감싸서 호출자가 `isPresent()`나 `ifPresent()`를 통해 NPE(NullPointerException) 방지
    - **다건 조회(`List`/`Set`):** 데이터가 없을 경우 `null` 대신 빈 컬렉션(`Collections.emptyList()` 등)을 반환하여 NPE를 방지
      - ex) 컬렉션 `List<User>`은 데이터가 없을 경우 빈 리스트 `[]`를 반환해서 `list.isEmpty()`로 상태 확인 가능

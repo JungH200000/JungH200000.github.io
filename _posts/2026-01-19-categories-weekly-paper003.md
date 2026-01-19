@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-weekly-paper/weekly-paper003/
 
 toc: true
-toc_sticky: true
+toc_sticky: false
 
 date: 2026-01-19
 last_modified_at: 2026-01-19
