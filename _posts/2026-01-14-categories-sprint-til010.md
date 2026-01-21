@@ -1,5 +1,5 @@
 ---
-title: '[TIL 10일차] Sprint Mission2.1 - 디스코드 도메인 모델링 및 서비스 설계'
+title: '[TIL 10일차] Sprint Mission2.1 - 디스코드: 도메인 모델링 및 서비스 설계'
 excerpt: ''
 
 categories:
