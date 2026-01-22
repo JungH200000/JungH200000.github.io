@@ -18,7 +18,7 @@ last_modified_at: 2026-01-22
 
 # 오늘의 학습
 
-## **<span style="background-color: #FFF9C4">1. Spring 핵심 개념**</span>
+## <span style="background-color: #FFF9C4">1. Spring 핵심 개념</span>
 
 ### 1-01. AOP(Aspect Oriented Programming; 관점 지향 프로그래밍)
 
@@ -62,7 +62,7 @@ Spring은 `@AspectJ` 스타일의 AOP를 지원하며, AspectJ 전체 기능 중
 
 ---
 
-## **<span style="background-color: #FFF9C4">2. Spring 프로젝트의 생태계**</span>
+## <span style="background-color: #FFF9C4">2. Spring 프로젝트의 생태계</span>
 
 Spring Boot 이후부터는 다양한 Spring 프로젝트들이 **유기적으로 연결되어 하나의 통합된 플랫폼**을 구성하고 있으며, 각 프로젝트는 특정 영역에 특화되어 **독립적이면서도 조합 가능한 구조**로 설계되어 있다.
 
@@ -122,7 +122,7 @@ Spring 기반 애플리케이션의 **인증(Authentication)**과 **인가(Autho
 
 ---
 
-## **<span style="background-color: #FFF9C4">3. Spring 공식 문서 활용법**</span>
+## <span style="background-color: #FFF9C4">3. Spring 공식 문서 활용법</span>
 
 ### 3-01. Reference Documentation (참조 문서)
 
@@ -142,7 +142,7 @@ Spring 기반 애플리케이션의 **인증(Authentication)**과 **인가(Autho
 
 ---
 
-## **<span style="background-color: #FFF9C4">4. Spring Boot의 혁신**</span>
+## <span style="background-color: #FFF9C4">4. Spring Boot의 혁신</span>
 
 ### 4-01. Spring Boot의 탄생 배경
 
@@ -157,14 +157,7 @@ Spring 기반 애플리케이션의 **인증(Authentication)**과 **인가(Autho
 
 Spring Boot는 Spring Framework 위에서 동작하는 **별도의 프레임워크가 아니라, “Spring을 빠르게 시작하고 구성하는 플랫폼”**
 
-```mermaid
-flowchart TD
-    subgraph SpringBoot ["Spring Boot"]
-        subgraph SpringFramework ["Spring Framework"]
-            Java["Java (JDK/JVM)"]
-        end
-    end
-```
+<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/spring.png?raw=true" width=400px>
 
 <br>
 
@@ -178,7 +171,7 @@ flowchart TD
 
 ---
 
-## **<span style="background-color: #FFF9C4">5. Spring Boot 프로젝트 시작하기**</span>
+## <span style="background-color: #FFF9C4">5. Spring Boot 프로젝트 시작하기</span>
 
 ### 5-1. Spring Initializr
 
@@ -214,7 +207,7 @@ spring-webmvc
 
 ---
 
-## **<span style="background-color: #FFF9C4">7. Spring Boot 프로젝트 구조**</span>
+## <span style="background-color: #FFF9C4">7. Spring Boot 프로젝트 구조</span>
 
 ### 7-01. `src/main/java` : 애플리케이션 소스 코드
 
@@ -243,7 +236,7 @@ Java 코드가 아닌 **리소스 파일**을 저장하는 디렉토리로, 애�
 
 ---
 
-## **<span style="background-color: #FFF9C4">8. Spring Boot 프로젝트 빌드 설정(Gradle)**</span>
+## <span style="background-color: #FFF9C4">8. Spring Boot 프로젝트 빌드 설정(Gradle)</span>
 
 ### 8-01. Gradle
 
