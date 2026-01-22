@@ -20,14 +20,16 @@ main:
 categories:
   - title: 'Codeit Sprint'
     children:
-      - title: 'Sprint Mission'
-        url: /categories/codeit-sprint/sprint-mission/
-      - title: 'Sprint 연습문제'
-        url: /categories/codeit-sprint/sprint-practice-problem/
       - title: 'Sprint TIL'
         url: /categories/codeit-sprint/sprint-til/
       - title: 'Sprint Weekly Paper'
         url: /categories/codeit-sprint/sprint-weekly-paper/
+      - title: 'Sprint Mission'
+        url: /categories/codeit-sprint/sprint-mission/
+      - title: 'Sprint 성취도 평가'
+        url: /categories/codeit-sprint/sprint-test/
+      - title: 'Sprint 연습문제'
+        url: /categories/codeit-sprint/sprint-practice-problem/
 
   - title: 'Title2'
     children:
