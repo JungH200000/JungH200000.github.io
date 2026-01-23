@@ -1,5 +1,5 @@
 ---
-title: '[TIL 일차]'
+title: '[TIL 17일 차] Spring Boot: 코드 레벨 아키텍처'
 excerpt: ''
 
 categories:
