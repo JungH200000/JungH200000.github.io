@@ -183,7 +183,7 @@ Spring Boot는 다양한 기능을 자동 구성해주지만, **프로젝트의 
 
 ---
 
-## **<span style="background-color: #FFF9C4">6. Spring의 핵심 모듈 이해하기**</span>
+## <span style="background-color: #FFF9C4">6. Spring의 핵심 모듈 이해하기</span>
 
 Spring Framework는 단일 라이브러리가 아니라, **기능별로 분리된 수십 개의 모듈**이 계층적으로 조립되어 구성된 플랫폼
 
