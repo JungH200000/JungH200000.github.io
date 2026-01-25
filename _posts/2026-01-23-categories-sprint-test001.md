@@ -10,7 +10,7 @@ tags:
 permalink: /categories/codeit-sprint/sprint-test/sprint-test001/
 
 toc: true
-toc_sticky: false
+toc_sticky: true
 
 date: 2026-01-23
 last_modified_at: 2026-01-23
