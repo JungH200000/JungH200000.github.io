@@ -596,3 +596,18 @@
     padding-left: 3.25rem
   }
 }
+
+@include breakpoint($large) {
+  .sidebar__right.sticky .toc {
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 7em);
+  }
+
+  .sidebar__right.sticky .toc__menu {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
