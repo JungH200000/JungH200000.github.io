@@ -7,13 +7,13 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til017/
+permalink: /categories/codeit-sprint/sprint-til/sprint-til018/
 
 toc: true
 toc_sticky: true
 
-date: 2026-01-23
-last_modified_at: 2026-01-23
+date: 2026-01-26
+last_modified_at: 2026-01-26
 ---
 
 # 오늘의 학습
