@@ -1,6 +1,6 @@
 ---
 title: '[TIL 17일 차] Spring Boot: 코드 레벨 아키텍처'
-excerpt: ''
+excerpt: '애플리케이션 실행 프로세스 ~ Spring Boot 아키텍처 패턴'
 
 categories:
   - Sprint TIL
@@ -126,13 +126,14 @@ dependencies {
 프로젝트의 일부 환경(예: 개발, 테스트)에만 필요하지만, 전체 애플리케이션에는 반드시 포함되지 않아도 되는 라이브러리를 말한다.
 
 - Gradle에서 선택적 의존성을 선언하는 방법
-  | 스코프 | 사용 시점 | 예시 |
+
+  | 스코프               | 사용 시점                           | 예시                    |
   | -------------------- | ----------------------------------- | ----------------------- |
-  | `implementation` | **일반 의존성 (default)** | DB 드라이버, 웹 서버 등 |
-  | `developmentOnly` | **개발 환경 전용** | Spring DevTools |
-  | `compileOnly` | 컴파일 시만 필요, **런타임 미포함** | Lombok |
-  | `runtimeOnly` | 런타임에만 필요 | JDBC Driver, DBMS |
-  | `testImplementation` | 테스트 전용 | JUnit, Mockito |
+  | `implementation`     | **일반 의존성 (default)**           | DB 드라이버, 웹 서버 등 |
+  | `developmentOnly`    | **개발 환경 전용**                  | Spring DevTools         |
+  | `compileOnly`        | 컴파일 시만 필요, **런타임 미포함** | Lombok                  |
+  | `runtimeOnly`        | 런타임에만 필요                     | JDBC Driver, DBMS       |
+  | `testImplementation` | 테스트 전용                         | JUnit, Mockito          |
 
 <br>
 
