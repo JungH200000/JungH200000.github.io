@@ -33,6 +33,12 @@ last_modified_at: 2026-01-27
 4. "`File*Repository` 구현체를 `Repository` 인터페이스의 Bean으로 등록하세요."의 의미
    - 구현체를 Bean으로 등록하되, 의존성 주입은 인터페이스 타입으로 이루어지게 하라. - "`File*Repository` 구현체를 Spring Bean으로 등록하고, `*Repository` 인터페이스 타입으로 주입 가능하게 구성하세요." - 사용과 주입은 인터페이스로 하라는 의미
 
+5. `@RequiredArgsConstructor`
+   - Lombok이 제공하는 어노테이션으로, `final` 필드나 `@NonNull` 필드에 대한 생성자를 자동 생성해준다.
+   - 즉, 생성자 주입(Constructor Injection)을 가장 깔끔하게 처리할 수 있다.
+
+---
+
 # 2. 프로젝트 요구사항
 
 ## 기본 요구사항
@@ -73,7 +79,9 @@ last_modified_at: 2026-01-27
 ### Lombok 적용
 
 - [x] 도메인 모델의 getter 메소드를 `@Getter`로 대체해보세요.
-- [ ] `Basic*Service`의 생성자를 `@RequiredArgsConstructor`로 대체해보세요.
+- [x] `Basic*Service`의 생성자를 `@RequiredArgsConstructor`로 대체해보세요.
+
+---
 
 # 3. GitHub Repository 주소
 
