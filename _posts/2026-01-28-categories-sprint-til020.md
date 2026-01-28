@@ -1,6 +1,6 @@
 ---
 title: '[TIL 20일 차] Sprint Mission3 - 디스코드: 새로운 도메인 추가와 `UserService` 고도화'
-excerpt: ''
+excerpt: '3-1. 시간 타입 변경하기 ~ 3-3. DTO 활용하기-1) UserService 고도화'
 
 categories:
   - Sprint TIL
