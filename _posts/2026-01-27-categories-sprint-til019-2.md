@@ -16,7 +16,7 @@ date: 2026-01-27
 last_modified_at: 2026-01-27
 ---
 
-# 1. 오늘의 성취
+# 오늘의 성취
 
 1. 개발 진행 상황
    - 기존 Java 프로젝트를 Spring Boot 프로젝트로 초기화
@@ -39,11 +39,11 @@ last_modified_at: 2026-01-27
 
 ---
 
-# 2. 프로젝트 요구사항
+# 프로젝트 요구사항
 
-## 기본 요구사항
+## 2. 기본 요구사항
 
-### Spring 프로젝트 초기화
+### 2-1. Spring 프로젝트 초기화
 
 - [x] Spring Initializr를 통해 zip 파일을 다운로드하세요.
   - [x] 빌드 시스템은 Gradle - Groovy를 사용합니다.
@@ -59,7 +59,7 @@ last_modified_at: 2026-01-27
 - [x] `application.properties` 파일을 `yaml` 형식으로 변경하세요.
 - [x] `DiscodeitApplication`의 main 메서드를 실행하고 로그를 확인해보세요.
 
-### Bean 선언 및 테스트
+### 2-2. Bean 선언 및 테스트
 
 - [x] `File*Repository` 구현체를 `Repository` 인터페이스의 Bean으로 등록하세요.
 - [x] `Basic*Service` 구현체를 `Service` 인터페이스의 Bean으로 등록하세요.
@@ -68,7 +68,7 @@ last_modified_at: 2026-01-27
   - [x] `JavaApplication`의 `main` 메소드에서 Service를 초기화하는 코드를 Spring Context를 활용하여 대체하세요.
     - [x] `JavaApplication`의 `main` 메소드의 셋업, 테스트 부분의 코드를 `DiscodeitApplication`클래스로 복사하세요.
 
-### Spring 핵심 개념 이해하기
+### 2-3. Spring 핵심 개념 이해하기
 
 - [ ] `JavaApplication`과 `DiscodeitApplication`에서 Service를 초기화하는 방식의 차이에 대해 다음의 키워드를 중심으로 정리해보세요.
   - IoC Container
@@ -76,13 +76,13 @@ last_modified_at: 2026-01-27
   - Bean
   - 해당 내용은 PR에 첨부
 
-### Lombok 적용
+### 2-4. Lombok 적용
 
 - [x] 도메인 모델의 getter 메소드를 `@Getter`로 대체해보세요.
 - [x] `Basic*Service`의 생성자를 `@RequiredArgsConstructor`로 대체해보세요.
 
 ---
 
-# 3. GitHub Repository 주소
+# GitHub Repository 주소
 
 [https://github.com/JungH200000/10-sprint-mission/tree/sprint3](https://github.com/JungH200000/10-sprint-mission/tree/sprint3)

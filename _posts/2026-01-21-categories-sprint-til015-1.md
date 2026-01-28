@@ -17,7 +17,7 @@ date: 2026-01-21
 last_modified_at: 2026-01-21
 ---
 
-# 1. 오늘의 성취
+# 오늘의 성취
 
 1. 개발 진행 상황
    - 관심사 분리를 통한 레이어 간 의존성 주입
@@ -34,47 +34,13 @@ last_modified_at: 2026-01-21
 
 ---
 
-# 2. 프로젝트 요구사항
+# 프로젝트 요구사항
 
-## 기본 요구사항
+`//...`
 
-### File IO를 통한 데이터 영속화
+## 2. 심화 요구 사항
 
-- [x] 다음의 조건을 만족하는 서비스 인터페이스의 구현체를 작성하세요.
-  - [x] 클래스 패키지명: `com.sprint.mission.discodeit.service.file`
-  - [x] 클래스 네이밍 규칙: `File[인터페이스 이름]`
-  - [x] JCF 대신 FileIO와 객체 직렬화를 활용해 메소드를 구현하세요.
-  - [객체 직렬화/역직렬화 가이드](https://codeit.notion.site/13b6fd228e8d80c6b144cdfbf518a9f7)
-
-- [x] `Application`에서 서비스 구현체를 `File*Service`로 바꾸어 테스트해보세요.
-
-### 서비스 구현체 분석
-
-- [x] `JCF*Service` 구현체와 `File*Service` 구현체를 비교하여 공통점과 차이점을 발견해보세요.
-  - [x] "비즈니스 로직"과 관련된 코드를 식별해보세요.
-  - [x] "저장 로직"과 관련된 코드를 식별해보세요.
-
-### 레포지토리 설계 및 구현
-
-참고: 레포지토리는 데이터를 관리하는 로직을 가짐
-
-- [x] "저장 로직"과 관련된 기능을 도메인 모델 별 인터페이스로 선언하세요.
-  - [x] 인터페이스 패키지명: `com.sprint.mission.discodeit.repository`
-  - [x] 인터페이스 네이밍 규칙: `[도메인 모델 이름]Repository`
-
-- [x] 다음의 조건을 만족하는 레포지토리 인터페이스의 구현체를 작성하세요.
-  - [x] 클래스 패키지명: `com.sprint.mission.discodeit.repository.jcf`
-  - [x] 클래스 네이밍 규칙: `JCF[인터페이스 이름]`
-  - [x] 기존에 구현한 `JCF*Service` 구현체의 "저장 로직"과 관련된 코드를 참고하여 구현하세요.
-
-- [x] 다음의 조건을 만족하는 레포지토리 인터페이스의 구현체를 작성하세요.
-  - [x] 클래스 패키지명: `com.sprint.mission.discodeit.repository.file`
-  - [x] 클래스 네이밍 규칙: `File[인터페이스 이름]`
-  - [x] 기존에 구현한 `File*Service` 구현체의 "저장 로직"과 관련된 코드를 참고하여 구현하세요.
-
-## 심화 요구 사항
-
-### 관심사 분리를 통한 레이어 간 의존성 주입
+### 2-1. 관심사 분리를 통한 레이어 간 의존성 주입
 
 - [x] 다음의 조건을 만족하는 서비스 인터페이스의 구현체를 작성하세요.
   - [x] 클래스 패키지명: `com.sprint.mission.discodeit.service.basic`
@@ -125,6 +91,6 @@ last_modified_at: 2026-01-21
 
 ---
 
-# 3. GitHub Repository 주소
+# GitHub Repository 주소
 
 [https://github.com/JungH200000/10-sprint-mission/tree/sprint2](https://github.com/JungH200000/10-sprint-mission/tree/sprint2)
