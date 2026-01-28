@@ -1,5 +1,5 @@
 ---
-title: '[Sprint Mission 3]'
+title: '[Sprint Mission3]'
 excerpt: ''
 
 categories:
@@ -16,7 +16,7 @@ date: 2026-01-27
 last_modified_at: 2026-01-27
 ---
 
-# 프로젝트 마일스톤
+# 1. 프로젝트 마일스톤
 
 - Java 프로젝트를 Spring 프로젝트로 마이그레이션
 - 의존성 관리를 IoC Container에 위임하도록 리팩토링
@@ -24,9 +24,9 @@ last_modified_at: 2026-01-27
 
 ---
 
-# 기본 요구사항
+# 2. 기본 요구사항
 
-## Spring 프로젝트 초기화
+## 2-1. Spring 프로젝트 초기화
 
 - [ ] Spring Initializr를 통해 zip 파일을 다운로드하세요.
   - [ ] 빌드 시스템은 Gradle - Groovy를 사용합니다.
@@ -44,7 +44,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-## Bean 선언 및 테스트
+## 2-2. Bean 선언 및 테스트
 
 - [ ] `File*Repository` 구현체를 `Repository` 인터페이스의 Bean으로 등록하세요.
 - [ ] `Basic*Service` 구현체를 `Service` 인터페이스의 Bean으로 등록하세요.
@@ -130,7 +130,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-## Spring 핵심 개념 이해하기
+## 2-3. Spring 핵심 개념 이해하기
 
 - [ ] `JavaApplication`과 `DiscodeitApplication`에서 Service를 초기화하는 방식의 차이에 대해 다음의 키워드를 중심으로 정리해보세요.
   - IoC Container
@@ -140,23 +140,23 @@ last_modified_at: 2026-01-27
 
 <br>
 
-## Lombok 적용
+## 2-4. Lombok 적용
 
 - [ ] 도메인 모델의 getter 메소드를 `@Getter`로 대체해보세요.
 - [ ] `Basic*Service`의 생성자를 `@RequiredArgsConstructor`로 대체해보세요.
 
 ---
 
-# 추가 기능 요구사항
+# 3. 추가 기능 요구사항
 
-## 시간 타입 변경하기
+## 3-1. 시간 타입 변경하기
 
 - [ ] 시간을 다루는 필드의 타입은 `Instant`로 통일합니다.
   - 기존에 사용하던 `Long`보다 가독성이 뛰어나며, 시간대(Time Zone) 변환과 정밀한 시간 연산이 가능해 확장성이 높습니다.
 
 <br>
 
-## 새로운 도메인 추가하기
+## 3-2. 새로운 도메인 추가하기
 
 - 도메인 모델 간 참조 관계를 참고하세요.
 
@@ -182,9 +182,9 @@ last_modified_at: 2026-01-27
 
 <br>
 
-## DTO 활용하기
+## 3-3. DTO 활용하기
 
-### UserService 고도화
+### 1) UserService 고도화
 
 - 고도화
   - `create`
@@ -215,7 +215,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-### AuthService 구현
+### 2) AuthService 구현
 
 - `login`
   - [ ] `username`, `password`과 일치하는 유저가 있는지 확인합니다.
@@ -229,7 +229,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-### ChannelService 고도화
+### 3) ChannelService 고도화
 
 - 고도화
   - `create`
@@ -265,7 +265,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-### MessageService 고도화
+### 4) MessageService 고도화
 
 - 고도화
   - `create`
@@ -287,7 +287,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-### ReadStatusService 구현
+### 5) ReadStatusService 구현
 
 - `create`
   - [ ] DTO를 활용해 파라미터를 그룹화합니다.
@@ -310,7 +310,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-### UserStatusService 고도화
+### 6) UserStatusService 고도화
 
 - `create`
   - [ ] DTO를 활용해 파라미터를 그룹화합니다.
@@ -335,7 +335,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-### BinaryContentService 구현
+### 7) BinaryContentService 구현
 
 - `create`
   - [ ] DTO를 활용해 파라미터를 그룹화합니다.
@@ -353,7 +353,7 @@ last_modified_at: 2026-01-27
 
 <br>
 
-### 새로운 도메인 Repository 구현체 구현
+### 8) 새로운 도메인 Repository 구현체 구현
 
 - [ ] 지금까지 인터페이스로 설계한 각각의 Repository를 JCF, File로 각각 구현하세요.
 
@@ -361,9 +361,9 @@ last_modified_at: 2026-01-27
 
 ---
 
-# 심화 요구사항
+# 4. 심화 요구사항
 
-## Bean 다루기
+## 4-1. Bean 다루기
 
 - [ ] Repository 구현체 중에 어떤 구현체를 Bean으로 등록할지 Java 코드의 변경 없이 `application.yaml` 설정 값을 통해 제어해보세요.
 
