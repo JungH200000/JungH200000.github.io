@@ -1,5 +1,5 @@
 ---
-title: '[TIL 20일 차] Sprint Mission3 - 디스코드: Lombok 적용과 '
+title: '[TIL 20일 차] Sprint Mission3 - 디스코드: 새로운 도메인 추가와 `UserService` 고도화'
 excerpt: ''
 
 categories:
