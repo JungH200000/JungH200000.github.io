@@ -117,6 +117,6 @@ last_modified_at: 2026-01-28
 
 ---
 
-# 3. GitHub Repository 주소
+# GitHub Repository 주소
 
 [https://github.com/JungH200000/10-sprint-mission/tree/sprint3](https://github.com/JungH200000/10-sprint-mission/tree/sprint3)
