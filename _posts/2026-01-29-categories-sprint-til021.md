@@ -1,5 +1,5 @@
 ---
-title: '[TIL 21일 차] Sprint Mission3 - 디스코드:  '
+title: '[TIL 21일 차] Sprint Mission3 - 디스코드:  `AuthService` 구현과 `ChannelService` 고도화'
 excerpt: ''
 
 categories:
@@ -83,6 +83,6 @@ last_modified_at: 2026-01-29
 
 ---
 
-# 3. GitHub Repository 주소
+# GitHub Repository 주소
 
 [https://github.com/JungH200000/10-sprint-mission/tree/sprint3](https://github.com/JungH200000/10-sprint-mission/tree/sprint3)
