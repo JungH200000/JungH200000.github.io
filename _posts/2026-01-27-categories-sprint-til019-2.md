@@ -59,6 +59,8 @@ last_modified_at: 2026-01-27
 - [x] `application.properties` 파일을 `yaml` 형식으로 변경하세요.
 - [x] `DiscodeitApplication`의 main 메서드를 실행하고 로그를 확인해보세요.
 
+<br>
+
 ### 2-2. Bean 선언 및 테스트
 
 - [x] `File*Repository` 구현체를 `Repository` 인터페이스의 Bean으로 등록하세요.
@@ -68,13 +70,19 @@ last_modified_at: 2026-01-27
   - [x] `JavaApplication`의 `main` 메소드에서 Service를 초기화하는 코드를 Spring Context를 활용하여 대체하세요.
     - [x] `JavaApplication`의 `main` 메소드의 셋업, 테스트 부분의 코드를 `DiscodeitApplication`클래스로 복사하세요.
 
+<br>
+
 ### 2-3. Spring 핵심 개념 이해하기
 
-- [ ] `JavaApplication`과 `DiscodeitApplication`에서 Service를 초기화하는 방식의 차이에 대해 다음의 키워드를 중심으로 정리해보세요.
+- [x] `JavaApplication`과 `DiscodeitApplication`에서 Service를 초기화하는 방식의 차이에 대해 다음의 키워드를 중심으로 정리해보세요.
   - IoC Container
   - Dependency Injection
   - Bean
   - 해당 내용은 PR에 첨부
+    - `JavaApplication`에서는 `new` 키워드를 통해 `*Service` 객체를 생성했습니다.
+    - `DiscodeitApplication`에서는 `*Service`에서 `@Service` 어노테이션을 붙여 서비스 생성을 IoC Container가 맡습니다.
+    - Spring Boot 실행 시, `@Service` 어노테이션이 붙인 서비스가 Bean으로 생성되고, 이것을 Spring 컨테이너가 관리한다.
+    - 서비스 사용 시, `@Service` 어노테이션으로 인해, 의존성을 주입(DI)해 생성자를 자동 생성한다.
 
 ### 2-4. Lombok 적용
 
