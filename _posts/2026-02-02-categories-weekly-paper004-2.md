@@ -52,19 +52,6 @@ last_modified_at: 2026-02-02
 
 ---
 
-# Q5. Spring에서 AOP(Aspect Oriented Programming)가 필요한 이유와 이를 활용한 실제 애플리케이션 개발 사례에 대해 설명하세요.
-
-## 01. Spring에서 AOP가 필요한 이유
-
-로깅이나 트랜잭션, 보안 검사, 실행 시간 측정 등 모든 모듈에서 반복적으로 등장하는 로직을 공통화하여 재사용 가능하게 만들기 위해 필요하다.
-
-## 02. AOP를 활용한 실제 애플리케이션 개발 사례
-
-- 메소드 실행 전 해당 유저의 존재 여부나 권한 확인
-- 디버깅을 위한 로깅
-
----
-
 # 해설
 
 [위클리페이퍼04: Spring과 Spring Boot](https://www.notion.so/jungh20000/04-Spring-Spring-Boot-2f3f59816c0280aea075dd3ae7b091e5?source=copy_link)

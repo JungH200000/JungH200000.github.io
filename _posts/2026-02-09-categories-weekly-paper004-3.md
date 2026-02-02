@@ -16,7 +16,20 @@ date: 2026-02-09
 last_modified_at: 2026-02-09
 ---
 
-# Spring MVC에서 클라이언트의 요청 흐름을 `@Controller`와 `@RestController`의 차이점을 중심으로 각각의 처리 과정과 특징을 포함하여 설명하세요.
+# Q5. Spring에서 AOP(Aspect Oriented Programming)가 필요한 이유와 이를 활용한 실제 애플리케이션 개발 사례에 대해 설명하세요.
+
+## 01. Spring에서 AOP가 필요한 이유
+
+로깅이나 트랜잭션, 보안 검사, 실행 시간 측정 등 모든 모듈에서 반복적으로 등장하는 로직을 공통화하여 재사용 가능하게 만들기 위해 필요하다.
+
+## 02. AOP를 활용한 실제 애플리케이션 개발 사례
+
+- 메소드 실행 전 해당 유저의 존재 여부나 권한 확인
+- 디버깅을 위한 로깅
+
+---
+
+# Q6. Spring MVC에서 클라이언트의 요청 흐름을 `@Controller`와 `@RestController`의 차이점을 중심으로 각각의 처리 과정과 특징을 포함하여 설명하세요.
 
 ## 01. `@Controller`와 `@RestController`
 
