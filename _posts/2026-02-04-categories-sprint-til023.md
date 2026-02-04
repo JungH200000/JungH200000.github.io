@@ -1,5 +1,5 @@
 ---
-title: '[TIL 22일 차] Sprint Mission3 - 디스코드:  '
+title: '[TIL 23일 차] Spring MVC: 비즈니스 로직'
 excerpt: ''
 
 categories:
@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-til/sprint-til023/
 toc: true
 toc_sticky: true
 
-date: 2026-02-02
-last_modified_at: 2026-02-02
+date: 2026-02-04
+last_modified_at: 2026-02-04
 ---
 
 # 오늘의 성취

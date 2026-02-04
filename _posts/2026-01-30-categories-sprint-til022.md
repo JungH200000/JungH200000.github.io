@@ -27,6 +27,8 @@ last_modified_at: 2026-01-30
      - DTO를 활용해 `create`, `find`, `findAll`, `update`, `updateByUserId`, `delete` 메소드 구현
    - `BinaryContentService` 구현
      - DTO를 활용해 `create`, `find`, `findAllByIdIn`, `delete` 메소드 구현
+   - 심화 요구사항 : 조건부 Bean 구성
+     - `jcf`와 `file`에 따라 Repository 구현체 선택
 
 2. `@ConditionalOnProperty(name = "discodeit.repository.type", havingValue = "file")`
    - `prefix` : 프로퍼티 앞부분
