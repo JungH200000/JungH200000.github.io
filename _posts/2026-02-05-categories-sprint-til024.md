@@ -324,7 +324,7 @@ RESTful API를 주로 사용하는 백엔드 개발자와 QA, 프론트엔드 �
     }
     ```
 
-- **사용한 핸들러 메서드(Handler Method)와 핸들러 메서드 파라미터**
+- **사용한 핸들러 메서드(Handler Method)**
   - `@RequestMapping("/v1/members")`
     - 클래스 레벨에서 공통 URI 경로를 지정하는 애너테이션
   - `@PostMapping`
