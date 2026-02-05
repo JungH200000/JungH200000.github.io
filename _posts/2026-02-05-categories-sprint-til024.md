@@ -1,5 +1,5 @@
 ---
-title: '[TIL 23일 차] Spring MVC: 비즈니스 로직'
+title: '[TIL 24일 차] Spring MVC: 비즈니스 로직'
 excerpt: '웹 애플리케이션의 기초-서블릿의 이해 ~ 응답 데이터 처리하기-응답 처리 이해하기'
 
 categories:
