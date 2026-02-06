@@ -79,7 +79,7 @@ last_modified_at: 2026-02-05
 
 Spring Framework에서 **웹 계층을 담당하는 모듈**로, `spring-webmvc`에 포함된 웹 프레임워크이다.
 
-**서블릿(Servlet) API**를 기반으로 동작하며, 클라이언트의 HTTP 요청을 받아 Controller, Service, View로 분리하여 처리하는 MVC 패턴을 구현한다.
+**서블릿(Servlet) API**를 기반으로 동작하며, 클라이언트의 HTTP 요청을 받아 Model, View, Controller로 분리하여 처리하는 MVC 패턴을 구현한다.
 
 ➡️ 개발자는 서블릿을 직접 작성하지 않아도 애너테이션 기반으로 컨트롤러를 통해 요청 처리, 데이터 바인딩, 응답 생성을 편리하게 구현
 
