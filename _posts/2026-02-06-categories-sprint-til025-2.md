@@ -21,6 +21,8 @@ last_modified_at: 2026-02-06
 1. 개발 진행 상황
    - Service 로직을 활용해 웹 API 구현
      - 사용자 관리 Controller인 `UserController` 구현
+       - 사용자 등록, 사용자 정보 수정, 모든 사용자 조회, 사용자 온라인 상태 업데이트 핸들러 메서드 생성
+       - 사용자 삭제 핸들러 메서드는 채널 관리 Controller 완성 후 생성
 
 2. **고민** : `UserController` 핸들러에서 `createUser` 핸들러 메서드의 반환 값에 `isOnline`을 포함시킬지 고민
    - 기존 `UserResponse` DTO 활용 시, `createUser` 핸들러 메서드에서 `User`와 `UserStatus` 객체를 만들게 되고, `UserStatusService`에도 `userId`로 `UserStatus` 객체를 찾는 메서드를 만들어야 됨
