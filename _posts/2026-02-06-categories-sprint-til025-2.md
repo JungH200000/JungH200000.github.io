@@ -1,6 +1,6 @@
 ---
-title: '[TIL 25일 차] Sprint Mission4 - 디스코드'
-excerpt: ''
+title: '[TIL 25일 차] Sprint Mission4 - 디스코드: Controller Layer 구현'
+excerpt: '3-1. 사용자 관리'
 
 categories:
   - Sprint TIL
@@ -64,7 +64,7 @@ last_modified_at: 2026-02-06
 ### 2-1. 컨트롤러 레이어 구현
 
 - [x] DiscodeitApplication의 테스트 로직은 삭제하세요.
-- [ ] 지금까지 구현한 서비스 로직을 활용해 웹 API를 구현하세요.
+- [진행 중] 지금까지 구현한 서비스 로직을 활용해 웹 API를 구현하세요.
   - 이때 `@RequestMapping`만 사용해 구현해보세요.
   - 아래의 "웹 API 요구사항" 참고
 
@@ -87,3 +87,5 @@ last_modified_at: 2026-02-06
 ---
 
 # GitHub Repository 주소
+
+[https://github.com/JungH200000/10-sprint-mission/tree/sprint4](https://github.com/JungH200000/10-sprint-mission/tree/sprint4)
