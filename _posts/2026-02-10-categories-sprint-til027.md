@@ -1,5 +1,5 @@
 ---
-title: '[TIL 25일 차] Sprint Mission4 - 디스코드: Controller Layer 구현 및 테스트'
+title: '[TIL 26일 차] Sprint Mission4 - 디스코드: Controller Layer 구현 및 테스트'
 excerpt: '3-5. 메시지 수신 정보 관리 ~ 4. 심화 요구사항'
 
 categories:
@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-til/sprint-til027/
 toc: true
 toc_sticky: true
 
-date: 2026-02-09
-last_modified_at: 2026-02-09
+date: 2026-02-10
+last_modified_at: 2026-02-10
 ---
 
 # 오늘의 학습
