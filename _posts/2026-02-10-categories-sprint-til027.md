@@ -1,5 +1,5 @@
 ---
-title: '[TIL 26일 차] Sprint Mission4 - 디스코드: Controller Layer 구현 및 테스트'
+title: '[TIL 27일 차] Sprint Mission4 - 디스코드: Controller Layer 구현 및 테스트'
 excerpt: '3-5. 메시지 수신 정보 관리 ~ 4. 심화 요구사항'
 
 categories:
