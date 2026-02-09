@@ -27,5 +27,3 @@ last_modified_at: 2026-02-09
 ## 답변과 정리
 
 [위클리페이퍼04: Spring과 Spring Boot 답변과 정리](https://www.notion.so/jungh20000/04-Spring-Spring-Boot-2f3f59816c0280aea075dd3ae7b091e5?source=copy_link)
-
-s
