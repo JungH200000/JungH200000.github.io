@@ -1,13 +1,13 @@
 ---
-title: '[TIL 31~32일 차] Sprint Mission5 - '
-excerpt: ''
+title: '[TIL 31~32일 차] Sprint Mission5 - 구현한 API를 API 스펙에 맞춰 RESTful API로 다시 설계'
+excerpt: 'UserController와 AuthController 수정'
 
 categories:
   - Sprint TIL
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til031/
+permalink: /categories/codeit-sprint/sprint-til/sprint-til031~32/
 
 toc: true
 toc_sticky: true
