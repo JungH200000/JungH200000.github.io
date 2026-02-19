@@ -31,12 +31,12 @@ categories:
       - title: 'Sprint 연습문제'
         url: /categories/codeit-sprint/sprint-practice-problem/
 
-  - title: 'Title2'
+  - title: 'Spring'
     children:
-      - title: 'Categories5'
-        url: /categories/categories5/
-      - title: 'Categories6'
-        url: /categories/categories6/
+      - title: 'Spring 핵심 원리'
+        url: /categories/spring/spring-basic
+      - title: 'Spring MVC 1'
+        url: /categories/spring/spring-mvc-1
 
   - title: 'Title3'
     children:
