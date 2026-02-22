@@ -6,7 +6,7 @@ comments: false
 ---
 
 <div>
-    <img src="/assets/images/ID_photo.jpg" alt="about_meee" width="60%" min-width="700px" itemprop="image">
+    <img src="/assets/images/ID_photo.jpg" alt="about_meee" width="60%" min-width="500px" itemprop="image">
 </div>
 
 <div style="border-left: 2px solid rgba(199, 198, 198, 0.7); margin: 0.5em 0 0 0.5em; padding-left: 1.5em; font-weight: 500;">
