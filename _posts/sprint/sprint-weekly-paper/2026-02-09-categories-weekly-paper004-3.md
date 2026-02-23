@@ -49,9 +49,9 @@ AOP는 로깅이나 트랜잭션, 보안 검사, 실행 시간 측정 등 모든
   - `@Controller` + `@ResponseBody`
   - 데이터 자체를 반환하는 것이 목적이라, HTTP API에 개발에 특화
 
-##### 02. `@Controller`와 `@RestController`의 처리 과정
+#### 02. `@Controller`와 `@RestController`의 처리 과정
 
-02-1. `@Controller`의 처리 과정
+##### 1) `@Controller`의 처리 과정
 
 - `DispatcherServlet`이 요청을 받아
 - `HandlerMapping`와 `HandlerAdapter`가 적합한 컨트롤러를 찾고
@@ -60,15 +60,16 @@ AOP는 로깅이나 트랜잭션, 보안 검사, 실행 시간 측정 등 모든
 - View가 HTML 생성
 - 생성된 HTML을 클라이언트로 반환
 
-2. `@RestController`
-   - `DispatcherServlet`이 요청을 받아
-   - `HandlerMapping`와 `HandlerAdapter`가 적합한 컨트롤러를 찾고
-   - 컨트롤러 로직 처리 후 객체 반환
-   - `HttpMessageConverter`가 객체를 JSON/XML로 변환
-   - 변환된 데이터를 클라이언트에 반환
+##### 2) `@RestController`
+
+- `DispatcherServlet`이 요청을 받아
+- `HandlerMapping`와 `HandlerAdapter`가 적합한 컨트롤러를 찾고
+- 컨트롤러 로직 처리 후 객체 반환
+- `HttpMessageConverter`가 객체를 JSON/XML로 변환
+- 변환된 데이터를 클라이언트에 반환
 
 ---
 
 ## 정리
 
-[위클리페이퍼04: Spring과 Spring Boot 정리](https://www.notion.so/jungh20000/04-Spring-Spring-Boot-2f3f59816c0280aea075dd3ae7b091e5?source=copy_link)
+[위클리페이퍼04: Spring과 Spring Boot "정리"](https://www.notion.so/jungh20000/04-Spring-Spring-Boot-2f3f59816c0280aea075dd3ae7b091e5?source=copy_link)
