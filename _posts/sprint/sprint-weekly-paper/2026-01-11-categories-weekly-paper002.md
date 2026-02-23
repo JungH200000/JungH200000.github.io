@@ -18,7 +18,7 @@ last_modified_at: 2026-01-11
 
 ## Q1. 객체지향 프로그래밍에서 ‘단일 책임 원칙(SRP)’과 ‘개방-폐쇄 원칙(OCP)’에 대해 설명하고, 각각의 원칙을 적용한 코드 예시를 들어주세요.
 
-### Q1 답변
+### Q1-1. 답변
 
 단일 책임 원칙과 개방-폐쇄 원칙은 객체지향 설계에서 유지보수 가능하고, 확장 가능한 코드를 만들기 위한 5가지 설계 원칙의 앞 글자를 모은 **SOLID 원칙** 중 일부로, 이 외에 **리스코브 치환의 원칙(LSP)**, **인터페이스 분리의 원칙(ISP)**, **의존성 역전의 원칙(DIP)**가 있다.
 
@@ -26,7 +26,7 @@ last_modified_at: 2026-01-11
 - **인터페이스 분리의 원칙(ISP) :** 하나의 범용 인터페이스보다 다수의 구체적인 인터페이스가 나으며, 클라이언트는 사용하지 않은 메소드에 의존하면 안된다.
 - **의존성 역전의 원칙(DIP) :** 구체적인 클래스 보다는 인터페이스나 추상 클래스와 관계를 맺어야 하며, 상위 모듈은 하위 모듈에 의존하면 안된다.
 
-## 01. 단일 책임 원칙(SRP; Single Responsibility Principle)
+#### 01. 단일 책임 원칙(SRP; Single Responsibility Principle)
 
 **“클래스는 하나의 책임만 가져야 한다”**는 객체지향 설계 원칙
 
@@ -68,7 +68,7 @@ class Server {
 }
 ```
 
-## 02. 개방-폐쇄 원칙(OCP; Open-Closed Principle)
+#### 02. 개방-폐쇄 원칙(OCP; Open-Closed Principle)
 
 **“확장에는 열려 있고, 수정에는 닫혀 있어야 한다”**는 객체지향 설계 원칙
 
@@ -139,33 +139,96 @@ class Main {
 
 즉, `PaymentService`가 `PayStrategy` 인터페이스에 의존하게 되므로, 새로운 기능 추가 시 코드 수정 없이 확장 가능하다.
 
+<br>
+
+### Q1-2. 정리
+
+단일 책임 원칙(SRP)과 개방-폐쇄 원칙(OCP)은 SOLID 원칙 중 가장 기본이 되는 두 원칙입니다.
+
+단일 책임 원칙(Single Responsibility Principle):
+
+- 한 클래스는 하나의 책임만 가져야 합니다.
+- 클래스 변경의 이유가 오직 하나여야 합니다.
+- 예시:
+
+  ```java
+
+      // Bad: 여러 책임이 혼재
+      class UserManager {
+          void createUser() { ... }
+          void saveUserToDatabase() { ... }
+          void sendEmail() { ... }
+      }
+
+      // Good: 책임 분리
+      class UserManager {
+          void createUser() { ... }
+      }
+      class UserRepository {
+          void saveUser() { ... }
+      }
+      class EmailService {
+          void sendEmail() { ... }
+      }
+
+  ```
+
+개방-폐쇄 원칙(Open-Closed Principle):
+
+- 확장에는 열려있고, 수정에는 닫혀있어야 합니다.
+- 기존 코드 수정 없이 새로운 기능 추가 가능해야 합니다.
+- 예시:
+
+  ```java
+    // Bad: 새로운 도형 추가시 수정 필요
+    class AreaCalculator {
+        double calculateArea(Object shape) {
+            if (shape instanceof Rectangle)
+                return ((Rectangle)shape).width * ((Rectangle)shape).height;
+            else if (shape instanceof Circle)
+                return Math.PI * Math.pow(((Circle)shape).radius, 2);
+        }
+    }
+
+    // Good: 새로운 도형 추가시 수정 불필요
+    interface Shape {
+        double calculateArea();
+    }
+    class Rectangle implements Shape {
+        public double calculateArea() { return width * height; }
+    }
+    class Circle implements Shape {
+        public double calculateArea() { return Math.PI * radius * radius; }
+    }
+  ```
+
 ---
 
 ## Q2. Stream API의 `map()`과 `flatMap()`의 차이점을 설명하고, 각각의 활용 사례를 예시 코드와 함께 설명해주세요.
 
-### Q2 답변
+### Q2-1. 답변
 
 Stream(스트림)은 배열, 컬렉션의 저장 요소를 **하나씩 참조해서 람다식으로 처리할 수 있도록 해주는 반복자**로, 이를 활용하면 다량의 데이터에 복잡한 연산을 수행하면서 가독성과 재사용성이 높은 코드를 작성할 수 있다.
 
 `map()`과 `flatMap()`은 stream의 중간 연산에 활용되는 메서드이다. stream의 중간 연산자의 결과는 stream을 반환하기 때문에 여러 개의 중간 연산자를 연결하여 원하는 데이터를 처리할 수 있다.
 
-![rdkRcsHnK4bkj79v8lDN9-1672900480742.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/8d720266-d651-4530-b3e3-47e27aa42b6c/522e3544-60cf-48f3-b7b9-c433658c35e7/rdkRcsHnK4bkj79v8lDN9-1672900480742.png)
+<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/weeklypaper/intermediation_operation.png?raw=true" width=600px>
 
-## 01. `map()`과 `flatMap()`의 차이점
+#### 01. `map()`과 `flatMap()`의 차이점
 
-### `map()`(매핑)
+##### `map()`(매핑)
 
 stream 내의 **요소들에서 원하는 필드만 추출하거나 특정 형태로 변환할 때 사용**하는 중간 연산자로, 참조변수 안에 정의된 각 요소를 순회하면서 특정 연산을 수행한다.
 
 - 입력된 요소 1개가 연산을 거쳐 결과 요소 1개로 반환
 
-### `flatMap()`
+##### `flatMap()`
 
 **중첩된 stream 구조를 평탄화(flatten)**하여 하나의 stream으로 펼쳐주는 중간 연산자
 
 - 입력된 요소 1개가 여러 개의 요소를 가진 stream으로 변환되고, 이것을 하나로 펼친다.
 
-## 02. 활용 사례와 코드 예시
+#### 02. 활용 사례와 코드 예시
 
 아래의 코드 예시처럼 중첩된 구조일 경우 `flatMap()` 메소드를 사용하고 단일 구조일 경우 `map()` 메소드를 사용한다.
 
@@ -204,8 +267,46 @@ PostgreSQL
 MySQL
 ```
 
----
+<br>
 
-## 정리
+### Q2-2. 정리
 
-[위클리페이퍼02: Java 고급 과정 "정리"](https://www.notion.so/jungh20000/02-Java-2e5f59816c0280a193ebf8e9f9f799ff?source=copy_link)
+`map`과 `flatMap`은 Stream API의 중간 연산자이지만, 다른 목적으로 사용됩니다:
+
+`map`:
+
+- 각 요소를 다른 요소로 일대일 변환
+- 스트림의 형태는 유지
+
+```java
+
+// 숫자 리스트의 각 요소를 제곱
+List<Integer> numbers = Arrays.asList(1, 2, 3);
+List<Integer> squared = numbers.stream()
+    .map(n -> n * n)
+    .collect(Collectors.toList()); // [1, 4, 9]
+
+```
+
+`flatMap`:
+
+- 각 요소를 스트림으로 변환 후 하나의 스트림으로 평면화
+- 중첩된 구조를 단일 수준으로 평탄화
+
+```java
+
+// 여러 리스트를 하나의 리스트로 평탄화
+List<List<Integer>> nestedNumbers = Arrays.asList(
+    Arrays.asList(1, 2),
+    Arrays.asList(3, 4)
+);
+List<Integer> flattened = nestedNumbers.stream()
+    .flatMap(Collection::stream)
+    .collect(Collectors.toList());// [1, 2, 3, 4]
+
+```
+
+주요 활용 사례:
+
+- `map`: 단순 데이터 변환 (타입 변환, 값 변환 등)
+- `flatMap`: 중첩 컬렉션 처리, Optional 체이닝, 다대다 관계 처리
