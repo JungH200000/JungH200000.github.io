@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-til/sprint-til031~32/
 toc: true
 toc_sticky: true
 
-date: 2026-02-14
-last_modified_at: 2026-02-15
+date: 2026-02-15
+last_modified_at: 2026-02-16
 ---
 
 # 오늘의 학습
