@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-weekly-paper/weekly-paper005/
 toc: true
 toc_sticky: true
 
-date: 2026-02-20
-last_modified_at: 2026-02-20
+date: 2026-02-23
+last_modified_at: 2026-02-23
 ---
 
 ## Q1. 웹 API의 발전 과정에서 SOAP에서 REST로의 전환이 일어난 이유와 그 장단점에 대해 설명하세요.
