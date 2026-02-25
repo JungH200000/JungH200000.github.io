@@ -7,13 +7,13 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til030/
+permalink: /categories/codeit-sprint/sprint-til/sprint-til036/
 
 toc: true
 toc_sticky: true
 
-date: 2026-02-13
-last_modified_at: 2026-02-13
+date: 2026-02-25
+last_modified_at: 2026-02-25
 ---
 
 # <span style="background-color: #FFF9C4">1. RESTful API 구현: 기본</span>
