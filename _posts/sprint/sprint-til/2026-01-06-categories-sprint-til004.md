@@ -20,6 +20,8 @@ last_modified_at: 2026-01-06
 
 ## <span style="background-color: #FFF9C4">⭐⭐⭐1. 객체지향 프로그래밍의 4가지 핵심 개념</span>
 
+## <span style="background-color: #FFF9C4">⭐⭐⭐1. 객체지향 프로그래밍의 4가지 핵심 개념</span>
+
 ### 1-01. 상속(Inheritance)
 
 **기존 클래스(상위 클래스)의 멤버(필드, 메서드 등)를 새로운 클래스(하위 클래스)가 물려받는 것**

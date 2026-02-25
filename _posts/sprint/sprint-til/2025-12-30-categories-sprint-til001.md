@@ -16,12 +16,6 @@ date: 2025-12-30
 last_modified_at: 2025-01-06
 ---
 
-# 오늘의 성취
-
-- GUI 대신 터미널 명령어를 사용하는 환경에 익숙해지려 노력
-
----
-
 # 오늘의 학습
 
 ## <span style="background-color: #FFF9C4">1. CLI (Command Line Interface)</span>
@@ -104,10 +98,3 @@ last_modified_at: 2025-01-06
 - **Fork**
   - 다른 사용자(또는 조직)의 GitHub 저장소를 내 계정 공간으로 복제하여 개발할 수 있도록 하는 기능
   - 오픈소스 프로젝트나 외부 팀의 저장소에 직접 수정 권한이 없는 경우에 사용
-
----
-
-# 내일 계획
-
-- 원격 저장소(Reomte Repository)와 GitHub
-- Java 프로그래밍
