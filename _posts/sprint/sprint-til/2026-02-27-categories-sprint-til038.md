@@ -1,6 +1,6 @@
 ---
-title: '[TIL 38일 차] 데이터베이스 설계 ~ Spring Data JPA 도입하기'
-excerpt: '데이터베이스 설계-요구사항 분석과 데이터 모델링 준비 ~ Spring Data JPA 도입하기-ORM과 JPA의 이해'
+title: '[TIL 38일 차] Spring Data JPA 도입하기'
+excerpt: 'Spring Data JPA 도입하기-ORM과 JPA의 이해 ~ Entity 연관관계 매핑'
 
 categories:
   - Sprint TIL
