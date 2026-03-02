@@ -329,9 +329,9 @@ CREATE TABLE member (
 
 # Spring Data JPA 도입하기
 
-## <span style="background-color: #FFF9C4">6. ORM과 JPA의 이해</span>
+## <span style="background-color: #FFF9C4">1. ORM과 JPA의 이해</span>
 
-### 6-01. Spring 데이터 엑세스 기술
+### 1-01. Spring 데이터 엑세스 기술
 
 #### 1) SQL 중심 기술
 
@@ -349,7 +349,7 @@ SQL을 직접 쓰기보다, 객체 모델로 데이터 작업을 표현하고, �
 
 <br>
 
-### 6-02. JAP (Java Persistence API)
+### 1-02. JAP (Java Persistence API)
 
 Java 진영에서 사용하는 ORM(Object-Relational Mapping) 기술의 표준 API(사양 또는 명세, Specification)
 
