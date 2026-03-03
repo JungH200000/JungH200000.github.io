@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-weekly-paper/weekly-paper006/
 toc: true
 toc_sticky: true
 
-date: 2026-03-03
-last_modified_at: 2026-03-03
+date: 2026-03-02
+last_modified_at: 2026-03-02
 ---
 
 ## Q1. SQL에서 DDL과 DML의 차이점을 설명하고, 각각의 대표적인 명령어들의 용도를 설명하세요.
@@ -114,15 +114,3 @@ DDL(Data Definition Language)과 DML(Data Manipulation Language)은 다음과 �
 <br>
 
 ### Q4-2. 정리
-
----
-
-## Q5.
-
-### Q5-1. 답변
-
-<br>
-
-### Q5-2. 정리
-
----

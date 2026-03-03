@@ -257,7 +257,7 @@ last_modified_at: 2026-03-03
     - [정적 리소스 v1.2.4](https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12179&version=1&directory=/Release%201.2.4%20dist.zip&name=Release%201.2.4%20dist.zip)
     - [소스 코드(참고용) v1.2.4](https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12179&version=1&directory=/0%20Sprint%20Mission%20Front%201.2.4.zip&name=0%20Sprint%20Mission%20Front%201.2.4.zip)
 
-프론트엔드 소스 코드는 참고용으로만 활용하세요. 수정하여 활용하는 경우 이어지는 요구사항 또는 미션을 수행하는 데 어려움이 있을 수 있습니다.
+> ⚠️ 프론트엔드 소스 코드는 참고용으로만 활용하세요. 수정하여 활용하는 경우 이어지는 요구사항 또는 미션을 수행하는 데 어려움이 있을 수 있습니다.
 
 <br>
 
