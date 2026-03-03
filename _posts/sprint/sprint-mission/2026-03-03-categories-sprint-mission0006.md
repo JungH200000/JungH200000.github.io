@@ -50,7 +50,7 @@ last_modified_at: 2026-03-03
 - [ ] 아래와 같이 데이터베이스 환경을 설정하세요.
   - 데이터베이스: `discodeit`
   - 유저: `discodeit_user`
-  - 패스워드: `discodeit1234`
+  - 패스워드: `notion 참고`
 - [ ] ERD를 참고하여 DDL을 작성하고, 테이블을 생성하세요.
   - 작성한 DDL 파일은 /src/main/resources/schema.sql 경로에 포함하세요.
 
