@@ -16,6 +16,24 @@ date: 2026-01-01
 last_modified_at: 2026-01-01
 ---
 
+<details markdown="1">
+<summary>중요한 글</summary>
+<p>
+
+# 내부 내용 입니다!!
+
+## 알겠습니까??
+
+- 냉
+- 넹
+  - 정말?
+  1. 흠
+  2. 오
+
+</p>
+
+</details>
+
 ## Q1.
 
 ### Q1-1. 답변
