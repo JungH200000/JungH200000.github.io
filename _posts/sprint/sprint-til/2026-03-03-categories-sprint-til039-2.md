@@ -1,6 +1,6 @@
 ---
-title: '[TIL 39-2일 차] Spring Mission6 - table 생성'
-excerpt: ''
+title: '[TIL 39-2일 차] Spring Mission6 - 데이터베이스 환경 설정, table 생성, 의존성 설정'
+excerpt: '2-2. 데이터베이스 ~ 2-3. Spring Data JPA 적용하기'
 
 categories:
   - Sprint TIL
@@ -28,7 +28,7 @@ last_modified_at: 2026-03-03
      - DDL 파일 경로 : `/src/main/resources/schema.sql`
      - table 생성을 JPA `ddl-auto`가 아닌 SQL 스크립트로 table 생성
 
-2. DDL 스키마 실행 방법
+2. DDL 파일 실행 방법
 
 ```yaml
 spring:
