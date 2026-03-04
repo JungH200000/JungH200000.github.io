@@ -1,6 +1,6 @@
 ---
-title: '[TIL 40일 차] Spring Mission6 - '
-excerpt: ''
+title: '[TIL 40일 차] Spring Mission6 - JPA 도입'
+excerpt: '2-4. 엔티티 정의하기 ~ 2-5. 레포지토리와 서비스에 JPA 도입하기'
 
 categories:
   - Sprint TIL
@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-til/sprint-til040/
 toc: true
 toc_sticky: true
 
-date: 2026-03-03
-last_modified_at: 2026-03-03
+date: 2026-03-04
+last_modified_at: 2026-03-04
 ---
 
 # 오늘의 학습
