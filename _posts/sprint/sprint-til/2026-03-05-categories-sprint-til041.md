@@ -29,37 +29,35 @@ last_modified_at: 2026-03-05
 2. OSIV (Open Session In View)란?
 
    Service 계층(트랜잭션 안)에서만 JPA 영속성 컨텍스트를 쓰는게 일반적인데, OSIV를 켜두면 Cotroller/View (응답 직렬화 시점)까지 영속성 컨텍스트를 열어두는 것
-
-- Jpa 기준으로는 "Open EntityManager In View"라고 보면 된다.
-- 예를 들어 Controller에서 `user.getStatus()` 메서드로 접근하면 `status`가 LAZY일 때 원래는 추가 조회가 필요하다. 그런데 Service 트랜잭션이 끝나고 영속성 컨텍스트가 닫혀 있으면, `user.getStatus` 시점에 DB에 접근할 수 없기 때문에 `LazyInitializationException`이 발생한다.
-  - 물론, `JOIN FETCH`로 가져오면 추가 DB 조회는 없음
-- OSIV가 켜져 있으면 Controller/직렬화 단계까지 영속성 컨텍스트가 살아 있어서, 해당 시점에도 LAZY 로딩이 가능해진다.
+   - Jpa 기준으로는 "Open EntityManager In View"라고 보면 된다.
+   - 예를 들어 Controller에서 `user.getStatus()` 메서드로 접근하면 `status`가 LAZY일 때 원래는 추가 조회가 필요하다. 그런데 Service 트랜잭션이 끝나고 영속성 컨텍스트가 닫혀 있으면, `user.getStatus` 시점에 DB에 접근할 수 없기 때문에 `LazyInitializationException`이 발생한다.
+     - 물론, `JOIN FETCH`로 가져오면 추가 DB 조회는 없음
+   - OSIV가 켜져 있으면 Controller/직렬화 단계까지 영속성 컨텍스트가 살아 있어서, 해당 시점에도 LAZY 로딩이 가능해진다.
 
 3. MapStruct
 
    Entity ↔️ DTO 변환 코드를 컴파일 시점에 자동 생성해주는 라이브러리
+   - annotation processor이고, 인터페이스만 정의하면 빌드 시 구현체를 생성
 
-- annotation processor이고, 인터페이스만 정의하면 빌드 시 구현체를 생성
+   - 의존성(dependencies) 추가
+     - `implementation 'org.mapstruct:mapstruct:1.6.3'` : MapStruct 애너테이션(`@Mapper`, `@Mapping` 등)
+     - `annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'` : 컴파일 시 Mapper 구현체를 생성하는 annotation processor
 
-- 의존성(dependencies) 추가
-  - `implementation 'org.mapstruct:mapstruct:1.6.3'` : MapStruct 애너테이션(`@Mapper`, `@Mapping` 등)
-  - `annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'` : 컴파일 시 Mapper 구현체를 생성하는 annotation processor
+   - annotation
+     - `@Mapper` : "해당 인터페이스는 매핑 전용 인터페이스"라고 MapStruct에게 알려주는 애너테이션
+     - `@Mapping" : 필드명이 다를 때 연결 규칙을 명시
+     - `componentModel = "spring"` : Spring Bean으로 등록되게 해서 `@Service`에서 주입받아 사용
+     - 예시
 
-- annotation
-  - `@Mapper` : "해당 인터페이스는 매핑 전용 인터페이스"라고 MapStruct에게 알려주는 애너테이션
-  - `@Mapping" : 필드명이 다를 때 연결 규칙을 명시
-  - `componentModel = "spring"` : Spring Bean으로 등록되게 해서 `@Service`에서 주입받아 사용
-  - 예시
+       ```java
+       @Mapper(componentModel = "spring")
+       public interface ReadStatusMapper {
 
-    ```java
-    @Mapper(componentModel = "spring")
-    public interface ReadStatusMapper {
-
-        @Mapping(source = "user.id", target = "userId")
-        @Mapping(source = "channel.id", target = "channelId")
-        ReadStatusDto toDto(ReadStatus readStatus);
-    }
-    ```
+           @Mapping(source = "user.id", target = "userId")
+           @Mapping(source = "channel.id", target = "channelId")
+           ReadStatusDto toDto(ReadStatus readStatus);
+       }
+       ```
 
 ---
 
