@@ -129,7 +129,7 @@ last_modified_at: 2026-03-03
     - 민감한 데이터
 - [ ] 다음의 클래스 다이어그램을 참고하여 DTO를 정의하세요.
 
-<img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/hd4c6g1of-image.png&name=hd4c6g1of-image.png" width=600px>
+  <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/hd4c6g1of-image.png&name=hd4c6g1of-image.png" width=600px>
 
 - [ ] Entity를 DTO로 매핑하는 로직을 책임지는 Mapper 컴포넌트를 정의해 반복되는 코드를 줄여보세요.
   - 패키지명: `com.sprint.mission.discodeit.mapper`
