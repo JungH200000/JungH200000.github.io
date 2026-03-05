@@ -1,5 +1,5 @@
 ---
-title: '[Sprint Mission2 1차]'
+title: '[Sprint Mission2.1]'
 excerpt: ''
 
 categories:
