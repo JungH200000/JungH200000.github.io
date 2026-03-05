@@ -28,7 +28,7 @@ last_modified_at: 2026-03-05
 
 2. OSIV (Open Session In View)란?
 
-Service 계층(트랜잭션 안)에서만 JPA 영속성 컨텍스트를 쓰는게 일반적인데, OSIV를 켜두면 Cotroller/View (응답 직렬화 시점)까지 영속성 컨텍스트를 열어두는 것
+   Service 계층(트랜잭션 안)에서만 JPA 영속성 컨텍스트를 쓰는게 일반적인데, OSIV를 켜두면 Cotroller/View (응답 직렬화 시점)까지 영속성 컨텍스트를 열어두는 것
 
 - Jpa 기준으로는 "Open EntityManager In View"라고 보면 된다.
 - 예를 들어 Controller에서 `user.getStatus()` 메서드로 접근하면 `status`가 LAZY일 때 원래는 추가 조회가 필요하다. 그런데 Service 트랜잭션이 끝나고 영속성 컨텍스트가 닫혀 있으면, `user.getStatus` 시점에 DB에 접근할 수 없기 때문에 `LazyInitializationException`이 발생한다.
@@ -37,7 +37,7 @@ Service 계층(트랜잭션 안)에서만 JPA 영속성 컨텍스트를 쓰는�
 
 3. MapStruct
 
-Entity ↔️ DTO 변환 코드를 컴파일 시점에 자동 생성해주는 라이브러리
+   Entity ↔️ DTO 변환 코드를 컴파일 시점에 자동 생성해주는 라이브러리
 
 - annotation processor이고, 인터페이스만 정의하면 빌드 시 구현체를 생성
 
@@ -94,7 +94,7 @@ Entity ↔️ DTO 변환 코드를 컴파일 시점에 자동 생성해주는 �
 
 - [x] 다음의 클래스 다이어그램을 참고하여 DTO를 정의하세요.
 
-  <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/hd4c6g1of-image.png&name=hd4c6g1of-image.png" width=600px>
+<img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/hd4c6g1of-image.png&name=hd4c6g1of-image.png" width=600px>
 
 - [진행 중] Entity를 DTO로 매핑하는 로직을 책임지는 Mapper 컴포넌트를 정의해 반복되는 코드를 줄여보세요.
   - 패키지명: `com.sprint.mission.discodeit.mapper`
