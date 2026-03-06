@@ -63,13 +63,13 @@ last_modified_at: 2026-03-04
 
    ```java
    @Table(
-           name = "read_statuses",
-           uniqueConstraints = {
-                   @UniqueConstraint(
-                           name = "uk_read_statuses_user_channel", // 복합 UNIQUE 이름 (uk_<table>_<col1>_<col2>)
-                           columnNames = {"user_id", "channel_id"}
-                   )
-           }
+    name = "read_statuses",
+    uniqueConstraints = {
+      @UniqueConstraint(
+        name = "uk_read_statuses_user_channel", // 복합 UNIQUE 이름 (uk_<table>_<col1>_<col2>)
+        columnNames = {"user_id", "channel_id"}
+        )
+      }
    )
    public class ReadStatus extends BaseUpdatableEntity {...}
    ```

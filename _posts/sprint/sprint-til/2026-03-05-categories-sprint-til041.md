@@ -47,6 +47,7 @@ last_modified_at: 2026-03-05
      - `@Mapper` : "해당 인터페이스는 매핑 전용 인터페이스"라고 MapStruct에게 알려주는 애너테이션
      - `@Mapping" : 필드명이 다를 때 연결 규칙을 명시
      - `componentModel = "spring"` : Spring Bean으로 등록되게 해서 `@Service`에서 주입받아 사용
+     - `uses = "Mapper/클래스명.class"` : 해당 Mapper가 매핑할 때, 다른 Mapper나 클래스를 함께 참조하라는 의미
      - 예시
 
        ```java
