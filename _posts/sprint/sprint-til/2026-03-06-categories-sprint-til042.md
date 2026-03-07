@@ -24,6 +24,9 @@ last_modified_at: 2026-03-06
      - Mapper 추가로 인한 Service 로직 수정
    - BinaryContent 저장 로직 고도화
      - 바이너리 데이터 저장만을 담당하는 `BinaryContentStorage` 인터페이스 설계 및 구현
+       - 바이너리 데이터 저장 메서드 : `UUID put(UUID, byte[])`
+       - 바이너리 데이터를 읽어 `InputStream` 타입으로 반환하는 메서드 : `InputStream get(UUID)`
+       - HTTP API로 바이너리 데이터 다운로드 메서드 : `ResponoseEntity<?> download(BinaryContentDto)`
      - download API 구현
 
 2. **고민**: Mapper가 다른 Mapper를 재사용하고, Mapper가 재사용한 Mapper로 만들어진 Dto를 필드로 가질 때 `@Mapper(componentModel = "spring", uses = BinaryContentMapper.class)` 이 설정 이외의 다른 설정이 필요 없을까?
