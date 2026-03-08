@@ -67,26 +67,9 @@ last_modified_at: 2026-03-06
 
 `// ...`
 
-### 2-5. 레포지토리와 서비스에 JPA 도입하기
-
-`// ...`
-
-- [x] 영속성 컨텍스트의 특징에 맞추어 서비스 레이어를 수정해보세요.
-  - 힌트: `트랜잭션`, `영속성 전이`, `변경 감지`, `지연로딩`
-
-<br>
-
 ### 2-6. DTO 적극 도입하기
 
-- [x] Entity를 Controller 까지 그대로 노출했을 때 발생할 수 있는 문제점에 대해 정리해보세요. DTO를 적극 도입했을 때 보일러플레이트 코드가 많아지지만, 그럼에도 불구하고 어떤 이점이 있는지 알 수 있을거에요.**(이 내용은 PR에 첨부해주세요.)**
-  - 힌트
-    - Entity와 API의 결합
-    - 프로덕션 환경에서는 성능을 고려해 OSIV를 false로 설정하는 경우가 대부분
-    - 양방향 연관관계 시 순환 참조
-    - 민감한 데이터
-- [x] 다음의 클래스 다이어그램을 참고하여 DTO를 정의하세요.
-
-<img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/hd4c6g1of-image.png&name=hd4c6g1of-image.png" width=600px>
+// ...
 
 - [x] Entity를 DTO로 매핑하는 로직을 책임지는 Mapper 컴포넌트를 정의해 반복되는 코드를 줄여보세요.
   - 패키지명: `com.sprint.mission.discodeit.mapper`
