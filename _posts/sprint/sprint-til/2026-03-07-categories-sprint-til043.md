@@ -122,7 +122,7 @@ last_modified_at: 2026-03-07
     - `get` 메소드를 통해 파일의 바이너리 데이터를 조회합니다.
     - BinaryContentDto와 바이너리 데이터를 활용해 `ResponseEntity<Resource>` 응답을 생성 후 반환합니다.
 
-// ...
+`// ...`
 
 ### 3-4. MapStruct 적용
 

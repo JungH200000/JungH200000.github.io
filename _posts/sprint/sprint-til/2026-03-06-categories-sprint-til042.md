@@ -69,7 +69,7 @@ last_modified_at: 2026-03-06
 
 ### 2-6. DTO 적극 도입하기
 
-// ...
+`// ...`
 
 - [x] Entity를 DTO로 매핑하는 로직을 책임지는 Mapper 컴포넌트를 정의해 반복되는 코드를 줄여보세요.
   - 패키지명: `com.sprint.mission.discodeit.mapper`
