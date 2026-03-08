@@ -31,9 +31,6 @@ last_modified_at: 2026-03-08
 3. **페이징**
    - `Pageable pageable` : Spring이 `page`, `size`, `sort`를 조합해 만들어주는 특수 파라미터
      - `GET  /api/messages?channelId=...&page=0&size=50`가 오면 Spring이 내부적으로 `Pageable pageable = PageRequest.of(0, 50, Sort.by(DESC, "createdAt"))`를 만듬
-   - `PageResonseMapper` 인터페이스에서 메서드를 구현하기 위해 `default` 사용
-     - 인터페이스 안에 메서드를 직접 구현하기 위해 `default`를 사용함
-     - MapStruct가 제네릭이 있을 때 구현을 자동 생성하기 힘듬 ➡️ `default`로 자동 생성 오류를 피할 수 있음
 
 ---
 
