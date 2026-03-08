@@ -122,7 +122,15 @@ last_modified_at: 2026-03-07
     - `get` 메소드를 통해 파일의 바이너리 데이터를 조회합니다.
     - BinaryContentDto와 바이너리 데이터를 활용해 `ResponseEntity<Resource>` 응답을 생성 후 반환합니다.
 
-`// ...`
+<br>
+
+// ...
+
+<br>
+
+### 3-4. MapStruct 적용
+
+- [x] Entity와 DTO를 매핑하는 보일러플레이트 코드를 [MapStruct](https://mapstruct.org/) 라이브러리를 활용해 간소화해보세요.
 
 ---
 
