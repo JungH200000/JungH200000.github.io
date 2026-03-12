@@ -1,5 +1,5 @@
 ---
-title: '[Spring 백엔드 초급 프로젝트] 프로젝트 시작 전, 주제부터 역할, 규칙까지'
+title: '[Spring 백엔드 초급 프로젝트 1일차] 프로젝트 시작 전, 주제부터 역할, 규칙까지'
 excerpt: ''
 
 categories:
@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-basic-project/sprint-basic-project00
 toc: true
 toc_sticky: true
 
-date: 2026-03-10
-last_modified_at: 2026-03-10
+date: 2026-03-11
+last_modified_at: 2026-03-11
 ---
 
 # 프로젝트 시작 전, 주제부터 역할, 규칙까지
