@@ -41,14 +41,20 @@ ERD는 어제 분담한 역할에 따라 각자 작성하기로 결정했고, �
   - 그런데 필드명을 `indexInfoId`로 지어버리면 코드를 작성하는 입장에서는
   - "UUID 값이니 컬럼으로 다루면 되겠지?"라고 인식해서 잘못 매핑하게 된다.
 
-<br>
+---
 
 # ERD
 
 <img src="https://raw.githubusercontent.com/JungH200000/JungH200000.github.io/refs/heads/categories-ver2/assets/images/posts_img/basic-project/erd.png" width=900px>
 
-<br>
+---
 
 # 요구사항 정의서
 
 <img src="https://raw.githubusercontent.com/JungH200000/JungH200000.github.io/refs/heads/categories-ver2/assets/images/posts_img/basic-project/Requirements_Definition_Document.png">
+
+---
+
+# GitHub Repository 주소
+
+[https://github.com/sb10-team3/sb10-Findex-team3](https://github.com/sb10-team3/sb10-Findex-team3)
