@@ -20,7 +20,7 @@ last_modified_at: 2026-03-15
 
 이번에는 지수 데이터 조회 로직을 구현할 차례다. 지수 데이터는 **지수**와 **날짜** 조건으로 조회할 수 있고, 소스 타입을 제외한 **모든 속성**으로 정렬 및 페이지네이션을 구현할 수 있다.
 
-쿼리 파라미터로 받는 정렬 필드(sortField)는 String 타입이라서 JPQL에서 `:sortField`는 Column 이름(Entity 필드)으로 동작하지 않고, 그냥 문자열(값)로 동작하게 되는 문제가 발생했다. 고민도 해보고, AI에게도 물어본 결과 sortField의 타입에 따라 다른 Repository 메서드를 만들어야 된다는 것을 알게 되었다.
+쿼리 파라미터로 받는 정렬 필드(sortField)는 String 타입이라서 JPQL에서 `:sortField`는 Column(Entity 필드)으로 동작하지 않고, 그냥 문자열(값)로 동작하게 되는 문제가 발생했다. 고민도 해보고, AI에게도 물어본 결과 sortField의 타입에 따라 다른 Repository 메서드를 만들어야 된다는 것을 알게 되었다.
 
 이에 맞춰 `Service`에서 String 타입으로 오는 `sortField`의 타입에 맞게 parse하여 `cursor`의 타입과 함께 지수 데이터 조회 분기 로직을 만들었다.
 
