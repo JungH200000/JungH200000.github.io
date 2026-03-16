@@ -43,11 +43,17 @@ last_modified_at: 2026-03-15
 
 - 지수 데이터 조회 로직의 **응답 시간**
   - API : `GET /api/index-data?indexInfoId={{indexInfoId}}&sortField={{sortField}}&sortDirection=desc&size=10`
-  - 첫 애플리케이션 실행 후 : **416ms**
+  - 첫 애플리케이션 실행 후 : **456ms**
   - **2번째부터**
-    - 같은 요청 ➡️ **10~15ms**
-    - 다음 페이지 ➡️ **9~12ms**
+    - 같은 요청 ➡️ **15~20ms**
+    - 다음 페이지 ➡️ **14~17ms**
 
 - **참고**
   - `toString()`은 일반적인 문자열 변환 메서드인데, `BigDecimal.toString()`을 하면 **지수 표기법(1E+7 등)**이 나올 수 있다.
   - `toPlainString()`은 `BigDecimal` 전용 메서드로, **지수 표기법** 없이 숫자를 그대로 풀어서 보여준다.
+
+---
+
+# GitHub Repository 주소
+
+[https://github.com/sb10-team3/sb10-Findex-team3](https://github.com/sb10-team3/sb10-Findex-team3)
