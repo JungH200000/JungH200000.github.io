@@ -39,6 +39,15 @@ last_modified_at: 2026-03-15
 
 위 문제를 해결 후, 프론트엔드에서도 테스트 해봤는데, `CursorPageResponse`가 `CursorPageResponseIndexDataDto`로 래핑되어 있어서 데이터를 불러오는 중에 오류가 발생했다. 그래서 `CursorPageResponse`를 `CursorPageResponseIndexDataDto`로 래핑하지 않고, `CursorPageResponseIndexDataDto`를 바로 출력하는 방식으로 `Service` 로직을 변경했다.
 
+---
+
+- 지수 데이터 조회 로직의 **응답 시간**
+  - API : `GET /api/index-data?indexInfoId={{indexInfoId}}&sortField={{sortField}}&sortDirection=desc&size=10`
+  - 첫 애플리케이션 실행 후 : **416ms**
+  - **2번째부터**
+    - 같은 요청 ➡️ **10~15ms**
+    - 다음 페이지 ➡️ **9~12ms**
+
 - **참고**
   - `toString()`은 일반적인 문자열 변환 메서드인데, `BigDecimal.toString()`을 하면 **지수 표기법(1E+7 등)**이 나올 수 있다.
   - `toPlainString()`은 `BigDecimal` 전용 메서드로, **지수 표기법** 없이 숫자를 그대로 풀어서 보여준다.
