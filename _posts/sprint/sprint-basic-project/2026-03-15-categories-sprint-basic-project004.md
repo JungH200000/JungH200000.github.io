@@ -26,7 +26,7 @@ last_modified_at: 2026-03-15
 
 `Repository`에서는 각 타입에 맞는 `@Query`를 가진 로직을 구현했다. Criterial APi나 Specification, QueryDSL을 활용해 쿼리 고도화가 가능하지만, 잘 알지 못해서 자주 사용하던 `@Query`문으로 구현했다.
 
-전부 완성된 후, Postman에서 테스트 해봤는데, 다른 데이터 타입에서는 제대로 동작하지만 `LocalDate` 타입인 `baseDate`가 `:basDate`나 `:cursor` 형식으로 불러와질 때 PostgreSQL이 해당 JPQL을 SQL로 인식하지 못하는 문제가 발생했다. 좀 더 정확한 오류는 아래와 같다.
+전부 완성된 후, Postman에서 테스트 해봤는데, 다른 데이터 타입에서는 제대로 동작하지만 `LocalDate` 타입인 `baseDate`가 `:baseDate`나 `:cursor` 형식으로 불러와질 때 PostgreSQL이 해당 JPQL을 SQL로 인식하지 못하는 문제가 발생했다. 좀 더 정확한 오류는 아래와 같다.
 
 - **문제:** `LocalDate` 타입일 때 PostgreSQL이 JPQL을 SQL로 인식하지 못하는 문제
 
