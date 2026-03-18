@@ -21,10 +21,9 @@ last_modified_at: 2026-03-13
 오늘 아침 회의에서 어제 정하지 못한 공통 패키지 구조를 정했다. 공통 기능을 `common` 패키지에, 예외 처리는 `exception` 패키지에, OpenAPI 문서 설정은 `config` 패키지에 두는게 어떻냐고 제안했고, 팀원들이 동의했다. 구현은 혹시 몰라 미리 작성해둔 내가 이어서 맡아 하기로 결정했다.
 
 ```
-common
- ┗ pagination
-    ┣ CursorPageResponse.java
-    ┗ CursorPageResponseMapper.java
+pagination
+ ┣ CursorPageResponse.java
+ ┗ CursorPageResponseMapper.java
 
 config
  ┗ OpenApiConfig.java
