@@ -26,7 +26,7 @@ last_modified_at: 2026-03-18
 
 지수 데이터 목록 조회 기능을 구현할 때 **날짜 범위 필터**와 **커서 기반 페이지네이션**을 포함해야 했다.
 
-초기 구현에서 JPQL에 `AND (:startDate IS NULL OR i.baseDate >= :startDate)` 형태로 조건을 처리했는데, PosgreSQL 환경에서 `LocalDate` 타입 파라미터를 포함한 쿼리를 실행할 때 “`SQLState: 42P18` , 오류: $\*" 매개 변수의 자료형을 알 수 없습니다.”라는 오류가 발생했다.
+초기 구현에서 JPQL에 `AND (:startDate IS NULL OR i.baseDate >= :startDate)` 형태로 조건을 처리했는데, PostgreSQL 환경에서 `LocalDate` 타입 파라미터를 포함한 쿼리를 실행할 때 “`SQLState: 42P18` , 오류: $\*" 매개 변수의 자료형을 알 수 없습니다.”라는 오류가 발생했다.
 
 [4-1problem1.png]
 
