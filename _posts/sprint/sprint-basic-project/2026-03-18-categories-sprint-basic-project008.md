@@ -28,7 +28,7 @@ last_modified_at: 2026-03-18
 
 초기 구현에서 JPQL에 `AND (:startDate IS NULL OR i.baseDate >= :startDate)` 형태로 조건을 처리했는데, PostgreSQL 환경에서 `LocalDate` 타입 파라미터를 포함한 쿼리를 실행할 때 “`SQLState: 42P18` , 오류: $\*" 매개 변수의 자료형을 알 수 없습니다.”라는 오류가 발생했다.
 
-[4-1problem1.png]
+<img width="1732" height="745" alt="4-1problem1" src="https://github.com/user-attachments/assets/dc27d4c3-cdf7-4ca1-9f9d-6e55d07fbb53" />
 
 처음에는 `startDate`, `endDate`가 포함된 조회한 요소 전체 수 조회에서 문제가 발생했고, 수정한 뒤에는 두 번째 페이지 조회에서 cursor 조건 때문에 동일한 유형의 오류가 다시 발생했다.
 
@@ -112,9 +112,9 @@ last_modified_at: 2026-03-18
 
 그 결과 날짜 범위가 포함된 조회와 `baseDate` 기준 커서 페이지네이션이 모두 정상 동작하게 되었다.
 
-[4-1solve2.png]
+<img width="1732" height="243" alt="4-1solve2" src="https://github.com/user-attachments/assets/0ee9d14c-f109-4bd5-bbc6-555e1c369aee" />
 
-[4-1solve1.png]
+<img width="1735" height="331" alt="4-1solve1" src="https://github.com/user-attachments/assets/1f98c8ef-1c28-4381-a283-00c032d81f6e" />
 
 이 과정을 통해 `null`이 될 수 있는 파라미터를 포함한 JPQL은 데이터베이스별 동작 차이를 고려하여 로직을 구현해야 한다는 것을 깨달았고, QueryDSL을 이용해 동적 쿼리를 대처하는 것이 더 안전할 것 같다고 생각했다.
 
@@ -122,7 +122,7 @@ last_modified_at: 2026-03-18
 
 프론트엔드와 수정 API를 연동하는 과정에서 요청이 실패하는 문제가 발생했다.
 
-[4-2problem1.png]
+<img width="838" height="291" alt="4-2problem1" src="https://github.com/user-attachments/assets/aa1598bf-78da-4ae8-9960-b1850c0027a1" />
 
 원인을 확인해보니, 프론트엔드에서 백엔드 Request DTO에 정의되지 않은 필드를 함께 전송하고 있었고, 백엔드에서는 Jackson의 `fail-on-unknown-properties` 옵션으로 정의되지 않은 필드가 들어오는 것을 막고 있어서, 역직렬화 오류가 발생하고 있는 거였다.
 
