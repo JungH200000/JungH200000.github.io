@@ -103,6 +103,12 @@ exception
 
 ---
 
+# 팀 Notion 주소
+
+[[SB10-3팀] Sprint Spring 백엔드 초급 팀 프로젝트](https://www.notion.so/jungh20000/SB10-3-Sprint-Spring-321f59816c02803aafbdf8a3354cfcdf?source=copy_link)
+
+---
+
 # GitHub Repository 주소
 
 [https://github.com/sb10-team3/sb10-Findex-team3](https://github.com/sb10-team3/sb10-Findex-team3)
