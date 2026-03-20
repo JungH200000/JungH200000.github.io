@@ -1,6 +1,6 @@
 ---
 title: '[TIL 46일 차] Spring 안정성 높이기'
-excerpt: ' 1. 애플리케이션 안정성 개요 ~ 2. 예외 처리의 이해'
+excerpt: '1. 애플리케이션 안정성 개요 ~ 2. 예외 처리의 이해'
 
 categories:
   - Sprint TIL
