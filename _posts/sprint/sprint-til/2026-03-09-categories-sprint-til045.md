@@ -1,5 +1,5 @@
 ---
-title: '[TIL 45일 차] Spring Mission6 - Feedback'
+title: '[TIL 45일 차] Sprint Mission6 - Feedback'
 excerpt: ''
 
 categories:

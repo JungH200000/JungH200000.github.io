@@ -1,5 +1,5 @@
 ---
-title: '[TIL 40일 차] Spring Mission6 - JPA 도입'
+title: '[TIL 40일 차] Sprint Mission6 - JPA 도입'
 excerpt: '2-4. 엔티티 정의하기 ~ 2-5. 레포지토리와 서비스에 JPA 도입하기'
 
 categories:

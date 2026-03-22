@@ -1,5 +1,5 @@
 ---
-title: '[TIL 44일 차] Spring Mission6 - 페이징과 정렬 구현 및 최적화, 테스트'
+title: '[TIL 44일 차] Sprint Mission6 - 페이징과 정렬 구현 및 최적화, 테스트'
 excerpt: '2-8. 페이징과 정렬 ~ 3-3. 페이지네이션 최적화'
 
 categories:

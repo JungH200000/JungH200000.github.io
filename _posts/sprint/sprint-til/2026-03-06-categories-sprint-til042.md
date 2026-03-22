@@ -1,5 +1,5 @@
 ---
-title: '[TIL 42일 차] Spring Mission6 - DTO 도입 ~ BinaryContent 저장 로직 고도화'
+title: '[TIL 42일 차] Sprint Mission6 - DTO 도입 ~ BinaryContent 저장 로직 고도화'
 excerpt: '2-6. DTO 적극 도입하기 ~ 2-7. BinaryContent 저장 로직 고도화'
 
 categories:

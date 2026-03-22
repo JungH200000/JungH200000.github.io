@@ -1,5 +1,5 @@
 ---
-title: '[TIL 43일 차] Spring Mission6 - BinaryContent 저장 로직 고도화'
+title: '[TIL 43일 차] Sprint Mission6 - BinaryContent 저장 로직 고도화'
 excerpt: '2-7. BinaryContent 저장 로직 고도화'
 
 categories:
