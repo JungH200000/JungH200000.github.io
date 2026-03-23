@@ -1,6 +1,6 @@
 ---
 title: '[TIL 47일 차] Spring 안정성 높이기'
-excerpt: '3. 효과적인 예외 처리 구현 ~ 8. Spring Actuator 이해와 활용'
+excerpt: '3.효과적인 예외 처리 구현 ~ 8.Spring Actuator 이해와 활용'
 
 categories:
   - Sprint TIL
