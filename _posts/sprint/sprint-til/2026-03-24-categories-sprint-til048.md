@@ -112,7 +112,7 @@ dependencies {
 
 #### 1) 테스트 관련 애너테이션
 
-`@SpringBootTest`, `@WebMvcTest`, `@DataJpaTest`, `@MockBean`, `@SpyBean`, `@Test`, `@BeforeEach`, `@AfterEach`
+`@SpringBootTest`, `@WebMvcTest`, `@DataJpaTest`, `@MockitoBean`, `@MockitoSpyBean`, `@Test`, `@BeforeEach`, `@AfterEach`
 
 #### 2) 테스트 데이터 초기화
 
@@ -426,7 +426,7 @@ Spring Boot에서 각 기술에 맞는 슬라이스 테스트 애너테이션을
 
 - Mock 객체 생성, 동작 설정, 호출 검증 등을 손쉽게 제공
 - 테스트의 정확성, 독립성, 실행 속도를 보장하는데 큰 역할
-- Spring Framework는 `@MockBean` 등으로 Mockito와 자연스럽게 통합되어 있음
+- Spring Framework는 `@MockitoBean` 등으로 Mockito와 자연스럽게 통합되어 있음
 - **사용 시기**
   - 외부 API나 DB 등 실제 객체 사용이 부담될 때
   - 테스트 대상이 아닌 다른 계층의 동작을 무시하고 싶을 때
@@ -443,7 +443,7 @@ Spring Boot에서 각 기술에 맞는 슬라이스 테스트 애너테이션을
 
 - `Mockito.mock()`
 - `@Mock` + `@ExtendWith(MockitoExtension.class)`
-- `@MockBean`
+- `@MockitoBean`
 
 #### 2) Mock 객체 주입 기법
 
@@ -451,9 +451,9 @@ Mock 객체를 생성한 뒤 테스트 대상 클래스에 주입하는 방법
 
 - 생상자 주입
 - `@InjectMocks` 애너테이션
-- `@MockBean` + Spring Context 주입(`@Autowired`)
+- `@MockitoBean` + Spring Context 주입(`@Autowired`)
 
-`@MockBean`은 통합 테스트에서만 사용
+`@MockitoBean`은 통합 테스트에서만 사용
 
 단위 테스트에는 `@Mock` + `@InjectMocks` 조합이 권장됨
 
