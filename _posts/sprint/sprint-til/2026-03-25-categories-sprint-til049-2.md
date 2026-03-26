@@ -18,7 +18,7 @@ last_modified_at: 2026-03-25
 
 # 오늘의 성취
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - 개발(dev), 운영(prod) 환경에 따라 프로파일 생성
   - `application-dev.yaml`, `application-prod.yaml`
@@ -31,6 +31,8 @@ last_modified_at: 2026-03-25
   - `logback-spring.xml` 파일에 로그 정책 설정
     - 저장 경로, 저장 파일 이름 설정
     - 일자별 롤링, 최대 보관일 설정
+
+---
 
 # 프로젝트 요구 사항
 
