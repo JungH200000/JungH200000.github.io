@@ -18,34 +18,50 @@ last_modified_at: 2026-01-14
 
 # 오늘의 성취
 
-### 1. 개발 진행 현황
+## 1. 개발 진행 현황
 
 - `JCFMessageService.java` 구현체 완성
 - 각 객체 삭제 시 의존 관계 설정
 - 메인 클래스(테스트 용) 구현
 - 피드백 받는 중...
 
-### 2. 객체 참조
+<br>
+
+## 2. 고민
+
+### 객체 참조
 
 - `new Message(...)`를 하는 순간 자바에서는 힙(Heap) 메모리 영역에 단 하나의 실제 객체가 생성됨
 - 이 객체를 `data.put(...)`, user 객체의 메세지 리스트, channel 객체의 메세지 리스트 등에 **주소**로 저장됨.
 - 즉, 모두 같은 주소를 바라보게 되기 때문에 하나만 수정해도 전체 반영이 됨
 - 다만 **관계의 변경**의 경우 한 쪽에서 연결을 끊는다고 해도 다른 쪽에서는 계속 참조하고 있기 때문에 전부 끊어 주는 게 좋음
 
-### 3. 불변(Immutable) 리스트
+### 불변(Immutable) 리스트
 
 - `stream().toList()`를 사용하면 불변 리스트를 반환
 - ex: `return listA.stream().toList()`하면 반환 받는 외부에서 `listA`를 수정하지 못하게 함
 - 즉, 조회만 가능한 메서드를 만들 때 사용
 
-### 4. DIP(Dependency Inversion Principle)
+### DIP(Dependency Inversion Principle)
 
 - 구체적인 클래스에 직접 의존하지 말고, 인터페이스(추상화)에 의존하자
 - 잘못된 ex: `JCFMessageService messageService = new JCFMessageService(messageRepo);`
 - 옳은 ex: `MessageService messageService = new JCFMessageService(messageRepo);`
 - 인터페이스로 타입을 제한하면, `MessageService`가 약속한 기능만 사용하게 강제된다.
 
-### 5. 문제 상황: 원본 List 내부에서 데이터를 삭제하는 코드로 인한 `ConcurrentModificationException` 예외 발생
+### 상황별 Java Exception 종류
+
+- `NullPointerException`: null이 들어오는 건 절대 일어나서는 안 된다.
+- `NoSuchElementException`: 요청한 요소를 찾을 수 없다.
+- `IllegalArgumentException`: 입력 파라미터가 잘못됐다.
+- `IllegalStateException`: 객체의 현재 상태(state)에서 호출된 메서드가 실행될 수 없는 상황(ex: 이미 존재하는 상태)
+- `ConcurrentModificationException`: "컬렉션 순회 중 구조 변경(추가/삭제)으로 발생하는 fail-fast 예외" (인덱스가 변하기 때문에)
+
+<br>
+
+## 3. 문제
+
+### 상황: 원본 List 내부에서 데이터를 삭제하는 코드로 인한 `ConcurrentModificationException` 예외 발생
 
 - `ConcurrentModificationException` 예외는 순회 도중 인덱스가 늘어나거나 감소하면서 발생하는 문제
 - 해결하는 가장 쉬운 방법은 `ArrayList`로 복사본을 만들고, 해당 복사본으로 작업하는 것
@@ -55,14 +71,6 @@ last_modified_at: 2026-01-14
 - 해결 방법2: `getChannelMessagesList()`가 `return channelMessagesList.stream().toList();`를 반환하기
   - `stream().toList()`: 원본 데이터를 바탕으로 새롭게 생성된 별개의 List 객체(복사본)
   - 즉, 자바는 현재 복사본을 보고 있지만 `deleteMessage()` 메소드 내에서는 원본을 수정하고 있기 때문에 예외를 발생시키지 않음
-
-### 6. 상황별 Java Exception 종류
-
-- `NullPointerException`: null이 들어오는 건 절대 일어나서는 안 된다.
-- `NoSuchElementException`: 요청한 요소를 찾을 수 없다.
-- `IllegalArgumentException`: 입력 파라미터가 잘못됐다.
-- `IllegalStateException`: 객체의 현재 상태(state)에서 호출된 메서드가 실행될 수 없는 상황(ex: 이미 존재하는 상태)
-- `ConcurrentModificationException`: "컬렉션 순회 중 구조 변경(추가/삭제)으로 발생하는 fail-fast 예외" (인덱스가 변하기 때문에)
 
 ---
 

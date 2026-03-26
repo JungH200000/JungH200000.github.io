@@ -18,20 +18,24 @@ last_modified_at: 2026-03-09
 
 # 오늘의 학습
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - Feedback : 채널 목록 조회 시 N+1 문제 발생 가능
   - 채널 목록 조회 시 `ReadStatus`를 조회하는 부분을 개선
   - [Feedback 바로가기](#260309---feedback)
 
-### 2. JPQL의 생성자 표현식(Constructor Expression)
+<br>
+
+## 2. 고민
+
+### JPQL의 생성자 표현식(Constructor Expression)
 
 조회 결과를 Entity가 아닌 DTO 객체로 바로 만들어서 반환하는 문법
 
 - 형태 : `new DTO이름(조회값1, 조회값2)`
 - 예시 : `SELECT new com.sprint.mission.discodeit.dto.message.ChannelLastMessageAtDto(m.channel.id, max(m.createdAt))`
 
-### 3. `Map` 만들기
+### `Map` 만들기
 
 - 하나의 키에 여러 값을 매핑해서 빠르게 찾고 싶을 때, `Map`과 `Stream API`, `getOrDefault()`를 함께 사용하면 깔끔한 코드를 만들 수 있다.
 - Map을 사용하면, 관련 데이터를 한 번에 조회한 뒤, 메모리에서 빠르게 꺼내 사용할 수 있어, 매번 DB에 조회하여 발생하는 N+1 문제를 예발할 수 있다.
@@ -66,7 +70,7 @@ last_modified_at: 2026-03-09
           ));
   ```
 
-### 4. `getOrDefault(key, defaultValue)`
+### `getOrDefault(key, defaultValue)`
 
 - 어떤 `key`로 값을 찾을 때, `key`가 존재하면 해당 값을 반환하고, `key`가 없다면 기본값을 대신 반환해주는 메서드로, `Map` 인터페이스에서 많이 사용함.
 - `key` : 찾고 싶은 키

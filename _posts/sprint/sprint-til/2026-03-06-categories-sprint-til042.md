@@ -18,7 +18,7 @@ last_modified_at: 2026-03-06
 
 # 오늘의 학습
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - DTO 도입
   - Entity를 DTO로 매핑하는 Mapper 컴포넌트 정의
@@ -30,14 +30,18 @@ last_modified_at: 2026-03-06
     - HTTP API로 바이너리 데이터 다운로드 메서드 : `ResponoseEntity<?> download(BinaryContentDto)`
   - download API 구현
 
-### 2. **고민**: Mapper가 다른 Mapper를 재사용하고, Mapper가 재사용한 Mapper로 만들어진 Dto를 필드로 가질 때 `@Mapper(componentModel = "spring", uses = BinaryContentMapper.class)` 이 설정 이외의 다른 설정이 필요 없을까?
+<br>
+
+## 2. 고민
+
+### Mapper가 다른 Mapper를 재사용하고, Mapper가 재사용한 Mapper로 만들어진 Dto를 필드로 가질 때 `@Mapper(componentModel = "spring", uses = BinaryContentMapper.class)` 이 설정 이외의 다른 설정이 필요 없을까?
 
 - `User` 안에 `profile` 필드가 있고, 그 타입이 `BinaryContent`이고,
 - `UserDto`의 `profile` 타입이 `BinaryContentDto`이며,
 - `BinaryContentMapper`에 `BinaryContentDto toDto(BinaryContent binaryContent)` 메서드가 있다면
 - MapStruct는 `profile` 필드를 보고 자동으로 `BinaryContentMapper`의 매핑 메서드를 찾아서 사용한다.
 
-### 3. **고민**: Entity에 없는 필드가 `ChannelDto`에 존재하고, 직접 작성한 로직을 해당 Dto에 넣고 싶을 때, `ChannelMapper`는 어떻게 구성되어야 할까?
+### Entity에 없는 필드가 `ChannelDto`에 존재하고, 직접 작성한 로직을 해당 Dto에 넣고 싶을 때, `ChannelMapper`는 어떻게 구성되어야 할까?
 
 - `@Mapping`의 `expression` 옵션을 사용하면 된다.
   - `source` 필드를 그대로 사용하지 않고, 직접 작성한 로직을 `target` 필드에 넣고 싶을 때 사용하는 옵션이다.
@@ -45,23 +49,27 @@ last_modified_at: 2026-03-06
 
 - 더불어, `@Mapping(source = "status.isOnlineStatus", target = "online")`처럼 메서드를 호출하는 식으로 작성되면 컴파일 문제가 발생할 수 있기 때문에 `expression` 옵션을 사용해 `@Mapping(target = "online", expression = "java(user.getStatus().isOnlineStatus())")`처럼 표현
 
-### 4. **고민**: `ChannelMapper`를 만드는데 인터페이스가 아닌 추상 클래스를 사용한 이유
+### `ChannelMapper`를 만드는데 인터페이스가 아닌 추상 클래스를 사용한 이유
 
 - 요구사항에 따라 의존성 필드로 `MessageRepository`와 `ReadStatusRepository`, `UserMapper`를 사용되어야 하고,
 - "의존성 필드를 이용해 직접 작성한 로직 + 자동 MapStruct 매핑"이 존재하기 때문에 인터페이스보다는 추상 클래스가 더 선호됨
   - 참고로, MapStruct는 mapper를 인터페이스와 추상(abstract) 클래스로 만들 수 있다.
 
-### 5. 추상 클래스로 작성된 `ChannelMapper`에서 직접 작성한 로직은 `protected`를 접근 제어자로 가져야 한다.
+### 추상 클래스로 작성된 `ChannelMapper`에서 직접 작성한 로직은 `protected`를 접근 제어자로 가져야 한다.
 
 - MapStruct는 인터페이스로 작성된 Mapper는 해당 Mapper를 구현하는 클래스로, 추상 클래스로 작성된 Mapper는 해당 Mapper를 상속하는 클래스로 실제 구현 클래스를 생성한다.
 - 그래서 상속한 자식 클래스에서 접근하기 위해서 `protected`를 접근 제어자로 가져야 한다.
 
-### 6. **문제** : "org.hibernate.StaleObjectStateException: Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect): [com.sprint.mission.discodeit.entity.User#354c200e-9876-427a-ab49-b933f3a14f93]" 예외 발생
+<br>
+
+## 3. 문제
+
+### "org.hibernate.StaleObjectStateException: Row was updated or deleted by another transaction (or unsaved-value mapping was incorrect): [com.sprint.mission.discodeit.entity.User#354c200e-9876-427a-ab49-b933f3a14f93]" 예외 발생
 
 - **원인** : `BaseEntity`에 UUID를 랜덤 생성하는 로직이 있어서 Spring Data JPA의 `save()`가 id가 있는 객체로 보게 되고, `persist`가 아닌 `merge`를 하게 된다. 하지만 해당 id를 지닌 객체는 db에 존재하지 않음으로 예외 발생
 - **해결** : UUID를 랜덤 생성하는 로직을 지우고 `@NoArgsConstructor`를 추가
 
-### 7. **문제** : "org.postgresql.util.PSQLException: 오류: "created_at" 칼럼(해당 릴레이션 "binary_contents")의 null 값이 not null 제약조건을 위반했습니다." 오류 발생
+### "org.postgresql.util.PSQLException: 오류: "created_at" 칼럼(해당 릴레이션 "binary_contents")의 null 값이 not null 제약조건을 위반했습니다." 오류 발생
 
 - 즉, `@CreatedDate`가 제대로 동작하지 않아, `created_at`이 제때 생성되지 않음
 

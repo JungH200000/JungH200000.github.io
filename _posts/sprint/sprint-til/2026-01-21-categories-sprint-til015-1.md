@@ -19,12 +19,16 @@ last_modified_at: 2026-01-21
 
 # 오늘의 성취
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - 관심사 분리를 통한 레이어 간 의존성 주입
   - 이전에는 `Service`로 의존성을 나타냈다면, 이번에는 `Service`가 아닌 `Repository`로 의존성을 나타냄
 
-### 2. `JCF*Service`랑 `File*Service`의 공통점과 차이점
+<br>
+
+## 2. 고민
+
+### `JCF*Service`랑 `File*Service`의 공통점과 차이점
 
 - 공통점
   - 비즈니스 규칙과 검증 로직은 거의 동일

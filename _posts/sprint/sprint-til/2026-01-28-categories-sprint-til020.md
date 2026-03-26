@@ -18,7 +18,7 @@ last_modified_at: 2026-01-28
 
 # 오늘의 성취
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - 시간 관련 필드 타입을 `Instant`로 변경
 - 새로운 도메인 추가
@@ -27,26 +27,34 @@ last_modified_at: 2026-01-28
   - 바이너리 데이터를 저장하는 `BinaryContent` 도메인 구현
 - DTO와 `UserStatus`, `BinaryContent` 도메인을 이용한 `UserService` 고도화
 
-### 2. 바이너리 데이터를 저장할 때 byte 타입으로 하면 안될까?
+<br>
+
+## 2. 고민
+
+### 바이너리 데이터를 저장할 때 byte 타입으로 하면 안될까?
 
 - byte는 단일 8비트 정수 값을 저장하는 기본형
 - byte[](byte 배열)은 여러 개의 byte를 연속적으로 저장하는 자료 구조
 - byte를 사용하면 용량이 1바이트라서 바이너리 데이터 저장이 불가능하지만 byte[]을 사용하면 파일 크기만큼 저장 가능하다,
 
-### 3. Duration.toMinutes()는 버림(floor division) 처리가 적용됨
-
-- 기존 코드 : `Duration.between(lastOnlineTime, Instant.now()).toMinutes() <= 5`
-- 해결 : `Instant.now().isBefore(lastOnlineTime.plus(Duration.ofMinutes(5)))`
-  - `lastOnlineTime`에 `Duration.ofMinutes(5)`(5분;300초)을 더한 `Instant` 반환
-
-### 4. Bean? `new`?
+### Bean? `new`?
 
 - Spring에서 Bean으로 관리해야 할 것들은 상태를 공유하거나(싱글톤), 의존성을 주입 받는 컴포넌트(Service/Repository/Controller) 같은 것들
 - 도메인 객체는 보통 매 요청/호출마다 새로 만들어 사용하니 `new`로 만듦
 
-### 5. Array(배열) 비교
+### Array(배열) 비교
 
 - `Arrays.equals(a, b);` ➡️ a와 b 배열이 동일하면 `true` 반환
+
+<br>
+
+## 3. 문제
+
+### Duration.toMinutes()는 버림(floor division) 처리가 적용됨
+
+- 기존 코드 : `Duration.between(lastOnlineTime, Instant.now()).toMinutes() <= 5`
+- 해결 : `Instant.now().isBefore(lastOnlineTime.plus(Duration.ofMinutes(5)))`
+  - `lastOnlineTime`에 `Duration.ofMinutes(5)`(5분;300초)을 더한 `Instant` 반환
 
 ---
 

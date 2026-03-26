@@ -18,7 +18,7 @@ last_modified_at: 2026-03-05
 
 # 오늘의 학습
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - Repository와 Service에 JPA 도입
   - 영속성 컨텍스트의 특징에 맞추어 Service 수정
@@ -27,7 +27,11 @@ last_modified_at: 2026-03-05
     - MapStruct 라이브러리 의존성 추가
     - 요구사항의 클래스 다이어그램을 참고하여 DTO 수정
 
-### 2. OSIV (Open Session In View)란?
+<br>
+
+## 2. 고민
+
+### OSIV (Open Session In View)란?
 
 Service 계층(트랜잭션 안)에서만 JPA 영속성 컨텍스트를 쓰는게 일반적인데, OSIV를 켜두면 Cotroller/View (응답 직렬화 시점)까지 영속성 컨텍스트를 열어두는 것
 
@@ -36,7 +40,7 @@ Service 계층(트랜잭션 안)에서만 JPA 영속성 컨텍스트를 쓰는�
   - 물론, `JOIN FETCH`로 가져오면 추가 DB 조회는 없음
 - OSIV가 켜져 있으면 Controller/직렬화 단계까지 영속성 컨텍스트가 살아 있어서, 해당 시점에도 LAZY 로딩이 가능해진다.
 
-### 3. MapStruct
+### MapStruct
 
 Entity ↔️ DTO 변환 코드를 컴파일 시점에 자동 생성해주는 라이브러리
 

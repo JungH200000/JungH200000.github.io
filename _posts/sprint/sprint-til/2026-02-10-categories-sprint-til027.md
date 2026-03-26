@@ -18,7 +18,7 @@ last_modified_at: 2026-02-10
 
 # 오늘의 학습
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - Service 로직을 활용해 웹 API 구현
   - 메시지 수신 정보 관리를 위한 `ReadStatusController` 구현
@@ -30,6 +30,8 @@ last_modified_at: 2026-02-10
     - 바이너리 파일을 여러 개 조회 API `downloadFiles` 핸들러 메서드 구현
 - 사용자 목록을 보여주는 화면 출력
   <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/sprint_mission04_test01.png?raw=true" width=700px>
+
+---
 
 # 프로젝트 요구 사항
 

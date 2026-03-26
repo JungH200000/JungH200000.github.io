@@ -18,7 +18,7 @@ last_modified_at: 2026-01-29
 
 # 오늘의 성취
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - **피드백 받은 부분 수정 진행** : [26.01.28 - Sprint3 Feedback](https://www.notion.so/jungh20000/26-01-28-Sprint3-Feedback-2f6f59816c0280898898d1580294c2a9?source=copy_link)
 - `AuthService` 구현

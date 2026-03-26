@@ -18,20 +18,24 @@ last_modified_at: 2026-02-06
 
 # 오늘의 성취
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - Service 로직을 활용해 웹 API 구현
   - 사용자 관리 Controller인 `UserController` 구현
     - 사용자 등록, 사용자 정보 수정, 모든 사용자 조회, 사용자 온라인 상태 업데이트 핸들러 메서드 생성
     - 사용자 삭제 핸들러 메서드는 채널 관리 Controller 완성 후 생성
 
-### 2. **고민** : `UserController` 핸들러에서 `createUser` 핸들러 메서드의 반환 값에 `isOnline`을 포함시킬지 고민
+<br>
+
+## 2. 고민
+
+### `UserController` 핸들러에서 `createUser` 핸들러 메서드의 반환 값에 `isOnline`을 포함시킬지 고민
 
 - 기존 `UserResponse` DTO 활용 시, `createUser` 핸들러 메서드에서 `User`와 `UserStatus` 객체를 만들게 되고, `UserStatusService`에도 `userId`로 `UserStatus` 객체를 찾는 메서드를 만들어야 됨
 - **해결** : Read할 때와 Create할 때의 DTO 분리
   - `UserCreateResponse` DTO를 만들어서 `UserResponse` DTO와 분리
 
-### 3. **고민**: `@Valid`로 인한 예외 메시지가 아래처럼 너무 난잡해서 직접적인 예외 메시지만 뽑아내고 싶음
+### `@Valid`로 인한 예외 메시지가 아래처럼 너무 난잡해서 직접적인 예외 메시지만 뽑아내고 싶음
 
 ```json
     "message": "Validation failed for argument [0] in public org.springframework.http.ResponseEntity com.sprint.mission.discodeit.controller.UserController.createUser(com.sprint.mission.discodeit.dto.user.UserCreateRequest) with 2 errors: [Field error in object 'userCreateRequest' on field 'userName': rejected value [null]; codes [NotBlank.userCreateRequest.userName,NotBlank.userName,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userCreateRequest.userName,userName]; arguments []; default message [userName]]; default message [userName이 입력되지 않았습니다.]] [Field error in object 'userCreateRequest' on field 'email': rejected value [aa]; codes [Email.userCreateRequest.email,Email.email,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [userCreateRequest.email,email]; arguments []; default message [email],[Ljakarta.validation.constraints.Pattern$Flag;@547629d2,.*]; default message [email 형식에 맞지 않습니다.]] "
@@ -58,6 +62,8 @@ last_modified_at: 2026-02-06
     "message": "email: email 형식에 맞지 않습니다., userName: userName이 입력되지 않았습니다."
   }
   ```
+
+---
 
 # 프로젝트 요구 사항
 

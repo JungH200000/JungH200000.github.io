@@ -18,7 +18,7 @@ last_modified_at: 2026-03-07
 
 # 오늘의 학습
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - BinaryContent 저장 로직 고도화
   - 로컬 저장 방식으로 `BinaryContentStorage` 구현체를 구현 (`LocalBinaryContentStorage`)
@@ -27,7 +27,11 @@ last_modified_at: 2026-03-07
     - 파일의 실제 저장위치에 대한 규칙을 정의하는 메서드 : `Path resolvePath(UUID)`
     - 바이너리 데이터 다운로드 메서드 : `ResponseEntity<Resource> download(BinaryContentDto)`
 
-### 2. 파일 다운로드 처리 과정
+<br>
+
+## 2. 고민
+
+### 파일 다운로드 처리 과정
 
 ```java
  /**
@@ -89,7 +93,11 @@ last_modified_at: 2026-03-07
  }
 ```
 
-### 3. **문제** : "java.lang.NullPointerException: Cannot invoke "java.util.UUID.toString()" because "binaryContentId" is null" 문제
+<br>
+
+## 3. 문제
+
+### "java.lang.NullPointerException: Cannot invoke "java.util.UUID.toString()" because "binaryContentId" is null" 문제
 
 - 원인 : id가 객체를 new 하는 순간 생성되는 게 아니라, JPA가 그 엔티티를 영속화할 때 생성되기 때문
 - 해결 : binaryContent를 `save()` 해줘서 영속화를 해줘야 한다.

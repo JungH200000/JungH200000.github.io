@@ -18,7 +18,7 @@ last_modified_at: 2026-01-15
 
 # 오늘의 성취
 
-### 1. 개발 진행 현황
+## 1. 개발 진행 현황
 
 - 피드백 받은 부분 수정 진행 : [Sprint2-1 Feedback](https://www.notion.so/jungh20000/Sprint2-1-Feedback-2e9f59816c02804295a9f76a9f0d3c62)
 - 전반적으로 메소드의 파라미터에 객체가 아닌 id를 가지도록 리팩토링
@@ -31,7 +31,11 @@ last_modified_at: 2026-01-15
   - 의존 관계 `UserService` 추가
   - user ID 검증 메소드 `validateAndGetUserByUserId` 추가
 
-### 2. `Map<K, V>`의 `remove(K)` 메소드
+<br>
+
+## 2. 고민
+
+### `Map<K, V>`의 `remove(K)` 메소드
 
 - K에 해당하는 V를 삭제하는 메소드로, K에 해당하는 V가 존재하면 V를 삭제하고 삭제된 V를 반환값으로 가지고, K가 존재하지 않는다면 null을 반환한다.
 

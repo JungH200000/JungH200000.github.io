@@ -18,7 +18,7 @@ last_modified_at: 2026-02-16
 
 # 오늘의 학습
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - Spring Mission4에서 구현한 API를 API 스펙에 맞춰 RESTful API로 다시 설계
   - `UserService`와 `UserController`에서 "사용자 생성", "사용자 정보 수정", "모든 사용자 조회", "사용자 삭제" 기능 API 수정

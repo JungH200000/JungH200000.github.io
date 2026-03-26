@@ -18,7 +18,7 @@ last_modified_at: 2026-01-30
 
 # 오늘의 성취
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - `MessageService` 고도화
   - DTO를 활용해 `create`, `findAll`, `update`, `delete` 메소드 고도화
@@ -31,7 +31,11 @@ last_modified_at: 2026-01-30
 - 심화 요구사항 : 조건부 Bean 구성
   - `jcf`와 `file`에 따라 Repository 구현체 선택
 
-### 2. `@ConditionalOnProperty(name = "discodeit.repository.type", havingValue = "file")`
+<br>
+
+## 2. 고민
+
+### `@ConditionalOnProperty(name = "discodeit.repository.type", havingValue = "file")`
 
 - `prefix` : 프로퍼티 앞부분
 - `name` : 프로퍼티 이름

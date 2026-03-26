@@ -18,7 +18,7 @@ last_modified_at: 2026-03-08
 
 # 오늘의 학습
 
-### 1. 개발 진행 상황
+## 1. 개발 진행 상황
 
 - 특정 채널의 메시지를 출력하는 메서드의 N+1 문제 해결을 위해 `@BatchSize` 애너테이션 추가
 - 페이징과 정렬
@@ -26,16 +26,20 @@ last_modified_at: 2026-03-08
   - 일관된 페이지네이션 응답을 위해 `PageResponse<T>` DTO 구현
   - Slice 또는 Page 객체로부터 DTO를 생성하는 Mapper 구현
 
-### 2. **batch fetch** (`@BatchSize`)
+<br>
+
+## 2. 고민
+
+### **batch fetch** (`@BatchSize`)
 
 - "연관 데이터를 한 번에 미리 join해서 가져오는 방법"이 아니라 LAZY 조회가 필요해지는 순간 여러 개를 묶어서 가져오게 해주는 Hibernate 최적화
 
-### 3. **페이징**
+### **페이징**
 
 - `Pageable pageable` : Spring이 `page`, `size`, `sort`를 조합해 만들어주는 특수 파라미터
   - `GET  /api/messages?channelId=...&page=0&size=50`가 오면 Spring이 내부적으로 `Pageable pageable = PageRequest.of(0, 50, Sort.by(DESC, "createdAt"))`를 만듬
 
-### 4. **오프셋 페이지네이션과 커서 페이지네이션**
+### **오프셋 페이지네이션과 커서 페이지네이션**
 
 - **오프셋(Offset) 페이지네이션**
   - 앞으로 몇 개를 건너뛴 뒤(`limit`) 가져오는 방식
