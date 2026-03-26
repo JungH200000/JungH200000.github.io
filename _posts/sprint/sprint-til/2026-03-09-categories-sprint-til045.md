@@ -18,67 +18,72 @@ last_modified_at: 2026-03-09
 
 # 오늘의 학습
 
-1. 개발 진행 상황
-   - Feedback : 채널 목록 조회 시 N+1 문제 발생 가능
-     - 채널 목록 조회 시 `ReadStatus`를 조회하는 부분을 개선
-     - [Feedback 바로가기](#260309---feedback)
+### 1. 개발 진행 상황
 
-2. JPQL의 생성자 표현식(Constructor Expression)
-   조회 결과를 Entity가 아닌 DTO 객체로 바로 만들어서 반환하는 문법
-   - 형태 : `new DTO이름(조회값1, 조회값2)`
-   - 예시 : `SELECT new com.sprint.mission.discodeit.dto.message.ChannelLastMessageAtDto(m.channel.id, max(m.createdAt))`
+- Feedback : 채널 목록 조회 시 N+1 문제 발생 가능
+  - 채널 목록 조회 시 `ReadStatus`를 조회하는 부분을 개선
+  - [Feedback 바로가기](#260309---feedback)
 
-3. `Map` 만들기
-   - 하나의 키에 여러 값을 매핑해서 빠르게 찾고 싶을 때, `Map`과 `Stream API`, `getOrDefault()`를 함께 사용하면 깔끔한 코드를 만들 수 있다.
-   - Map을 사용하면, 관련 데이터를 한 번에 조회한 뒤, 메모리에서 빠르게 꺼내 사용할 수 있어, 매번 DB에 조회하여 발생하는 N+1 문제를 예발할 수 있다.
-   - `Collectors.toMap(keyMapper, valueMapper)` : `Stream` 요소들을 `Map`으로 변환하는 메서드
-     - `keyMapper` : 어떤 값을 key로 사용할지
-     - `valueMapper` : 어떤 값을 value로 사용할지
-   - `Collectors.groupingBy(classifier, downstream)` : `Stream` 요소들을 어떤 기준으로 묶어 `Map`으로 변환하는 메서드
-     - `classifier` : 무엇을 기준으로 그룹의 데이터를 나눌지
-     - `downstream` : 각 그룹 안의 데이터를 어떻게 가공할지
-   - `Collectors.mapping(mapper, downstream)` : 그룹에 들어있는 원소를 다른 형태로 변환한 뒤 수집할 때 사용
-     - `mapper`: 어떤 값으로 변환할지
-     - `downstream`: 변환 후 어떻게 모을지
-   - `Collectors.toList()` : Stream 결과를 `List`로 모아준다.
+### 2. JPQL의 생성자 표현식(Constructor Expression)
 
-     ```java
-     // 각 채널의 마지막 메시지 createdAt 시간
-     Map<UUID, Instant> lastMessageAtMap = messageRepository.findLastMessageAtDtoByChannelIds(channelIds).stream()
-             .collect(Collectors.toMap(
-                             dto -> dto.id(),
-                             dto -> dto.lastMessageAt()
-                     )
-             );
+조회 결과를 Entity가 아닌 DTO 객체로 바로 만들어서 반환하는 문법
 
-     // 채널별 참가자 목록 조회
-     Map<UUID, List<UserDto>> participantMap = readStatusRepository.findAllByChannelIdsWithUserAndChannel(privateChannelIds).stream()
-             .collect(Collectors.groupingBy(
-                     readStatus -> readStatus.getChannel().getId(),
-                     Collectors.mapping(
-                             readStatus -> userMapper.toDto(readStatus.getUser()),
-                             Collectors.toList()
-                     )
-             ));
-     ```
+- 형태 : `new DTO이름(조회값1, 조회값2)`
+- 예시 : `SELECT new com.sprint.mission.discodeit.dto.message.ChannelLastMessageAtDto(m.channel.id, max(m.createdAt))`
 
-4. `getOrDefault(key, defaultValue)`
-   - 어떤 `key`로 값을 찾을 때, `key`가 존재하면 해당 값을 반환하고, `key`가 없다면 기본값을 대신 반환해주는 메서드로, `Map` 인터페이스에서 많이 사용함.
-   - `key` : 찾고 싶은 키
-   - `defaultValur` : 키가 없을 때 대신 반환할 값
+### 3. `Map` 만들기
 
-   ```java
-    protected List<UserDto> assignParticipantInMap(Channel channel, Map<UUID, List<UserDto>> participantMap) {
-        if (!channel.getType().equals(ChannelType.PRIVATE)) {
-            return List.of();
-        }
-        return participantMap.getOrDefault(channel.getId(), List.of());
-    }
+- 하나의 키에 여러 값을 매핑해서 빠르게 찾고 싶을 때, `Map`과 `Stream API`, `getOrDefault()`를 함께 사용하면 깔끔한 코드를 만들 수 있다.
+- Map을 사용하면, 관련 데이터를 한 번에 조회한 뒤, 메모리에서 빠르게 꺼내 사용할 수 있어, 매번 DB에 조회하여 발생하는 N+1 문제를 예발할 수 있다.
+- `Collectors.toMap(keyMapper, valueMapper)` : `Stream` 요소들을 `Map`으로 변환하는 메서드
+  - `keyMapper` : 어떤 값을 key로 사용할지
+  - `valueMapper` : 어떤 값을 value로 사용할지
+- `Collectors.groupingBy(classifier, downstream)` : `Stream` 요소들을 어떤 기준으로 묶어 `Map`으로 변환하는 메서드
+  - `classifier` : 무엇을 기준으로 그룹의 데이터를 나눌지
+  - `downstream` : 각 그룹 안의 데이터를 어떻게 가공할지
+- `Collectors.mapping(mapper, downstream)` : 그룹에 들어있는 원소를 다른 형태로 변환한 뒤 수집할 때 사용
+  - `mapper`: 어떤 값으로 변환할지
+  - `downstream`: 변환 후 어떻게 모을지
+- `Collectors.toList()` : Stream 결과를 `List`로 모아준다.
 
-    protected Instant assignLastMessageAtInMap(Channel channel, Map<UUID, Instant> lastMessageAtMap) {
-        return lastMessageAtMap.getOrDefault(channel.getId(), null);
-    }
-   ```
+  ```java
+  // 각 채널의 마지막 메시지 createdAt 시간
+  Map<UUID, Instant> lastMessageAtMap = messageRepository.findLastMessageAtDtoByChannelIds(channelIds).stream()
+          .collect(Collectors.toMap(
+                          dto -> dto.id(),
+                          dto -> dto.lastMessageAt()
+                  )
+          );
+
+  // 채널별 참가자 목록 조회
+  Map<UUID, List<UserDto>> participantMap = readStatusRepository.findAllByChannelIdsWithUserAndChannel(privateChannelIds).stream()
+          .collect(Collectors.groupingBy(
+                  readStatus -> readStatus.getChannel().getId(),
+                  Collectors.mapping(
+                          readStatus -> userMapper.toDto(readStatus.getUser()),
+                          Collectors.toList()
+                  )
+          ));
+  ```
+
+### 4. `getOrDefault(key, defaultValue)`
+
+- 어떤 `key`로 값을 찾을 때, `key`가 존재하면 해당 값을 반환하고, `key`가 없다면 기본값을 대신 반환해주는 메서드로, `Map` 인터페이스에서 많이 사용함.
+- `key` : 찾고 싶은 키
+- `defaultValur` : 키가 없을 때 대신 반환할 값
+
+```java
+ protected List<UserDto> assignParticipantInMap(Channel channel, Map<UUID, List<UserDto>> participantMap) {
+     if (!channel.getType().equals(ChannelType.PRIVATE)) {
+         return List.of();
+     }
+     return participantMap.getOrDefault(channel.getId(), List.of());
+ }
+
+ protected Instant assignLastMessageAtInMap(Channel channel, Map<UUID, Instant> lastMessageAtMap) {
+     return lastMessageAtMap.getOrDefault(channel.getId(), null);
+ }
+```
 
 ---
 

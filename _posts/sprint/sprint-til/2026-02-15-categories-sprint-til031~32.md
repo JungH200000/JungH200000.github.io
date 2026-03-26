@@ -18,18 +18,19 @@ last_modified_at: 2026-02-16
 
 # 오늘의 학습
 
-1. 개발 진행 상황
-   - Spring Mission4에서 구현한 API를 API 스펙에 맞춰 RESTful API로 다시 설계
-     - `UserService`와 `UserController`에서 "사용자 생성", "사용자 정보 수정", "모든 사용자 조회", "사용자 삭제" 기능 API 수정
-       - 이미지 첨부를 위해 `create`와 `update`의 `Content-Type`이 `MULTIPART_FORM_DATA_VALUE`로 변경
-       - `@Tag`로 핸들러 클래스 설명 추가
-       - `@Operation`으로 핸들러 메서드 설명 추가
-       - `@ApiResponse`로 성공/예외 코드 및 설명 추가
-       - `@Parameter`로 request 설명 추가
-     - `AuthController`에서 "사용자 로그인" 기능 API 수정
-       - `@Tag`로 핸들러 클래스 설명 추가
-       - `@Operation`으로 핸들러 메서드 설명 추가
-       - `@ApiResponse`로 성공/예외 코드 및 설명 추가
+### 1. 개발 진행 상황
+
+- Spring Mission4에서 구현한 API를 API 스펙에 맞춰 RESTful API로 다시 설계
+  - `UserService`와 `UserController`에서 "사용자 생성", "사용자 정보 수정", "모든 사용자 조회", "사용자 삭제" 기능 API 수정
+    - 이미지 첨부를 위해 `create`와 `update`의 `Content-Type`이 `MULTIPART_FORM_DATA_VALUE`로 변경
+    - `@Tag`로 핸들러 클래스 설명 추가
+    - `@Operation`으로 핸들러 메서드 설명 추가
+    - `@ApiResponse`로 성공/예외 코드 및 설명 추가
+    - `@Parameter`로 request 설명 추가
+  - `AuthController`에서 "사용자 로그인" 기능 API 수정
+    - `@Tag`로 핸들러 클래스 설명 추가
+    - `@Operation`으로 핸들러 메서드 설명 추가
+    - `@ApiResponse`로 성공/예외 코드 및 설명 추가
 
 ---
 

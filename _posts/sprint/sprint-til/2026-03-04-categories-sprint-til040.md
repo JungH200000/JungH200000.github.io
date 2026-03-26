@@ -18,65 +18,74 @@ last_modified_at: 2026-03-04
 
 # 오늘의 학습
 
-1. 개발 진행 상황
-   - Entity 정의
-     - `updatedAt` 관련 `BaseUpdatablEntity` 생성
-       - `Channel`, `Message`, `User`, `ReadStatus`, `UserStatus`가 `BaseUpdatablEntity`를 상속하도록 관계 설정
-       - `BinaryContent`와 `BaseUpdatablEntity`가 `BaseEntity`를 상속하도록 관계 설정
-     - 클래스 다이어그램을 참고하여 Entity 클래스의 참조 관계 수정
-       - JPA 애너테이션 없이 작성
-     - JPA 애너테이션을 활용해 ERD와 연관관계 매핑 정보를 도메인 모델에 반영
-       - 영속성 전이와 고아 객체 정의
-   - Repository와 Service에 JPA 도입
-     - 기존 Repository 인터페이스를 JpaRepository로 정의 후 대체 (기존 Repository 구현체 삭제)
-     - 영속성 컨텍스트의 특징에 맞추어 Service 수정
+### 1. 개발 진행 상황
 
-2. **고민** : table 생성 DDL인 `schema.sql`로 table이 만들어지는데, Entity의 `@Column` 애너테이션이 필요한가?
-   - 해결 :
-     - `@Column` 애너테이션이 없고 필드만 정의되어 있다면 JPA는 기본적으로 해당 필드를 table의 column과 매핑되는 필드라고 간주한다.
-     - 팀/개인의 규칙에 따라 다르지만, 어떤 필드는 `@Column`이 있고 어떤 필드는 없으면, 보는 사람이 “이건 왜 붙였지? 이 필드는 DB 컬럼명이 다른가? 제약이 다른가?”를 매번 추측할 수 있다. 그러므로 어느 한 부분에라도 `@Column`이 붙여질 경우 통일성있게 전부 붙이는 것을 현재 프로젝트에서는 추천
+- Entity 정의
+  - `updatedAt` 관련 `BaseUpdatablEntity` 생성
+    - `Channel`, `Message`, `User`, `ReadStatus`, `UserStatus`가 `BaseUpdatablEntity`를 상속하도록 관계 설정
+    - `BinaryContent`와 `BaseUpdatablEntity`가 `BaseEntity`를 상속하도록 관계 설정
+  - 클래스 다이어그램을 참고하여 Entity 클래스의 참조 관계 수정
+    - JPA 애너테이션 없이 작성
+  - JPA 애너테이션을 활용해 ERD와 연관관계 매핑 정보를 도메인 모델에 반영
+    - 영속성 전이와 고아 객체 정의
+- Repository와 Service에 JPA 도입
+  - 기존 Repository 인터페이스를 JpaRepository로 정의 후 대체 (기존 Repository 구현체 삭제)
+  - 영속성 컨텍스트의 특징에 맞추어 Service 수정
 
-3. `columnDefinition`
-   - JPA가 table 생성 DDL을 만들 때 사용하는 SQL을 직접 넘겨주는 옵션으로, 자바 타입에 따라 자동으로 결정되는 컬럼 타입 대신, `varchar(100) default 'EMPTY'`, `timestamptz`, `jsonb`처럼 DB 벤더에 특화된 타입이나 제약을 그대로 적을 수 있습니다.
+### 2. **고민** : table 생성 DDL인 `schema.sql`로 table이 만들어지는데, Entity의 `@Column` 애너테이션이 필요한가?
 
-4. `@MappedSuperclass `
-   - 해당 클래스를 Entity의 공통 부모(베이스 클래스)로 쓰겠다(테이블을 만들지 않음)
+- 해결 :
+  - `@Column` 애너테이션이 없고 필드만 정의되어 있다면 JPA는 기본적으로 해당 필드를 table의 column과 매핑되는 필드라고 간주한다.
+  - 팀/개인의 규칙에 따라 다르지만, 어떤 필드는 `@Column`이 있고 어떤 필드는 없으면, 보는 사람이 “이건 왜 붙였지? 이 필드는 DB 컬럼명이 다른가? 제약이 다른가?”를 매번 추측할 수 있다. 그러므로 어느 한 부분에라도 `@Column`이 붙여질 경우 통일성있게 전부 붙이는 것을 현재 프로젝트에서는 추천
 
-5. `@EntityListeners()`
-   - 특정 Entity에 대해 JPA 라이플사이클 이벤트를 받는 리스너를 등록하는 애너테이션
-   - `@EntityListeners(AuditingEntityListener.class)` :
-     - `AuditingEntityListener` 등록하면 저장/수정 시점에 `@CreatedDate`와 `@LastModifiedDate` 같은 필드들을 자동으로 채워줌
+### 3. `columnDefinition`
 
-6. `@JoinTable` 속성
-   - `name` : Join Table 이름
-   - `joinColumns` : 현재 Entity를 참조하는 FK
-   - `inverseJoinColumns` : 반대 방향 Entity를 참조하는 FK
+- JPA가 table 생성 DDL을 만들 때 사용하는 SQL을 직접 넘겨주는 옵션으로, 자바 타입에 따라 자동으로 결정되는 컬럼 타입 대신, `varchar(100) default 'EMPTY'`, `timestamptz`, `jsonb`처럼 DB 벤더에 특화된 타입이나 제약을 그대로 적을 수 있습니다.
 
-7. `Cascade` 옵션
-   - `MERGE` : 영속성 컨텍스트(관리 대상)에 다시 붙이기 위한 작업(단, 조회일 때는 예외)
-   - `DETACH` : 영속성 컨텍스트(관리 대상)에 빠짐
-   - `REFRESH` : 현재 영속성 컨텍스트에 가지고 있는 값을 DB에 있는 값으로 강제 덮어쓰기 할 때
-     - 같은 트랜잭션 안에서 DB가 바뀌면 영속성 컨텍스트에 남아있는 객체는 그대로일 수 있기 때문에 DB 기준으로 동기화하는 것
+### 4. `@MappedSuperclass `
 
-8. 복합 UNIQUE를 Entity에서 표현하는 방법
-   - 두 개 이상의 column을 묶어 UNIQUE 설정
+- 해당 클래스를 Entity의 공통 부모(베이스 클래스)로 쓰겠다(테이블을 만들지 않음)
 
-   ```java
-   @Table(
-    name = "read_statuses",
-    uniqueConstraints = {
-      @UniqueConstraint(
-        name = "uk_read_statuses_user_channel", // 복합 UNIQUE 이름 (uk_<table>_<col1>_<col2>)
-        columnNames = {"user_id", "channel_id"}
-        )
-      }
-   )
-   public class ReadStatus extends BaseUpdatableEntity {...}
-   ```
+### 5. `@EntityListeners()`
 
-9. delete/update 쿼리를 실행할 때 `@Modifying`이 필요한 이유
-   - `@Modifying`가 없으면 delete/update 쿼리가 실행되지 않거나 예외가 날 수 있기 때문
-   - SELECT로만 인식
+- 특정 Entity에 대해 JPA 라이플사이클 이벤트를 받는 리스너를 등록하는 애너테이션
+- `@EntityListeners(AuditingEntityListener.class)` :
+  - `AuditingEntityListener` 등록하면 저장/수정 시점에 `@CreatedDate`와 `@LastModifiedDate` 같은 필드들을 자동으로 채워줌
+
+### 6. `@JoinTable` 속성
+
+- `name` : Join Table 이름
+- `joinColumns` : 현재 Entity를 참조하는 FK
+- `inverseJoinColumns` : 반대 방향 Entity를 참조하는 FK
+
+### 7. `Cascade` 옵션
+
+- `MERGE` : 영속성 컨텍스트(관리 대상)에 다시 붙이기 위한 작업(단, 조회일 때는 예외)
+- `DETACH` : 영속성 컨텍스트(관리 대상)에 빠짐
+- `REFRESH` : 현재 영속성 컨텍스트에 가지고 있는 값을 DB에 있는 값으로 강제 덮어쓰기 할 때
+  - 같은 트랜잭션 안에서 DB가 바뀌면 영속성 컨텍스트에 남아있는 객체는 그대로일 수 있기 때문에 DB 기준으로 동기화하는 것
+
+### 8. 복합 UNIQUE를 Entity에서 표현하는 방법
+
+- 두 개 이상의 column을 묶어 UNIQUE 설정
+
+```java
+@Table(
+ name = "read_statuses",
+ uniqueConstraints = {
+   @UniqueConstraint(
+     name = "uk_read_statuses_user_channel", // 복합 UNIQUE 이름 (uk_<table>_<col1>_<col2>)
+     columnNames = {"user_id", "channel_id"}
+     )
+   }
+)
+public class ReadStatus extends BaseUpdatableEntity {...}
+```
+
+### 9. delete/update 쿼리를 실행할 때 `@Modifying`이 필요한 이유
+
+- `@Modifying`가 없으면 delete/update 쿼리가 실행되지 않거나 예외가 날 수 있기 때문
+- SELECT로만 인식
 
 ---
 

@@ -18,17 +18,18 @@ last_modified_at: 2026-03-03
 
 # 오늘의 학습
 
-1. 개발 진행 상황
-   - Service 계층에서 Dto를 반환하도록 Service 반환값 전체적으로 수정
-   - 데이터베이스 환경 설정
-     - 데이터베이스: `discodeit`
-     - 유저: `discodeit_user`
-     - 비밀번호: `notion 참고`
-   - ERD를 참고하여 DDL 작성 후, table 생성
-     - DDL 파일 경로 : `/src/main/resources/schema.sql`
-     - table 생성을 JPA `ddl-auto`가 아닌 SQL 스크립트로 table 생성
+### 1. 개발 진행 상황
 
-2. DDL 파일 실행 방법
+- Service 계층에서 Dto를 반환하도록 Service 반환값 전체적으로 수정
+- 데이터베이스 환경 설정
+  - 데이터베이스: `discodeit`
+  - 유저: `discodeit_user`
+  - 비밀번호: `notion 참고`
+- ERD를 참고하여 DDL 작성 후, table 생성
+  - DDL 파일 경로 : `/src/main/resources/schema.sql`
+  - table 생성을 JPA `ddl-auto`가 아닌 SQL 스크립트로 table 생성
+
+### 2. DDL 파일 실행 방법
 
 ```yaml
 spring:

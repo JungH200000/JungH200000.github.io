@@ -18,34 +18,37 @@ last_modified_at: 2026-02-09
 
 # 오늘의 학습
 
-1. 개발 진행 상황
-   - Service 로직을 활용해 웹 API 구현
-     - 사용자 관리를 위한 `UserController` 구현
-       - User 삭제를 위한 `UserDeleteService` 서비스 클래스 구현
-     - 권한 관리를 위한 `AuthController` 핸들러 클래스 구현
-       - 사용자 로그인 API `login` 핸들러 메서드 구현
-     - 채널 관리를 위한 `ChannelController` 핸들러 클래스 구현
-       - 공개 채널 생성 API `createPublicChannel` 핸들러 메서드 구현
-       - 비공개 채널 생성 API `createPrivateChannel` 핸들러 메서드 구현
-       - 특정 사용자가 볼 수 있는 채널 조회 API `findAllByUserId` 핸들러 메서드 구현
-       - PUBLIC 채널 정보 수정 API `updatePublicChannelInfo` 핸들러 메서드 구현
-       - 채널 참여 API `joinChannel` 핸들러 메서드 구현
-       - 채널 탈퇴 API `leaveChannel` 핸들러 메서드 구현
-       - 채널 owner 변경 API `changeChannelOwner` 핸들러 메서드 구현
-       - 채널 삭제 API `deleteChannel` 핸들러 메서드 구현
-     - 메시지 관리를 위한 `MessageController` 핸들러 클래스 구현
-       - 메시지 생성 API `createMessage` 핸들러 메서드 구현
-       - 특정 채널 메시지 조회 API `findAllMessagesByChannelId` 핸들러 메서드 구현
-       - 메시지 수정 API `updateMessage` 핸들러 메서드 구현
-       - 메시지 삭제 API `updateMessage` 핸들러 메서드 구현
+### 1. 개발 진행 상황
 
-2. **고민** : 채널 참여/탈퇴, 채널 주인 교체 핸들러 메서드의 HTTP 메서드는 뭘로 해야 할까?
-   - HTTP 메서드는 도메인 클래스의 필드 변경 여부가 아닌, API에서 어떤 데이터를 어떤 의미로 다루는지에 따라 결정하기
-     - ex: 채널 참여 ➡️ POST / 채널 탈퇴 ➡️ DELETE
+- Service 로직을 활용해 웹 API 구현
+  - 사용자 관리를 위한 `UserController` 구현
+    - User 삭제를 위한 `UserDeleteService` 서비스 클래스 구현
+  - 권한 관리를 위한 `AuthController` 핸들러 클래스 구현
+    - 사용자 로그인 API `login` 핸들러 메서드 구현
+  - 채널 관리를 위한 `ChannelController` 핸들러 클래스 구현
+    - 공개 채널 생성 API `createPublicChannel` 핸들러 메서드 구현
+    - 비공개 채널 생성 API `createPrivateChannel` 핸들러 메서드 구현
+    - 특정 사용자가 볼 수 있는 채널 조회 API `findAllByUserId` 핸들러 메서드 구현
+    - PUBLIC 채널 정보 수정 API `updatePublicChannelInfo` 핸들러 메서드 구현
+    - 채널 참여 API `joinChannel` 핸들러 메서드 구현
+    - 채널 탈퇴 API `leaveChannel` 핸들러 메서드 구현
+    - 채널 owner 변경 API `changeChannelOwner` 핸들러 메서드 구현
+    - 채널 삭제 API `deleteChannel` 핸들러 메서드 구현
+  - 메시지 관리를 위한 `MessageController` 핸들러 클래스 구현
+    - 메시지 생성 API `createMessage` 핸들러 메서드 구현
+    - 특정 채널 메시지 조회 API `findAllMessagesByChannelId` 핸들러 메서드 구현
+    - 메시지 수정 API `updateMessage` 핸들러 메서드 구현
+    - 메시지 삭제 API `updateMessage` 핸들러 메서드 구현
 
-3. **고민** : `PathVariable`에 어떤 값을 넣는 게 적절할까?
-   - 행위의 **"대상"**을 `PathVariable`로 설정
-     - ex: 채널 참여 ➡️ 참여라는 행위의 대상이 되는 "채널"을 `PathVariable`로 설정
+### 2. **고민** : 채널 참여/탈퇴, 채널 주인 교체 핸들러 메서드의 HTTP 메서드는 뭘로 해야 할까?
+
+- HTTP 메서드는 도메인 클래스의 필드 변경 여부가 아닌, API에서 어떤 데이터를 어떤 의미로 다루는지에 따라 결정하기
+  - ex: 채널 참여 ➡️ POST / 채널 탈퇴 ➡️ DELETE
+
+### 3. **고민** : `PathVariable`에 어떤 값을 넣는 게 적절할까?
+
+- 행위의 **"대상"**을 `PathVariable`로 설정
+  - ex: 채널 참여 ➡️ 참여라는 행위의 대상이 되는 "채널"을 `PathVariable`로 설정
 
 # 프로젝트 요구 사항
 

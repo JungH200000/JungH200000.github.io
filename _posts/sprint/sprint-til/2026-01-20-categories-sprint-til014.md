@@ -18,40 +18,44 @@ last_modified_at: 2026-01-20
 
 # 오늘의 성취
 
-1. 개발 진행 상황
-   - File IO를 통한 데이터 영속화
-     - JCF가 아닌 FileIO와 객체 직렬화를 통해 파일에 데이터 저장/삭제를 구현
-   - 레포지토리 설계 및 구현
-     - 저장 로직과 관련된 기능을 도메인 모델 별 인터페이스, 구현체 구현
+### 1. 개발 진행 상황
 
-2. Unchecked warning?
-   - 자바 제네릭 관련하여 컴파일러가 "타입 안전을 100% 보장 못 하겠다"라고 경고하는 것
-   - 원인
-     - 타입 소거 발생 : 자바 제네릭은 컴파일할 때만 타입 체크를 하고, 런타임(실행)할 때는 `<>`안의 정보가 대부분 사라지는 현상
-     - 원인 예시 : `Map<UUID, User> m = new HashMap<>();`
-       - 컴파일러는 `m.put(UUID, User);`만 허용하고, `m.put("hello", 123);` 같은 건 컴파일 에러로 막음
-       - 런타임 중에는 m은 UUID와 User라는 정보가 없는 Map으로만 보임
-   - 발생 예시
-     - `unchecked cast: List<String> x = (List<String>) obj;`
-     - `ObjectInputStream.readObject()`처럼 Object로 읽어온 걸 제네릭 타입으로 캐스팅할 때
+- File IO를 통한 데이터 영속화
+  - JCF가 아닌 FileIO와 객체 직렬화를 통해 파일에 데이터 저장/삭제를 구현
+- 레포지토리 설계 및 구현
+  - 저장 로직과 관련된 기능을 도메인 모델 별 인터페이스, 구현체 구현
 
-   ```java
-   Object obj = ois.readObject();
-   List<String> list = (List<String>) obj; // unchecked cast 경고
-   ```
+### 2. Unchecked warning?
 
-   - 즉, 제네릭은 런타임에 타입 정보가 지워지기 때문에 런타임에 진짜 `List<String>`인지 확실히 검증할 방법이 없어서, 컴파일러가 경고를 띄우는 것
+- 자바 제네릭 관련하여 컴파일러가 "타입 안전을 100% 보장 못 하겠다"라고 경고하는 것
+- 원인
+  - 타입 소거 발생 : 자바 제네릭은 컴파일할 때만 타입 체크를 하고, 런타임(실행)할 때는 `<>`안의 정보가 대부분 사라지는 현상
+  - 원인 예시 : `Map<UUID, User> m = new HashMap<>();`
+    - 컴파일러는 `m.put(UUID, User);`만 허용하고, `m.put("hello", 123);` 같은 건 컴파일 에러로 막음
+    - 런타임 중에는 m은 UUID와 User라는 정보가 없는 Map으로만 보임
+- 발생 예시
+  - `unchecked cast: List<String> x = (List<String>) obj;`
+  - `ObjectInputStream.readObject()`처럼 Object로 읽어온 걸 제네릭 타입으로 캐스팅할 때
 
-3. `WriteAbortedException`
-   - 직렬화 도중 `NotSerializableException`이 발생해서 저장이 중단(abort)되었다는 랩핑된 예외
-   - 파일에 제대로 저장이 안되었거나 깨졌을 가능성이 매우 높음
-   - `Serializable` 미구현으로 인한 예외로, `Serializable`을 구현하면 정상 동작됨.
+```java
+Object obj = ois.readObject();
+List<String> list = (List<String>) obj; // unchecked cast 경고
+```
 
-4. 파일에서 데이터를 읽어올 때마다 UUID가 달라지는 문제 발생
-   - 자바 직렬화 규칙상 서브클래스(User)가 Serializable이어도 부모(BaseEntity)가 Serializable이 아니면 역직렬화할 때 부모 생성자가 실행됨
-   - 즉, 파일이 존재하고, 데이터 로드가 성공해도 UUID가 바뀌는 문제가 발생
-   - 해결 방법
-     - BaseEntity 자체를 직렬화 가능하게 Serializable 구현하기
+- 즉, 제네릭은 런타임에 타입 정보가 지워지기 때문에 런타임에 진짜 `List<String>`인지 확실히 검증할 방법이 없어서, 컴파일러가 경고를 띄우는 것
+
+### 3. `WriteAbortedException`
+
+- 직렬화 도중 `NotSerializableException`이 발생해서 저장이 중단(abort)되었다는 랩핑된 예외
+- 파일에 제대로 저장이 안되었거나 깨졌을 가능성이 매우 높음
+- `Serializable` 미구현으로 인한 예외로, `Serializable`을 구현하면 정상 동작됨.
+
+### 4. 파일에서 데이터를 읽어올 때마다 UUID가 달라지는 문제 발생
+
+- 자바 직렬화 규칙상 서브클래스(User)가 Serializable이어도 부모(BaseEntity)가 Serializable이 아니면 역직렬화할 때 부모 생성자가 실행됨
+- 즉, 파일이 존재하고, 데이터 로드가 성공해도 UUID가 바뀌는 문제가 발생
+- 해결 방법
+  - BaseEntity 자체를 직렬화 가능하게 Serializable 구현하기
 
 ---
 

@@ -18,22 +18,24 @@ last_modified_at: 2026-01-30
 
 # 오늘의 성취
 
-1. 개발 진행 상황
-   - `MessageService` 고도화
-     - DTO를 활용해 `create`, `findAll`, `update`, `delete` 메소드 고도화
-   - `ReadStatusService` 구현
-     - DTO를 활용해 `create`, `find`, `findAllByUserId`, `update`, `delete` 메소드 구현
-   - `UserStatusService` 구현
-     - DTO를 활용해 `create`, `find`, `findAll`, `update`, `updateByUserId`, `delete` 메소드 구현
-   - `BinaryContentService` 구현
-     - DTO를 활용해 `create`, `find`, `findAllByIdIn`, `delete` 메소드 구현
-   - 심화 요구사항 : 조건부 Bean 구성
-     - `jcf`와 `file`에 따라 Repository 구현체 선택
+### 1. 개발 진행 상황
 
-2. `@ConditionalOnProperty(name = "discodeit.repository.type", havingValue = "file")`
-   - `prefix` : 프로퍼티 앞부분
-   - `name` : 프로퍼티 이름
-   - `havingValue` : 일치해야 할 값
+- `MessageService` 고도화
+  - DTO를 활용해 `create`, `findAll`, `update`, `delete` 메소드 고도화
+- `ReadStatusService` 구현
+  - DTO를 활용해 `create`, `find`, `findAllByUserId`, `update`, `delete` 메소드 구현
+- `UserStatusService` 구현
+  - DTO를 활용해 `create`, `find`, `findAll`, `update`, `updateByUserId`, `delete` 메소드 구현
+- `BinaryContentService` 구현
+  - DTO를 활용해 `create`, `find`, `findAllByIdIn`, `delete` 메소드 구현
+- 심화 요구사항 : 조건부 Bean 구성
+  - `jcf`와 `file`에 따라 Repository 구현체 선택
+
+### 2. `@ConditionalOnProperty(name = "discodeit.repository.type", havingValue = "file")`
+
+- `prefix` : 프로퍼티 앞부분
+- `name` : 프로퍼티 이름
+- `havingValue` : 일치해야 할 값
 
 ---
 

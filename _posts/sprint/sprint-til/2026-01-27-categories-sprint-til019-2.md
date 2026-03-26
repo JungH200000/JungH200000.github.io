@@ -18,24 +18,31 @@ last_modified_at: 2026-01-27
 
 # 오늘의 성취
 
-1. 개발 진행 상황
-   - 기존 Java 프로젝트를 Spring Boot 프로젝트로 초기화
-   - `File*Repository`와 `Base*Service` Bean 등록 구현
-   - Lombok 적용 : 도메인의 getter 메소드를 `@Getter`로 대체
+### 1. 개발 진행 상황
 
-2. **문제** : 계속 빈 데이터가 출력됨
-   - `FileObjectStore`를 `@Component`로 설정할 시 Bean이 만들어지면, `loadData`가 되지 않아서, 인스턴스에 기존에 저장된 데이터가 없음
-   - 해결 방안: Bean을 만들 때, `loadData`가 된 인스턴스를 만들어야 함. ➡️ `config` 클래스로 Bean 등록
+- 기존 Java 프로젝트를 Spring Boot 프로젝트로 초기화
+- `File*Repository`와 `Base*Service` Bean 등록 구현
+- Lombok 적용 : 도메인의 getter 메소드를 `@Getter`로 대체
 
-3. Entity를 Bean으로 설정하지 않는 이유
-   - Entity는 Spring 컨테이너에서 공유해서 쓰는 객체가 아니라, 매 요청마다 생성되고 영속성 컨텍스트에서 관리되는 데이터 객체이기 때문
+### 2. **문제** : 계속 빈 데이터가 출력됨
 
-4. "`File*Repository` 구현체를 `Repository` 인터페이스의 Bean으로 등록하세요."의 의미
-   - 구현체를 Bean으로 등록하되, 의존성 주입은 인터페이스 타입으로 이루어지게 하라. - "`File*Repository` 구현체를 Spring Bean으로 등록하고, `*Repository` 인터페이스 타입으로 주입 가능하게 구성하세요." - 사용과 주입은 인터페이스로 하라는 의미
+- `FileObjectStore`를 `@Component`로 설정할 시 Bean이 만들어지면, `loadData`가 되지 않아서, 인스턴스에 기존에 저장된 데이터가 없음
+- 해결 방안: Bean을 만들 때, `loadData`가 된 인스턴스를 만들어야 함. ➡️ `config` 클래스로 Bean 등록
 
-5. `@RequiredArgsConstructor`
-   - Lombok이 제공하는 어노테이션으로, `final` 필드나 `@NonNull` 필드에 대한 생성자를 자동 생성해준다.
-   - 즉, 생성자 주입(Constructor Injection)을 가장 깔끔하게 처리할 수 있다.
+### 3. Entity를 Bean으로 설정하지 않는 이유
+
+- Entity는 Spring 컨테이너에서 공유해서 쓰는 객체가 아니라, 매 요청마다 생성되고 영속성 컨텍스트에서 관리되는 데이터 객체이기 때문
+
+### 4. "`File*Repository` 구현체를 `Repository` 인터페이스의 Bean으로 등록하세요."의 의미
+
+- 구현체를 Bean으로 등록하되, 의존성 주입은 인터페이스 타입으로 이루어지게 하라.
+- "`File*Repository` 구현체를 Spring Bean으로 등록하고, `*Repository` 인터페이스 타입으로 주입 가능하게 구성하세요."
+- 사용과 주입은 인터페이스로 하라는 의미
+
+### 5. `@RequiredArgsConstructor`
+
+- Lombok이 제공하는 어노테이션으로, `final` 필드나 `@NonNull` 필드에 대한 생성자를 자동 생성해준다.
+- 즉, 생성자 주입(Constructor Injection)을 가장 깔끔하게 처리할 수 있다.
 
 ---
 

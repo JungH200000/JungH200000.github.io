@@ -16,11 +16,9 @@ date: 2026-03-25
 last_modified_at: 2026-03-25
 ---
 
-#
-
-# [TIL 일차] Sprint Mission
-
 # 오늘의 성취
+
+### 1. 개발 진행 상황
 
 - 개발(dev), 운영(prod) 환경에 따라 프로파일 생성
   - `application-dev.yaml`, `application-prod.yaml`
