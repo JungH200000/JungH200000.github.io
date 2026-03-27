@@ -1,6 +1,6 @@
 ---
-title: '[TIL 51일 차] Sprint Mission7 - '
-excerpt: '2-3. ~ '
+title: '[TIL 51일 차] Sprint Mission7 - 예외 처리 고도화, Bean Validation 설정, Actuator 설정'
+excerpt: '2-3. 예외 처리 고도화 ~ 2-5. Actuator'
 
 categories:
   - Sprint TIL
@@ -33,6 +33,11 @@ last_modified_at: 2026-03-27
     - 앞에서 작성했던 `ErrorCode` Enum 파일의 예외 코드를 바탕으로 작성하기
   - ErrorResponse 리팩터링 후 `GlobalExceptionHandler` 리팩터링
 - Bean Validation 처리 ➡️ 이미 수행했음
+- Actuator 설정
+  - Spring Boot Actuator 의존성 추가
+  - 기본 Actuator 엔드포인트 설정
+    - health, info, metrics, loggers
+  - Actuator Info에 애플리케이션 정보 추가
 - **피드백 진행**: [26.03.27 - Spring Mission7 Feedback](https://www.notion.so/jungh20000/26-03-27-Spring-Mission7-Feedback-330f59816c0280e59e96d10c169a6346?source=copy_link)
 
 ## 2. 문제
@@ -232,6 +237,27 @@ public class UserNotFoundException extends UserException {
 - [x] 컨트롤러에 `@Valid` 를 사용해 요청 데이터를 검증하세요.
 - [x] 검증 실패 시 발생하는 `MethodArgumentNotValidException`을 전역 예외 핸들러에서 처리하세요.
 - [x] 유효성 검증 실패 시 상세한 오류 메시지를 포함한 응답을 반환하세요.
+
+### 2-5. Actuator
+
+- [x] Spring Boot Actuator 의존성을 추가하세요.
+- [x] 기본 Actuator 엔트포인트를 설정하세요.
+  - health, info, metrics, loggers
+- [x] Actuator info를 위한 애플리케이션 정보를 추가하세요.
+  - 애플리케이션 이름: `Discodeit`
+  - 애플리케이션 버전: `1.7.0`
+  - 자바 버전: `17`
+  - 스프링 부트 버전: `3.4.0`
+  - 주요 설정 정보
+    - 데이터소스: url, 드라이버 클래스 이름
+    - jpa: ddl-auto
+    - storage 설정: type, path
+    - multipart 설정: max-file-size, max-request-size
+- [x] Spring Boot 서버를 실행 후 각종 정보를 확인해보세요.
+  - `/actuator/info`
+  - `/actuator/metrics`
+  - `/actuator/health`
+  - `/actuator/loggers`
 
 `//...`
 
