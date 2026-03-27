@@ -84,7 +84,7 @@ class 하위클래스명 extends 상위 클래스명 {
 | 4    | `final`로 선언된 메서드는 오버라이딩 불가능                                              |
 | 5    | `static` 메서드는 오버라이딩이 아니라 **숨김(hiding)**                                   |
 
-##### (2) `@Override` 어노테이션
+##### (2) `@Override` 애너테이션
 
 ```java
 @Override

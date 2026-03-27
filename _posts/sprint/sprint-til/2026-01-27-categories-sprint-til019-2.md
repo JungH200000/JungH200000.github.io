@@ -40,7 +40,7 @@ last_modified_at: 2026-01-27
 
 ### `@RequiredArgsConstructor`
 
-- Lombok이 제공하는 어노테이션으로, `final` 필드나 `@NonNull` 필드에 대한 생성자를 자동 생성해준다.
+- Lombok이 제공하는 애너테이션으로, `final` 필드나 `@NonNull` 필드에 대한 생성자를 자동 생성해준다.
 - 즉, 생성자 주입(Constructor Injection)을 가장 깔끔하게 처리할 수 있다.
 
 <br>
@@ -95,9 +95,9 @@ last_modified_at: 2026-01-27
   - Bean
   - 해당 내용은 PR에 첨부
     - `JavaApplication`에서는 `new` 키워드를 통해 `*Service` 객체를 생성했습니다.
-    - `DiscodeitApplication`에서는 `*Service`에서 `@Service` 어노테이션을 붙여 서비스 생성을 IoC Container가 맡습니다.
-    - Spring Boot 실행 시, `@Service` 어노테이션이 붙인 서비스가 Bean으로 생성되고, 이것을 Spring 컨테이너가 관리한다.
-    - 서비스 사용 시, `@Service` 어노테이션으로 인해, 의존성을 주입(DI)해 생성자를 자동 생성한다.
+    - `DiscodeitApplication`에서는 `*Service`에서 `@Service` 애너테이션을 붙여 서비스 생성을 IoC Container가 맡습니다.
+    - Spring Boot 실행 시, `@Service` 애너테이션이 붙인 서비스가 Bean으로 생성되고, 이것을 Spring 컨테이너가 관리한다.
+    - 서비스 사용 시, `@Service` 애너테이션으로 인해, 의존성을 주입(DI)해 생성자를 자동 생성한다.
 
 ### 2-4. Lombok 적용
 

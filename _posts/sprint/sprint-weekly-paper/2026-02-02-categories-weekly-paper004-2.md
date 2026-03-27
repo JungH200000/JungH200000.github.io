@@ -62,7 +62,7 @@ last_modified_at: 2026-02-02
 
 #### 01. Java Config 방식
 
-`@Configuration` + `@Bean` 어노테이션을 함께 사용하는 방식으로, Spring 공식 문서에서는 해당 방법을 권장하고 있다.
+`@Configuration` + `@Bean` 애너테이션을 함께 사용하는 방식으로, Spring 공식 문서에서는 해당 방법을 권장하고 있다.
 
 - 장점
   - 메서드를 통한 Bean 등록으로 직관적
@@ -71,10 +71,10 @@ last_modified_at: 2026-02-02
 
 #### 02. Annotation Config 방식
 
-`@Component`, `@Service`, `@Repository` 등의 어노테이션을 사용
+`@Component`, `@Service`, `@Repository` 등의 애너테이션을 사용
 
 - 장점
-  - 간단한 어노테이션으로 Bean 등록 가능
+  - 간단한 애너테이션으로 Bean 등록 가능
   - 자동 탐지
 
 <br>

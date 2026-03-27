@@ -294,7 +294,7 @@ $ grep -E "\\[(USER|ORDER)_.*\\]" app.log | grep -E "WARN|ERROR"
   - `implementation 'org.springframework.boot:spring-boot-starter-validation'`
   - Spring Boot 2.3.0 이전 버전에서는 `spring-boot-starter-web` 안에 validation 의존성이 포함
 
-#### 2) 주요 검증 애노테이션
+#### 2) 주요 검증 애너테이션
 
 - 문자열 검증 애너테이션 : `@NotNull`, `@NotEmpty`, `@NotBlank`, `@Size`, `@Length`, `@Emali`, `@Pattern`
 - 숫자 검증 애너테이션 : `@Min`, `@Max`, `@Range`, `@Positive`, `@PositiveOrZero`, `@Negative`, `@NegativeOrZero`, `@Digits`, `@DecimalMin`, `@DecimalMax`
@@ -337,7 +337,7 @@ Controller보다 더 복잡한 비즈니스 규칙을 검증하거나, 도메인
 - Custome Annotation 정의 예시
 
   ```java
-  // javax.validation 패키지의 Constraint 어노테이션과 Payload 인터페이스를 사용
+  // javax.validation 패키지의 Constraint 애너테이션과 Payload 인터페이스를 사용
   import javax.validation.Constraint;
   import javax.validation.Payload;
 

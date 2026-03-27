@@ -42,7 +42,7 @@ last_modified_at: 2026-03-25
 
 ### 2-2. 로그 관리
 
-- [ ] Lombok의 `@Slf4j` 어노테이션을 활용해 로깅을 쉽게 추가할 수 있도록 구성하세요.
+- [ ] Lombok의 `@Slf4j`애너테이션을 활용해 로깅을 쉽게 추가할 수 있도록 구성하세요.
 - [ ] `application.yaml`에 기본 로깅 레벨을 설정하세요.
   - 기본적으로 `info` 레벨로 설정합니다.
 - [ ] 환경 별 적절한 로깅 레벨을 프로파일 별로 설정해보세요.
@@ -125,7 +125,7 @@ last_modified_at: 2026-03-25
 ### 2-4. 유효성 검사
 
 - [ ] Spring Validation 의존성을 추가하세요.
-- [ ] 주요 Request DTO에 제약 조건 관련 어노테이션을 추구하세요.
+- [ ] 주요 Request DTO에 제약 조건 관련 애너테이션을 추구하세요.
   - `@NotNull`, `@NotBlank`, `@Size`, `@Email` 등
 - [ ] 컨트롤러에 `@Valid` 를 사용해 요청 데이터를 검증하세요.
 - [ ] 검증 실패 시 발생하는 `MethodArgumentNotValidException`을 전역 예외 핸들러에서 처리하세요.
@@ -255,7 +255,7 @@ last_modified_at: 2026-03-25
 
     <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=13907&version=1&directory=/zjh3frl0m-image.png&name=zjh3frl0m-image.png" width=500px>
 
-- [ ] `admin` 모듈의 메인 클래스에 `@EnableAdminServer` 어노테이션을 추가하고, 서버는 9090번 포트로 설정합니다.
+- [ ] `admin` 모듈의 메인 클래스에 `@EnableAdminServer` 애너테이션을 추가하고, 서버는 9090번 포트로 설정합니다.
 
   ```java
   import de.codecentric.boot.admin.server.config.EnableAdminServer;

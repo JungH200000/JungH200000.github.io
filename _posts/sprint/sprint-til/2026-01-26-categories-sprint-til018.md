@@ -74,17 +74,17 @@ Spring 3.0 이후 도입된 방식으로, XML 설정을 대체하여 **타입 �
 
 ### 2-02. ⭐컴포넌트 스캔(`@ComponentScan`)
 
-**특정 패키지 이하의 클래스들을 자동으로 탐색**하여 IoC 컨테이너에 Bean으로 등록할 수 있게 하는 어노테이션으로, 명시적인 `@Bean` 어노테이션 정의 없이도 주요 어노테이션(`@Component`, `@Service`, `@Repository`, `@Controller`)을 통해 **자동 Bean 등록을 지원**하는 방식
+**특정 패키지 이하의 클래스들을 자동으로 탐색**하여 IoC 컨테이너에 Bean으로 등록할 수 있게 하는 애너테이션으로, 명시적인 `@Bean` 어애너테이션노테이션 정의 없이도 주요 애너테이션(`@Component`, `@Service`, `@Repository`, `@Controller`)을 통해 **자동 Bean 등록을 지원**하는 방식
 
 - **동작 원리**
   - Spring이 지정한 패키지부터 하위 패키지까지 탐색하면서, Bean 등록 대상이 되는 클래스를 자동으로 찾고 등록
-    - `@SpringBootApplication`은 내부에 `@ComponentScan`을 포함하고 있어서, 해당 어노테이션을 설정한 클래스의 하위 모든 패키지를 스캔함
+    - `@SpringBootApplication`은 내부에 `@ComponentScan`을 포함하고 있어서, 해당 애너테이션을 설정한 클래스의 하위 모든 패키지를 스캔함
 
 <br>
 
 ### 2-03. `@SpringBootApplication`의 동작 방식
 
-Spring Boot 애플리케이션의 **진입점**에 붙는 핵심 어노테이션으로, 실제로는 아래 세 가지 어노테이션을 조합한 **메타 어노테이션**이다
+Spring Boot 애플리케이션의 **진입점**에 붙는 핵심 애너테이션으로, 실제로는 아래 세 가지 애너테이션을 조합한 **메타 애너테이션**이다
 
 - `@SpringBootConfiguration` : 설정 클래스임을 명시. 내부적으로 `@Configuration` 포함
 - `@EnableAutoConfiguration` : 클래스패스, 설정 파일, 조건 등을 기반으로 Bean 자동 등록 수행
