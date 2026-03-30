@@ -167,6 +167,8 @@ public class UserNotFoundException extends UserException {
 }
 ```
 
+<br>
+
 ## 3. 고민
 
 ### ErrorCode에 500 계열 서버 에러도 넣어줘야 할까??
