@@ -34,7 +34,7 @@ last_modified_at: 2026-03-30
       - 테스트 시작 시 스키마를 새로 생성
       - 디버깅에 용이하도록 로그 레벨을 적절히 설정
     - JPA Audit 기능을 활성화 하기 위해 테스트 클래스에 @EnableJpaAuditing을 추가
-    - 주요 레포지토리(User, Channel, Message)의 주요 쿼리 메서드에 대해 테스트 케이스 작성
+    - 주요 레포지토리(`ChannelRepository`, `MessageRepository`)의 주요 쿼리 메서드에 대해 테스트 케이스 작성
       - 커스텀 쿼리 메서드
       - 페이징 및 정렬 메서드
 
