@@ -70,7 +70,7 @@ last_modified_at: 2026-01-14
   - `copyMessageList.forEach(message -> messageService.deleteMessage(message.getAuthor().getId(), message.getId()));`
 - 해결 방법2: `getChannelMessagesList()`가 `return channelMessagesList.stream().toList();`를 반환하기
   - `stream().toList()`: 원본 데이터를 바탕으로 새롭게 생성된 별개의 List 객체(복사본)
-  - 즉, 자바는 현재 복사본을 보고 있지만 `deleteMessage()` 메소드 내에서는 원본을 수정하고 있기 때문에 예외를 발생시키지 않음
+  - 즉, 자바는 현재 복사본을 보고 있지만 `deleteMessage()` 메서드 내에서는 원본을 수정하고 있기 때문에 예외를 발생시키지 않음
 
 ---
 
@@ -88,11 +88,11 @@ last_modified_at: 2026-01-14
   - [x] 클래스 패키지명: `com.sprint.mission.discodeit.service.jcf`
   - [x] 클래스 네이밍 규칙: `JCF[인터페이스 이름]`
   - [x] Java Collections Framework를 활용하여 데이터를 저장할 수 있는 필드(`data`)를 `final`로 선언하고 생성자에서 초기화하세요.
-  - [x] `data` 필드를 활용해 생성, 조회, 수정, 삭제하는 메소드를 구현하세요.
+  - [x] `data` 필드를 활용해 생성, 조회, 수정, 삭제하는 메서드를 구현하세요.
 
 ### 1-4. 메인 클래스 구현
 
-- [x] 메인 메소드가 선언된 `JavaApplication` 클래스를 선언하고, 도메인 별 서비스 구현체를 테스트해보세요.
+- [x] 메인 메서드가 선언된 `JavaApplication` 클래스를 선언하고, 도메인 별 서비스 구현체를 테스트해보세요.
   - [x] 등록
   - [x] 조회(단건, 다건)
   - [x] 수정

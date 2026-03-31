@@ -108,7 +108,7 @@ public class ReadStatus extends BaseUpdatableEntity {...}
 
 - [x] JPA의 애너테이션을 활용해 `createdAt`, `updatedAt` 속성이 자동으로 설정되도록 구현하세요.
   - `@CreatedDate`, `@LastModifiedDate`
-- [x] 클래스 다이어그램을 참고해 클래스 참조 관계를 수정하세요. 필요한 경우 생성자, update 메소드를 수정할 수 있습니다. 단, 아직 JPA Entity와 관련된 애너테이션은 작성하지 마세요.
+- [x] 클래스 다이어그램을 참고해 클래스 참조 관계를 수정하세요. 필요한 경우 생성자, update 메서드를 수정할 수 있습니다. 단, 아직 JPA Entity와 관련된 애너테이션은 작성하지 마세요.
   - 클래스 다이어그램
 
     <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/pq5iz92wt-image.png&name=pq5iz92wt-image.png" width=400px>
@@ -140,7 +140,7 @@ public class ReadStatus extends BaseUpdatableEntity {...}
 
 ### 2-5. 레포지토리와 서비스에 JPA 도입하기
 
-- [x] 기존의 Repository 인터페이스를 JPARepository로 정의하고 쿼리메소드로 대체하세요.
+- [x] 기존의 Repository 인터페이스를 JPARepository로 정의하고 쿼리메서드로 대체하세요.
   - FileRepository와 JCFRepository 구현체는 삭제합니다.
 - [진행 중] 영속성 컨텍스트의 특징에 맞추어 서비스 레이어를 수정해보세요.
   - 힌트: `트랜잭션`, `영속성 전이`, `변경 감지`, `지연로딩`

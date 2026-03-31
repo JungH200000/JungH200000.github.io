@@ -21,8 +21,8 @@ last_modified_at: 2026-01-16
 ## 1. 개발 진행 현황
 
 - 피드백 받은 부분 수정 진행 : [Sprint2-1 Feedback](https://www.notion.so/jungh20000/Sprint2-1-Feedback-2e9f59816c02804295a9f76a9f0d3c62)
-- 전반적으로 메소드의 파라미터에 객체가 아닌 id를 가지도록 리팩토링
-- 전반적으로 메소드명 의미가 명확하게 수정
+- 전반적으로 메서드의 파라미터에 객체가 아닌 id를 가지도록 리팩토링
+- 전반적으로 메서드명 의미가 명확하게 수정
 - `UserService`와 ChannelService`, `MessageService` 의존 관계 재설정
 - `JCFMessageService`
   - 의존 관계 `UserService`, `ChannelService` 추가

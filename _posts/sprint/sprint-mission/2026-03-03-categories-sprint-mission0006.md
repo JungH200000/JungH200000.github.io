@@ -84,7 +84,7 @@ last_modified_at: 2026-03-03
 
 - [ ] JPA의 애너테이션을 활용해 `createdAt`, `updatedAt` 속성이 자동으로 설정되도록 구현하세요.
   - `@CreatedDate`, `@LastModifiedDate`
-- [ ] 클래스 다이어그램을 참고해 클래스 참조 관계를 수정하세요. 필요한 경우 생성자, update 메소드를 수정할 수 있습니다. 단, 아직 JPA Entity와 관련된 애너테이션은 작성하지 마세요.
+- [ ] 클래스 다이어그램을 참고해 클래스 참조 관계를 수정하세요. 필요한 경우 생성자, update 메서드를 수정할 수 있습니다. 단, 아직 JPA Entity와 관련된 애너테이션은 작성하지 마세요.
   - 클래스 다이어그램
 
     <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/pq5iz92wt-image.png&name=pq5iz92wt-image.png" width=400px>
@@ -112,7 +112,7 @@ last_modified_at: 2026-03-03
 
 ### 2-5. 레포지토리와 서비스에 JPA 도입하기
 
-- [ ] 기존의 Repository 인터페이스를 JPARepository로 정의하고 쿼리메소드로 대체하세요.
+- [ ] 기존의 Repository 인터페이스를 JPARepository로 정의하고 쿼리메서드로 대체하세요.
   - FileRepository와 JCFRepository 구현체는 삭제합니다.
 - [ ] 영속성 컨텍스트의 특징에 맞추어 서비스 레이어를 수정해보세요.
   - 힌트: `트랜잭션`, `영속성 전이`, `변경 감지`, `지연로딩`
@@ -188,9 +188,9 @@ last_modified_at: 2026-03-03
   - `Path resolvePath(UUID)`
     - 파일의 실제 저장 위치에 대한 규칙을 정의합니다.
       - 파일 저장 위치 규칙 예시: `{root}/{UUID}`
-    - `put`, `get` 메소드에서 호출해 일관된 파일 경로 규칙을 유지합니다.
+    - `put`, `get` 메서드에서 호출해 일관된 파일 경로 규칙을 유지합니다.
   - `ResponseEntity<Resource> donwload(BinaryContentDto)`
-    - `get` 메소드를 통해 파일의 바이너리 데이터를 조회합니다.
+    - `get` 메서드를 통해 파일의 바이너리 데이터를 조회합니다.
     - BinaryContentDto와 바이너리 데이터를 활용해 `ResponseEntity<Resource>` 응답을 생성 후 반환합니다.
 
 <br>
@@ -216,7 +216,7 @@ last_modified_at: 2026-03-03
 
     <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/x7qjncxm0-image.png&name=x7qjncxm0-image.png" width=400px>
 
-  - 확장성을 위해 제네릭 메소드로 구현하세요.
+  - 확장성을 위해 제네릭 메서드로 구현하세요.
 
 ---
 
@@ -230,7 +230,7 @@ last_modified_at: 2026-03-03
 
 ### 3-2. 읽기전용 트랜잭션 활용
 
-- [ ] 프로덕션 환경에서는 OSIV를 비활성화하는 경우가 많습니다. 이때 서비스 레이어의 조회 메소드에서 발생할 수 있는 문제를 식별하고, 읽기 전용 트랜잭션을 활용해 문제를 해결해보세요.
+- [ ] 프로덕션 환경에서는 OSIV를 비활성화하는 경우가 많습니다. 이때 서비스 레이어의 조회 메서드에서 발생할 수 있는 문제를 식별하고, 읽기 전용 트랜잭션을 활용해 문제를 해결해보세요.
   - OSIV 비활성화하기
     ```yaml
     spring:

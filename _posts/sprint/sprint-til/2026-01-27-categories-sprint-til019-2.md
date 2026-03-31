@@ -22,7 +22,7 @@ last_modified_at: 2026-01-27
 
 - 기존 Java 프로젝트를 Spring Boot 프로젝트로 초기화
 - `File*Repository`와 `Base*Service` Bean 등록 구현
-- Lombok 적용 : 도메인의 getter 메소드를 `@Getter`로 대체
+- Lombok 적용 : 도메인의 getter 메서드를 `@Getter`로 대체
 
 <br>
 
@@ -81,9 +81,9 @@ last_modified_at: 2026-01-27
 - [x] `File*Repository` 구현체를 `Repository` 인터페이스의 Bean으로 등록하세요.
 - [x] `Basic*Service` 구현체를 `Service` 인터페이스의 Bean으로 등록하세요.
 - [x] `JavaApplication`에서 테스트했던 코드를 `DiscodeitApplication`에서 테스트해보세요.
-  - [x] `JavaApplication`의 `main` 메소드를 제외한 모든 메소드를 `DiscodeitApplication`클래스로 복사하세요.
-  - [x] `JavaApplication`의 `main` 메소드에서 Service를 초기화하는 코드를 Spring Context를 활용하여 대체하세요.
-    - [x] `JavaApplication`의 `main` 메소드의 셋업, 테스트 부분의 코드를 `DiscodeitApplication`클래스로 복사하세요.
+  - [x] `JavaApplication`의 `main` 메서드를 제외한 모든 메서드를 `DiscodeitApplication`클래스로 복사하세요.
+  - [x] `JavaApplication`의 `main` 메서드에서 Service를 초기화하는 코드를 Spring Context를 활용하여 대체하세요.
+    - [x] `JavaApplication`의 `main` 메서드의 셋업, 테스트 부분의 코드를 `DiscodeitApplication`클래스로 복사하세요.
 
 <br>
 
@@ -101,7 +101,7 @@ last_modified_at: 2026-01-27
 
 ### 2-4. Lombok 적용
 
-- [x] 도메인 모델의 getter 메소드를 `@Getter`로 대체해보세요.
+- [x] 도메인 모델의 getter 메서드를 `@Getter`로 대체해보세요.
 - [x] `Basic*Service`의 생성자를 `@RequiredArgsConstructor`로 대체해보세요.
 
 ---

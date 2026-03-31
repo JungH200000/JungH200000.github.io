@@ -21,13 +21,13 @@ last_modified_at: 2026-01-30
 ## 1. 개발 진행 상황
 
 - `MessageService` 고도화
-  - DTO를 활용해 `create`, `findAll`, `update`, `delete` 메소드 고도화
+  - DTO를 활용해 `create`, `findAll`, `update`, `delete` 메서드 고도화
 - `ReadStatusService` 구현
-  - DTO를 활용해 `create`, `find`, `findAllByUserId`, `update`, `delete` 메소드 구현
+  - DTO를 활용해 `create`, `find`, `findAllByUserId`, `update`, `delete` 메서드 구현
 - `UserStatusService` 구현
-  - DTO를 활용해 `create`, `find`, `findAll`, `update`, `updateByUserId`, `delete` 메소드 구현
+  - DTO를 활용해 `create`, `find`, `findAll`, `update`, `updateByUserId`, `delete` 메서드 구현
 - `BinaryContentService` 구현
-  - DTO를 활용해 `create`, `find`, `findAllByIdIn`, `delete` 메소드 구현
+  - DTO를 활용해 `create`, `find`, `findAllByIdIn`, `delete` 메서드 구현
 - 심화 요구사항 : 조건부 Bean 구성
   - `jcf`와 `file`에 따라 Repository 구현체 선택
 
@@ -54,7 +54,7 @@ last_modified_at: 2026-01-30
     - [x] 선택적으로 여러 개의 첨부파일을 같이 등록할 수 있습니다.
     - [x] DTO를 활용해 파라미터를 그룹화합니다.
   - `findAll`
-    - [x] 특정 `Channel`의 Message 목록을 조회하도록 조회 조건을 추가하고, 메소드 명을 변경합니다. `findallByChannelId`
+    - [x] 특정 `Channel`의 Message 목록을 조회하도록 조회 조건을 추가하고, 메서드 명을 변경합니다. `findallByChannelId`
   - `update`
     - [x] DTO를 활용해 파라미터를 그룹화합니다.
       - 수정 대상 객체의 id 파라미터, 수정할 값 파라미터

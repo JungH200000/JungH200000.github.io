@@ -155,11 +155,11 @@ Spring Boot 테스트에서는 H2, HSQL, Derby 같은 내장 테스트 DB가 있
 
 ### 2-6. 단위 테스트
 
-- [x] 서비스 레이어의 주요 메소드에 대한 단위 테스트를 작성하세요.
-  - [x] 다음 서비스의 핵심 메소드에 대해 각각 최소 2개 이상(성공, 실패)의 테스트 케이스를 작성하세요.
-    - [x] UserService: create, update, delete 메소드
-    - [x] ChannelService: create(PUBLIC, PRIVATE), update, delete, findByUserId 메소드
-    - [x] MessageService: create, update, delete, findByChannelId 메소드
+- [x] 서비스 레이어의 주요 메서드에 대한 단위 테스트를 작성하세요.
+  - [x] 다음 서비스의 핵심 메서드에 대해 각각 최소 2개 이상(성공, 실패)의 테스트 케이스를 작성하세요.
+    - [x] UserService: create, update, delete 메서드
+    - [x] ChannelService: create(PUBLIC, PRIVATE), update, delete, findByUserId 메서드
+    - [x] MessageService: create, update, delete, findByChannelId 메서드
   - [x] `Mockito`를 활용해 Repository 의존성을 모의(mock)하세요.
   - [x] `BDDMockito`를 활용해 테스트 가독성을 높이세요.
 
@@ -177,9 +177,9 @@ Spring Boot 테스트에서는 H2, HSQL, Derby 같은 내장 테스트 DB가 있
     - [x] 디버깅에 용이하도록 로그 레벨을 적절히 설정하세요.
   - [x] 테스트 실행 간 `test` 프로파일을 활성화 하세요.
   - [x] JPA Audit 기능을 활성화 하기 위해 테스트 클래스에 `@EnableJpaAuditing`을 추가하세요.
-  - [진행 중] 주요 레포지토리(User, Channel, Message)의 주요 쿼리 메소드에 대해 각각 최소 2개 이상(성공, 실패)의 테스트 케이스를 작성하세요.
-    - [진행 중] 커스텀 쿼리 메소드
-    - [x] 페이징 및 정렬 메소드
+  - [진행 중] 주요 레포지토리(User, Channel, Message)의 주요 쿼리메서드에 대해 각각 최소 2개 이상(성공, 실패)의 테스트 케이스를 작성하세요.
+    - [진행 중] 커스텀 쿼리 메서드
+    - [x] 페이징 및 정렬 메서드
 - [ ] 컨트롤러 레이어의 슬라이스 테스트를 작성하세요.
   - [ ] `@WebMvcTest`를 활용해 테스트를 구현하세요.
   - [ ] `WebMvcTest`에서 자동으로 등록되지 않는 유형의 Bean이 필요하다면 `@Import`를 활용해 추가하세요.

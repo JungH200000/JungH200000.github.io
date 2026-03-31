@@ -29,8 +29,8 @@ last_modified_at: 2026-01-12
 
 ### **Java Stream & Data Structure**
 
-- **`filter()` 메소드 안에서의 논리 연산**
-- `filter()` 메소드 안에 논리 연산자 사용해 복합 조건 필터링 가능
+- **`filter()` 메서드 안에서의 논리 연산**
+- `filter()` 메서드 안에 논리 연산자 사용해 복합 조건 필터링 가능
 - ex: `filter(user -> user.getUserName().contains(partialName) || user.getNickName().contains(partialName))`
 - **`Map<K, V>`으로 데이터 저장:**
 - 데이터를 저장할 때 `private final Map<UUID, Message> data = new HashMap<>();` 같이 UUID를 중복 저장하는 이유는 **Key**는 빠른 검색을 위한 색인(index) 역할을 하고 **Value**는 Message 데이터 그 자체의 역할을 한다.
@@ -82,7 +82,7 @@ last_modified_at: 2026-01-12
   - [진행 중] 클래스 패키지명: `com.sprint.mission.discodeit.service.jcf`
   - [진행 중] 클래스 네이밍 규칙: `JCF[인터페이스 이름]`
   - [진행 중] Java Collections Framework를 활용하여 데이터를 저장할 수 있는 필드(`data`)를 `final`로 선언하고 생성자에서 초기화하세요.
-  - [진행 중] `data` 필드를 활용해 생성, 조회, 수정, 삭제하는 메소드를 구현하세요.
+  - [진행 중] `data` 필드를 활용해 생성, 조회, 수정, 삭제하는 메서드를 구현하세요.
 
 `//...`
 

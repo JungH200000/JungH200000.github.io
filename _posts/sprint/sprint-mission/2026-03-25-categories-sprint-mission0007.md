@@ -66,9 +66,9 @@ last_modified_at: 2026-03-25
   - [ ] 로그 파일은 일자별로 롤링되도록 구성하세요.
   - [ ] 로그 파일은 30일간 보관하도록 구성하세요.
 
-- [ ] 서비스 레이어와 컨트롤러 레이어의 주요 메소드에 로깅을 추가하세요.
+- [ ] 서비스 레이어와 컨트롤러 레이어의 주요 메서드에 로깅을 추가하세요.
   - [ ] 로깅 레벨을 적절히 사용하세요: ERROR, WARN, INFO, DEBUG
-  - [ ] 다음과 같은 메소드에 로깅을 추가하세요:
+  - [ ] 다음과 같은 메서드에 로깅을 추가하세요:
     - [ ] 사용자 생성/수정/삭제
     - [ ] 채널 생성/수정/삭제
     - [ ] 메시지 생성/수정/삭제
@@ -158,11 +158,11 @@ last_modified_at: 2026-03-25
 
 ### 2-6. 단위 테스트
 
-- [ ] 서비스 레이어의 주요 메소드에 대한 단위 테스트를 작성하세요.
-  - [ ] 다음 서비스의 핵심 메소드에 대해 각각 최소 2개 이상(성공, 실패)의 테스트 케이스를 작성하세요.
-    - [ ] UserService: create, update, delete 메소드
-    - [ ] ChannelService: create(PUBLIC, PRIVATE), update, delete, findByUserId 메소드
-    - [ ] MessageService: create, update, delete, findByChannelId 메소드
+- [ ] 서비스 레이어의 주요 메서드에 대한 단위 테스트를 작성하세요.
+  - [ ] 다음 서비스의 핵심 메서드에 대해 각각 최소 2개 이상(성공, 실패)의 테스트 케이스를 작성하세요.
+    - [ ] UserService: create, update, delete 메서드
+    - [ ] ChannelService: create(PUBLIC, PRIVATE), update, delete, findByUserId 메서드
+    - [ ] MessageService: create, update, delete, findByChannelId 메서드
   - [ ] `Mockito`를 활용해 Repository 의존성을 모의(mock)하세요.
   - [ ] `BDDMockito`를 활용해 테스트 가독성을 높이세요.
 
@@ -180,9 +180,9 @@ last_modified_at: 2026-03-25
     - [ ] 디버깅에 용이하도록 로그 레벨을 적절히 설정하세요.
   - [ ] 테스트 실행 간 `test` 프로파일을 활성화 하세요.
   - [ ] JPA Audit 기능을 활성화 하기 위해 테스트 클래스에 `@EnableJpaAuditing`을 추가하세요.
-  - [ ] 주요 레포지토리(User, Channel, Message)의 주요 쿼리 메소드에 대해 각각 최소 2개 이상(성공, 실패)의 테스트 케이스를 작성하세요.
-    - [ ] 커스텀 쿼리 메소드
-    - [ ] 페이징 및 정렬 메소드
+  - [ ] 주요 레포지토리(User, Channel, Message)의 주요 쿼리 메서드에 대해 각각 최소 2개 이상(성공, 실패)의 테스트 케이스를 작성하세요.
+    - [ ] 커스텀 쿼리 메서드
+    - [ ] 페이징 및 정렬 메서드
 - [ ] 컨트롤러 레이어의 슬라이스 테스트를 작성하세요.
   - [ ] `@WebMvcTest`를 활용해 테스트를 구현하세요.
   - [ ] `WebMvcTest`에서 자동으로 등록되지 않는 유형의 Bean이 필요하다면 `@Import`를 활용해 추가하세요.
@@ -231,7 +231,7 @@ last_modified_at: 2026-03-25
     ```markdown
     # 패턴
 
-    {년}-{월}-{일} {시}:{분}:{초}:{밀리초} [{스레드명}] {로그 레벨(5글자로 맞춤)} {로거 이름(최대 36글자)} [{MDC:요청ID} | {MDC:요청 메소드} | {MDC:요청 URL}] - {로그 메시지}{줄바꿈}
+    {년}-{월}-{일} {시}:{분}:{초}:{밀리초} [{스레드명}] {로그 레벨(5글자로 맞춤)} {로거 이름(최대 36글자)} [{MDC:요청ID} | {MDC:요청 메서드} | {MDC:요청 URL}] - {로그 메시지}{줄바꿈}
 
     # 예시
 

@@ -38,7 +38,7 @@ last_modified_at: 2026-01-09
 - **단건 조회(`Optional<T>`):** 결과가 존재하지 않을 수 있음을 반환 타입을 Optional로 감싸서 호출자가 `isPresent()`나 `ifPresent()`를 통해 NPE(NullPointerException) 방지
 - **다건 조회(`List`/`Set`):** 데이터가 없을 경우 `null` 대신 빈 컬렉션(`Collections.emptyList()` 등)을 반환하여 NPE를 방지
   - ex) 컬렉션 `List<User>`은 데이터가 없을 경우 빈 리스트 `[]`를 반환해서 `list.isEmpty()`로 상태 확인 가능
-  - ex) 일반 객체 `User`는 데이터가 없을 경우 `null` 반환하는데 상태 확인 가능한 방법이 없어서 `Optional<User>`로 감싸서 `isPresent()` 또는 `ifPresent()` 메소드로 상태 확인 가능
+  - ex) 일반 객체 `User`는 데이터가 없을 경우 `null` 반환하는데 상태 확인 가능한 방법이 없어서 `Optional<User>`로 감싸서 `isPresent()` 또는 `ifPresent()` 메서드로 상태 확인 가능
 
 # 프로젝트 요구사항
 
@@ -59,7 +59,7 @@ last_modified_at: 2026-01-09
     - [x] `id`는 생성자에서 초기화하세요.
     - [x] `createdAt`는 생성자에서 초기화하세요.
     - [x] `id`, `createdAt`, `updatedAt`을 제외한 필드는 생성자의 파라미터를 통해 초기화하세요.
-  - [x] 메소드
+  - [x] 메서드
     - [x] 각 필드를 반환하는 `Getter` 함수를 정의하세요.
     - [x] 필드를 수정하는 `update` 함수를 정의하세요.
 

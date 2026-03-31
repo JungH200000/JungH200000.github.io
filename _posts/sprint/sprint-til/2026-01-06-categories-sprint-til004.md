@@ -172,7 +172,7 @@ class ParentEX extends Object {
 | 🔁 유지보수 용이 | 구조가 바뀌어도 메서드만 유지하면 외부 코드 수정 필요 없음 |
 | 🔄 결합도 감소   | 객체 간 관계가 느슨해지고, 테스트 및 재사용성이 향상됨     |
 
-**캡슐화는 접근 제어자와 Getter/Setter 메소드로 구현**
+**캡슐화는 접근 제어자와 Getter/Setter 메서드로 구현**
 
 <br>
 
@@ -600,7 +600,7 @@ class MyClass implements InterfaceEx {
 
 - **ISP**(**I**nterface **S**egregation **P**rinciple) : **인터페이스 분리의 원칙**
 - "하나의 범용 인터페이스보다 다수의 구체적인 인터페이스가 낫다."
-- "클라이언트는 사용하지 않는 메소드에 의존하면 안 된다."
+- "클라이언트는 사용하지 않는 메서드에 의존하면 안 된다."
 
 <br>
 

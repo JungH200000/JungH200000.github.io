@@ -283,7 +283,7 @@ RESTful API를 주로 사용하는 백엔드 개발자와 QA, 프론트엔드 �
 - **Controller 설계**
   - 현대의 웹 애플리케이션에서는 일반적으로 애플리케이션이 제공해야 될 기능을 **리소스(Resource, 자원)**로 분류
   - 이 리소스에 해당하는 Controller 클래스를 구현하면 됨
-  - 하지만 **핸들러 메소드(Handler Method)가 없다면 “404 Not Found”가 발생함.**
+  - 하지만 **핸들러 메서드(Handler Method)가 없다면 “404 Not Found”가 발생함.**
   - Controller 계층에서는 오버로딩 불가
   - 예시 코드
 

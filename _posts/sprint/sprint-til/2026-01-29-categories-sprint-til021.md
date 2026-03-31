@@ -22,9 +22,9 @@ last_modified_at: 2026-01-29
 
 - **피드백 받은 부분 수정 진행** : [26.01.28 - Sprint3 Feedback](https://www.notion.so/jungh20000/26-01-28-Sprint3-Feedback-2f6f59816c0280898898d1580294c2a9?source=copy_link)
 - `AuthService` 구현
-  - `login` 메소드 구현
+  - `login` 메서드 구현
 - `ChannelService` 고도화
-  - DTO를 활용해 `create`, `find`, `findAll`, `update`, `delete` 메소드 고도화
+  - DTO를 활용해 `create`, `find`, `findAll`, `update`, `delete` 메서드 고도화
 
 ---
 
@@ -50,8 +50,8 @@ last_modified_at: 2026-01-29
 
 - 고도화
   - `create`
-    - PRIVATE 채널과 PUBLIC 채널을 생성하는 메소드를 분리합니다.
-    - [x] 분리된 각각의 메소드를 DTO를 활용해 파라미터를 그룹화합니다.
+    - PRIVATE 채널과 PUBLIC 채널을 생성하는 메서드를 분리합니다.
+    - [x] 분리된 각각의 메서드를 DTO를 활용해 파라미터를 그룹화합니다.
     - PRIVATE 채널을 생성할 때:
       - [x] 채널에 참여하는 `User`의 정보를 받아 `User` 별 `ReadStatus` 정보를 생성합니다.
       - [x] `name`과 `description` 속성은 생략합니다.
@@ -64,7 +64,7 @@ last_modified_at: 2026-01-29
     - DTO를 활용하여:
       - [x] 해당 채널의 가장 최근 메시지의 시간 정보를 포함합니다.
       - [x] PRIVATE 채널인 경우 참여한 `User`의 `id` 정보를 포함합니다.
-    - [x] 특정 `Use`r가 볼 수 있는 Channel 목록을 조회하도록 조회 조건을 추가하고, 메소드 명을 변경합니다. `findAllByUserId`
+    - [x] 특정 `Use`r가 볼 수 있는 Channel 목록을 조회하도록 조회 조건을 추가하고, 메서드 명을 변경합니다. `findAllByUserId`
     - [x] PUBLIC 채널 목록은 전체 조회합니다.
     - [x] PRIVATE 채널은 조회한 `User`가 참여한 채널만 조회합니다.
   - `update`

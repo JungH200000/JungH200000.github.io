@@ -76,7 +76,7 @@ List<String> list = (List<String>) obj; // unchecked cast 경고
 - [x] 다음의 조건을 만족하는 서비스 인터페이스의 구현체를 작성하세요.
   - [x] 클래스 패키지명: `com.sprint.mission.discodeit.service.file`
   - [x] 클래스 네이밍 규칙: `File[인터페이스 이름]`
-  - [x] JCF 대신 FileIO와 객체 직렬화를 활용해 메소드를 구현하세요.
+  - [x] JCF 대신 FileIO와 객체 직렬화를 활용해 메서드를 구현하세요.
   - [객체 직렬화/역직렬화 가이드](https://codeit.notion.site/13b6fd228e8d80c6b144cdfbf518a9f7)
 
 - [x] `Application`에서 서비스 구현체를 `File*Service`로 바꾸어 테스트해보세요.

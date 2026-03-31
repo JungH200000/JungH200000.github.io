@@ -49,8 +49,8 @@ last_modified_at: 2026-01-27
 - [ ] `File*Repository` 구현체를 `Repository` 인터페이스의 Bean으로 등록하세요.
 - [ ] `Basic*Service` 구현체를 `Service` 인터페이스의 Bean으로 등록하세요.
 - [ ] `JavaApplication`에서 테스트했던 코드를 `DiscodeitApplication`에서 테스트해보세요.
-  - [ ] `JavaApplication`의 `main` 메소드를 제외한 모든 메소드를 `DiscodeitApplication`클래스로 복사하세요.
-  - [ ] `JavaApplication`의 `main` 메소드에서 Service를 초기화하는 코드를 Spring Context를 활용하여 대체하세요.
+  - [ ] `JavaApplication`의 `main` 메서드를 제외한 모든 메서드를 `DiscodeitApplication`클래스로 복사하세요.
+  - [ ] `JavaApplication`의 `main` 메서드에서 Service를 초기화하는 코드를 Spring Context를 활용하여 대체하세요.
 
     ```java
     // JavaApplication
@@ -79,7 +79,7 @@ last_modified_at: 2026-01-27
 
     ```
 
-  - [ ] `JavaApplication`의 `main` 메소드의 셋업, 테스트 부분의 코드를 `DiscodeitApplication`클래스로 복사하세요.
+  - [ ] `JavaApplication`의 `main` 메서드의 셋업, 테스트 부분의 코드를 `DiscodeitApplication`클래스로 복사하세요.
 
     ```java
     public static void main(String[] args) {
@@ -142,7 +142,7 @@ last_modified_at: 2026-01-27
 
 ### 2-4. Lombok 적용
 
-- [ ] 도메인 모델의 getter 메소드를 `@Getter`로 대체해보세요.
+- [ ] 도메인 모델의 getter 메서드를 `@Getter`로 대체해보세요.
 - [ ] `Basic*Service`의 생성자를 `@RequiredArgsConstructor`로 대체해보세요.
 
 ---
@@ -168,7 +168,7 @@ last_modified_at: 2026-01-27
 
 - [ ] `UserStatus`
   - 사용자 별 마지막으로 확인된 접속 시간을 표현하는 도메인 모델입니다. 사용자의 온라인 상태를 확인하기 위해 활용합니다.
-  - [ ] 마지막 접속 시간을 기준으로 현재 로그인한 유저로 판단할 수 있는 메소드를 정의하세요.
+  - [ ] 마지막 접속 시간을 기준으로 현재 로그인한 유저로 판단할 수 있는 메서드를 정의하세요.
     - 마지막 접속 시간이 현재 시간으로부터 5분 이내이면 현재 접속 중인 유저로 간주합니다.
 
 - [ ] `BinaryContent`
@@ -178,7 +178,7 @@ last_modified_at: 2026-01-27
 
 - [ ] 각 도메인 모델 별 레포지토리 인터페이스를 선언하세요.
 
-- 레포지토리 구현체(File, JCF)는 아직 구현하지 마세요. 이어지는 서비스 고도화 요구사항에 따라 레포지토리 인터페이스에 메소드가 추가될 수 있어요.
+- 레포지토리 구현체(File, JCF)는 아직 구현하지 마세요. 이어지는 서비스 고도화 요구사항에 따라 레포지토리 인터페이스에 메서드가 추가될 수 있어요.
 
 <br>
 
@@ -233,8 +233,8 @@ last_modified_at: 2026-01-27
 
 - 고도화
   - `create`
-    - PRIVATE 채널과 PUBLIC 채널을 생성하는 메소드를 분리합니다.
-    - [ ] 분리된 각각의 메소드를 DTO를 활용해 파라미터를 그룹화합니다.
+    - PRIVATE 채널과 PUBLIC 채널을 생성하는 메서드를 분리합니다.
+    - [ ] 분리된 각각의 메서드를 DTO를 활용해 파라미터를 그룹화합니다.
     - PRIVATE 채널을 생성할 때:
       - [ ] 채널에 참여하는 `User`의 정보를 받아 `User` 별 `ReadStatus` 정보를 생성합니다.
       - [ ] `name`과 `description` 속성은 생략합니다.
@@ -247,7 +247,7 @@ last_modified_at: 2026-01-27
     - DTO를 활용하여:
       - [ ] 해당 채널의 가장 최근 메시지의 시간 정보를 포함합니다.
       - [ ] PRIVATE 채널인 경우 참여한 `User`의 `id` 정보를 포함합니다.
-    - [ ] 특정 `Use`r가 볼 수 있는 Channel 목록을 조회하도록 조회 조건을 추가하고, 메소드 명을 변경합니다. `findAllByUserId`
+    - [ ] 특정 `Use`r가 볼 수 있는 Channel 목록을 조회하도록 조회 조건을 추가하고, 메서드 명을 변경합니다. `findAllByUserId`
     - [ ] PUBLIC 채널 목록은 전체 조회합니다.
     - [ ] PRIVATE 채널은 조회한 `User`가 참여한 채널만 조회합니다.
   - `update`
@@ -272,7 +272,7 @@ last_modified_at: 2026-01-27
     - [ ] 선택적으로 여러 개의 첨부파일을 같이 등록할 수 있습니다.
     - [ ] DTO를 활용해 파라미터를 그룹화합니다.
   - `findAll`
-    - [ ] 특정 `Channel`의 Message 목록을 조회하도록 조회 조건을 추가하고, 메소드 명을 변경합니다. `findallByChannelId`
+    - [ ] 특정 `Channel`의 Message 목록을 조회하도록 조회 조건을 추가하고, 메서드 명을 변경합니다. `findallByChannelId`
   - `update`
     - [ ] DTO를 활용해 파라미터를 그룹화합니다.
       - 수정 대상 객체의 id 파라미터, 수정할 값 파라미터

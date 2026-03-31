@@ -112,7 +112,7 @@ last_modified_at: 2026-03-08
 
     <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/x7qjncxm0-image.png&name=x7qjncxm0-image.png" width=400px>
 
-  - 확장성을 위해 제네릭 메소드로 구현하세요.
+  - 확장성을 위해 제네릭 메서드로 구현하세요.
 
 ---
 
@@ -126,7 +126,7 @@ last_modified_at: 2026-03-08
 
 ### 3-2. 읽기전용 트랜잭션 활용
 
-- [x] 프로덕션 환경에서는 OSIV를 비활성화하는 경우가 많습니다. 이때 서비스 레이어의 조회 메소드에서 발생할 수 있는 문제를 식별하고, 읽기 전용 트랜잭션을 활용해 문제를 해결해보세요.
+- [x] 프로덕션 환경에서는 OSIV를 비활성화하는 경우가 많습니다. 이때 서비스 레이어의 조회 메서드에서 발생할 수 있는 문제를 식별하고, 읽기 전용 트랜잭션을 활용해 문제를 해결해보세요.
   - OSIV 비활성화하기
     ```yaml
     spring:
