@@ -28,7 +28,7 @@ N+1 문제는 JPA에서 연관 관계인 Entity를 조회할 때 발생하는 �
 
 - `JOIN FETCH`를 사용해 연관된 Entity를 하나의 쿼리로 조회
 - `@EntityGraph`를 사용해 `JOIN FETCH`보다 간단하게 Entity의 특정 속성 조회
-- `@BatchSize`를 설정한 size로 나눠서 연관된 Entity를 한 번에 조회
+- `@BatchSize`를 사용해 설정한 크기로 나눠서 연관된 Entity를 한 번에 조회
 
 <br>
 
