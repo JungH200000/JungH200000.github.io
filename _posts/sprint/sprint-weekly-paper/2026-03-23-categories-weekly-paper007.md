@@ -22,13 +22,15 @@ last_modified_at: 2026-03-23
 
 #### N+1 문제 발생 원인
 
-연관 관계가 설정된 Entity를 조회할 때 발생하는 성능 문제로, 특정 목록을 조회할 때, 목록과 연계된 정보를 조회하기 위해 N번이 더 조회되는 현상이다.
+N+1 문제는 JPA에서 연관 관계인 Entity를 조회할 때 발생하는 성능 문제이다.
+
+특정 목록을 조회할 때, 목록과 연계된 정보를 조회하기 위해 N번이 더 조회되는 현상이다.
 
 #### 해결 방안
 
-- `JOIN FETCH`를 사용
-- `@EntityGraph`를 사용
-- `@BatchSize`를 사용
+- `JOIN FETCH`를 사용해 연관된 Entity를 하나의 쿼리로 조회
+- `@EntityGraph`를 사용해 `JOIN FETCH`보다 간단하게 Entity의 특정 속성 조회
+- `@BatchSize`를 설정한 size로 나눠서 연관된 Entity를 한 번에 조회
 
 <br>
 
@@ -54,9 +56,9 @@ N+1 문제는 JPA에서 연관 관계가 설정된 엔티티를 조회할 때 �
 
 #### 격리성이 보장되지 않을 때
 
-- Dirty Read 발생
-- Non-Repeatable 발생
-- Phantom Read 발생
+- 커밋되지 않은 다른 트랜잭션의 변경사항을 반영하는 Dirty Read 발생
+- 한 트랜잭션에서 동일한 데이터를 두 번 조회할 때 값이 다른 Non-Repeatable 발생
+- 동일 쿼리 실행 시 기존에 없던 데이터가 나타나는 Phantom Read 발생
 
 #### 해당 문제를 해결하기 위한 트랜잭션 격리 수준
 
