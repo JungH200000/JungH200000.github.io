@@ -7,7 +7,7 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint Weekly Paper]
 
-permalink: /categories/codeit-sprint/sprint-weekly-paper/weekly-paper002/
+permalink: /categories/codeit-sprint/sprint-weekly-paper/weekly-paper002
 
 toc: true
 toc_sticky: true
