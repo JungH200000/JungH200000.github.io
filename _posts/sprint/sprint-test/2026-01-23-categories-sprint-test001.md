@@ -7,7 +7,7 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint Test]
 
-permalink: /categories/codeit-sprint/sprint-test/sprint-test001/
+permalink: /categories/codeit-sprint/sprint-test/sprint-test001
 
 toc: true
 toc_sticky: true
