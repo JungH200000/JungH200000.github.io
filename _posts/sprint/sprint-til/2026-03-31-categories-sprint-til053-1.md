@@ -34,7 +34,7 @@ CI/CD 도구 없이 수동으로 서버에 직접 애플리케이션을 배포�
     PS D:\springboot\project> .\gradlew bootJar
 
     # Git Bash 예시
-    $ ./gradlew bootJar
+    ./gradlew bootJar
     ```
 
   - 프로젝트 전체 빌드 수행(bootJar 포함)
@@ -44,7 +44,7 @@ CI/CD 도구 없이 수동으로 서버에 직접 애플리케이션을 배포�
     PS D:\springboot\project> .\gradlew build
 
     # Git Bash 예시
-    $ ./gradlew build
+    ./gradlew build
     ```
 
 - 실행
@@ -112,8 +112,8 @@ java -jar build된_파일명.jar
   - Docker CLI / Daemon : 이미지 빌드, 컨테이너 실행, 볼륨 마운트, 네트워크 관리 등
   ```bash
   # 예시: Dockerfile 기반으로 컨테이너 실행하기
-  $ docker build -t my-app .         # Dockerfile로부터 이미지 생성
-  $ docker run -d -p 8080:8080 my-app  # 생성된 이미지로 컨테이너 실행
+  docker build -t my-app .         # Dockerfile로부터 이미지 생성
+  docker run -d -p 8080:8080 my-app  # 생성된 이미지로 컨테이너 실행
   ```
 - 특징
   - 하나의 이미지만 있으면 Windows, macOS, Linux, 클라우드 어디서든 동일하게 실행
@@ -138,7 +138,7 @@ java -jar build된_파일명.jar
 
 ```bash
 # Docker로 Nginx 실행 예시
-$ docker run -d -p 8080:80 nginx
+docker run -d -p 8080:80 nginx
 ```
 
 Nginx 서버가 새로운 컨테이너 환경에서 실행 ➡️ 서버 설치, 설정, 방화벽 작업 없이 바로 작동
@@ -206,8 +206,8 @@ GitHub가 소스코드를 공유하고 협업하는 플랫폼이라면, DockerHu
   - 팀 및 조직 단위 협업 기능
   ```bash
   # DockerHub에서 nginx 이미지 받아 실행하기
-  $ docker pull nginx                # 이미지 다운로드
-  $ docker run -d -p 80:80 nginx     # 컨테이너 실행
+  docker pull nginx                # 이미지 다운로드
+  docker run -d -p 80:80 nginx     # 컨테이너 실행
   ```
 - Docker 저장소
   - Docker 이미지를 저장하고, 관리하며, 공유할 수 있는 공간
@@ -219,13 +219,13 @@ GitHub가 소스코드를 공유하고 협업하는 플랫폼이라면, DockerHu
   - Docker에서 직접 build하고 보안 검증을 마친 이미지
   ```bash
   # 'nginx'는 실제로는 'library/nginx'로 간주됩니다
-  $ docker pull nginx
+  docker pull nginx
   ```
 - 사용자 이미지(User Image)
   - 사용자가 자신의 DockerHub 계정으로 push한 이미지
   ```bash
   # 사용자 이미지 예시
-  $ docker pull john123/my-spring-app:1.0.2
+  docker pull john123/my-spring-app:1.0.2
   ```
 
 <br>
@@ -244,9 +244,9 @@ GitHub가 소스코드를 공유하고 협업하는 플랫폼이라면, DockerHu
 - 설치 확인 및 기본 동작 테스트
 
 ```bash
-$ docker --version       # 설치된 버전 확인
-$ docker info            # 시스템 정보 및 상태 확인
-$ docker run hello-world # 컨테이너 동작 테스트(`hello-world` 이미지는 테스트용 컨테이너)
+docker --version       # 설치된 버전 확인
+docker info            # 시스템 정보 및 상태 확인
+docker run hello-world # 컨테이너 동작 테스트(`hello-world` 이미지는 테스트용 컨테이너)
 ```
 
 <br>
@@ -373,7 +373,7 @@ docker rmi -f nginx
 
 ```bash
 # 사용되지 않는 이미지 정리
-$ docker image prune
+docker image prune
 ```
 
 - 삭제 확정 시 `y` 또는 `-force` 필요
