@@ -1,43 +1,37 @@
 ---
-title: '[TIL 56일 차] Sprint Mission7 - Controller 계층에서 주요 메서드 슬라이스 테스트'
-excerpt: '2-7.슬라이스 테스트'
+title: '[TIL 57일 차] Sprint Mission7 - MDC를 활용한 로깅 고도화'
+excerpt: '3-1.MDC를 활용한 로깅 고도화'
 
 categories:
   - Sprint TIL
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til056-2
+permalink: /categories/codeit-sprint/sprint-til/sprint-til057
 
 toc: true
 toc_sticky: true
 
-date: 2026-04-03
-last_modified_at: 2026-04-03
+date: 2026-04-04
+last_modified_at: 2026-04-04
 ---
 
 # 오늘의 성취
 
-- Controller 계층에서 슬라이스 테스트를 작성
-  - `@WebMvcTest`를 활용해 테스트를 구현
-  - WebMvcTest에서 자동으로 등록되지 않는 유형의 Bean이 필요하다면 `@Import`를 활용해 추가
-  - 주요 컨트롤러(User, Channel, Message)에 대해 테스트 케이스 작성
-    - `UserController` 작업 완료
-  - MockMvc를 활용해 Controller를 테스트
-  - Service 계층을 mock하여 Controller 로직만 테스트
-  - JSON 응답을 검증하는 테스트를 포함
+- MDC로 로깅 고도화
+  - requestId, requestUri, requestMethod 등의 정보를 MDC에 추가하는 `MDCLoggingInterceptor` 구현
+  - `MDCLoggingInterceptor`를 등록하는 `WebMvcConfig` 구현
+  - `logback-spring.xml`의 Logback 패턴에 MDC 값 추가
 
 ---
 
 # 프로젝트 요구 사항
 
-## 2. 기본 요구사항
-
 `//...`
 
-### 2-7. 슬라이스 테스트
+## 3. 심화 요구사항
 
-`//...`
+### 3-1. MDC를 활용한 로깅 고도화
 
 - [x] 컨트롤러 레이어의 슬라이스 테스트를 작성하세요.
   - [x] `@WebMvcTest`를 활용해 테스트를 구현하세요.
