@@ -1,5 +1,5 @@
 ---
-title: '[TIL 55일 차] Sprint Mission7 - Controller 계층에서 주요 메서드 슬라이스 테스트'
+title: '[TIL 56일 차] Sprint Mission7 - Controller 계층에서 주요 메서드 슬라이스 테스트'
 excerpt: '2-7.슬라이스 테스트'
 
 categories:

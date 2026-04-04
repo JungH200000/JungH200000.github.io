@@ -1,5 +1,5 @@
 ---
-title: '[TIL 55일 차] AWS ECS 로 프로그램 배포하기'
+title: '[TIL 56일 차] AWS ECS 로 프로그램 배포하기'
 excerpt: '2.ECR 시작하기 ~ 5.GitHub Actions'
 
 categories:
