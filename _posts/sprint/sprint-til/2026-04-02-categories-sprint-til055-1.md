@@ -1,6 +1,6 @@
 ---
-title: '[TIL 55일 차] AWS: 계정 생성부터 ECS, S3, RDS 설정'
-excerpt: '4.데이터 베이스 RDS 이해와 실습 ~ 7.EC2 기초와 환경 설정'
+title: '[TIL 55일 차] AWS: 계정 생성부터 S3, RDS 설정'
+excerpt: '4.데이터 베이스 RDS 이해와 실습, 7.EC2 기초와 환경 설정'
 
 categories:
   - Sprint TIL
@@ -16,9 +16,9 @@ date: 2026-04-02
 last_modified_at: 2026-04-02
 ---
 
-# AWS: 계정 생성부터 ECS, S3, RDS 설정
+# AWS: 계정 생성부터 S3, RDS 설정
 
-## <span style="background-color: #FFF9C4">4. **데이터 베이스 RDS 이해**</span>
+## <span style="background-color: #FFF9C4">4. 데이터 베이스 RDS 이해</span>
 
 ### 4-01. RDS (Relational Database Service)
 
@@ -71,60 +71,9 @@ last_modified_at: 2026-04-02
 
 ---
 
-## <span style="background-color: #FFF9C4">6. ECS</span>
+## <span style="background-color: #FFF9C4">7.EC2 기초와 환경 설정</span>
 
-### 6-01. 컨테이너 오케스트레이션
-
-실제 운영 환경에서 단일 컨테이너만 사용하는 경우는 드물다. 보통 수십~수백 개의 컨테이너를 동시에 실행하고 관리한다.
-
-이때 필요한 것이 컨테이너 오케스트레이션(Container Orchestration)이다.
-
-컨테이너 오케스트레이션은 아래의 기능을 자동으로 수행한다.
-
-- 컨테이너 배치 (어떤 서버에 컨테이너를 올릴지)
-- 컨테이너 상태 모니터링 (죽으면 자동으로 재시작)
-- 확장/축소 (트래픽에 맞춰 개수를 늘리거나 줄임)
-- 네트워크 연결 및 로드밸런싱
-
-대표적인 서비스로는 Kubernetes, Amazon ECS, Docker Swarm 등이 있다.
-
-```bash
-# 컨테이너 오케스트레이션이 없는 경우 (직접 서버에 올림)
-server1: run container A, B
-server2: run container C
-
-# 오케스트레이션 도구를 쓰는 경우 (자동으로 배치)
-cluster: run container A, B, C (자동으로 최적 서버 배치)
-```
-
-<br>
-
-### 6-02. ECS
-
-AWS에서 제공하는 완전관리형 컨테이너 오케스트레이션 서비스
-
-```bash
-# 연결 관계 한눈에 보기 (간단 다이어그램)
-[Cluster]
-  └─[Service]  ← 확장/축소, 배포, 로드밸런서 연결
-      └─[Task] (실행 인스턴스, 1개 이상)
-          └─[Containers] (여러 개 가능, web, sidecar, log 등)
-```
-
-- **Cluster**
-  - 컨테이너를 실행할 수 있는 운영 단지(실행 환경)
-  - 컨테이너 관리 X, Service를 관리
-- **Service**
-  - 세대 수 유지, 교체 공사(배포), 공동시설(ALB) 연결을 담당하는 관리사무소
-- **Task Definition**
-  - 컨테이너 이미지, CPU/메모리, 포트, 환경 변수, 로그, 볼륨 등 실행 방법을 기술한 템플릿(설계도)
-- **Task**
-  - Task Definition을 바탕으로 실제 실행 중인 인스턴스 (입주 세대(컨테이너 집합))
-  - 하나 이상의 컨테이너를 가짐
-
-<br>
-
-### 6-03. EC2 (Elastic Compute Cloud)
+### 7-01. EC2 (Elastic Compute Cloud)
 
 AWS에서 제공하는 가상 서버로, 클라우드 환경에서 애플리케이션을 실행할 수 있는 기본 단위
 

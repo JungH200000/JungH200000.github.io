@@ -1,5 +1,5 @@
 ---
-title: '[TIL 54일 차]  AWS: 계정 생성부터 ECS, S3, RDS 설정'
+title: '[TIL 54일 차]  AWS: 계정 생성부터 S3, RDS 설정'
 excerpt: '1.AWS 핵심 개념과 보안 ~ 2.파일 저장소 S3의 이해와 실습'
 
 categories:
@@ -16,7 +16,7 @@ date: 2026-04-01
 last_modified_at: 2026-04-01
 ---
 
-# AWS: 계정 생성부터 ECS, S3, RDS 설정
+# AWS: 계정 생성부터 S3, RDS 설정
 
 ## <span style="background-color: #FFF9C4">1. AWS 핵심 개념과 보안</span>
 
