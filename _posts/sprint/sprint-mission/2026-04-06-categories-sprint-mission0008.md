@@ -86,11 +86,11 @@ Section: Sprint Mission
 - [ ] Gradle Wrapper를 사용하여 애플리케이션을 build하세요.
 - [ ] `80` 포트를 노출하도록 설정하세요.
 - [ ] 프로젝트 정보를 환경 변수로 설정하세요.
-    - 실행할 jar 파일의 이름을 추론하는데 활용됩니다.
-    - `PROJECT_NAME`: discodeit
-    - `PROJECT_VERSION`: 1.2-M8
+  - 실행할 jar 파일의 이름을 추론하는데 활용됩니다.
+  - `PROJECT_NAME`: discodeit
+  - `PROJECT_VERSION`: 1.2-M8
 - [ ] JVM 옵션을 환경 변수로 설정하세요.
-    - `JVM_OPTS`: 기본값은 빈 문자열로 정의
+  - `JVM_OPTS`: 기본값은 빈 문자열로 정의
 - [ ] 애플리케이션 실행 명령어를 설정하세요. 이때 환경변수로 정의한 프로젝트 정보를 활용하세요.
 
 #### 이미지 build 및 실행 테스트
@@ -150,13 +150,13 @@ Section: Sprint Mission
   implementation 'software.amazon.awssdk:s3:2.31.7'
   ```
 - [ ] S3 API를 간단하게 테스트하세요.
-    - 패키지명: `com.sprint.mission.discodeit.stoarge.s3`
-    - 클래스명: `AWSS3Test`
-    - [ ] `Properties` 클래스를 활용해서 `.env`에 정의한 AWS 정보를 로드하세요.
-    - [ ] 작업 별 테스트 메서드를 작성하세요.
-      - 업로드
-      - 다운로드
-      - PresignedUrl 생성
+  - 패키지명: `com.sprint.mission.discodeit.stoarge.s3`
+  - 클래스명: `AWSS3Test`
+  - [ ] `Properties` 클래스를 활용해서 `.env`에 정의한 AWS 정보를 로드하세요.
+  - [ ] 작업 별 테스트 메서드를 작성하세요.
+    - 업로드
+    - 다운로드
+    - PresignedUrl 생성
 
 #### AWS S3를 활용한 `BinaryContentStroage` 고도화
 
@@ -196,9 +196,8 @@ Section: Sprint Mission
 
 - [ ] AWS RDS PostgreSQL 인스턴스를 생성하세요.
 
-  <img width="400" alt="image" src="https://github.com/user-attachments/assets/13534ac9-2f6b-40cd-8db6-9bc9ee4c4dbf" />
-
-  - 이외 설정은 기본값을 유지하세요.
+<img width="400" alt="image" src="https://github.com/user-attachments/assets/13534ac9-2f6b-40cd-8db6-9bc9ee4c4dbf" />
+- 이외 설정은 기본값을 유지하세요.
 
 - [ ] 과금이 발생할 수 있으니 다음 항목은 한번 더 확인해주세요.
   - [ ] 템플릿: `프리티어`
@@ -209,10 +208,8 @@ Section: Sprint Mission
 - [ ] SSH 터널링을 통해 개발 환경에서 접근할 수 있도록 EC2를 구성하세요.
   - [ ] EC2 인스턴스를 생성하세요.
 
-    <img width="500" alt="image" src="https://github.com/user-attachments/assets/c501a55e-8bcc-4036-a507-e057853935cf" />
-
-    - 이외 설정은 기본값을 유지하세요.
-
+  <img width="500" alt="image" src="https://github.com/user-attachments/assets/c501a55e-8bcc-4036-a507-e057853935cf" />
+  - 이외 설정은 기본값을 유지하세요.
   - [ ] 보안 그룹에서 인바운드 규칙을 편집하세요.
     - 유형: `SSH`
     - 소스: `내 IP`
@@ -292,23 +289,20 @@ Section: Sprint Mission
 
 - [ ] AWS ECS 콘솔에서 클러스터를 생성하세요.
 
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/dec40aed-f58b-4748-b17b-ebd7455cc839" />
-
-  - 이외 설정은 기본값을 유지하세요.
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/dec40aed-f58b-4748-b17b-ebd7455cc839" />
+- 이외 설정은 기본값을 유지하세요.
 
 - [ ] 태스크를 정의하세요.
 
-  <img width="800" alt="image" src="https://github.com/user-attachments/assets/5f61a17b-874a-4491-91f1-80c3a51d8d80" />
-
-  - 이외 설정은 기본값을 유지하세요.
-  - [ ] 태스크 생성 후 `태스크 실행 역할`에 S3 관련 권한을 추가하세요.
-    - 환경 변수 파일을 읽기위해 필요합니다.
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/5f61a17b-874a-4491-91f1-80c3a51d8d80" />
+- 이외 설정은 기본값을 유지하세요.
+- [ ] 태스크 생성 후 `태스크 실행 역할`에 S3 관련 권한을 추가하세요.
+  - 환경 변수 파일을 읽기위해 필요합니다.
 
 - [ ] `discodeit` 클러스터 상세 화면에서 서비스를 생성하세요.
 
-  <img width="500" alt="image" src="https://github.com/user-attachments/assets/847c9bd0-3fa0-4768-ba98-219d699315d1" />
-
-  - 이외 설정은 기본값을 유지하세요.
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/847c9bd0-3fa0-4768-ba98-219d699315d1" />
+- 이외 설정은 기본값을 유지하세요.
 
 - [ ] 태스크의 EC2 보안 그룹의 인바운드 규칙을 설정하여 어디서든 접근할 수 있도록 하세요.
   - [ ] EC2 보안 그룹에서 인바운드 규칙을 편집하세요.
