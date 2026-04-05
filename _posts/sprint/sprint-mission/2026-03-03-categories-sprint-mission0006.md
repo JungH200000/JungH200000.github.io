@@ -7,7 +7,7 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint Mission]
 
-permalink: /categories/codeit-sprint/sprint-mission/sprint-mission0006/
+permalink: /categories/codeit-sprint/sprint-mission/sprint-mission0006
 
 toc: true
 toc_sticky: true
