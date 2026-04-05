@@ -86,11 +86,11 @@ Section: Sprint Mission
 - [ ] Gradle Wrapper를 사용하여 애플리케이션을 build하세요.
 - [ ] `80` 포트를 노출하도록 설정하세요.
 - [ ] 프로젝트 정보를 환경 변수로 설정하세요.
-  - 실행할 jar 파일의 이름을 추론하는데 활용됩니다.
-  - `PROJECT_NAME`: discodeit
-  - `PROJECT_VERSION`: 1.2-M8
+    - 실행할 jar 파일의 이름을 추론하는데 활용됩니다.
+    - `PROJECT_NAME`: discodeit
+    - `PROJECT_VERSION`: 1.2-M8
 - [ ] JVM 옵션을 환경 변수로 설정하세요.
-  - `JVM_OPTS`: 기본값은 빈 문자열로 정의
+    - `JVM_OPTS`: 기본값은 빈 문자열로 정의
 - [ ] 애플리케이션 실행 명령어를 설정하세요. 이때 환경변수로 정의한 프로젝트 정보를 활용하세요.
 
 #### 이미지 build 및 실행 테스트
@@ -150,13 +150,13 @@ Section: Sprint Mission
   implementation 'software.amazon.awssdk:s3:2.31.7'
   ```
 - [ ] S3 API를 간단하게 테스트하세요.
-  - 패키지명: `com.sprint.mission.discodeit.stoarge.s3`
-  - 클래스명: `AWSS3Test`
-  - [ ] `Properties` 클래스를 활용해서 `.env`에 정의한 AWS 정보를 로드하세요.
-  - [ ] 작업 별 테스트 메서드를 작성하세요.
-    - 업로드
-    - 다운로드
-    - PresignedUrl 생성
+    - 패키지명: `com.sprint.mission.discodeit.stoarge.s3`
+    - 클래스명: `AWSS3Test`
+    - [ ] `Properties` 클래스를 활용해서 `.env`에 정의한 AWS 정보를 로드하세요.
+    - [ ] 작업 별 테스트 메서드를 작성하세요.
+      - 업로드
+      - 다운로드
+      - PresignedUrl 생성
 
 #### AWS S3를 활용한 `BinaryContentStroage` 고도화
 
