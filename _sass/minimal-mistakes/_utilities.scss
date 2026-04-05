@@ -110,7 +110,7 @@ body:hover .visually-hidden button {
 .task-list {
   padding:0;
 
-  li {
+  > li {
     list-style-type: none;
   }
 
