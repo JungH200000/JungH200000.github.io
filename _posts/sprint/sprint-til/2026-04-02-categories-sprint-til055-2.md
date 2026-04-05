@@ -18,6 +18,8 @@ last_modified_at: 2026-04-02
 
 # 오늘의 성취
 
+## 1. 개발 진행 상황
+
 - Controller 계층에서 슬라이스 테스트를 작성
   - `@WebMvcTest`를 활용해 테스트를 구현
   - WebMvcTest에서 자동으로 등록되지 않는 유형의 Bean이 필요하다면 `@Import`를 활용해 추가

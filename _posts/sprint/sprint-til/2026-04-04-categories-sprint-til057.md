@@ -18,6 +18,8 @@ last_modified_at: 2026-04-04
 
 # 오늘의 성취
 
+## 1. 개발 진행 상황
+
 - MDC로 로깅 고도화
   - requestId, requestUri, requestMethod 등의 정보를 MDC에 추가하는 `MDCLoggingInterceptor` 구현
   - `MDCLoggingInterceptor`를 등록하는 `WebMvcConfig` 구현

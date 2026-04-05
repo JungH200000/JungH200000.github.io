@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-weekly-paper/weekly-paper008
 toc: true
 toc_sticky: true
 
-date: 2026-04-06
-last_modified_at: 2026-04-06
+date: 2026-04-05
+last_modified_at: 2026-04-05
 ---
 
 ## Q1. 애플리케이션의 각 계층에서 수행되는 입력값 검증의 범위와 책임을 어떻게 나눌 것인지에 대해 설명해주세요. 특히 중복 검증을 피하면서도 안정성을 확보하는 방안과, 이와 관련된 트레이드오프에 대해 설명해주세요.
