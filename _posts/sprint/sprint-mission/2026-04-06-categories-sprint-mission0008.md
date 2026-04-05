@@ -211,9 +211,9 @@ Section: Sprint Mission
   <img width="500" alt="image" src="https://github.com/user-attachments/assets/c501a55e-8bcc-4036-a507-e057853935cf" />
   - 이외 설정은 기본값을 유지하세요.
   - [ ] 보안 그룹에서 인바운드 규칙을 편집하세요.
-    - 유형: `SSH`
-    - 소스: `내 IP`
-      - 작업 환경의 네트워크(와이파이 등)가 달라지면 계속 수정해주어야 할 수 있습니다.
+    - - 유형: `SSH`
+    - - 소스: `내 IP`
+      - - 작업 환경의 네트워크(와이파이 등)가 달라지면 계속 수정해주어야 할 수 있습니다.
 
 - [ ] DataGrip을 통해 연결 후 데이터베이스와 사용자, 테이블을 초기화하세요.
   - [ ] 데이터 소스 추가 시 `SSH/SSL > Use SSH tunnel` 설정을 활성화하세요. 이때 이전에 다운로드한 `.pem` 파일을 활용하세요.
@@ -240,10 +240,10 @@ Section: Sprint Mission
   - 프라이빗 레포지토리는 용량 제한이 있으므로 퍼블릭 레포지토리로 생성합니다.
 - [ ] [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)를 설치하세요.
 - [ ] `aws configure` 실행 후 앞서 생성한 `discodeit` IAM 사용자 정보를 입력하세요.
-  - 엑세스 키
-  - 시크릿 키
-  - region: `ap-northeast-2`
-  - output format: `json`
+  - - 엑세스 키
+  - - 시크릿 키
+  - - region: `ap-northeast-2`
+  - - output format: `json`
 - [ ] `discodeit` IAM 사용자가 ECR에 접근할 수 있도록 다음 권한을 부여하세요.
   - `AmazonElasticContainerRegistryPublicFullAccess`
 - [ ] Docker 클라이언트를 배포할 레지스트리에 대해 인증합니다.
