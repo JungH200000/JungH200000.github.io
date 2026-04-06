@@ -1,6 +1,6 @@
 ---
-title: '[TIL 59일 차] Sprint Mission8 - '
-excerpt: ''
+title: '[TIL 59일 차] Sprint Mission8 - Dockerfile 작성 및 build 후 테스트'
+excerpt: '2-01.애플리케이션 컨테이너화, 3-01.이미지 최적화하기'
 
 categories:
   - Sprint TIL
