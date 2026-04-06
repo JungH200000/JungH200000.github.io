@@ -72,6 +72,12 @@ docker build -t my-app .
 - `ARG` : 빌드 전용 변수
 - `ENV` : 실행 시에도 남는 환경 변수
 
+### `RUN ./gradlew clean build --no-daemon`에서 `daemon`이 뭘까?
+
+daemon은 Gradle이 다음 빌드를 빠르게 하려고 뒤에서 계속 켜 두는 보조 프로세스
+
+Docker는 보통 한 번만 실행하고 끝나는 일회성 작업이라 `--no-daemon`을 많이 쓴다.
+
 <br>
 
 ## 3. 문제
@@ -164,10 +170,10 @@ class DiscodeitApplicationTests {
 
 ### 3-01. 이미지 최적화하기
 
-- [진행 중] 멀티 스테이지(`빌드`, `런타임`) 빌드를 활용해 이미지의 크기를 줄여보세요.
+- [x] 멀티 스테이지(`빌드`, `런타임`) 빌드를 활용해 이미지의 크기를 줄여보세요.
   - 태그명: `local-slim`
   - 이전에 빌드한 이미지(`1.2-M8` 또는 `local`)와 크기를 비교해보세요.
-- [진행 중] 이미지 레이어 캐시를 고려해 Dockerfile을 수정해보세요.
+- [x] 이미지 레이어 캐시를 고려해 Dockerfile을 수정해보세요.
 
 `//...`
 
