@@ -23,6 +23,15 @@ last_modified_at: 2026-04-08
 - AWS S3를 활용한 `BinaryContentStorage` 고도화
   - `S3BinaryContentStorageTest` 구현
   - 고도화 후 S3 테스트
+- AWS RDS 구성
+  - AWS RDS PostgreSQL 인스턴스를 생성
+  - SSH 터널링을 통해 개발 환경에서 접근
+    - EC2 인스턴스를 생성
+    - DataGrip을 통해 연결
+      - 데이터 소스 추가 시 `SSH/SSL > Use SSH tunnel` 설정을 활성화
+      - 다운로드한 `.pem` 파일을 활용
+    - 연결이 성공하면 데이터베이스와 사용자, 테이블을 초기화
+    - 구성이 완료되면 EC2 인스턴스는 완전히 삭제하여 과금에 유의
 
 ---
 
@@ -74,9 +83,8 @@ last_modified_at: 2026-04-08
 
 - [x] AWS RDS PostgreSQL 인스턴스를 생성하세요.
 
-  <img width="400" src="https://github.com/user-attachments/assets/d8f34d08-ab67-48c1-a022-0f55f38514e7" />
-
-  - 이외 설정은 기본값을 유지하세요.
+<img width="400" src="https://github.com/user-attachments/assets/d8f34d08-ab67-48c1-a022-0f55f38514e7" />
+- 이외 설정은 기본값을 유지하세요.
 
 - [x] 과금이 발생할 수 있으니 다음 항목은 한번 더 확인해주세요.
   - [x] 템플릿: `프리티어`
@@ -87,13 +95,13 @@ last_modified_at: 2026-04-08
 - [x] SSH 터널링을 통해 개발 환경에서 접근할 수 있도록 EC2를 구성하세요.
   - [x] EC2 인스턴스를 생성하세요.
 
-    <img width="600" src="https://github.com/user-attachments/assets/e5e46db3-7a82-405e-b512-34d3c6b2267e" />
-
-    - 이외 설정은 기본값을 유지하세요.
+  <img width="600" src="https://github.com/user-attachments/assets/e5e46db3-7a82-405e-b512-34d3c6b2267e" />
+  - 이외 설정은 기본값을 유지하세요.
   - [x] 보안 그룹에서 인바운드 규칙을 편집하세요.
     - 유형: `SSH`
     - 소스: `내 IP`
       - 작업 환경의 네트워크(와이파이 등)가 달라지면 계속 수정해주어야 할 수 있습니다.
+
 - [x] DataGrip을 통해 연결 후 데이터베이스와 사용자, 테이블을 초기화하세요.
   - [x] 데이터 소스 추가 시 `SSH/SSL > Use SSH tunnel` 설정을 활성화하세요. 이때 이전에 다운로드한 `.pem` 파일을 활용하세요.
   - [x] 연결이 성공하면 데이터베이스와 사용자, 테이블을 초기화하세요.
