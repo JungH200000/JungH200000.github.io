@@ -31,6 +31,7 @@ last_modified_at: 2026-04-07
     - `download` 메소드는 `PresignedUrl`을 활용해 리다이렉트하는 방식
   - `S3BinaryContentStorageTest`를 함께 작성하면서 구현
 
+- [docker compose 정리 코드](#docker-composeyaml)
 - [AWSS3Test 테스트 정리 코드](#awss3test-테스트-코드)
 - [AwsProperties 정리 코드](#awsproperties-코드)
 - [S3Config 정리 코드](#s3config-코드)
@@ -228,6 +229,76 @@ public class S3BinaryContentStorage implements BinaryContentStorage {
 ---
 
 # 정리 및 보관용 코드
+
+## `docker-compose.yaml`
+
+```yaml
+# 서비스 정의
+services:
+  app: # 애플리케이션 서비스
+    build: . # 현재 디렉터리의 Dockerfile을 사용해 이미지 build
+    image: discodeit:local-slim
+    environment: # 환경변수 바인딩
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+      STORAGE_LOCAL_ROOT_PATH: ${STORAGE_LOCAL_ROOT_PATH}
+      STORAGE_TYPE: ${STORAGE_TYPE}
+      AWS_S3_ACCESS_KEY: ${AWS_S3_ACCESS_KEY}
+      AWS_S3_SECRET_KEY: ${AWS_S3_SECRET_KEY}
+      AWS_S3_REGION: ${AWS_S3_REGION}
+      AWS_S3_BUCKET: ${AWS_S3_BUCKET}
+      AWS_S3_PRESIGNED_URL_EXPIRATION: ${AWS_S3_PRESIGNED_URL_EXPIRATION}
+    ports: # 포트 매핑(로컬:컨테이너)
+      - '8081:80'
+    volumes: # 애플리케이션 볼륨 구성
+      # 컨테이너가 재시작되어도 `BinaryContentStorage` 데이터 유지
+      - binary-content-data:/app/${STORAGE_LOCAL_ROOT_PATH}
+    depends_on: # 서비스간 의존성 설정
+      postgres:
+        # PostgreSQL 서비스가 정상 상태(healthy)가 된 후 app 서비스가 실행되도록 설정
+        condition: service_healthy
+    networks:
+      # backend 네트워크에 app 서비스 연결
+      - backend
+
+  postgres: # PostgreSQL 서비스
+    image: postgres:17 # `postgres:17` 이미지 사용
+    environment: # 환경변수 바인딩
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports: # 포트 매핑(로컬:컨테이너)
+      - '5433:5432'
+    volumes: # PostgreSQL 볼륨 구성
+      # 컨테이너 재시작되어도 PostgreSQL 데이터가 유지되도록 설정
+      #      - postgres-data:/var/lib/postgresql
+      - postgres-data:/var/lib/postgresql/data # 17버전 이하
+      # 서비스 실행 후 `schema.sql`이 자동으로 실행되도록 구성
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    healthcheck: # PostgreSQL 서비스 상태 확인을 위한 healthcheck 구성
+      # 지정한 사용자/db 기준으로 PostgreSQL 준비 상태 확인
+      test: ['CMD-SHELL', 'pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}']
+      # 10초마다 확인
+      interval: 10s
+      # 각 확인의 최대 대기 시간
+      timeout: 5s
+      # 3번 재시도 후 실패 처리
+      retries: 3
+    networks:
+      # backend 네트워크에 postgres 서비스 연결
+      - backend
+
+networks: # 서비스 간 통신을 위한 네트워크 정의
+  backend:
+
+volumes: # 데이터 영속성을 위한 볼륨 정의
+  # 애플리케이션의 `BinaryContentStorage` 저장용 볼륨
+  binary-content-data:
+  # PostgreSQL 데이터 저장용 볼륨
+  postgres-data:
+```
 
 ## `AWSS3Test` 테스트 코드
 
@@ -523,27 +594,16 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ConfigurationProperties(prefix = "aws")
+@ConfigurationProperties(prefix = "discodeit.storage.s3")
 @Getter
 @Setter
 public class AwsProperties {
 
-    private Credentials credentials;
+    private String accessKey;
+    private String secretKey;
     private String region;
-    private S3 s3 = new S3();
-
-    @Getter
-    @Setter
-    public static class Credentials {
-        private String accessKey;
-        private String secretKey;
-    }
-
-    @Getter
-    @Setter
-    public static class S3 {
-        private String bucket;
-    }
+    private String bucket;
+    private long presignedUrlExpiration = 600;
 }
 
 ```
@@ -551,6 +611,7 @@ public class AwsProperties {
 ## `S3Config` 코드
 
 ```java
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
@@ -561,6 +622,7 @@ import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.presigner.S3Presigner;
 
 @Configuration
+@ConditionalOnProperty(name = "discodeit.storage.type", havingValue = "s3") // s3일 때만 로드되게 설정
 public class S3Config {
 
     private final AwsProperties awsProperties;
@@ -571,15 +633,15 @@ public class S3Config {
 
     @Bean
     public S3Client s3Client() {
-        if (awsProperties.getCredentials().getAccessKey() != null
-                && !awsProperties.getCredentials().getAccessKey().isBlank()) {
+        if (awsProperties.getAccessKey() != null
+                && !awsProperties.getAccessKey().isBlank()) {
             return S3Client.builder()
                     .region(Region.of(awsProperties.getRegion()))
                     .credentialsProvider(
                             StaticCredentialsProvider.create(
                                     AwsBasicCredentials.create(
-                                            awsProperties.getCredentials().getAccessKey(),
-                                            awsProperties.getCredentials().getSecretKey()
+                                            awsProperties.getAccessKey(),
+                                            awsProperties.getSecretKey()
                                     )
                             )
                     ).build();
@@ -592,15 +654,15 @@ public class S3Config {
 
     @Bean
     public S3Presigner s3Presigner() {
-        if (awsProperties.getCredentials().getSecretKey() != null
-        && !awsProperties.getCredentials().getSecretKey().isBlank()) {
+        if (awsProperties.getAccessKey() != null
+        && !awsProperties.getAccessKey().isBlank()) {
             return S3Presigner.builder()
                     .region(Region.of(awsProperties.getRegion()))
                     .credentialsProvider(
                             StaticCredentialsProvider.create(
                                     AwsBasicCredentials.create(
-                                            awsProperties.getCredentials().getAccessKey(),
-                                            awsProperties.getCredentials().getSecretKey()
+                                            awsProperties.getAccessKey(),
+                                            awsProperties.getSecretKey()
                                     )
                             )
                     ).build();
