@@ -73,6 +73,9 @@ last_modified_at: 2026-04-08
 #### AWS RDS 구성
 
 - [x] AWS RDS PostgreSQL 인스턴스를 생성하세요.
+
+  <img width="400" src="https://github.com/user-attachments/assets/d8f34d08-ab67-48c1-a022-0f55f38514e7" />
+
   - 이외 설정은 기본값을 유지하세요.
 
 - [x] 과금이 발생할 수 있으니 다음 항목은 한번 더 확인해주세요.
@@ -83,6 +86,9 @@ last_modified_at: 2026-04-08
   - [x] 추가 구성 > 백업: `비활성화`
 - [x] SSH 터널링을 통해 개발 환경에서 접근할 수 있도록 EC2를 구성하세요.
   - [x] EC2 인스턴스를 생성하세요.
+
+    <img width="600" src="https://github.com/user-attachments/assets/e5e46db3-7a82-405e-b512-34d3c6b2267e" />
+
     - 이외 설정은 기본값을 유지하세요.
   - [x] 보안 그룹에서 인바운드 규칙을 편집하세요.
     - 유형: `SSH`
