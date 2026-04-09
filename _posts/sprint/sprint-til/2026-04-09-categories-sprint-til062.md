@@ -222,14 +222,24 @@ services:
   - [x] 이 파일은 형상관리되지 않도록 주의하세요.
 
 - [x] AWS ECS 콘솔에서 클러스터를 생성하세요.
+
+  <img width="400" src="https://github.com/user-attachments/assets/f01e1a9e-2b77-48ae-a1b6-f17830aafc2d" />
+
   - 이외 설정은 기본값을 유지하세요.
 
 - [x] 태스크를 정의하세요.
+
+  <img width="600" src="https://github.com/user-attachments/assets/86c7d608-52f4-42e1-a56b-1496bd791dde" />
+
+
   - 이외 설정은 기본값을 유지하세요.
   - [x] 태스크 생성 후 `태스크 실행 역할`에 S3 관련 권한을 추가하세요.
     - 환경 변수 파일을 읽기위해 필요합니다.
 
 - [x] `discodeit` 클러스터 상세 화면에서 서비스를 생성하세요.
+
+  <img width="400" src="https://github.com/user-attachments/assets/911ffa0f-e27d-4ac7-ae50-1458fc3d6acb" />
+
   - 이외 설정은 기본값을 유지하세요.
 
 - [x] 태스크의 EC2 보안 그룹의 인바운드 규칙을 설정하여 어디서든 접근할 수 있도록 하세요.
