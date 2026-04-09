@@ -34,6 +34,9 @@ last_modified_at: 2026-04-09
     - 환경 변수 파일을 읽기 위한 S3 권한 추가
   - 생성한 클러스트어세 서비스 생성
   - 테스트해보기
+- GitHub Actions를 활용한 CI/CD 파이프라인 구축
+  - CI를 위한 Workflow 설정
+    - [Codecov](https://app.codecov.io/)를 이용한 테스트 커버리지 뱃지를 `README`에 추가
 
 <br>
 
