@@ -28,7 +28,7 @@ last_modified_at: 2026-04-07
 
 - AWS S3를 활용한 `BinaryContentStorage` 고도화
   - `S3BinaryContentStorage를` 구현
-    - `download` 메소드는 `PresignedUrl`을 활용해 리다이렉트하는 방식
+    - `download` 메서드는 `PresignedUrl`을 활용해 리다이렉트하는 방식
   - `S3BinaryContentStorageTest`를 함께 작성하면서 구현
 
 - [docker compose 정리 코드](#docker-composeyaml)
