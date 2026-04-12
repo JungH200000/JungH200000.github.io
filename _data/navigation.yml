@@ -26,6 +26,8 @@ categories:
         url: /categories/codeit-sprint/sprint-weekly-paper/
       - title: 'Sprint 백엔드 초급 프로젝트'
         url: /categories/codeit-sprint/sprint-basic-project/
+      - title: 'Sprint 백엔드 중급 프로젝트'
+        url: /categories/codeit-sprint/sprint-intermediate-project/
 
   - title: 'Spring'
     children:
