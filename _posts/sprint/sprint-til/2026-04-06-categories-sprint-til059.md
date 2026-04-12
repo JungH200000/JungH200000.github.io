@@ -43,7 +43,7 @@ last_modified_at: 2026-04-06
       jungh20000/discodeit-1.2-m8:local
     ```
 
-- [Dockerfile](#dockerfile)
+- [Dockerfile 정리 코드](#dockerfile)
 
 <br>
 
