@@ -1,5 +1,5 @@
 ---
-title: '[Sprint 백엔드 초급 프로젝트 7일차] 뉴스 기사 view와 논리/물리 삭제 구현'
+title: '[Sprint 백엔드 초급 프로젝트 7일차] 뉴스 기사 view와 논리/물리 삭제 구현 및 뉴스 기사 목록 조회 Troubleshooting'
 excerpt: ''
 
 categories:
@@ -47,7 +47,97 @@ last_modified_at: 2026-04-21
 
 조회 시점에 `@SQLRestriction("deleted_at IS NULL")`가 자동으로 걸리기 때문에 이미 논리 삭제된 데이터는 일반 조회에는 보이지 않는다. 문제는 이 상태에서 삭제 대상 entity를 일반 조회로 가져오려고 하면 이미 필터링되어 보이지 않는다는 점이다.
 
-물리 삭제를 하려면 보이지 않는 데이터를 어떻게 다룰 것인지 고민해야 했다. 이 부분은 JPQL DELETE도 `@SQLRestriction` 영향으로 논리 삭제된 데이터를 못 지우므로 `native SQL`을 이용한 별도 Repository 메서드를 두는 방식이 더 명확하다고 판단했다
+물리 삭제를 하려면 보이지 않는 데이터를 어떻게 다룰 것인지 고민해야 했다. 이 부분은 JPQL DELETE도 `@SQLRestriction` 영향으로 논리 삭제된 데이터를 못 지우므로 `native SQL`을 이용한 별도 Repository 메서드를 두는 방식이 더 명확하다고 판단했다.
+
+---
+
+# 뉴스 기사 목록 조회 Troubleshooting
+
+## `keyword` 입력 검증 Troubleshooting
+
+"공백만 막고 싶었는데, 빈 문자열까지 막고 있었다."
+
+뉴스 기사 목록 조회를 구현하면서 처음 부딪힌 문제 중 하나는, 로그인 직후 첫 뉴스 기사 목록 화면이 정상적으로 출력되지 않는 현상이었다. 확인해보니 원인이 `keyword` 입력 검증에 있었다. 로그를 보면 첫 요청에서 `keyword`가 빈 문자열(`""`)로 들어왔고, `ArticleSearchRequest.keyword`에 있던 `@Pattern(regexp = ".*\\S.*")` 검증이 해당 값을 실패 처리하고 있었다. 처음 의도는 "공백만 있는 검색어 막기"였는데 실제로는 "비어 있는 값도 허용 하지 않는 것"이었다.
+
+문제가 명확해진 점은 프론트엔드와 연결해 테스트를 진행할 때 Repository가 아닌 Controller에서 예외가 발생했다는 점이었다. QueryDSL에서는 `keyword`가 없으면 생략하게 구현했지만 테스트할 때는 DTO 검증에서 `MethodArgumentNotValidException` 예외가 발생해 조회 로직에 들어오지 못했다.
+
+그래서 해결은 두 단계로 정리했다.
+
+먼저, `keyword`에 사용했던 DTO 정규식
+
+- `@Pattern(regexp = ".*\\S.*", message = "keyword는 공백으로 구성될 수 없습니다.")`를
+- `@Pattern(regexp = "^$|.*\\S.*", message = "keyword는 공백으로만 구성될 수 없습니다.")`로 바꾸는 방향으로 정리했다.
+
+```java
+// `ArticleSearchRequest.class`
+@Parameter(description = "검색어(제목, 요약)")
+@Pattern(regexp = ".*\\S.*", message = "keyword는 공백으로 구성될 수 없습니다.")
+private String keyword;
+```
+
+이 정규식은 빈 문자열은 허용하지만 공백만으로 이루어진 문자열(`" "`, `"  "`)은 막는다.
+
+추가적으로 Repository의 QueryDSL에서 `isBlank()`를 사용해 `keyword`에 `""` 같은 의미가 없는 값들은 검색 조건을 생상하지 않도록 보완했다.
+
+```java
+// `ArticleQueryRepositoryImpl.class`
+private BooleanExpression keywordContains(QArticle article, String keyword) {
+  // ""일 경우를 `null` 을 가지게 하기 위해 `isBlank()` 추가
+  return keyword != null && !keyword.isBlank()
+      ? article.title.contains(keyword).or(article.summary.contains(keyword))
+      : null;
+}
+```
+
+### 느낀점
+
+이 Troubleshooting을 진행하며 느낀점은 파라미터의 의미에 맞게 검증 범위를 설정하는 것이 맞다고 생각했다. `keyword`는 필수가 아닌 선택 파라미터이기 때문에 비어있는 값(`""`)은 오류가 아니라 "검색 조건 없음"으로 보는게 맞았다. 반면 공백만 있는 `keyword`는 검색 의도가 없는 입력 값이므로 DTO 검증 단계에서 걸러주는 편이 좋다고 적절했다.
+
+## `publishDate` 정렬 오류 Troubleshooting
+
+"날짜 필터는 로컬 시간처럼 보이지만, DB는 절대 시점으로 이루어진다."
+
+처음에는 `publishDate` 관련 문제가 타입 오류처럼 보였다. 프론트엔드에서 `publishDateFrom`, `publishDateTo`를 `2026-04-14T00:00:00`, `2026-04-20T23:59:59` 같은 형태로 보내고 있었는데, `ArticleSearchRequest` 요청 DTO에서는 `Instant`로 받고 있었다. 해당 문자열은 `Instant`가 요구하는 `Z`나 `+09:00` 같은 시간대 정보를 포함하지 않고 있는 시간대 없는 로컬 날짜-시간 문자열이라 Spring 바인딩에 실패했다. 즉, 다른 타입이 왔다는 것 보다는 문자열 포맷이 `Instant`와 맞지 않았다.
+
+처음에는 날짜 범위 필터라는 점만 보고 `LocalDate`로 바꾸는 것도 고려했었는데, 프론트엔드에서는 `T00:00:00`, `T23:59:59`가 붙은 값을 보내고 있었다. 이 상태에서 `LocalDate`로 변경하게 되면 순수하게 날짜 형식(`yyyy-mm-dd`)만 기대하게 되므로 문제 해결에서 더 멀어지게 된다.
+
+그래서 최종적으로 수정한 `ArticleSearchRequest` 요청 DTO의 `publishDateFrom`, `publishDateTo`의 타입을 `LocalDateTime`으로 받는 방향으로 결정했다. 프론트가 보내는 `2026-04-14T00:00:00` 형식도 그대로 받을 수 있고, OpenAPI 문서의 `date-time` 표현과도 어긋나지 않는다. 대신 `Article` entity의 `publishDate`는 그대로 `Instant`로 유지했다. 기사 자체의 발생 시각은 단순한 날짜가 아니라 실제 시점이기 때문에, DB의 `TIMESTAMPTZ`와 Java의 `Instant` 조합이 더 자연스럽기 때문이다.
+
+최종적으로 수정된 구조는
+
+- 사용자 입력은 `LocalDateTime`으로 받고
+
+```java
+// `ArticleSearchRequest.class`
+@Parameter(description = "날짜 시작(범위)")
+private LocalDateTime publishDateFrom;
+
+@Parameter(description = "날짜 끝(범위)")
+private LocalDateTime publishDateTo;
+```
+
+- 실제 DB 비교 전에 `Asia/Seoul` 기준으로 `Instant`로 변환하는 방식이 됐다.
+
+```java
+// `ArticleQueryRepositoryImpl.class`
+ZoneId zoneId = ZoneId.of("Asia/Seoul");
+
+LocalDateTime publishDateFrom = request.getPublishDateFrom();
+LocalDateTime publishDateTo = request.getPublishDateTo();
+
+Instant fromInstant = publishDateFrom != null
+    ? publishDateFrom.atZone(zoneId).toInstant()
+    : null;
+Instant toInstant = publishDateTo != null
+    ? publishDateTo.atZone(zoneId).toInstant()
+    : null;
+```
+
+### 가장 헷갈렸던 부분
+
+한국 시간 기준으로 날짜를 잡을 때 SQL 로그에는 UTC 기준으로 하루 전 시각처럼 보이는 현상이 있다. 예를 들어 `2026-04-14T00:00:00`을 `Asia/Seoul` 기준으로 해석해서 `Instant`로 바꾸면 로그에는 `2026-04-13T15:00:00Z`처럼 찍힐 수 있다. 처음 봤을 때는 날짜가 밀린 것처럼 보여서 잘못 변환된 줄 알았지만, 실제로는 "같은 순간을 다른 시간대 표현으로 본 것"일 뿐이다. 한국 시간 4월 14일 00시는 UTC로 보면 전날 15시이기 때문이다.
+
+이것보다 중요한 것은 사용자가 선택한 로컬 시간 범위를 백엔드가 절대 시점으로 정확히 변환했는지에 대한 여부이다. 변환만 정확하면 DB의 `TIMESTAMPTZ`와 비교해도 조회 결과는 어긋나지 않는다.
 
 ---
 
