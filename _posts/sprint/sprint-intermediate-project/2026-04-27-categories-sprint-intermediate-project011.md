@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-intermediate-project/sprint-intermed
 toc: true
 toc_sticky: true
 
-date: 2026-04-26
-last_modified_at: 2026-04-26
+date: 2026-04-27
+last_modified_at: 2026-04-27
 ---
 
 # 뉴스 기사 배치 구현
