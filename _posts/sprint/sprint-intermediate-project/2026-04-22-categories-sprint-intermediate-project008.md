@@ -23,6 +23,8 @@ last_modified_at: 2026-04-22
 - 뉴스 기사 목록 무한 스크롤 페이지네이션 문제 해결
 - GitHub Actions 기반 Codecov 파이프라인 구축
 
+<br>
+
 ## 뉴스 기사 목록 무한 스크롤 페이지네이션 문제 해결
 
 ### 1. 시작: 첫 페이지는 보이는데, 다음 페이지가 안 보임
@@ -48,6 +50,8 @@ if ((request.getCursor() == null) != (request.getAfter() == null)) {
 
 하지만 프론트엔드는 이렇게 동작하지 않고, 첫 요청 이후, 다음 요청부터는 `cursor`만 오고 `after`는 `null`이 온다. 결국 Controller 검증에서 예외가 발생했다.
 
+<br>
+
 ### 2. 1차 문제 해결: Controller 검증 제거
 
 이번 프로젝트에서 사용한 프론트엔드 코드는 부트캠프에서 제공된 코드였기 때문에, 프론트엔드 코드를 바로 수정하기 어려웠다. 그래서 백엔드에서 프론트엔드 요청에 맞춰 가기로 결정했다. 가장 먼저 Controller에서 `cursor`와 `after`를 동시에 검증하는 로직을 제거했다.
@@ -56,6 +60,8 @@ if ((request.getCursor() == null) != (request.getAfter() == null)) {
 
 하지만 Repository의 커서 조건이 `cursor`와 `after` 모두 있어야만 만들어지는 구조였다. Controller만 지웠다고 해서 커서 페이지네이션이 올바르게 동작하지 않았다. 커서 조건이 통째로 빠지면서 첫 페이지와 동일한 페이지가 계속해서 출력되는 것이었다. 또 다른 경우에는 `after`를 그대로 비교하여 `NullPounterException`이 발생할 위험도 있었다.
 
+<br>
+
 ### 3. 해결했다고 생각했지만 데이터가 누락된다.
 
 다음으로 생각한 방법은 `after`가 없으면 1차 정렬값만 비교하자는 거였다. 예를 들어 `publishDate DESC` 정렬이라면 다음 페이지를 가져올 때 단순히 `publishDate < cursor`만 사용하는 것이다.
@@ -63,6 +69,8 @@ if ((request.getCursor() == null) != (request.getAfter() == null)) {
 괜찮아 보였다. 다음 페이지도 잘 조회되는 것처럼 보였다.
 
 하지만 같은 정렬값이 많이 몰려있는 경우 일부 데이터가 누락될 수 있다는 문제가 생겼다. 예를 들어 같은 `publishDate`를 가진 뉴스가 한 페이지 `llimit`보다 많이 몰려있다면 `publishDate`만 비교하는 방식으로는 경계 구간을 명확하게 가져올 수 없다. 이 문제는 `commentCount`와 `viewCount` 정렬에서도 동일하게 적용된다. 결국, 보조 커서 없이 1차 정렬값만 비교하는 것은 임시 대응일 뿐, 페이지네이션이 제대로 동작하기 위한 해결책은 아니었다.
+
+<br>
 
 ### 4. 최종 해결: `nextCursor` 하나에 모든 필요한 값을 담아 복합 `cursor`로 만든다.
 
@@ -82,6 +90,8 @@ if ((request.getCursor() == null) != (request.getAfter() == null)) {
 - `viewCount` 정렬: `viewCount|createdAt|articleId`
 
 이제 백엔드는 이 값을 파싱해 정렬값이 같은 경우에도 `createdAt`이나 `id`를 이용해 안정적으로 뉴스 기사 목록 순서를 누락 없이 출력할 수 있다.
+
+---
 
 # GitHub Actions 기반 Codecov 파이프라인 구축
 

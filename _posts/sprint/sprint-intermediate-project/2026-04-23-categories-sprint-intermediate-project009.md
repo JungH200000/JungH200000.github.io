@@ -20,6 +20,8 @@ last_modified_at: 2026-04-23
 
 GitHub Actions 자동 배포를 하기 전에 RDS, ECS, IAM, S3 환경 변수 파일까지 직접 설정하고 연결해 봤다.
 
+<br>
+
 ## IAM 권한 설정
 
 AWS 설정할 대 가장 먼저 고민한 건 어떤 권한을 어디까지 줄 것인지였다. 처음에는 익숙하게 하나의 IAM 사용자에게 `FullAccess` 같은 넓은 권한을 주고 빠르게 진행할 수 있었지만 이번에는 역할을 나눠 보려고 했다.
@@ -30,6 +32,8 @@ AWS 설정할 대 가장 먼저 고민한 건 어떤 권한을 어디까지 줄 
 - `IAMUserChangePassword`
 - `monew-ecs-policy` 고객 관리형
 - `monew-public-ecr` 인라인 정책
+
+<br>
 
 ### ECS 배포용 사용자 정책
 
@@ -61,6 +65,8 @@ ECS에 새 task 정의를 등록하고, service에 반영하는 권한이다.
 ```
 
 핵심은 `iam:PassRole`이다. ECS service나 task 정의를 등록할 때, ECS가 대신 사용할 역할을 넘겨줄 수 있어야 하기 때문이다. 즉, S3에서 `env` 파일을 읽거나 CloudWatch 로그를 보내는 주체는 ECS 역할이기 때문에 그 역할을 ECS에 연결할 수 있는 권한이 필요했다.
+
+<br>
 
 ### Publish ECR push 권한
 
@@ -97,6 +103,8 @@ ECS에 새 task 정의를 등록하고, service에 반영하는 권한이다.
 이 권한을 붙이기 전에 `GetAuthorizationToken` 권한이 없어 로그인 자체가 실패했고, Docker 쪽에서는 `password is empty`라는 메시지가 출력되었다.
 
 나중에 확인해보니 비밀번호가 빈 값이 아니라 권한이 없어서 토큰 자체를 못 받아왔다는 의미였다.
+
+<br>
 
 ### ECS가 실제로 사용할 역할 구성
 
@@ -149,11 +157,15 @@ ECS 실행 역할인 `ecsTaskExecutionRole`에 아래 두 종류의 권한을 �
 
 중요한 것은 S3 `env` 파일을 컨테이너에 넣는게 아니라 ECS가 S3에서 읽어서 환경 변수로 주입한다는 점이다.
 
+<br>
+
 ## AWS RDS PostgreSQL, ECS Cluster, Task 설정
 
 - PostgreSQL용 RDS를 생성했고
 - 배포 방식은 ECS on EC2로 선택했다.
 - task 정의할 때는 S3에 저장된 `env` 파일을 환경변수 파일로 선택되게 설정했다.
+
+<br>
 
 ## Service 생성 후 Task 실행
 
@@ -165,6 +177,8 @@ service를 생성하고 task를 실행했는데 처음에는 정상 작동되지
 - `org.postgresql.util.PSQLException: The connection attempt failed.`
 
 처음에는 메모리 부족인가 의심했지만 `org.postgresql.util.PSQLException: The connection attempt failed.` 이 문장을 보고 PostgreSQL 연결 실패가 원인이라는 것을 알았다.
+
+<br>
 
 ## Troubleshooting: RDS 보안 그룹 인바운드 규칙
 
@@ -189,6 +203,8 @@ RDS는 PostgreSQL 5432 포트로 들어오는 요청을 허용해야 하는데, 
 즉, 0.0.0.0/0 같이 넓게 허용하는 것이 아니라 ECS 클러스터 보안 그룹을 source로 지정해서 RDS가 그 인스턴스에서 오는 요청만 받게 설정했다.
 
 이 설정을 추가한 뒤에 task가 정상적으로 실행되기 시작했다.
+
+<br>
 
 ## 포트 설정 수정
 

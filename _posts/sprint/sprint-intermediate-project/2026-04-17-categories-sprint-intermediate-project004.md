@@ -20,11 +20,15 @@ last_modified_at: 2026-04-17
 
 어제 뉴스 기사 단건 조회를 마무리한 후, 오늘 뉴스 기사 출처 목록 조회 로직을 완료했고 뉴스 기사 목록 조회 로직을 구현하기 시작했다. 뉴스 기사 조회 관련 로직이 추가되면서 단순히 조회 기능 추가뿐만 아니라 입력값 처리 방식과 예외 처리 기준도 같이 구현했다.
 
+<br>
+
 ## 뉴스 기사 출처 목록 조회 로직 구현
 
 어제 수행했던 작업을 이어나가 Repository 로직 구현과 테스트 케이스 작성을 오전 11시를 기준으로 완료했다.
 
 처음에는 중복 없이 뉴스 기사 출처만 가져오면 될 것이라고 생각했지만, 이렇게 되면 특정 출처의 뉴스 기사가 전부 논리 삭제되었을 경우에도 해당 출처가 출력되는 문제가 발생하기 때문에 `deletedAt IS NULL` 조건을 추가하여 삭제되지 않은 기사만을 기준으로 뉴스 기사 출처 목록을 조회하게 수정했다. 또한 JPQL에서는 모든 속성에 Entity 별칭을 넣는 쪽이 파싱 단계에서 안전하다고 보고, 별칭을 포함한 형태로 수정했다.
+
+<br>
 
 ## 뉴스 기사 목록 조회 로직 구현 시작
 
@@ -36,6 +40,8 @@ last_modified_at: 2026-04-17
 - 커서 페이지네이션 응답 DTO 구현
 - Service 로직에서 커서 페이지네이션 방식으로 정리
 
+<br>
+
 ## `sourceIn`과 `orderBy`를 enum으로 다루는 방식
 
 목록 조회를 구현하면서 생각보다 오래 본 부분 중 하나는 `sourceIn`과 `orderBy`를 어떤 타입으로 받을 것인지 였다.
@@ -44,11 +50,15 @@ last_modified_at: 2026-04-17
 
 이 부분은 구현 전에는 enum 내부에 별도의 값을 두면 자동으로 바인딩되는 것으로 알았는데, 실제로는 Spring이 enum의 상수 이름 자체를 기준으로 변환한다는 점을 확인했다.
 
+<br>
+
 ## 입력 오류 나눠 처리
 
 입력 오류를 크게 두 가지로 나눠 구현했다. 예를 들어 `orderBy`에 잘못된 enum 값이 들어오는 경우 `MethodArgumentTypeMismatchException`이, 필수 파라미터가 누락된 경우 `MissingServletRequestParameterException`이, 필수 헤더가 없는 경우 `MissingRequestHeaderException`이 예외로 떨어진다. 이런 경우 `GlobalExceptionHandler`에서 400 Bad Request 응답으로 처리하도록 로직을 구현했다.
 
 다른 하나는 타입 변환은 성공했지만 비즈니스적으로 허용되지 않는 입력값의 경우이다. 예를 들어 검색어가 공백인 경우, `publishDateFrom`이 `publishDateTo`보다 늦은 경우, `limit`이 1미만인 경우 Controller 로직에서 직접 검증하고 커스텀 예외인 `InvalidParameterException`을 던지도록 했다.
+
+<br>
 
 ## Validation 예외 처리 수정
 

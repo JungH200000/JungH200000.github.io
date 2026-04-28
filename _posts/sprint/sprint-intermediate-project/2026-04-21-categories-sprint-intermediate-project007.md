@@ -26,11 +26,15 @@ last_modified_at: 2026-04-21
 
 그래서 기존 조회 이력을 먼저 직접 조회하고, 없을 때만 새로 저장하는 방식으로 구현했다. 이렇게 하면 이미 조회한 사용자도 같은 방식의 성공 응답을 받을 수 있고, 새로 조회한 사용자도 동일한 형태의 응답을 받을 수 있다. 결론적으로 중복 요청을 실패로 볼 것이 아니라 최종 상태가 이미 반영되어 있다면 그대로 성공으로 응답하는 멱등적인 API로 보는 쪽이 더 효율적이라고 판단했다.
 
+<br>
+
 ## view 등록에서 `save`가 아닌 `saveAndFlush`를 사용한 이유
 
 처음에는 `save`만 호출해도 곧바로 `insert`가 실행될 거라고 생각했다. 하지만 JPA는 변경 내용을 영속성 컨텍스트에 모아두었다가 `flush`나 `commit` 시점에 SQL을 보낼 수 있다. 이 경우 작성한 중복 예외가 `save`를 호출했을 시점이 아니라 트랜잭션 종류 시점이나 뒤의 다른 쿼리 실행 시점에 발생할 수 있다. 그러면 `try-catch` 안에서 중복 저장 충돌을 처리하려는 로직과 맞지 않는다.
 
 반면 `saveAndFlush`를 사용하면 저장 즉시 `flush`를 수행하므로, unique 제약 조건 위반이 있다면 그 시점에 바로 예외가 발생할 수 있다.
+
+<br>
 
 ## 논리 삭제와 물리 삭제를 구현하며 헷갈렸던 점
 
@@ -43,6 +47,8 @@ last_modified_at: 2026-04-21
 - 일반 삭제는 `@SQLDelete`가 적용된 논리 삭제 사용
 - DB에서 완전 제거는 별도의 물리 삭제 Repository 메서드 사용
 
+<br>
+
 ### `@SQLRestriction`이 있을 때 물리 삭제가 바로 안되는 이유
 
 조회 시점에 `@SQLRestriction("deleted_at IS NULL")`가 자동으로 걸리기 때문에 이미 논리 삭제된 데이터는 일반 조회에는 보이지 않는다. 문제는 이 상태에서 삭제 대상 entity를 일반 조회로 가져오려고 하면 이미 필터링되어 보이지 않는다는 점이다.
@@ -52,6 +58,8 @@ last_modified_at: 2026-04-21
 ---
 
 # 뉴스 기사 목록 조회 Troubleshooting
+
+<br>
 
 ## `keyword` 입력 검증 Troubleshooting
 
@@ -89,9 +97,13 @@ private BooleanExpression keywordContains(QArticle article, String keyword) {
 }
 ```
 
+<br>
+
 ### 느낀점
 
 이 Troubleshooting을 진행하며 느낀점은 파라미터의 의미에 맞게 검증 범위를 설정하는 것이 맞다고 생각했다. `keyword`는 필수가 아닌 선택 파라미터이기 때문에 비어있는 값(`""`)은 오류가 아니라 "검색 조건 없음"으로 보는게 맞았다. 반면 공백만 있는 `keyword`는 검색 의도가 없는 입력 값이므로 DTO 검증 단계에서 걸러주는 편이 좋다고 적절했다.
+
+<br>
 
 ## `publishDate` 정렬 오류 Troubleshooting
 
@@ -132,6 +144,8 @@ Instant toInstant = publishDateTo != null
     ? publishDateTo.atZone(zoneId).toInstant()
     : null;
 ```
+
+<br>
 
 ### 가장 헷갈렸던 부분
 

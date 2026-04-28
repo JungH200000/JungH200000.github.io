@@ -1,5 +1,5 @@
 ---
-title: '[Sprint 백엔드 초급 프로젝트 11일차] 뉴스 기사 배치 구현'
+title: '[Sprint 백엔드 초급 프로젝트 11일차] 뉴스 기사 백업 배치 구현'
 excerpt: ''
 
 categories:
@@ -16,9 +16,11 @@ date: 2026-04-27
 last_modified_at: 2026-04-27
 ---
 
-# 뉴스 기사 배치 구현
+# 뉴스 기사 백업 배치 구현
 
 뉴스 기사 데이터를 날짜 단위로 S3에 백업하는 Spring Batch 로직을 구현했다.
+
+<br>
 
 ## 작업 배경
 
@@ -30,6 +32,8 @@ MoNew 프로젝트 요구사항에는 뉴스 기사 데이터 백업 기능이 �
 - 백업은 날짜 단위로 수행한다.
 - 백업 저장소는 AWS S3를 사용한다.
 - 백업 작업은 배치로 수행한다.
+
+<br>
 
 ## Spring Batch
 
@@ -54,6 +58,8 @@ Scheduler
 배치 작업 자체는 Job과 Step으로 구성하고, 실제 백업 작업은 Tasklet에서 수행하도록 했다.
 
 처음부터 ItemReader, ItemProcessor, ItemWriter를 사용하는 chunk 방식으로 구현할 수도 있지만, 이번 백업은 "하루치 기사 조회 후 S3 업로드"인 비교적 간단한 작업이었기 때문에 Tasklet 방식으로 시작했다.
+
+<br>
 
 ## 최종 패키지 구조
 
@@ -115,6 +121,8 @@ infra/storage/s3
       4. entity 구조가 바뀌면 백업 파일 구조도 같이 변경됨
 - `S3ArticleBackupFileStorage` : DTO 리스트를 JSON으로 변환하고 S3에 업로드
 
+<br>
+
 ## Docker non-root 사용자 전환과 로그 권한 문제
 
 AWS ECS 배포를 준비하면서 `Dockerfile`을 수정했다.
@@ -142,6 +150,8 @@ java.io.FileNotFoundException: .logs/application.log (Permission denied)
 이전까지는 root 사용자로 컨테이너를 실행했기 때문에 `.logs/application.log` 파일이 root 소유로 생성되어 있었다. 그런데 새 `Dockerfile`에서는 app 사용자로 애플리케이션을 실행하므로 기존 root 소유 로그 파일에 쓸 수 없었다.
 
 로컬에서는 기존 `.logs` 폴더를 삭제하고 다시 생성하면 해결할 수 있다.
+
+<br>
 
 ## Retry와 Backoff 고민
 

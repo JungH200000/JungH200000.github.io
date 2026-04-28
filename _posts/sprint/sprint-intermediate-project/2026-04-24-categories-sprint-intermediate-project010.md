@@ -20,6 +20,8 @@ last_modified_at: 2026-04-24
 
 어제는 로컬에서 Docker 이미지를 build하고, ECR에 push한 뒤 ECS service를 수동으로 업데이트해 봤다. 이번에는 이 과정을 GitHub Actions로 자동화하여, `dev` branch에 코드가 merge되면 자동으로 Docker 이미지를 build하고 ECS service까지 업데이트되도록 구현했다.
 
+<br>
+
 ## 배포 흐름
 
 우리 팀은 각자 `feature/*` branch에서 작업한 뒤 `dev` branch`로 PR을 날리는 방식으로 협업하고 있다.
@@ -49,6 +51,8 @@ on:
   push:
     branches: ['dev']
 ```
+
+<br>
 
 ## GitHub Actions Workflow 구성
 
@@ -109,11 +113,15 @@ ECR에 push도 했다.
     docker push "$REPO_URI:latest"
 ```
 
+<br>
+
 ## Gradle 캐시 설정
 
 `actions/setup-java`의 `cache: gradle` 옵션과 `gradle/actions/setup-gradle` step이 같은 역할인지 헷갈렸다.
 
 둘 다 Gradle build 속도를 높이기 위해 캐시를 사용한다는 점은 같지만, 역할과 범위는 다르다.
+
+<br>
 
 ### `actions/setup-java`의 `cache: gradle`
 
@@ -132,6 +140,8 @@ JDK 설정과 Gradle 캐시 설정을 한 step에서 처리할 수 있다. 보�
 
 즉, JDK 설정 + 간단한 Gradle 의존성 캐시
 
+<br>
+
 ### gradle/actions/setup-gradle
 
 반면 `gradle/actions/setup-gradle`은 Gradle build에 더 특화된 공식 Action이다.
@@ -145,9 +155,13 @@ JDK 설정과 Gradle 캐시 설정을 한 step에서 처리할 수 있다. 보�
 
 즉, Gradle 실행 환경 최적화 + Gradle 전용 캐시 관리
 
+<br>
+
 ### 같이 사용되지 않는 이유
 
 둘다 Gradle User Home과 관련된 캐시를 다루기 때문에 같이 쓰면 캐시 범위가 겹칠 수 있다. 그래서 현재 Workflow에서는 `setup-java`는 JDK 설정만 담당하고, Gradle 캐시는 `gradle/actions/setup-gradle`에 맡겼다.
+
+<br>
 
 ## `GITHUB_TOKEN` 권한 제한
 
@@ -161,6 +175,8 @@ permissions:
 `contents: read`는 이 토큰으로 repository 내용을 읽는 권한만 허용한다는 의미다.
 
 현재 Workflow에는 코드를 checkout하고 build하는 정도만 필요했기 때문에 repository에 write 권한을 줄 필요가 없다. 그래서 최소 권한 원칙에 맞게 `contents: read`만 설정했다.
+
+<br>
 
 ## ECS 배포 중 기존 task가 내려가지 않던 문제
 
@@ -213,6 +229,8 @@ ECS는 기본적으로 다음 순서로 배포하려고 한다.
    --desired-count 1
 ```
 
+<br>
+
 ## 안정화 확인을 추가한 이유
 
 리뷰를 받으면서 아래의 피드백을 받았다.
@@ -248,6 +266,8 @@ desired-count 1 요청 성공
 → 애플리케이션이 곧바로 종료
 → 실제 서비스는 죽었지만 Workflow는 성공처럼 보임
 ```
+
+<br>
 
 ## Dockerfile 보안 피드백 반영: non-root 사용자 실행
 

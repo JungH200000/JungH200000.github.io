@@ -20,6 +20,8 @@ last_modified_at: 2026-04-20
 
 뉴스 기사 목록 조회를 구현하면서 커서 페이지네이션과 집계 column, 요청자 조회 여부, 정렬 기준 분기까지 함께 처리했다.
 
+<br>
+
 ## 왜 JPQL이 아니라 QueryDSL을 사용했나?
 
 뉴스 기사 목록 조회의 조건은 단순하지 않다.
@@ -34,6 +36,8 @@ last_modified_at: 2026-04-20
 
 이런 조건이 한 번에 들어가게 되면 JPQL로 작성했을 때 쿼리가 너무 길어지고, 오타나 잘못된 필드 참조 시 컴파일 단계에서 잡기 어렵다고 판단해 QueryDSL을 사용했다.
 
+<br>
+
 ## 뉴스 기사 목록 조회에서 집계하는 값들
 
 목록 하나를 조회할 때 아래의 값들을 집계한다.
@@ -43,6 +47,8 @@ last_modified_at: 2026-04-20
 - 요청자 조회 여부(`viewedByMe`)
 
 그래서 `comments` table이나 `article_histories` table을 참조해야 했다. 이 지점에서 헷갈렸던 부분이 바로 같은 조회 이력 테이블(`article_histories`)를 두 번 조인하냐는 것이었다.
+
+<br>
 
 ### 같은 조회 이력 테이블에 별칭을 두 개 준 이유
 
@@ -59,6 +65,8 @@ last_modified_at: 2026-04-20
 
 그래서 같은 entity를 두번 참조하되, 역할을 분리해 각각 별칭을 주는 방식이 필요했다.
 
+<br>
+
 ## `ArticleDto`를 projection
 
 처음에는 Mapper를 통해 entity를 DTO로 변환하려고 했다.
@@ -67,9 +75,13 @@ last_modified_at: 2026-04-20
 
 그래서 이번 목록 조회에서는 QueryDSL projection으로 ArticleDto를 바로 구성하는 편이 더 편할 것이라고 판단했다.
 
+<br>
+
 ## 정렬 기준에 따라 커서 조건을 다르게 둔 이유
 
 이번 목록 조회에서 가장 고민했던 설계 중 하나는 정렬 기준에 따라 커서 조건을 다르게 처리한 것이다.
+
+<br>
 
 ### 1. `publishDate` 정렬
 
@@ -96,6 +108,8 @@ last_modified_at: 2026-04-20
 
 나누어 구성했다.
 
+<br>
+
 ## 중복을 줄이기 위해 base query를 분리
 
 처음 구현했을 때는 `publishDate`, `commentCount`, `viewCount` 정렬용 메서드 각각에 `projection`, `join`, 공통 `where`가 거의 똑같이 들어 있었다.
@@ -114,6 +128,8 @@ last_modified_at: 2026-04-20
 
 - `publishDate` → `where` 커서 + 날짜 정렬
 - `commentCount` / `viewCount` → `having` 커서 + `count` 정렬
+
+<br>
 
 ## `contextLoads` 오류
 
