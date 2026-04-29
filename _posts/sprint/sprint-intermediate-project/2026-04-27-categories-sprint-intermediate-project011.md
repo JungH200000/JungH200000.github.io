@@ -93,10 +93,10 @@ infra/storage/s3
     ```java
     JobExecution execution = jobLauncher.run(articleBackupBatchJob, jobParameters);
 
-    if (execution.getStatus() == BatchStatus.FAILED
-        || execution.getStatus() == BatchStatus.STOPPED) {
+    if (execution.getStatus() != BatchStatus.COMPLETED) {
       throw new IllegalStateException(
-        "Article backup batch failed. jobExecutionId=" + execution.getId() + ", status=" + execution.getStatus()
+          "Article backup batch failed. jobExecutionId="
+              + execution.getId() + ", status=" + execution.getStatus()
       );
     }
     ```

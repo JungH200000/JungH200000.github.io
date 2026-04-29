@@ -231,7 +231,7 @@ public void backup(LocalDate backupDate) {
 
 ```java
 articlesToBeRestored.forEach(dto -> {
-  articleRepository.insertRestoredArticle(
+  int inserted = articleRepository.insertRestoredArticle(
       dto.id(),
       dto.source().toString(),
       dto.sourceUrl(),
@@ -240,11 +240,17 @@ articlesToBeRestored.forEach(dto -> {
       dto.summary(),
       dto.createdAt(),
       dto.updatedAt()
-  );
+    );
 
-  restoreArticleInterests(dto);
-});
+    if (inserted > 0) {
+      restoreArticleInterests(dto);
+      restoredArticleIds.add(dto.id());
+    }
+  }
+);
 ```
+
+더불어 `insertRestoredArticle(...)` 메서드 쿼리에 PK 기준의 `ON CONFLICT DO NOTHING`을 적용하여 동시 복구 요청 시 중복 삽입이 예외 없이 무시되도록 설정했다.
 
 뉴스 기사 복구 후 `restoreArticleInterests(dto)`를 호출한다.
 
@@ -282,7 +288,7 @@ List<UUID> findExistingInterestIds(@Param("interestIds") List<UUID> interestIds)
 ### `article_interests` `insert` 쿼리
 
 1. `interestId`가 `interest` table에 실제로 존재할 때
-2. 같은 `article_id`와 `interest_id` 매핑이 존재하지 않을 때
+2. PK 기준의 `ON CONFLICT DO NOTHING`을 적용하여 동시 복구 요청 시 중복 삽입이 예외 없이 무시되도록
 
 `insert`가 발생한다.
 
@@ -292,11 +298,7 @@ List<UUID> findExistingInterestIds(@Param("interestIds") List<UUID> interestIds)
     INSERT INTO article_interests (article_id, interest_id)
     SELECT :articleId, :interestId
     WHERE EXISTS (SELECT 1 FROM interests WHERE id = :interestId)
-          AND NOT EXISTS (
-                SELECT 1 FROM article_interests
-                WHERE article_id = :articleId
-                  AND interest_id = :interestId
-          )
+    ON CONFLICT (article_id, interest_id) DO NOTHING
     """,
     nativeQuery = true)
 int insertArticleInterestIfNotExists(
