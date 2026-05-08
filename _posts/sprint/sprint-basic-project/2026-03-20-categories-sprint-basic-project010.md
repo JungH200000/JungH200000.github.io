@@ -36,6 +36,12 @@ last_modified_at: 2026-03-20
 
 ---
 
+# 개인 개발 리포트
+
+[개인 개발 리포트](https://www.notion.so/jungh20000/327f59816c0280efac65e42af87100cb?source=copy_link)
+
+---
+
 # GitHub Repository 주소
 
 [https://github.com/sb10-team3/sb10-Findex-team3](https://github.com/sb10-team3/sb10-Findex-team3)

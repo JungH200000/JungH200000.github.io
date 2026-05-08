@@ -82,6 +82,12 @@ last_modified_at: 2026-05-06
 
 ---
 
+# 개인 개발 리포트
+
+[개인 개발 리포트](https://www.notion.so/jungh20000/358f59816c0280f2852ded930830c166?source=copy_link)
+
+---
+
 # GitHub Repository 주소
 
 [https://github.com/SB10-Part03-Team05/sb10-monew-team05](https://github.com/SB10-Part03-Team05/sb10-monew-team05)
