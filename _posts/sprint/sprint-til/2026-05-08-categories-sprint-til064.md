@@ -190,7 +190,7 @@ SameSite=Lax
 - 도메인/경로 매칭에 부합하는 요청에만 자동 전송
 - 동일 이름의 쿠키가 경로(`Path`)나 도메인(`Domain`)에 따라 **여러 개**가 동시에 존재 가능
 
-![다운로드 (4).svg](<%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3_(4).svg>)
+<img width="500" src="https://github.com/user-attachments/assets/1e35e664-bfd5-423f-9ca9-d41ca3fa19db" />
 
 <br>
 
@@ -256,7 +256,8 @@ SameSite=Lax
      ```
 
 - **동작 workflow 다이어그램**
-  ![다운로드 (9).svg](<%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3_(9).svg>)
+
+  <img width="700" src="https://github.com/user-attachments/assets/4923faf3-0baa-481b-a11b-718c3a08a9cb" />
 
 <br>
 
@@ -311,7 +312,8 @@ SameSite=Lax
   ```
 
 - `Secure` 동작의 **workflow**
-  ![다운로드 (10).svg](<%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3_(10).svg>)
+
+  <img width="400" src="https://github.com/user-attachments/assets/5e9610d4-44fc-4bc7-bc61-fe17160cb17b" />
 
 <br>
 
@@ -328,7 +330,8 @@ SameSite=Lax
   Set-Cookie: SESSION=abc123; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=1800
   ```
 - `HttpOnly` 효과의 **workflow**
-  ![다운로드 (11).svg](<%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3_(11).svg>)
+
+  <img width="500" src="https://github.com/user-attachments/assets/e07a0408-9b0c-4000-ba76-92f20c38655d" />
 
 <br>
 
@@ -348,7 +351,8 @@ SameSite=Lax
   Set-Cookie: SESSION=abc123; Path=/; Secure; HttpOnly; SameSite=Lax
   ```
 - `SameSite` 효과 workflow
-  ![다운로드 (12).svg](<%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3_(12).svg>)
+
+  <img width="600" src="https://github.com/user-attachments/assets/8418d13f-3b27-4c9c-a089-d47832dbe5f5" />
 
 <br>
 
@@ -360,18 +364,24 @@ SameSite=Lax
   - 사용자가 자신도 모르게 공격자가 의도한 요청을 특정 웹 애플리케이션에 보내도록 속이는 공격
   - **원리** : 피해자가 로그인하여 인증 쿠키를 보유 중일 때, 공격자가 조작된 링크나 form을 열게 하면 브라우자가 자동으로 쿠키를 첨부하여 서버에 요청을 보냄
   - **workflow**
-    ![다운로드 (15).svg](<%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3_(15).svg>)
+ 
+    <img width="500" src="https://github.com/user-attachments/assets/6e0009b2-c733-4e70-ab12-e158c083a6d3" />
+    
 - **방어 전략**
   - **동기화 토큰** (Synchronizer Token)
     - 서버가 세션별 CSRF 토큰 발급, form과 함께 제출
     - 서버 저장소에 토큰 보관 후 일치 여부 검증
     - **workflow**
-      ![다운로드 (13).svg](<%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3_(13).svg>)
+   
+      <img width="550" src="https://github.com/user-attachments/assets/675b2aa1-6583-4f14-81c9-7daf64c6ea92" />
+
   - **더블 서브밋** (Double Submit Cookie)
     - 쿠키로 CSRF 토큰 별도 발급, 본문/헤더 값과 비교
     - 서버는 값 비교만, 저장 불필요(서명 권장)
     - **workflow**
-      ![다운로드 (14).svg](<%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3_(14).svg>)
+   
+      <img width="400" src="https://github.com/user-attachments/assets/b3bfb556-9483-4196-b6e2-f513719a5a0f" />
+
   - `SameSite`
     - 크로스 사이트 자동 쿠키 전송 제한
 
