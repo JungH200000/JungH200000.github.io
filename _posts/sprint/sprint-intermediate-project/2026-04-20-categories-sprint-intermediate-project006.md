@@ -1,5 +1,5 @@
 ---
-title: '[Sprint 백엔드 초급 프로젝트 6일차] QueryDSL로 뉴스 기사 목록 조회 Repository 구현'
+title: '[Sprint 백엔드 중급 프로젝트 6일차] QueryDSL로 뉴스 기사 목록 조회 Repository 구현'
 excerpt: ''
 
 categories:

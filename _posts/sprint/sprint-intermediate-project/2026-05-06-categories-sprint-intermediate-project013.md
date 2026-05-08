@@ -1,5 +1,5 @@
 ---
-title: '[Sprint 백엔드 초급 프로젝트 13일차] Monew 중간 프로젝트 회고'
+title: '[Sprint 백엔드 중급 프로젝트 13일차] Monew 중간 프로젝트 회고'
 excerpt: ''
 
 categories:

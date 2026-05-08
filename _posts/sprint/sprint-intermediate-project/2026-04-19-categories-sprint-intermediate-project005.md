@@ -1,5 +1,5 @@
 ---
-title: '[Sprint 백엔드 초급 프로젝트 5일차] 뉴스 기사 목록 조회 Controller와 Service 구현'
+title: '[Sprint 백엔드 중급 프로젝트 5일차] 뉴스 기사 목록 조회 Controller와 Service 구현'
 excerpt: ''
 
 categories:
