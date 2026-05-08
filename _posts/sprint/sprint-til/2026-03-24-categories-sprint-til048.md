@@ -26,6 +26,8 @@ last_modified_at: 2026-03-24
 
 - Postman으로 HTTP 요청을 보내 결과를 확인하는 것도 테스트이다.
 
+<br>
+
 #### 1) 테스트의 필요성
 
 완벽한 테스트는 불가능하지만, 하지 않는다면 아래의 문제 발생 가능
@@ -34,6 +36,8 @@ last_modified_at: 2026-03-24
 - 고객에게 잘못된 결과 제공 가능
 - 문제 발생 시 원인을 찾기 어려워 수습 비용이 증가
 
+<br>
+
 #### 2) 테스트 수행 시 장점
 
 - 코드 품질 보장
@@ -41,6 +45,8 @@ last_modified_at: 2026-03-24
 - 회귀 테스트 가능
 - 문서화 역할
 - 협업 효율 향상
+
+<br>
 
 #### 3) 테스트 자동화의 필요성
 
@@ -55,6 +61,8 @@ last_modified_at: 2026-03-24
 ### 1-02. Spring 테스트의 종류
 
 대부분의 개발 환경에서 세 가지로 구분할 수 있다.
+
+<br>
 
 #### 1) 단위 테스트 (Unit Test)
 
@@ -78,16 +86,22 @@ last_modified_at: 2026-03-24
   - Self-validating : 성공/실패라는 자체 검증 결과를 보여주어야 한다.
   - Timely : 기능 구현을 하기 직전에 작성해야 한다.
 
+<br>
+
 #### 2) 기능 테스트
 
 애플리케이션을 사용하는 사용자 입장에서 애플리케이션이 제공하는 기능이 올바르게 동작하는지를 테스트
 
 - 기능 테스트의 주체는 일반적으로 테스트 전문 부서(QA 부서) 또는 외부 QA 업체가 된다.
 
+<br>
+
 #### 3) 통합 테스트 (Integration Test)
 
 - 클라이언트 측 툴 없이 개발자가 짜 놓은 테스트 코드를 실행시켜서 이루어지는 경우가 많음
 - 애플리케이션을 만든 개발자 또는 개발팀이 테스트의 주체가 되는 것이 일반적
+
+<br>
 
 #### 4) 슬라이스 테스트 (Slice Test)
 
@@ -110,9 +124,13 @@ dependencies {
 
 - JUnit, Mockito, AssertJ, Hamcrest, Spring Test, JSONassert, Spring Boot Test 등을 자동으로 포함
 
+<br>
+
 #### 1) 테스트 관련 애너테이션
 
 `@SpringBootTest`, `@WebMvcTest`, `@DataJpaTest`, `@MockitoBean`, `@MockitoSpyBean`, `@Test`, `@BeforeEach`, `@AfterEach`
+
+<br>
 
 #### 2) 테스트 데이터 초기화
 
@@ -124,6 +142,8 @@ dependencies {
   - 경계 조건 테스트 : 특정 상태의 데이터에서 시스템이 잘 동작하는지 확인
   - 가독성 향 : 테스트 전제 조건을 코드에 명확히 표현
 - `@Sql` 애너테이션 사용
+
+<br>
 
 #### 3) 테스트 환경 격리
 
@@ -141,11 +161,15 @@ dependencies {
 
 3개의 주요 구성 요소로 나뉜다.
 
+<br>
+
 #### 1) JUnit Platform
 
 테스트 프레임워크를 실행하기 위한 기반 런타임으로, Jupiter든 Vintage든 모두 Platform 위에서 실행된다.
 
 - JUnit 5 환경에서 Gradle과 Maven이 내부적으로 JUnit Platform을 통해 테스트를 수행한다.
+
+<br>
 
 #### 2) JUnit Jupiter
 
@@ -166,6 +190,8 @@ JUnit 5에서 새롭게 정의된 테스트 API
     - 테스트 클래스 종료 시 1회만 실행, 반드시 `static` 메서드로 선언
     - 목적 : DB 연결 해제, 종료 로그
   - `@DisplayName` : 테스트 명세화에 사용
+
+<br>
 
 #### 3) JUnit Vintage
 
@@ -195,6 +221,8 @@ JUnit 5에서 새롭게 정의된 테스트 API
   - 조건 불만족시 실패로 처리
   - 테스트 코드의 가독성과 신뢰성을 높이는 핵심 요소
 
+<br>
+
 #### 1) Given-When-Then
 
 BDD(Behavior Driven Development) 스타일에서 자주 사용하는 테스트 작성 방식
@@ -204,6 +232,8 @@ BDD(Behavior Driven Development) 스타일에서 자주 사용하는 테스트 �
 - Then : 기대한 결과를 Assertion으로 검증
 
 테스트 목적을 쉽게 파악 가능
+
+<br>
 
 #### 2) 기본 검증 메서드
 
@@ -215,6 +245,8 @@ JUnit Jupiter (JUnit 5) 기준 가장 많이 사용하는 Assertion 메서드
 - `assertFalse(condition)` : 조건이 false인지 확인
 - `assertNull(object)` : 객체가 null인지 확인
 - `assertNotNull(object)` : 객체가 null이 아닌지 확인
+
+<br>
 
 #### 3) 그룹 검증 : `assertAll()`
 
@@ -229,6 +261,8 @@ assertAll(
         () -> assertTrue(firstName.length() <= 5)       // 길이 제한 확인
 );
 ```
+
+<br>
 
 #### 4) 예외 검증 : `assertThrows()`
 
@@ -251,6 +285,8 @@ IllegalArgumentException thrown = assertThrows(IllegalArgumentException.class,
 
 - `@Test` 메서드를 나열하는 것만으로 유지보수가 어렵기 때문에, 라이플사이클을 고려한 설계가 중요
 
+<br>
+
 #### 1) 테스트 인스턴스의 생명주기
 
 JUnit 5에서 테스트 클래스는 기본적으로 테스트 메서드마다 새로운 인스턴스를 생성함. 즉, `@Test`가 5개 있다면 테스트 클래스는 5번 인스턴스화 됨. 이것을 `PER_METHOD`라고 부름
@@ -258,10 +294,14 @@ JUnit 5에서 테스트 클래스는 기본적으로 테스트 메서드마다 �
 - 상태 공유가 필요한 경우
   - `@TestInstance(TestInstance.Lifecycle.PER_CLASS)`를 설정하여 클래스 단위로 한 번만 인스턴스를 생성
 
+<br>
+
 #### 2) 테스트 전후 후킹 메서드 (Setup/Teardown)
 
 - 테스트 실행 전후에 특정 메서드 자동 실행해주는 후킹(Hook) 애너테이션
 - `@BeforeEach`, `@AfterEach`, `@BeforeAll`, `@AfterAll` - [설명 바로가기](#### 2) JUnit Jupiter)
+
+<br>
 
 #### 3) 테스트 순서 결정
 
@@ -273,6 +313,8 @@ JUnit 5는 테스트 간 의존성 방지를 위해, 기본적으로 테스트 �
     - MethodOrderer
       - `OrderAnnotation.class`, `MethodName.class`, `DisplayName.class`, `Random.class`, 커스텀 구현
   - `@Order(int)` : 실행 순서를 지정할 숫자(`int`) 설정
+
+<br>
 
 #### 4) 테스트 그룹화: Nested 개발
 
@@ -321,12 +363,16 @@ class LoginTest {
 
 그래서 "무엇을 테스트할지"와 "무엇을 테스트하지 않을지"를 명확히 구분하는 것이 중요
 
+<br>
+
 #### 1) 테스트해야 할 대상
 
 - 직접 작성한 `@Query`
   - `@Query`는 JPQL 또는 Native SQL을 수동으로 작성하기 때문에 반드시 테스트해야 한다.
 - 조건이 2개 이상 조합된 메서드명 쿼리
   - Spring Data JPA가 메서드명을 기반으로 쿼리를 생성하는데, 이때 조건이 많아지면 자동 생성 로직이 정확히 작동하는지 확인이 필요
+
+<br>
 
 #### 2) 테스트하지 말아야 할 대상
 
@@ -351,6 +397,8 @@ class LoginTest {
   - 테스트는 독립적인데, 반복 실행해도 항상 동일한 결과를 반환해야 한다.
   - CI/CD에 적용하는 경우, 불안정한 테스트는 배포 파이프라인에 치명적
 
+<br>
+
 #### 2) `@DataJpaTest`를 활용한 슬라이스 테스트
 
 `@DataJpaTest`는 Spring Boot에서 JPA Repository 계층을 테스트할 때 사용하는 전용 슬라이스 테스트 애너테이션
@@ -360,6 +408,8 @@ class LoginTest {
   - 자동으로 `@Transactional`이 적용되기 때문에 각 테스트 실행 후 데이터는 자동으로 롤백됨
 - 아래의 구성 요소만 자동 로딩
   - `@Entity` 클래스들, `Repository` 인터페이스, `DataSource`, `JdbcTemplate`, `EntityManager`, `TransactionManager`
+
+<br>
 
 #### 3) 테스트 데이터 준비 전략
 
@@ -373,6 +423,8 @@ class LoginTest {
 - Fixture + Builder
   - 다양한 필드 조합이 필요한 경우 사용
   - 유연성과 재사용성 동시 확보 가능
+
+<br>
 
 #### 4) 결과 검증 방식
 
@@ -389,6 +441,8 @@ Repository 계층에서 실제로 발생하는 데이터 조회/저장 결과만
     - 즉, JPA의 저장 및 조회 동작만 검증
   - `findAll()` 같은 저장된 Entity 수와 필드 값이 예상과 일치하는지 확인
     - 리스트에서 특정 필드만 추출해 비교 ➡️ 다수의 Entity 속성 검증에 매우 유용
+
+<br>
 
 #### 5) 기타 환경
 
@@ -411,6 +465,8 @@ Spring Boot에서 각 기술에 맞는 슬라이스 테스트 애너테이션을
 - **테스트에서의 Mock**은 가짜 객체(fake object)를 의미
 - Mocking은 단위 테스트, 슬라이스 테스트 등에서 진짜 객체 대신 사용하는 가짜 객체를 만드는 작업
 
+<br>
+
 #### 1) 테스트에서 Mock 객체를 사용하는 이유
 
 - 실제 객체 사용의 한계
@@ -419,6 +475,8 @@ Spring Boot에서 각 기술에 맞는 슬라이스 테스트 애너테이션을
   - 테스트 대상 외부 요소(Service, Repository)의 동작까지 함께 테스트 되기 때문에 관심사 분리가 어려움
 - 장점
   - 불필요한 의존을 제거하고 단위에 집중된 테스트를 할 수 있다.
+
+<br>
 
 #### 2) Mockito
 
@@ -445,6 +503,8 @@ Spring Boot에서 각 기술에 맞는 슬라이스 테스트 애너테이션을
 - `@Mock` + `@ExtendWith(MockitoExtension.class)`
 - `@MockitoBean`
 
+<br>
+
 #### 2) Mock 객체 주입 기법
 
 Mock 객체를 생성한 뒤 테스트 대상 클래스에 주입하는 방법
@@ -467,6 +527,8 @@ Mock 객체는 테스트 중 외부 의존 객체의 실제 동작을 흉내 내
 
 아래 두 가지 기능으로 설정
 
+<br>
+
 #### 2) `when(...).thenReturn(...)`
 
 Mock 객체가 특정 메서드를 호출받았을 때 어떤 값을 반환할지를 정의하는 문법으로, Mock 객체의 **상태(결과)를 설정**하는 도구라고 할 수 있다.
@@ -476,6 +538,8 @@ Mock 객체가 특정 메서드를 호출받았을 때 어떤 값을 반환할�
 - 용도
   - 실제 객체 대신 가짜 객체(mock)를 만들어 테스트할 때 사용
   - 주로 Service 테스트 시 Repository를 Mock 처리할 때 활용
+
+<br>
 
 #### 3) `verify(...)`
 
@@ -487,6 +551,8 @@ Mockito에서 Mock 객체가 실제로 호출되었는지 확인하는 검증 �
   - 특정 메서드가 호출되었는지 여부 확인
   - 호출 횟수나 호출 순서 검증 가능
 
+<br>
+
 #### 4) `ArgumentMatchers` 활용
 
 `any()`, `eq()`, `anyString()` 등 다양한 인자 조건을 설정할 수 있는 유틸 클래스로, `when(...)` 또는 `verify(...)` 내에서 파라미터 값을 유연하게 처리할 수 있게 해줌
@@ -495,6 +561,8 @@ Mockito에서 Mock 객체가 실제로 호출되었는지 확인하는 검증 �
 - `anyString()` : 어떤 문자열이든 허용
 - `eq("value")` : 정확히 해당 값과 일치할 때만 매칭
 - `anyInt()`, `anyLong()` : 숫자형 타입 매칭
+
+<br>
 
 #### 5) 추가적인 Mock 동작 기법
 

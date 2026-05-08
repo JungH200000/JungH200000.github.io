@@ -24,6 +24,8 @@ last_modified_at: 2026-03-25
 
 비즈니스 로직의 정확성, 트랜잭션 일관성, 예외 처리 규약 준수, 외부 시스템과의 상호작용 계약을 점검
 
+<br>
+
 #### 1) 테스트 대상 선정
 
 - 테스트해야 할 것
@@ -33,6 +35,8 @@ last_modified_at: 2026-03-25
   - 단순 위임 메서드
   - DTO 변환 메서드
 
+<br>
+
 #### 2) 테스트 방법 개요
 
 - 단위 테스트
@@ -41,6 +45,8 @@ last_modified_at: 2026-03-25
 - 통합 테스트
   - 실제 의존성 활용 (DB, 실제 JPA, 외부 API Stub 서버 등)
   - 트랜잭션 롤백 테스트
+
+<br>
 
 #### 3) 테스트 4대 목적
 
@@ -66,6 +72,8 @@ last_modified_at: 2026-03-25
 - 외부 연동 게약(순서/횟수/파라미터)
 - 예외 정책(타입/코드/메시지)
 
+<br>
+
 #### 2) 테스트하지 말아야 할 것
 
 - 단순 위임 메서드 (로직 없이 다른 메서드만 호출)
@@ -90,17 +98,25 @@ last_modified_at: 2026-03-25
 
 Spring Web 계층은 HTTP 요청 ➡️ 파싱/검증 ➡️ Service 호출 ➡️ 응답을 담당한다. Controller 테스트는 서버를 띄우지 않고(ex: MockMvc) 이 흐름이 명세대로 동작하는지 검증
 
+<br>
+
 #### 1) 요청 처리의 정확성 검증
 
 Controller가 경로/메서드/파라미터를 올바르게 해석하고 Service로 정확히 위임하는지 검증
+
+<br>
 
 #### 2) 입력값 검증
 
 Bean Validation으로 필수/형식/길이 규칙을 선언하고, 검증 실패 시 400+오류 메시지를 보장
 
+<br>
+
 #### 3) 응답 상태와 형식 검증
 
 성공/실패 상태 코드와 JSON 스키마(필드명/자료형/페이징 메타)가 명세와 동일한지 확인
+
+<br>
 
 #### 4) 예외 처리 검증
 
@@ -117,10 +133,14 @@ Bean Validation으로 필수/형식/길이 규칙을 선언하고, 검증 실패
 - 커스텀 예외 처리가 있는 엔드포인트
   - `@ControllerAdvice`와 `@ExceptionHandler`로 정의한 오류 처리’
 
+<br>
+
 #### 2) 테스트하지 말아야 할 것
 
 - 단순 Service 호출 위임 메서드
 - 단순 DTO 변환 메서
+
+<br>
 
 #### 3) `@SpringBootTest`를 이용한 API 계층 테스트 기본 구조
 
@@ -165,6 +185,8 @@ Spring Boot 테스트 환경에서 Spring MVC 관련 컴포넌트만 로딩하�
   - 테스트 속도가 빠름
   - 웹 계층 계약(Contract)에만 집중 가능
 
+<br>
+
 #### 2) `@WebMvcTest`를 이용한 API 계층 슬라이스 테스트 기본 구조
 
 ```java
@@ -182,6 +204,8 @@ class ArticleControllerWebMvcTest {
 
 ```
 
+<br>
+
 #### 3) POST 요청
 
 요청 본문 검증과 응답 상태/헤더 확인
@@ -189,12 +213,16 @@ class ArticleControllerWebMvcTest {
 - 요청 본문 유효할 경우 ➡️ 201 Created + Location 헤더 + JSON 응답
 - 요청 본문이 유효하지 않을 경우 ➡️ 400 Bad Request + 에러 코드/메시지
 
+<br>
+
 #### 4) GET 요청 테스트
 
 리소스 조회와 예외 처리 검증
 
 - 존재하는 ID 요청 시 ➡️ 200 OK + JSON 본문
 - 존재하지 않는 ID 요청 시 ➡️ 404 Not Found + 에러 응답(JSON 형식)
+
+<br>
 
 #### 5) Spring Security 통합 테스트
 
@@ -218,6 +246,8 @@ class ArticleControllerWebMvcTest {
 - Web/Service/Repository 계층의 연동이 의도대로 동작하는지 검증 가능
 - 실제 설정 파일(`application.yml`)과의 결합이 잘 되는지 검증 가능
 
+<br>
+
 #### 1) 테스트 프로파일 설정
 
 테스트 환경은 운영 환경과 분리되어야 하며, DB 연결, API 주소, 로깅 레벨 등 모든 설정이 달라질 수 있다.
@@ -234,9 +264,13 @@ class ArticleControllerWebMvcTest {
 - `@Sql` / `data.sql` 스크립트
 - 마이그레이션 도구 활용
 
+<br>
+
 #### 2) 테스트 데이터 작성 방식
 
 - Builder/Fixture
+
+<br>
 
 #### 3) 격리된 테스트 환경 구성
 
@@ -254,6 +288,8 @@ class ArticleControllerWebMvcTest {
 - 단위/통합 테스트 : 구현 디테일과 계층 연동을 확인
 - E2E : 계약과 구성의 총체적 적합성을 확인
 
+<br>
+
 #### 1) 필요성
 
 - 장점
@@ -265,6 +301,8 @@ class ArticleControllerWebMvcTest {
 - 결론
   - 핵심 사용자 흐름 위주로 적게, 정확히 운영
   - 나머지 대부분은 단위/슬라이스/통합 테스트에서 커버
+
+<br>
 
 #### 2) 실제 요청-응답 시나리오
 
@@ -284,9 +322,13 @@ class ArticleControllerWebMvcTest {
   - 성공 1 + 실패 N
   - API 문서를 계약으로 간주하고 테스트가 그 계약을 강제
 
+<br>
+
 #### 3) 외부 시스템 통합
 
 외부 호출을 감싸는 인터페이스를 만들고, 운영에서는 실제 구현된 모듈을, 테스트에서는 임시로 구현된 모듈(테스트 전용 가짜 구현 `@Profile("test")`)을 사용한다. 이렇게 하면 WireMock 같은 도구 없이 외부 의존 통제 가능
+
+<br>
 
 #### 4) 전체 기능 검증
 
@@ -302,11 +344,15 @@ class ArticleControllerWebMvcTest {
 
 - 테스트 작성 ➡️ 기능 구현 ➡️ 리팩터링
 
-#### **1) TDD 주기**
+<br>
+
+#### 1) TDD 주기
 
 - Red : 실패하는 테스트 먼저 작성
 - Green : 테스트를 통과할 수 있을 정도로 최소한의 기능 구현
 - Refactor : 테스트가 통과한 코드를 리팩터링
+
+<br>
 
 #### 2) TDD의 장단점
 
@@ -322,6 +368,8 @@ class ArticleControllerWebMvcTest {
   - 모든 상황에 TDD가 적합하지 않음
   - 경험 부족 시 테스트 품질 저하
   - 테스트 코드 유지에 리소스 소요
+
+<br>
 
 #### 3) TDD vs BDD
 

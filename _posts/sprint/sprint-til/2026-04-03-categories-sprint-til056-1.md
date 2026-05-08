@@ -28,6 +28,8 @@ AWS에서 제공하는 Docker 호환 컨테이너 이미지 저장소
 - 이미지 전용 GitHub라고 생각하면 된다.
 - ECR 권한은 최소 권한 원칙(Principle of Least Privilege)을 지켜야 함
 
+<br>
+
 #### 1) ECR 수명주기(생애주기) 정책 (Lifecycle Policy)
 
 ECR은 수명주기 정책을 설정하여 오래된 이미지를 자동 삭제할 수 있다.

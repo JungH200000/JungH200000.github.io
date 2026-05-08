@@ -24,6 +24,8 @@ last_modified_at: 2026-03-31
 
 CI/CD 도구 없이 수동으로 서버에 직접 애플리케이션을 배포하고 운영하는 방식
 
+<br>
+
 #### 1) Spring Boot 애플리케이션 build와 실행
 
 - build
@@ -53,6 +55,8 @@ CI/CD 도구 없이 수동으로 서버에 직접 애플리케이션을 배포�
 java -jar build된_파일명.jar
 ```
 
+<br>
+
 #### 2) 애플리케이션 배포 방식
 
 애플리케이션 배포는 크게 수동 배포 방식과 플랫폼/자동화를 활용한 배포 방식으로 나눌 수 있다.
@@ -75,6 +79,8 @@ java -jar build된_파일명.jar
     - PaaS : Heroku, Cloud Foundry, AWS EB
     - IaaS : AWS EC2, Azure, GCP
     - CI/CD : GitHub Actions, CircleCI
+
+<br>
 
 #### 3) 문제점
 
@@ -121,6 +127,8 @@ java -jar build된_파일명.jar
   - 컨테이너는 호스트 OS 커널을 공유하기에 VM보다 비교적 RAM과 디스크 사용량이 적음
   - CI/CD 도구들과 결합해 이미지 build ➡️ test ➡️ 배포까지 자동화 가능
 
+<br>
+
 #### 1) Docker 컨테이너
 
 운영체제 수준에서 격리된 실행 환경
@@ -142,6 +150,8 @@ docker run -d -p 8080:80 nginx
 ```
 
 Nginx 서버가 새로운 컨테이너 환경에서 실행 ➡️ 서버 설치, 설정, 방화벽 작업 없이 바로 작동
+
+<br>
 
 #### 2) Docker Image
 
@@ -291,6 +301,8 @@ docker pull nginx:1.25 # nginx의 1.25 버전 이미지
 
 - 태그(tag)는 이미지의 특정 버전을 의미
 
+<br>
+
 #### 2) `docker images` : 이미지 목록 조회
 
 로컬 환경에 다운로드된 모든 Docker 이미지 목록을 확인할 때 사용
@@ -344,6 +356,8 @@ docker images --filter "dangling=true"
 docker images --format '{{json .}}'
 ```
 
+<br>
+
 #### 3) `docker rmi` : 이미지 삭제
 
 로컬에 저장된 Docker 이미지를 삭제하는 명령어
@@ -369,7 +383,9 @@ docker rmi nginx:latest python:3.10
 docker rmi -f nginx
 ```
 
-#### **4) Dangling 이미지 제거**
+<br>
+
+#### 4) Dangling 이미지 제거
 
 ```bash
 # 사용되지 않는 이미지 정리
@@ -409,6 +425,8 @@ docker run -d --name my-container nginx
 docker run -d -p 8080:80 nginx
 ```
 
+<br>
+
 #### 2) `docker ps` : 컨테이너 상태 확인
 
 현재 실행 중인 컨테이너 목록을 보여준다.
@@ -420,6 +438,8 @@ docker ps
 # 모든 컨테이너 보기(중지된 것도 포함)
 docker ps -a
 ```
+
+<br>
 
 #### 3) `docker start` / `stop`/ `restart`
 
@@ -438,6 +458,8 @@ docker stop my-container
 docker restart my-container
 ```
 
+<br>
+
 #### 4) `docker exec` : 컨테이너 내부 명령 실행
 
 실행 중인 컨테이너 안에서 명령을 실행할 수 있게 해주는 명령
@@ -454,6 +476,8 @@ docker exec -it exec-lab bash
 
 - `sleep infinity` : 우분투와 같은 운영체제 컨테이너가 실행 직후 할 일이 없어 바로 종료되는 것을 방지하기 위해, 무한히 대기 상태를 유지하며 실행 상태를 살려두도록 하는 리눅스 명령어
 
+<br>
+
 #### 5) `docker logs` : 컨테이너 로그 확인
 
 컨테이너가 출력한 로그를 확인하는 명령어
@@ -465,6 +489,8 @@ docker logs my-container
 # f 옵션을 사용하면 로그를 실시간으로 확인
 docker logs -f my-container
 ```
+
+<br>
 
 #### 6) `docker rm` : 컨테이너 삭제
 
@@ -491,6 +517,8 @@ Docker에서 네트워크(Network)는 컨테이너들이 서로 통신하거나,
 - 컨테이너는 기본적으로 격리된 환경에서 실행되기 때문에 네트워크 설정 없이는 서로 또는 외부 통신이 불가능하다.
 - 연결에 네트워크 드라이버(Network Driver) 방식을 사용
 
+<br>
+
 #### 1) 네트워크 종류
 
 - **bridge** (기본)
@@ -513,6 +541,8 @@ Docker에서 네트워크(Network)는 컨테이너들이 서로 통신하거나,
     [컨테이너] (네트워크 연결 없음)
     ```
 
+<br>
+
 #### 2) 네트워크 목록과 상세 정보 확인 명령어
 
 ```bash
@@ -522,6 +552,8 @@ docker network ls
 # 특정 네트워크 상세 정보
 docker network inspect bridge
 ```
+
+<br>
 
 #### 3) 컨테이너 간 통신
 
@@ -548,6 +580,8 @@ docker run -d --name container-b --network my-net alpine sleep 1000
 # container-b에서 container-a에 ping
  docker exec -it container-b ping container-a
 ```
+
+<br>
 
 #### 4) 포트 바인딩
 
@@ -588,6 +622,8 @@ Docker 이미지를 만들기 위한 명령어 모음
 - 각 명령은 레이어를 만들고, build 시 캐시가 재사용됨
   - 빈번하게 바뀌는 파일(COPY 소스 등)은 아래쪽에 두면 build가 빨라짐
 
+<br>
+
 #### 1) Dockerfile 기본 명령어
 
 - `FROM` : 기반이 되는 베이스 이미지를 지정
@@ -599,13 +635,17 @@ Docker 이미지를 만들기 위한 명령어 모음
 - `EXPOSE` : 컨테이너가 사용하는 포트 명시
 - `ENV` : 환경변수 설정
 
-### 2) 레이어(Layer)
+<br>
+
+#### 2) 레이어(Layer)
 
 Docker 이미지는 여러 읽기 전용 레이어로 구성됨
 
 Dockerfile의 각 명령어가 하나의 레이어를 형성
 
 레이어는 캐시가 되어, 변경되지 않은 부분은 재사
+
+<br>
 
 #### 3) 간단한 Dockerfile 예시
 
@@ -637,6 +677,8 @@ Layer 2   WORKDIR
 Layer 1   FROM
 ------------------
 ```
+
+<br>
 
 #### 4) 멀티 스테이지 build
 
@@ -739,6 +781,8 @@ docker buildx build --platform linux/amd64,linux/arm64 -t username/my-app:1.0.0 
 - `--push` : build 완료 후 자동으로 레지스트리에 push
 - `--load` : build한 미지를 로컬 Docker 엔진에 로드
 
+<br>
+
 #### 2) 이미지 태깅(Tagging)
 
 태그(tag)는 이미지의 버전과 용도를 구분하는 식별자로, 같은 이미지에 여러 태그를 지정할 수 있어 개발/운영 환경을 쉽게 나눌 수 있다.
@@ -763,6 +807,8 @@ docker tag my-app:latest username/my-app:1.0.0
   - 예시 : `my-app`
 - 태그 : 버전 정보
   - 예시 : `1.0.0`
+
+<br>
 
 #### 3) DockerHub 배포
 

@@ -26,9 +26,13 @@ last_modified_at: 2026-03-23
 
 **전역 예외 처리**는 시스템 전체에서 발생할 수 있는 예외를 **일관된 방식**으로 처리할 수 있도록 도와주는 전략
 
+<br>
+
 #### 2) `@ExceptionHandler` 활용
 
 특정 Controller 내에서만 처리하고자 할 때 `@ExceptionHandler`를 사용합니다.
+
+<br>
 
 #### 3) `@RestControllerAdvice` 활용
 
@@ -49,6 +53,8 @@ last_modified_at: 2026-03-23
 
 예를 들어 "이미 탈퇴한 회원입니다", "재고가 부족합니다"와 같은 상황은 시스템적인 문제가 아닌 비즈니스 로직 상의 예외
 
+<br>
+
 #### 1) 커스텀 예외 클래스 설계
 
 - 기본 제공되는 예외 클래스(`RuntimeException` 등)를 그대로 사용하면 아래의 문제 발생
@@ -61,6 +67,8 @@ last_modified_at: 2026-03-23
   - 예외마다 별도의 **에러 코드와 메시지를 부여**
   - 전역 예외 처리기(`@RestControllerAdvice`)에서 **일관된 응답 형태로 처리** 가능
 
+<br>
+
 #### 2) 예외 발생 시점과 위치 선정
 
 예외는 시스템의 **정상 흐름을 제어하기 위한 도구**라서 언제 어디서 발생시키는지가 시스템 구조에 큰 영향을 미친다.
@@ -70,6 +78,8 @@ last_modified_at: 2026-03-23
   - Service : 도메인 상태 확인 후 예외 발생 (ex. `MemberNotFoundException`)
   - Domain (Entity, VO) : 상태 불변성 위반 시 예외 발생 (ex. `AlreadyWithdrawnException`)
   - Repository : IOException, SQLException → `DataAccessException` 전환
+
+<br>
 
 #### 3) 예외 전환 전략
 
@@ -117,6 +127,8 @@ Spring과 같은 프레임워크는 이러한 전환을 기본적으로 지원�
   - `application.yml`에서 루트 로거 레벨이나 특정 패키지의 로그 레벨, 로그 파일 경로 및 이름, 콘솔 로그 출력 양식을 설정할 수 있다.
   - 세부적인 설정이 필요한 경우 `logback-spring.xml` 파일을 사용
 
+<br>
+
 #### 2) Logback 기본 설정
 
 - 로그 레벨 정책
@@ -124,11 +136,15 @@ Spring과 같은 프레임워크는 이러한 전환을 기본적으로 지원�
 - 로그 출력 패턴
   - `%d`, `%thread`, `%-5level`, `%msg`, `%n` 등
 
+<br>
+
 #### 3) 파일 출력과 관리 정책
 
 운영 환경에서는 로그 파일로 저장하고 적절히 관리하는 것이 필수적
 
 Logback은 시간 기반, 용량 기반 등의 **롤링 정책(Rolling Policy)**을 제공
+
+<br>
 
 #### 4) 롤링 정책(Rolling Policy)
 
@@ -153,6 +169,8 @@ Logback은 시간 기반, 용량 기반 등의 **롤링 정책(Rolling Policy)**
 
 이를 위해 Spring Boot에서는 `@Profile`이나 `spring.profiles.active`에 따라 환경을 구분하고, Logback 설정 파일에서 `<springProfile>`을 사용하여 환경별 설정을 나눌 수 있다.
 
+<br>
+
 #### 2) 로그 파일 관리
 
 운영 환경에서 로그 파일을 그대로 두면 빠르게 디스크 공간을 소모할 수 있다. 따라서 아래와 같은 정책을 함께 적용하는 것이 중요
@@ -162,6 +180,8 @@ Logback은 시간 기반, 용량 기반 등의 **롤링 정책(Rolling Policy)**
 - `fileNamePattern` : 로그 파일 이름에 날짜 포함시켜 일별 분할 설정
 - `cleanHistoryOnStart` : 애플리케이션 시작 시 오래된 로그 즉시 삭제
 - 압축 설정 : 보통 `.gz` 형태로 자동 압축되어 저장
+
+<br>
 
 #### 3) 로그 레벨 조정
 
@@ -174,6 +194,8 @@ Spring Boot Actuator의 `loggers` 엔드포인트를 사용하면 실행 중(런
 ### 5-01. 로그 레벨별 활용 전략
 
 **로그(Log)**란 애플리케이션 실행 중 발생하는 다양한 이벤트를 기록하는 텍스트 기반의 기록 정보로, 문제 추적, 성능 분석, 보안 대응 등 다양한 목적에 사용
+
+<br>
 
 #### 1) 로그 레벨
 
@@ -194,6 +216,8 @@ Spring Boot Actuator의 `loggers` 엔드포인트를 사용하면 실행 중(런
   - 예외 상황
   - 기능 실패, 외부 시스템 오류 등 치명적 장애 발생 시 반드시 로그를 남겨야 할 때 사
 
+<br>
+
 #### 2) 로그 메시지 작성 원칙
 
 - 충분한 컨텍스트 정보 포함
@@ -209,6 +233,8 @@ Spring Boot Actuator의 `loggers` 엔드포인트를 사용하면 실행 중(런
 - 민감한 정보 제외
   - 로그는 운영환경에 노출되는 경우가 많고, 보안 위협에 직접적으로 노출될 수 있다.
   - 비밀번호, 인증 토큰, 주민등록번호, 카드번호 등 민감한 정보는 절대 로그에 기록 금지
+
+<br>
 
 #### 3) 예외 상황 로깅 전략
 
@@ -235,6 +261,8 @@ Spring Boot Actuator의 `loggers` 엔드포인트를 사용하면 실행 중(런
   - 도메인 핵심 로직(주문 처리, 회원가입, 결제 등)에서는 적절한 시점마다 로깅을 추가
 - 외부 시스템 연동
   - 외부 리소스에 대한 성능 병목 파악을 위해 로그는 반드시 필요
+
+<br>
 
 #### 2) 로그 검색과 분석
 
@@ -294,6 +322,8 @@ $ grep -E "\\[(USER|ORDER)_.*\\]" app.log | grep -E "WARN|ERROR"
   - `implementation 'org.springframework.boot:spring-boot-starter-validation'`
   - Spring Boot 2.3.0 이전 버전에서는 `spring-boot-starter-web` 안에 validation 의존성이 포함
 
+<br>
+
 #### 2) 주요 검증 애너테이션
 
 - 문자열 검증 애너테이션 : `@NotNull`, `@NotEmpty`, `@NotBlank`, `@Size`, `@Length`, `@Emali`, `@Pattern`
@@ -309,11 +339,15 @@ $ grep -E "\\[(USER|ORDER)_.*\\]" app.log | grep -E "WARN|ERROR"
 
 - Java Bean Validation에서는 `@Valid`, `@Validated`를 통해 다양한 위치에서 검증 수행
 
+<br>
+
 #### 1) Controller 요청 검증
 
 Spring MVC에서는 Controller 메서드의 파라미터에 `@Valid` 또는 `@Validated`를 적용하여 요청 데이터를 자동 검증 가능
 
 검증 실패 시 `BindingResult`를 통해 오류 정보를 확인하고 적절한 응답 반환 가
+
+<br>
 
 #### 2) Service 계층 검증
 
@@ -441,6 +475,8 @@ Controller보다 더 복잡한 비즈니스 규칙을 검증하거나, 도메인
 
 애플리케이션을 개발하는 것만큼 운영 중인 애플리케이션의 상태를 확인하고 관리하는 것이 중요하다. 특히 실무 환경에서는 서비스의 안정성을 보장하기 위해 애플리케이션을 지속적으로 모니터링해야 한다.
 
+<br>
+
 #### 1) 실시간 상태 모니터링
 
 운영 중인 애플리케이션은 언제든지 예상치 못한 문제가 발생할 수 있기 때문에 문제를 조기에 발견하고 대응하기 위해 실시간으로 애플리케이션 상태를 모니터링할 필요가 있다.
@@ -451,9 +487,13 @@ Controller보다 더 복잡한 비즈니스 규칙을 검증하거나, 도메인
   - 운영 효율성 증가
   - 장애 대응 시간 단축
 
+<br>
+
 #### 2) 잠재적 문제 조기 발견
 
 모니터링 시스템을 통해 장애로 이어지기 전의 이상 징후를 미리 감지할 수 있다.
+
+<br>
 
 #### 3) 주요 지표 수집과 분석
 
@@ -464,6 +504,8 @@ Controller보다 더 복잡한 비즈니스 규칙을 검증하거나, 도메인
   - 접근 및 성능 (응답 시간, 처리량, 오류율 등)
   - 데이터베이스 (쿼리 실행 시간, 커넥션 풀 상태 등)
   - 외부 시스템 (API 호출 성공률, 응답 시간 등)
+
+<br>
 
 #### 4) 정상 동작 여부 확인(Health Check)
 
@@ -479,12 +521,16 @@ Spring Boot Actuator는 Spring 모듈 중 하나로, 애플리케이션을 프�
 
 상태 점검, 메트릭 수집, HTTP 추적 등의 기능을 통해 시스템의 운영 상태를 실시간으로 파악할 수 있다.
 
+<br>
+
 #### 1) 의존성 설정
 
 ```groovy
 // build.gradle
 implementation 'org.springframework.boot:spring-boot-starter-actuator'
 ```
+
+<br>
 
 #### 2) Actuator 엔드포인트
 
@@ -495,6 +541,8 @@ implementation 'org.springframework.boot:spring-boot-starter-actuator'
   - `/info` 엔드포인트는 애플리케이션 관련 메타데이터를 외부에 제공하는 용도로 사용된다.
 - 기타 엔드포인트 목록은 [공식 문서](https://docs.spring.io/spring-boot/reference/actuator/endpoints.html#actuator.endpoints) 참고
 
+<br>
+
 #### 3) 사용자 정의 `HealthIndicator`
 
 - `HealthIndicator` 인터페이스 구현
@@ -502,6 +550,8 @@ implementation 'org.springframework.boot:spring-boot-starter-actuator'
   - 이를 위해 `HealthIndicator` 또는 `AbstractHealthIndicator` 인터페이스를 구현하면 된다.
 - `application.yml`에서 DB 헬스 쿼리 커스터마이징
   - Spring Boot는 데이터베이스의 헬스 체크를 자동으로 구성하지만, 특정 쿼리나 커넥션 타임아웃 등 정밀한 제어가 필요한 경우 설정 파일을 통해 조정할 수 있다.
+
+<br>
 
 #### 4) Health Group 설정
 
