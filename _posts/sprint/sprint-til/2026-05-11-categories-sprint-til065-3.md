@@ -88,7 +88,7 @@ Spring Security는 이 경로 앞단에 **FilterChainProxy**를 두고, 다수�
 ➡️ Security Filter Chain
 ➡️ 인증 처리
 ➡️ 성공 여부 ➡️ (성공) ➡️ Controller 핸들러
-             ➡️ (실패) ➡️ 예외 변환 및 응답
+            ➡️ (실패) ➡️ 예외 변환 및 응답
 ```
 
 - 모든 요청이 Filter를 반드시 거침
