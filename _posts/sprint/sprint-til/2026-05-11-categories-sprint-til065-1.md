@@ -114,6 +114,11 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 
 ### 2) HTTPS 내부 동작
 
+- 통신 과정에서 대칭키 암호화와 비대칭키 암호화를 함께 사용함
+  - **비대칭키 방식**은 안전하지만 연산 비용이 커서 모든 데이터를 암호화하기에는 비효율적
+  - **대칭키 방식**은 빠르지만, 통신에 사용할 키를 처음에 안전하게 공유해야 하는 문제 존재
+  - 따라서 HTTPS는 **처음 연결 시 비대칭키 기반**으로 안전하게 세션 키를 만들고, **이후** 실제 HTTP 데이터는 이 세션 키를 이용해 **대칭키 방식**으로 암호화
+
 1. 브라우저가 서버에 HTTPS 통신을 하겠다는 신호를 보냄
    - 지원 가능한 암호화 방식 목록을 함께 보냄
 2. 서버는 사용할 암호화 방식을 고르고, 자신이 신뢰할 수 있는 서버임을 나타내는 **디지털 인증서(공개키 포함)**를 보냄
@@ -205,7 +210,7 @@ HTTP 요청에서 인증 정보를 서버로 전달하기 위해 사용하는 �
 
 ### 3) `Authorization` 헤더 기반 인증 workflow
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/authorization_workflow.png" width=400px>
+<image src="../../../assets/images/posts_img/til/sprint-til/65/authentication_workflow.png" width=400px>
 
 <br>
 
