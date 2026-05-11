@@ -58,7 +58,7 @@ last_modified_at: 2026-05-11
 
 ### 4) 인증 후 인가 workflow
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/authorization_workflow.png" width=650px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/authorization_workflow.png" width=650px>
 
 - PEP(Policy Enforcement Point) : 검사 적용 지점
 - PDP(Policy Decision Posint) : 정책 판단 지점
@@ -88,7 +88,7 @@ last_modified_at: 2026-05-11
 
 **사용자** ➡️ **역할** ➡️ **권한** 매핑하여 관리 단순화. 사용자는 **역할을 부여**받고, 역할에 **권한을 부여**함
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/rbac.png" width=500px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/rbac.png" width=500px>
 
 #### RBAC를 선택하는 이유
 
@@ -299,7 +299,7 @@ OAuth에서 **Scope**는 Client가 Resource Owner(사용자)를 대신하여 접
 - Refresh Token을 사용 가능
 - 권한 부여 승인 요청 시 응답 타입(`response_type`)을 `code`로 지정하여 요청
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/authorization_code_grant_workflow.png" width=600px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/authorization_code_grant_workflow.png" width=600px>
 
 <br>
 
@@ -311,7 +311,7 @@ OAuth에서 **Scope**는 Client가 Resource Owner(사용자)를 대신하여 접
 - Refresh Token 사용이 불가능
 - Authorization Server는 Client Secret을 통해 클라이언트 인증 과정을 생략
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/iImplicit_grant_workflow.png" width=600px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/iImplicit_grant_workflow.png" width=600px>
 
 <br>
 
@@ -325,7 +325,7 @@ OAuth에서 **Scope**는 Client가 Resource Owner(사용자)를 대신하여 접
 - Refresh Token의 사용 가능
 - 정리하자면, **Authorization Server, Resource Server, Client가 모두 같은 시스템에 속해 있을 때만 사용이 가능**
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/resource_owner_password_credential_grant_workflow.png" width=600px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/resource_owner_password_credential_grant_workflow.png" width=600px>
 
 <br>
 
@@ -336,7 +336,7 @@ Client 자신이 관리하는 Resource 혹은 Authorization Server에 해당 Cli
 - 자격 증명을 안전하게 보관할 수 있는 Client에서만 사용되어야 함
 - Refresh Token의 사용은 불가능
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/client_credentials_grant_workflow.png" width=600px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/client_credentials_grant_workflow.png" width=600px>
 
 <br>
 
@@ -372,6 +372,6 @@ OIDC가 OAuth2를 확장하면서 추가된 핵심 요소
 - JWT(JSON Web Token) 형식으로 발급
 - 사용자 인증 결과와 기본 프로필 정보를 포함
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/oidc_workflow.png" width=650px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/oidc_workflow.png" width=650px>
 
 ---

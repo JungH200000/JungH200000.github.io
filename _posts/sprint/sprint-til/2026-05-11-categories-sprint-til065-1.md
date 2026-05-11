@@ -210,7 +210,7 @@ HTTP 요청에서 인증 정보를 서버로 전달하기 위해 사용하는 �
 
 ### 3) `Authorization` 헤더 기반 인증 workflow
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/authentication_workflow.png" width=400px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/authentication_workflow.png" width=400px>
 
 <br>
 
@@ -249,7 +249,7 @@ HTTP 요청에서 인증 정보를 서버로 전달하기 위해 사용하는 �
 
 ### 3) 토큰 기반 인증 workflow
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/token_workflow.png" width=400px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/token_workflow.png" width=400px>
 
 <br>
 
@@ -319,7 +319,7 @@ HMACSHA256(
 
 ### 2) JWT workflow
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/jwt_workflow.png" width=550px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/jwt_workflow.png" width=550px>
 
 <br>
 
@@ -404,7 +404,7 @@ HMACSHA256(
 
 ### 3) 토큰 갱신 workflow
 
-<image src="../../../assets/images/posts_img/til/sprint-til/65/refresh_workflow.png" width=550px>
+<img src="../../../assets/images/posts_img/til/sprint-til/65/refresh_workflow.png" width=550px>
 
 <br>
 
