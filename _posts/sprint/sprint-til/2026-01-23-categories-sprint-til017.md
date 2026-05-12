@@ -26,7 +26,7 @@ Spring Boot 애플리케이션은 `SpringApplication.run()` 호출을 통해 실
 
 ### 1-01. 애플리케이션 컨텍스트 생성 단계
 
-Spring Boot는 실행 시 `SpringApplication` 객체를 생성하고, 내부적으로 다양한 초기화 작업을 수행하는데, 이 때 가장 중요한 과정 중 하나가 **`ApplicationContext`의 생성 및 구성 단계**
+Spring Boot는 실행 시 `SpringApplication` 객체를 생성하고, 내부적으로 다양한 초기화 작업을 수행하는데, 이 때 가장 중요한 과정 중 하나가 `ApplicationContext`**의 생성 및 구성 단계**
 
 1. `SpringApplication` 객체 생성
 2. `WebApplicationType` 결정
@@ -37,7 +37,7 @@ Spring Boot는 실행 시 `SpringApplication` 객체를 생성하고, 내부적�
 
 ### 1-02. 자동 설정 적용 과정
 
-`ApplicationContext`가 준비되면, Spring Boot는 자동 구성 로직을 적용하여 필요한 Bean과 설정을 자동으로 주입한다. 이 과정에서 핵심은 **`@EnableAutoConfiguration`에 의해 동작하는 자동 설정 클래스의 로딩**
+`ApplicationContext`가 준비되면, Spring Boot는 자동 구성 로직을 적용하여 필요한 Bean과 설정을 자동으로 주입한다. 이 과정에서 핵심은 `@EnableAutoConfiguration`**에 의해 동작하는 자동 설정 클래스의 로딩**
 
 1. `AutoConfiguration` 클래스 로딩
 2. 조건 기반 설정 판단 ← `@Conditional` 계열

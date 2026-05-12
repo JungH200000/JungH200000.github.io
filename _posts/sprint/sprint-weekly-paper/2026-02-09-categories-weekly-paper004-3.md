@@ -126,9 +126,9 @@ public class TimeTraceAspect {
 
 #### 01. `@Controller`와 `@RestController`
 
-- **`@Controller`**
+- `@Controller`
   - 전통적인 Spring MVC 컨트롤러로, View 반환이 목적
-- **`@RestController`**
+- `@RestController`
   - `@Controller` + `@ResponseBody`
   - 데이터 자체를 반환하는 것이 목적이라, HTTP API에 개발에 특화
 
@@ -155,18 +155,18 @@ public class TimeTraceAspect {
 
 ### Q6-2. 정리
 
-#### **`@Controller` vs `@RestController`**
+#### `@Controller` vs `@RestController`
 
-- **`@Controller`**
+- `@Controller`
   - 전통적인 Spring MVC 컨트롤러
   - View 반환이 기본 목적
   - ViewResolver를 통한 View 처리 수행
-- **`@RestController`**
+- `@RestController`
   - @Controller + @ResponseBody의 조합
   - 데이터 자체를 반환하는 것이 목적
   - HTTP API 개발에 특화
 
-#### **`@Controller`의 처리 흐름**
+#### `@Controller`의 처리 흐름
 
 ```java
 
@@ -189,7 +189,7 @@ public class UserController {
 - View가 Model 데이터를 사용하여 HTML 생성
 - 생성된 HTML이 클라이언트에게 반환
 
-#### **`@RestController`의 처리 흐름**
+#### `@RestController`의 처리 흐름
 
 ```java
 
@@ -211,20 +211,20 @@ public class UserApiController {
   - 기본적으로 Jackson2가 JSON 변환을 담당
 - 변환된 데이터가 클라이언트에게 반환
 
-#### **응답 형식의 차이**
+#### 응답 형식의 차이
 
-- **`@Controller`**
+- `@Controller`
   - 기본적으로 View를 반환
   - HTML 형태의 응답
   - Content-Type: text/html
-- **`@RestController`**
+- `@RestController`
   - 데이터를 직접 반환
   - JSON/XML 형태의 응답
   - Content-Type: application/json (기본값)
 
-#### **사용 용도의 차이**
+#### 사용 용도의 차이
 
-- **`@Controller`**
+- `@Controller`
   - 웹 페이지 제공
   - 서버 사이드 렌더링
   - 동적 HTML 생성
@@ -242,7 +242,7 @@ public class UserApiController {
 
     ```
 
-- **`@RestController`**
+- `@RestController`
   - RESTful API 개발
   - 클라이언트-서버 분리 아키텍처
   - 마이크로서비스 간 통신

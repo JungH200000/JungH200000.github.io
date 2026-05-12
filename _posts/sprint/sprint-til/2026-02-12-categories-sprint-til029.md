@@ -365,4 +365,4 @@ REST API를 작성할 때는 몇 가지 지켜야 할 규칙
   - **서버 장애**:
     - HTTP 상태 코드: `500 Internal Server Error`
     - 내부 에러 코드: `INTERNAL_ERROR`
-- **`@ExceptionHandler` 적용**
+- `@ExceptionHandler` **적용**

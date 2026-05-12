@@ -136,24 +136,24 @@ Spring MVC는 여러 컴포넌트들이 요청과 응답을 유기적으로 처�
 
 [그림] Spring MVC의 동작 방식 및 구성요소
 
-- **`DispatcherServlet`**
+- `DispatcherServlet`
   - Spring MVC 아키텍처의 핵심이며, 모든 HTTP 요청의 진입점
   - Front Controller Patter 기반으로 동작하며, 클라이언트의 요청을 수신하고 이후 처리를 전담
-- **`HandlerMappgin`**
+- `HandlerMappgin`
   - 클라이언트 요청 URI와 이를 처리할 Controller 메서드를 **연결(매핑)**해주는 역할
   - 요청 URI를 분석하여 해당 요청을 처리할 수 있는 핸들러 객체(주로 Controller 클래스 내부의 메서드)를 찾아 `DispatcherServlet`에 반환
   - 실무에서는 대부분 `RequestMappingHandlerMapping`을 사용
-- **`HandlerAdapter`**
+- `HandlerAdapter`
   - 다양한 핸들러 타입을 **일관된 방식으로 실행**할 수 있도록 추상화
   - 핸들러 호출 결과를 ModelAndView 형태로 표준화하여 `DispatcherServlet`에 전달
     - “Model 데이터 + View 이름”의 형태
   - 커스텀 핸들러를 사용할 경우 `HandlerAdapter`를 직접 구현하여 Spring에 등록
 - **응답 처리 컴포넌트**
-  - **`ViewResolver`**
+  - `ViewResolver`
     - Controller가 반환한 View 이름을 실제 JSP, Thymeleaf 템플릿 파일 등으로 **찾아주는 역할**
     - 찾은 View 객체를 `DispatcherServlet`에게 전달
     - `ViewResolver` 경로가 잘못 설정되면 뷰를 찾지 못해 500 오류가 발생
-  - **`HttpMessageConverter`**
+  - `HttpMessageConverter`
     - API 응답은 View가 아닌 **직접 JSON, XML 등으로 데이터를 반환**하는데, 이때 Java 객체를 직렬화(혹은 역직렬화)해주는 역할
     - Controller에서 반환한 객체를 응답 헤더의 `Content-Type`에 따라 적절한 변환기(구현체)를 선택하고, **HTTP Response Body에 맞게 변환**
       - API 요청 처리시 상단의 이미지에서 `ViewResolver와 View` 자리에 위치함
@@ -425,7 +425,7 @@ View 이름은 `ViewResolver`에 의해 실제 템플릿 파일로 변환됨
 
 ViewResolver가 동작하는 방식은 SSR(서버사이드 렌더링) 방식
 
-하지만 REST API처럼 데이터를 직접 응답해야 하는 경우, Spring은 **`HttpMessageConverter`** 를 사용해 객체를 JSON, XML 등으로 변환
+하지만 REST API처럼 데이터를 직접 응답해야 하는 경우, Spring은 `HttpMessageConverter` 를 사용해 객체를 JSON, XML 등으로 변환
 
 - `@ResponseBody`가 붙으면 ViewResolver는 동작하지 않음
 - 대신 `HttpMessageConverter`가 작동하여 객체를 JSON으로 변환

@@ -51,10 +51,11 @@ last_modified_at: 2026-01-06
   - B branch의 commit : `DB 연결` → `회원가입 API` → `이메일 인증`
   - A branch의 `로그인 API` commit이 B branch의 `회원가입 API` 과 `이메일 인증` commit 사이 시간에 commit 됨
 - commit history
-  - **`git merge B`** :
+  - `git merge B`
     - `DB 연결` → `회원가입 API` → `로그인 API` → `이메일 인증` → `권한 확인` → `merge commit`
     - 그래프로 보면 두 branch가 나뉘어 진행되다가 `merge commit`에서 합쳐짐
-  - **`git rebase B`** : `DB 연결` → `회원가입 API` → `이메일 인증` → `로그인 API` → `권한 확인`
+  - `git rebase B`
+    - `DB 연결` → `회원가입 API` → `이메일 인증` → `로그인 API` → `권한 확인`
 
 #### 2. 사용하기 적절한 상황
 

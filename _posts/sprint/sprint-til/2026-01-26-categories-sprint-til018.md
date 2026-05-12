@@ -130,9 +130,9 @@ IoC(Inversion of Control) 원칙에 따라 **의존성 주입(Dependency Injecti
 
 어떤 Bean이 **존재할 수도 있고, 존재하지 않을 수도 있는 상황**에서는 선택적 주입이 필요
 
-- **`@Autowired(required = false)`**
-- **`Optional<T>`을 활용한 주입 (Java 8버전 이상)**
-- **`@Nullable`을 활용한 주입**
+- `@Autowired(required = false)`
+- `Optional<T>`**을 활용한 주입 (Java 8버전 이상)**
+- `@Nullable`**을 활용한 주입**
 
 <br>
 

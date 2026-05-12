@@ -282,7 +282,7 @@ Spring에서 트랜잭션을 일관된 방식으로 관리하기 위한 추상�
 
 ### 4-01. 트랜잭션 Rollback 규칙
 
-Spring은 AOP 기반 트랜잭션(선언적 트랜잭션)에서 **`RuntimeException` 또는 `Error`가 발생하면 자동으로 Rollback**한다.
+Spring은 AOP 기반 트랜잭션(선언적 트랜잭션)에서 `RuntimeException` **또는** `Error`**가 발생하면 자동으로 Rollback**한다.
 
 - `Check Exception`은 예상 가능한 예외라 가정하여 `rollbackFor`가 없으면 Commit한다.
   - `Check Exception` : 컴파일 시 강제 처리 O

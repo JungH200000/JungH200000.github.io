@@ -303,7 +303,7 @@ SameSite=Lax
     Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
     ```
 - 운영 환경에서는 **HTTPS 강제 리다이렉트**와 **HSTS**를 함께 적용함
-- **`Secure` 예시**
+- `Secure` **예시**
 
   ```
   HTTP/1.1 200 OK
@@ -324,7 +324,7 @@ SameSite=Lax
   - XSS 자체는 없애지 않음
   - 단지 쿠키 탈취를 막아줄 뿐, DOM 조작 등은 가능함
 - 인증에 쓰이는 **모든 쿠키**는 기본값으로 사용함
-- **`HttpOnly` 예시**
+- `HttpOnly` **예시**
   ```
   Set-Cookie: SESSION=abc123; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=1800
   ```

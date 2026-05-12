@@ -27,12 +27,12 @@ last_modified_at: 2026-01-12
 
 ## 2. 고민
 
-### **Java Stream & Data Structure**
+### Java Stream & Data Structure
 
-- **`filter()` 메서드 안에서의 논리 연산**
+- `filter()` **메서드 안에서의 논리 연산**
 - `filter()` 메서드 안에 논리 연산자 사용해 복합 조건 필터링 가능
 - ex: `filter(user -> user.getUserName().contains(partialName) || user.getNickName().contains(partialName))`
-- **`Map<K, V>`으로 데이터 저장:**
+- `Map<K, V>`**으로 데이터 저장:**
 - 데이터를 저장할 때 `private final Map<UUID, Message> data = new HashMap<>();` 같이 UUID를 중복 저장하는 이유는 **Key**는 빠른 검색을 위한 색인(index) 역할을 하고 **Value**는 Message 데이터 그 자체의 역할을 한다.
 
 ### 메서드의 반환 타입이 `Optional`일 경우, 예외를 던질 것인가? 아니면 빈 상자를 반환할 것인가?
@@ -49,16 +49,16 @@ last_modified_at: 2026-01-12
   - 반환 타입이 `List`나 `Set`인 **다건 조회**의 경우, 데이터가 없다면 **빈 컬렉션**을 반환해서 호출자가 후속 조치를 하게 함.
   - ex) `return Collections.emptyList();`
 
-### **`orElseThrow()`:** `Optional` 래핑을 해제하고 내용물 반환하는 메서드
+### `orElseThrow()`: `Optional` 래핑을 해제하고 내용물 반환하는 메서드
 
 - 만약 메서드의 반환 타입이 `Optional`이라면 `Optional`로 래핑된 상태를 반환해야 함.
 
-### **Exception 종류**
+### Exception 종류
 
 - `NoSuchElementException`: 요청한 요소를 찾을 수 없다.
 - `IllegalArgumentException`: 입력 파라미터가 잘못됐다.
 
-### **메서드가 객체를 반환할 때** 반환되는 게 객체? 주소값?
+### 메서드가 객체를 반환할 때 반환되는 게 객체? 주소값?
 
 - 객체 자체가 이동하는 것이 아닌 **객체의 주소값이 복사되어 전달됨!!** 즉, 서로 다른 위치의 두 참조 변수가 **힙에 위치한 동일한 객체를 바라봄.**
 

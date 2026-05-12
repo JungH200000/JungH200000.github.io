@@ -46,9 +46,9 @@ last_modified_at: 2026-02-06
     HTML이 아니라 **JSON 데이터로 응답**하는 것이 적절
   - `@ResponseBody` 또는 `@RestController`를 활용할 수 있으며,
     객체를 반환하면 자동으로 JSON으로 변환 - `@RestController`는 내부적으로 `@ResponseBody` 사용
-  - **만약 `@ResponseBody`가 없다면**
+  - **만약** `@ResponseBody`**가 없다면**
     - 반환 값이 View 이름으로 처리되어 `반환값.html`로 찾게 된다. ➡️ JSON 응답이 아님
-    - `@ResponseBody`는 **`ViewResolver` → `HttpMessageConverter`** 흐름으로 변경해 주는 핵심 역할
+    - `@ResponseBody`는 `ViewResolver` **→** `HttpMessageConverter` 흐름으로 변경해 주는 핵심 역할
 
   ```java
   @PostMapping("/v1/members/json")
@@ -140,7 +140,7 @@ Response Body의 내용만으로는 요청 데이터 중에서 어떤 항목이 
 
 클라이언트 쪽에서 에러메시지를 조금 더 구체적으로 친절하게 알 수 있도록 바꾸는 작업이 필요
 
-- **`@ExceptionHandler`**
+- `@ExceptionHandler`
   - 특정 예외가 발생했을 때, 해당 예외를 처리할 **메서드**를 지정할 수 있는 애너테이션
   - `@Controller`, `@RestController` 내부에서 사용되며, 특정 컨트롤러에서만 예외를 처리하고 싶을 때 유용
 
@@ -184,7 +184,7 @@ public class GlobalExceptionHandler {
 }
 ```
 
-- **`@ControllerAdvice`의 예외 처리 우선순위**
+- `@ControllerAdvice`**의 예외 처리 우선순위**
   1. 해당 컨트롤러 내부의 `@ExceptionHandler`
   2. 범위 제한이 있는 `@ControllerAdvice`
   3. 범위 제한 없는 `@ControllerAdvice`
@@ -204,7 +204,7 @@ public class GlobalExceptionHandler {
     - 로직과 표현이 섞여 있음 (Separation of Concerns 미흡)
 - **Spring MVC**
   - 서블릿을 기반으로 하되, **추상화된 방식으로 웹 요청을 처리**할 수 있도록 설계
-  - 핵심 개념은 **`DispatcherServlet`**
+  - 핵심 개념은 `DispatcherServlet`
   - Spring MVC는 내부적으로 `HttpServletRequest`, `HttpServletResponse`을 다루지만,
     개발자는 추상화된 API만 사용
 
