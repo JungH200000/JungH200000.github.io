@@ -39,7 +39,7 @@ AOP는 로깅이나 트랜잭션, 보안 검사, 실행 시간 측정 등 모든
 
 ### Q5-2. 정리
 
-#### **AOP의 필요성**
+#### AOP의 필요성
 
 비즈니스 로직을 개발할 때 핵심 기능과 부가 기능이 섞여 있으면 다음과 같은 문제가 발생합니다. 예를 들어, 모든 비즈니스 메서드의 실행 시간을 측정해야 한다고 가정해보겠습니다.
 
@@ -71,7 +71,7 @@ public class UserService {
 - 핵심 비즈니스 로직과 부가 기능이 섞여 있어 코드의 가독성이 떨어집니다.
 - 시간 측정 로직을 변경해야 할 경우, 모든 메서드를 수정해야 합니다.
 
-#### **AOP를 통한 해결**
+#### AOP를 통한 해결
 
 AOP를 사용하면 이러한 문제를 다음과 같이 해결할 수 있습니다:
 
@@ -102,7 +102,7 @@ public class TimeTraceAspect {
 - 코드 중복이 제거되어 유지보수가 용이해집니다.
 - 애플리케이션의 여러 부분에 일관된 방식으로 기능을 적용할 수 있습니다.
 
-#### **실제 활용 사례**
+#### 실제 활용 사례
 
 실무에서 AOP는 다음과 같은 상황에서 주로 활용됩니다:
 
@@ -126,9 +126,9 @@ public class TimeTraceAspect {
 
 #### 01. `@Controller`와 `@RestController`
 
-- `@Controller`
+- **`@Controller`**
   - 전통적인 Spring MVC 컨트롤러로, View 반환이 목적
-- `@RestController`
+- **`@RestController`**
   - `@Controller` + `@ResponseBody`
   - 데이터 자체를 반환하는 것이 목적이라, HTTP API에 개발에 특화
 
@@ -157,11 +157,11 @@ public class TimeTraceAspect {
 
 #### **`@Controller` vs `@RestController`**
 
-- `@Controller`
+- **`@Controller`**
   - 전통적인 Spring MVC 컨트롤러
   - View 반환이 기본 목적
   - ViewResolver를 통한 View 처리 수행
-- `@RestController`
+- **`@RestController`**
   - @Controller + @ResponseBody의 조합
   - 데이터 자체를 반환하는 것이 목적
   - HTTP API 개발에 특화
@@ -213,18 +213,18 @@ public class UserApiController {
 
 #### **응답 형식의 차이**
 
-- `@Controller`
+- **`@Controller`**
   - 기본적으로 View를 반환
   - HTML 형태의 응답
   - Content-Type: text/html
-- `@RestController`
+- **`@RestController`**
   - 데이터를 직접 반환
   - JSON/XML 형태의 응답
   - Content-Type: application/json (기본값)
 
 #### **사용 용도의 차이**
 
-- `@Controller`
+- **`@Controller`**
   - 웹 페이지 제공
   - 서버 사이드 렌더링
   - 동적 HTML 생성
@@ -242,7 +242,7 @@ public class UserApiController {
 
     ```
 
-- `@RestController`
+- **`@RestController`**
   - RESTful API 개발
   - 클라이언트-서버 분리 아키텍처
   - 마이크로서비스 간 통신

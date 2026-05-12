@@ -81,7 +81,7 @@ last_modified_at: 2026-02-02
 
 ### Q4-2. 정리
 
-#### **`@Configuration`과 `@Bean` 사용**
+#### `@Configuration`과 `@Bean` 사용
 
 ```java
 
@@ -106,7 +106,7 @@ public class AppConfig {
 - 많은 Bean을 등록할 경우 코드가 길어짐
 - 설정 클래스 관리가 필요
 
-#### **@Component와 컴포넌트 스캔**
+#### @Component와 컴포넌트 스캔
 
 ```java
 
@@ -128,14 +128,14 @@ public class MyService {
 - Bean의 등록 여부를 파악하기 위해 클래스를 직접 확인해야 함
 - 광범위한 컴포넌트 스캔은 애플리케이션 시작 시간에 영향을 줄 수 있음
 
-#### **Bean 등록 시 고려사항**
+#### Bean 등록 시 고려사항
 
 - 애플리케이션의 규모와 복잡도
 - 팀의 개발 문화와 컨벤션
 - 유지보수성과 확장성
 - Bean 간의 의존관계 복잡도
 
-#### **권장 사항**
+#### 권장 사항
 
 - 개발자가 직접 작성한 클래스는 `@Component` 사용
 - 외부 라이브러리나 복잡한 생성 로직이 필요한 경우 `@Configuration`과 `@Bean` 사용
