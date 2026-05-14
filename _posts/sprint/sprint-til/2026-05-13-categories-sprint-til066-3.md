@@ -223,12 +223,10 @@ Spring Security는 기본적으로 **상태 유지 세션 기반 애플리케이
   4. 일치하면 정상 요청, 불일치 또는 누락 시 `AccessDeniedException` 발생
   - 공격자는 올바른 토큰을 알 수 없으므로 위조 요청은 차단됨
 - **CsrfFilter 동작 순서**
-  ```
   - loadToken() ➡️ 저장소에서 토큰 조회
   - 없으면 generateToken() ➡️ saveToken()
   - 요청 메서드가 POST/PUT/DELETE/PATCH면 토큰 검증
   - 토큰 불일치 ➡️ AccessDeniedException
-  ```
 - **보강 전략**
   - **Origin/Referer 검증**: 요청 헤더로 동일 출처인지 확인
   - **SameSite 쿠키**: `Lax` 또는 `Strict` 설정으로 크로스 도메인 요청 차단
