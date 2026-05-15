@@ -35,6 +35,8 @@ last_modified_at: 2026-05-15
   - CSRF 토큰을 발급하는 API 구현
     - `GET /api/auth/csrf-token`
 
+<br>
+
 ## 2. 질문
 
 ### `csrfTokenRepository`와 `csrfTokenRequestHandler`
@@ -68,16 +70,6 @@ CSRF 토큰을 **생성**·**저장**하고, 요청 시 다시 **조회**하는 
    - 예시
      - 요청 헤더의 `X-XSRF-TOKEN` 값을 읽거나
      - 요청 파라미터의 `csrf` 값을 읽음
-
-## 2. 문제
-
-## 2. 고민
-
-## 3. 질문
-
-## 3. 고민
-
-## 3. 문제
 
 ---
 
