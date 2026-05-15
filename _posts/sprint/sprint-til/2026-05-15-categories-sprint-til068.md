@@ -105,11 +105,11 @@ CSRF 토큰을 **생성**·**저장**하고, 요청 시 다시 **조회**하는 
   - 디폴트 구현체는 `HttpSessionCsrfTokenRepository`입니다.
   - 이때 클라이언트에서 쿠키에 저장된 CSRF 토큰에 접근해야 하므로 **HttpOnly**는 `false`로 설정합니다.
 
-- [ ] `CsrfTokenRequestHandler` 컴포넌트를 대체하세요.
+- [x] `CsrfTokenRequestHandler` 컴포넌트를 대체하세요.
   - 디폴트 구현체는 `XorCsrfTokenRequestAttributeHandler`입니다.
   - [Spring 공식문서](https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html#csrf-integration-javascript-spa)에서 권장하는 CSR+SPA(Single Page Application) 환경에 적합한 구현체를 정의하세요.
 
-- [ ] CSRF 토큰을 발급하는 API를 구현하세요.
+- [x] CSRF 토큰을 발급하는 API를 구현하세요.
   - API 스펙
     - 엔드포인트: `GET /api/auth/csrf-token`
     - 요청: 없음
@@ -117,9 +117,7 @@ CSRF 토큰을 **생성**·**저장**하고, 요청 시 다시 **조회**하는 
   - `CsrfToken` 파라미터를 메서드 인자로 선언하면, `HandlerMethodArgumentResolver`를 통해 자동으로 주입됩니다. ([공식문서](https://docs.spring.io/spring-security/reference/servlet/integrations/mvc.html#mvc-csrf-resolver))
   - GET 요청에는 CSRF 인증이 이루어지지 않기 때문에 토큰이 초기화되지 않습니다. 따라서 명시적으로 메소드에서 토큰을 호출합니다.
 
-`//...`
-
-`//...`
+//...
 
 ---
 
