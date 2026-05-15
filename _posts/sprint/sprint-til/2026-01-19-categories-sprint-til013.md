@@ -47,7 +47,7 @@ last_modified_at: 2026-01-19
 - 목적은 하드웨어나 언어에 상관없이 알고리즘의 **성능 증가율(성장 속도)**을 비교하는 것
 - 일반적으로 Big O 표기법을 사용해 표현
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/BIG-O.png?raw=true" width=700px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/BIG-O.png" width=700px>
 
 - O(1): 상수 시간 (Constant Time)
   - 입력 크기(n)에 상관없이 항상 일정한 시간 내에 연산이 완료되는 경우

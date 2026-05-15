@@ -277,7 +277,7 @@ Enum을 잘못 사용한 사례
 
 #### 2) 자바의 예외 계층 구조
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/Java-exception-hierarchy.png?raw=true" width=500px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/Java-exception-hierarchy.png" width=500px>
 
 - **Throwable :** 자바에서 던질(`throw`) 수 있는 모든 객체의 최상위 부모
 - **Error :** 시스템 단에서 발생하는 치명적 오류이며 개발자가 처리하지 않음

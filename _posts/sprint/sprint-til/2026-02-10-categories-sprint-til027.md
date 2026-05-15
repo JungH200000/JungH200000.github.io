@@ -29,7 +29,8 @@ last_modified_at: 2026-02-10
     - 바이너리 파일을 1개 조회 API `downloadFile` 핸들러 메서드 구현
     - 바이너리 파일을 여러 개 조회 API `downloadFiles` 핸들러 메서드 구현
 - 사용자 목록을 보여주는 화면 출력
-  <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/sprint_mission04_test01.png?raw=true" width=700px>
+
+  <img src="../../../assets/images/posts_img/til/sprint-til/00_existing/sprint_mission04_test01.png" width=700px>
 
 ---
 

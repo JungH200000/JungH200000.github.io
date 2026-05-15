@@ -32,9 +32,9 @@ last_modified_at: 2025-01-06
 
 <br>
 
-### **JDK 구조**
+### JDK 구조
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/jdk_structure.png?raw=true" width=500px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/jdk_structure.png" width=500px>
 
 | 구성 요소 | 설명                                                                               |
 | --------- | ---------------------------------------------------------------------------------- |

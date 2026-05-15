@@ -146,7 +146,7 @@ public class Member {
 
 ### 4-01. 연관관계 매핑
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/til38_diagram.png?raw=true" width=700px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/til38_diagram.png" width=700px>
 
 [그림 3-44] 커피 주문 샘플 애플리케이션의 도메인 엔티티 클래스 다이어그램
 

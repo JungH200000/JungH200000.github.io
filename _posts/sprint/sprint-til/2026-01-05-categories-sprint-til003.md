@@ -120,7 +120,7 @@ Class 클래스명 { // 클래스명은 대문자로 시작
 - `new` 키워드는 생성된 객체를 **힙 메모리에 넣으라**는 의미
 - `new` 키워드와 생성자를 통해 클래스의 객체를 생성한다는 것은 **해당 객체를 힙 메모리에 넣고 그 주소값을 참조변수에 저장하는 것**과 동일
 
-<img src="https://raw.githubusercontent.com/JungH200000/JungH200000.github.io/refs/heads/categories-ver2/assets/images/posts_img/til/jvm.png" width=500px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/jvm.png" width=500px>
 
 ---
 
@@ -361,7 +361,7 @@ class Constructor {
 
 ### 5-02. JVM 메모리 구조
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/memory.png?raw=true" width=700px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/memory.png" width=700px>
 
 JVM은 실행 시 메모리를 크게 다음과 같이 나눠 관리
 

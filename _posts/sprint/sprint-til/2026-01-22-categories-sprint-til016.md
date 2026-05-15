@@ -157,7 +157,7 @@ Spring 기반 애플리케이션의 **인증(Authentication)**과 **인가(Autho
 
 Spring Boot는 Spring Framework 위에서 동작하는 **별도의 프레임워크가 아니라, “Spring을 빠르게 시작하고 구성하는 플랫폼”**
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/spring.png?raw=true" width=400px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/spring.png" width=400px>
 
 <br>
 
@@ -189,7 +189,7 @@ Spring Framework는 단일 라이브러리가 아니라, **기능별로 분리�
 
 ### 6-01. 주요 모듈의 계층적 위치 확인
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/spring-framework-runtime.png?raw=true" width=600px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/spring-framework-runtime.png" width=600px>
 
 Spring 모듈은 단방향 의존성을 가지며, **상위 기능일수록 더 많은 하위 모듈을 포함**한다.
 

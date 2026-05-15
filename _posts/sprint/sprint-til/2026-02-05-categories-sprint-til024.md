@@ -132,7 +132,7 @@ Model - View - Controller의 약자
 
 Spring MVC는 여러 컴포넌트들이 요청과 응답을 유기적으로 처리하는 구조로 이루어져 다. 이 구조의 중심에 있는 건 `DispatcherServlet`이며, 그 외 여러 보조 컴포넌트들이 함께 동작한다.
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/til/spring-mvc-component.png?raw=true" width=650px>
+<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/spring-mvc-component.png" width=650px>
 
 [그림] Spring MVC의 동작 방식 및 구성요소
 
