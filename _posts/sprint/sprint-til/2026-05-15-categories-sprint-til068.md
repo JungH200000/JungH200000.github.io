@@ -117,7 +117,7 @@ CSRF 토큰을 **생성**·**저장**하고, 요청 시 다시 **조회**하는 
   - `CsrfToken` 파라미터를 메서드 인자로 선언하면, `HandlerMethodArgumentResolver`를 통해 자동으로 주입됩니다. ([공식문서](https://docs.spring.io/spring-security/reference/servlet/integrations/mvc.html#mvc-csrf-resolver))
   - GET 요청에는 CSRF 인증이 이루어지지 않기 때문에 토큰이 초기화되지 않습니다. 따라서 명시적으로 메소드에서 토큰을 호출합니다.
 
-//...
+`//...`
 
 ---
 
