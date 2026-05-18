@@ -60,6 +60,7 @@ last_modified_at: 2026-05-17
 - Spring Security의 formLogin 인증 흐름은 그대로 유지하면서 필요한 부분만 대체합니다.
 
     <img src="../../../assets/images/posts_img/til/sprint-til/spring-mission/69/c9g464dhi-image.png" width=700px>
+    
   - 이번 미션에서는 보라색 음영 처리된 5가지 컴포넌트를 대체합니다.
     1. `UserDetails`
     2. `UserDetailsService`
