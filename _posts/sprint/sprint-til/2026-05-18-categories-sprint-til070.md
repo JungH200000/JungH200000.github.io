@@ -157,12 +157,11 @@ last_modified_at: 2026-05-18
 ### 4-07. 인가 - 권한 정의
 
 - [x] 다음과 같이 권한을 정의하세요.
-
-   <img src="../../../assets/images/posts_img/til/sprint-til/spring-mission/70/faef2l3uk-image.png" width=500px>
-
   - 관리자: `ADMIN`
   - 채널 매니저: `CHANNEL_MANAGER`
   - 일반 사용자: `USER`
+
+  <img src="../../../assets/images/posts_img/til/sprint-til/spring-mission/70/faef2l3uk-image.png" width=500px>
 
 - [ ] 데이터베이스 Schema를 변경하세요.
 
@@ -177,8 +176,8 @@ last_modified_at: 2026-05-18
       ADD role varchar(20) NOT NULL;
   ```
 
-- [ ] 회원 가입 시 모든 사용자는 `USER` 권한을 기본 권한으로 설정하세요.
-- [ ] 사용자 권한을 수정하는 API를 구현하세요.
+- [x] 회원 가입 시 모든 사용자는 `USER` 권한을 기본 권한으로 설정하세요.
+- [x] 사용자 권한을 수정하는 API를 구현하세요.
   - API 스펙
     - 엔드포인트: `PUT /api/auth/role`
     - 요청: `Body UserRoleUpdateRequest`
@@ -186,9 +185,9 @@ last_modified_at: 2026-05-18
 
     <img src="../../../assets/images/posts_img/til/sprint-til/spring-mission/70/qu8jij3u4-image.png" width=200px>
 
-- [ ] 애플리케이션 실행 시 `ADMIN` 권한을 가진 어드민 계정이 초기화되도록 구현하세요.
+- [x] 애플리케이션 실행 시 `ADMIN` 권한을 가진 어드민 계정이 초기화되도록 구현하세요.
   - admin 계정이 없는 경우에만 초기화하세요.
-- [ ] `DiscodietUserDetails.getAuthorities`를 수정하세요.
+- [x] `DiscodietUserDetails.getAuthorities`를 수정하세요.
 
 `//...`
 
