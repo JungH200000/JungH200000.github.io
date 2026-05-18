@@ -163,7 +163,7 @@ last_modified_at: 2026-05-18
 
   <img src="../../../assets/images/posts_img/til/sprint-til/spring-mission/70/faef2l3uk-image.png" width=500px>
 
-- [ ] 데이터베이스 Schema를 변경하세요.
+- [x] 데이터베이스 Schema를 변경하세요.
 
   ```sql
   CREATE TABLE users
