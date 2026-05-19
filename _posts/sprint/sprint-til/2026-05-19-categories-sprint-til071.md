@@ -91,6 +91,8 @@ Spring Security 공식 문서에서는 아래처럼 설명한다.
 ➡️ 그러면 RoleHierarchy가 반영되지 않음
 ```
 
+<br>
+
 ### Evaluator란?
 
 - SpEL 자체가 아니라, SpEL 안에서 호출할 수 있는 권한 판단 컴포넌트
