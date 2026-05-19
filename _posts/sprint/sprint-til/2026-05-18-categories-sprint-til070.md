@@ -39,6 +39,27 @@ last_modified_at: 2026-05-18
 
 "로그아웃 성공 후 리다이렉트가 아닌, 지정한 HTTP 상태 코드만 응답하라"는 핸들러 클래스
 
+### 로그인 실패 시 예외 응답 생성에 정적 메서드를 사용한 이유
+
+다른 예외 처리 메서드와 구분하고, 로그인 실패 상황에 맞는 ErrorResponse 객체를 새로 생성해 반환하기 위해 `static` 사용하여 정적 팩토리 메서드 사용
+
+- 팩토리(factory) = 객체를 만들어주는 곳
+
+```java
+// 로그인 실패 전용 정적 팩토리 메서드
+public static ErrorResponse authenticationFailure(AuthenticationException e, int status) {
+    return new ErrorResponse(
+            Instant.now(),
+            "LOGIN_FAILED",
+            "아이디 또는 비밀번호가 올바르지 않습니다.",
+            new HashMap<>(),
+            e.getClass().getSimpleName(),
+            status
+    );
+}
+
+```
+
 ---
 
 # 프로젝트 요구 사항
