@@ -1,6 +1,6 @@
 ---
 title: '[TIL 75일 차] Sprint Mission10'
-excerpt: '3.기본 요구사항'
+excerpt: '3.기본 요구사항 ~ 4.심화 요구사항'
 
 categories:
   - Sprint TIL
@@ -32,6 +32,24 @@ last_modified_at: 2026-05-25
   - Refresh Token Rotation 적용
 - 리팩터링 - 로그아웃
   - 쿠키에 저장된 Refresh Token을 삭제하는 `JwtLogoutHandler` 구현
+- 리팩터링 - 토큰 상태 관리
+  - `JwtRegistry` 인테페이스 구현 후 `InMemoryJwtRegistry` 구현체 구현
+
+## 2. 질문
+
+### `ConcurrentLinkedDeque`란?
+
+여러 스레드가 동시에 접근할 수 있는 thread-safe한 양방향 `Queue` 구현체
+
+- `Concurrent` : 여러 스레드가 동시에 접근해도 안전함
+- `Linked` : 내부적으로 노드가 연결된 linked 구조
+- `Deque` : Double Ended Queue, 양쪽 끝에서 삽입과 삭제 가능한 `Queue`
+
+일반적인 `Queue`가 FIFO(First In First Out, 선입선출) 방식이다. 즉, 한쪽 끝에서 데이터를 넣고 반대쪽 끝에서 데이터를 빼낸다.
+
+반면, `Deque`는 양쪽 끝을 모두 사용할 수 있다. 즉, FIFO 방식의 `Queue`처럼 사용할 수 있고, LIFO 방식의 `Stack`처럼 사용할 수도 있다.
+
+`ConcurrentLinkedDeque`는 이러한 `Deque` 기능에 더해, 여러 스레드가 동시에 데이터를 추가하거나 제거해도 안전하게 동작하도록 설계되어 있다. 따라서 여러 요청이 동시에 들어올 수 있는 환경에서 사용자별 JWT 정보나 세션 정보를 관리할 때 사용할 수 있다.
 
 ---
 
@@ -49,7 +67,8 @@ last_modified_at: 2026-05-25
   ```
 
 - [x] 토큰을 발급, 갱신, 유효성 검사를 담당하는 컴포넌트(`JwtTokenProvider`)를 구현하세요.
-      [s0yti3992-image.png](https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=14437&version=1&directory=/s0yti3992-image.png&name=s0yti3992-image.png)
+
+<img src="../../../assets/images/posts_img/til/sprint-til/75/jwttokenprovider.png" width=300px>
 
 ### 3-02. 리팩토링 - 로그인
 
@@ -86,7 +105,8 @@ last_modified_at: 2026-05-25
       - 엑세스 토큰은 응답 Body에 포함하세요.
       - 리프레시 토큰은 쿠키(`REFRESH_TOKEN`)에 저장하세요.
     - `200 JwtDto`로 응답합니다.
-      [7s8mi349r-image.png](https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=14438&version=1&directory=/7s8mi349r-image.png&name=7s8mi349r-image.png)
+
+      <img src="../../../assets/images/posts_img/til/sprint-til/75/jwtdto.png" width=300px>
 
   - 설정에 추가하세요.
 
@@ -170,6 +190,41 @@ last_modified_at: 2026-05-25
         .addLogoutHandler(jwtLogoutHandler)
     )
   ```
+
+## 4. 심화 요구사항
+
+### 4-01. 리팩토링 - 토큰 상태 관리
+
+- 토큰 기반 인증 방식은 세션 기반 인증 방식과 달리 무상태(stateless)이기 때문에 사용자의 로그인 상태를 제어하기 어렵습니다.
+- 따라서 `SessionRegistry`를 통해 세션의 상태를 관리했던 것처럼, JWT의 상태를 관리할 수 있는 컴포넌트를 추가해야합니다.
+- [진행 중] 토큰의 상태를 관리하는 `JwtRegistry`를 구현하세요.
+  - `JwtRegistry`
+    - `registerJwtInformation`
+      - 로그인 성공 시 `JwtInformation`을 등록합니다.
+      - 최대 동시 로그인 수(`1`)를 제어합니다.
+    - `invalidateJwtInformationByUserId`: UserId로 해당 유저의 모든 `JwtInformation` 정보를 삭제합니다.
+    - `hasActiveJwtInformationBy*`: `JwtInformation`이 Registry에 존재하는지 확인합니다.
+      - `ByUserId`: 사용자의 로그인 상태를 판단할 때 활용합니다.
+      - `ByAccessToken`: 필터에서 유효한 토큰인지 확인할 때 활용합니다.
+      - `ByRefreshToken`: 토큰 재발급 시 유효한 토큰인지 확인할 때 활용합니다.
+    - `rotateJwtInformation`: 토큰 재발급 시 토큰 로테이션을 수행합니다.
+    - `clearExpiredJwtInformation`: 만료된 `JwtInformation`을 삭제합니다.
+  - `InMemoryJwtRegistry`
+    - 메모리에 `JwtInformation`을 저장하는 `JwtRegistry` 구현체입니다.
+    - 동시성 처리를 위해 다음과 같이 구성하세요. 동시성에 대해서는 다음 미션에서 학습합니다.
+
+      ```java
+
+      public class InMemoryJwtRegistry implements JwtRegistry {
+
+        // <userId, Queue<JwtInformation>>
+        private final Map<UUID, Queue<JwtInformation>> origin = new ConcurrentHashMap<>();
+        private final int maxActiveJwtCount;
+          ...
+      }
+      ```
+
+<img src="../../../assets/images/posts_img/til/sprint-til/76/jwtregistry.png" width=600px>
 
 `//...`
 
