@@ -1,5 +1,5 @@
 ---
-title: '[TIL 74-1일 차] Spring Security 토큰 기반 인증/인가'
+title: '[TIL 74일 차] Spring Security 토큰 기반 인증/인가'
 excerpt: '5.Refresh Token 패턴 구현'
 
 categories:
@@ -7,7 +7,7 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til074-1
+permalink: /categories/codeit-sprint/sprint-til/sprint-til074
 
 toc: true
 toc_sticky: true
