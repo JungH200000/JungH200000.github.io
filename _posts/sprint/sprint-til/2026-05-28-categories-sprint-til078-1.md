@@ -1,6 +1,6 @@
 ---
 title: '[TIL 78-1일 차] Spring 비동기 처리하기'
-excerpt: '1.Spring 비동기 처리 개요 @Async 소개 ~ 2.TaskExecutor와 ThreadPoolTaskExecutor'
+excerpt: '1.Spring 비동기 처리 개요 및 @Async 소개 ~ 2.TaskExecutor와 ThreadPoolTaskExecutor'
 
 categories:
   - Sprint TIL
@@ -16,7 +16,7 @@ date: 2026-05-28
 last_modified_at: 2026-05-28
 ---
 
-# <span style="background-color: #FFF9C4">1. Spring 비동기 처리 개요 `@Async` 소개</span>
+# <span style="background-color: #FFF9C4">1. Spring 비동기 처리 개요 및 `@Async` 소개</span>
 
 ## 1-01. Spring 비동기 처리 필요성
 
