@@ -1,5 +1,5 @@
 ---
-title: '[TIL 83-1일 차] Sprint Mission11'
+title: '[TIL 83일 차] Sprint Mission11'
 excerpt: '4.심화 요구사항'
 
 categories:
@@ -7,7 +7,7 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til083-1
+permalink: /categories/codeit-sprint/sprint-til/sprint-til083
 
 toc: true
 toc_sticky: true
