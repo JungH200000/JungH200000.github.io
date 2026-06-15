@@ -7,7 +7,7 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til085
+permalink: /categories/codeit-sprint/sprint-til/sprint-til084
 
 toc: true
 toc_sticky: true
