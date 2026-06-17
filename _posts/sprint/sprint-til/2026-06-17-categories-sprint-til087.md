@@ -30,6 +30,8 @@ last_modified_at: 2026-06-17
 
 ## 3. 기본 요구사항
 
+`//...`
+
 ### 3-03. 배포 아키텍처 구성하기
 
 <img src="../../../assets/images/posts_img/til/sprint-til/spring-mission/87/gtwxscalk-image.png" width=500px>
