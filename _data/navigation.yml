@@ -28,6 +28,8 @@ categories:
         url: /categories/codeit-sprint/sprint-basic-project/
       - title: 'Sprint 백엔드 중급 프로젝트'
         url: /categories/codeit-sprint/sprint-intermediate-project/
+      - title: 'Sprint 백엔드 고급 프로젝트'
+        url: /categories/codeit-sprint/sprint-advanced-project/
 
   - title: 'Spring'
     children:
