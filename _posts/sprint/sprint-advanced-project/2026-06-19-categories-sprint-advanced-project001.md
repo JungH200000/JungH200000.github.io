@@ -12,8 +12,8 @@ permalink: /categories/codeit-sprint/sprint-advanced-project/sprint-advanced-pro
 toc: true
 toc_sticky: true
 
-date: 2026-06-18
-last_modified_at: 2026-06-18
+date: 2026-06-19
+last_modified_at: 2026-06-19
 ---
 
 # 모두의 플리 프로젝트 시작!
