@@ -28,6 +28,48 @@ last_modified_at: 2026-06-22
 
 강사님께서는 취업 시에 작업 구조의 깊이가 깊어질수록 담당자님이 세부 내용을 확인하지 않을 가능성이 커진다고 설명해주셨다. 그래서 하위 이슈 관계를 해제하고 모든 작업이 Board에 보이도록 플랫한 구조로 수정했다.
 
+- 예시
+
+  ```markdown
+  title: [박정현|0622] 공통 Entity 및 로컬 개발 환경 구성
+
+  ## Description
+
+  프로젝트 개발에 필요한 공통 Entity 구조와 Docker 기반 로컬 개발 환경 구성
+
+  ## Todos
+
+  - [ ] 공통 `BaseEntity` 구현
+  - [ ] Docker 기반 로컬 개발 환경 구성
+  - [ ] 각 서비스 연동 확인
+
+  ## SubTasks
+
+  - [x] #8
+  - [x] #13
+  ```
+
+  ```markdown
+  title: [박정현|0622] Docker Compose 기반 로컬 개발 환경 설정
+
+  ## Description
+
+  로컬 개발 환경에서 PostgreSQL, Redis, Kafka를 실행할 수 있게 Dockerfile과 Docker Compose 설정 구성
+
+  ## Todos
+
+  - [ ] `Dockerfile` 작성
+    - [ ] Spring Boot 애플리케이션 build 및 실행 환경 구성
+  - [ ] `docker-compose.yml` 작성
+    - [ ] PostgreSQL 컨테이너 및 Volume 설정
+    - [ ] Redis 컨테이너 및 Volume 설정
+    - [ ] Kafka 컨테이너 설정
+    - [ ] 각 서비스 환경 변수 및 네트워크 설정
+  - [ ] `docker-compose`로 실행 및 연동 확인 테스트
+
+  ## SubTasks
+  ```
+
 수업이 끝난 후에 맡은 초기 설정을 마무리했다. `BaseEntity`와 `BaseUpdatableEntity`를 구현하고 `Dockerfile`과 `docker-compose.yml`을 이용해 PostgreSQL, Redis, Kafka를 실행할 수 있는 로컬 개발 환경을 구성했다. 서비스별 네트워크와 환경변수를 설정하고 실제 연결 여부도 확인했다.
 
 마지막으로 작업 내용을 PR로 올렸다. 내일 팀원 리뷰를 반영한 뒤 병합할 것이다.
