@@ -31,14 +31,7 @@ categories:
       - title: 'Sprint 백엔드 고급 프로젝트'
         url: /categories/codeit-sprint/sprint-advanced-project/
 
-  - title: 'Spring'
+  - title: 'AI'
     children:
-      - title: 'Spring 핵심 원리'
-        url: /categories/spring/spring-basic
-      - title: 'Spring MVC 1'
-        url: /categories/spring/spring-mvc-1
-
-  - title: 'Title3'
-    children:
-      - title: 'Categories7'
-        url: /categories/categories7/
+      - title: 'ChatGPT'
+        url: /categories/ai/chatgpt

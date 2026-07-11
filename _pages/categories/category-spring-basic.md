@@ -1,9 +1,9 @@
 ---
-title: 'Spring 핵심 원리'
+title: 'ChatGPT'
 layout: category
-permalink: /categories/spring/spring-basic
+permalink: /categories/ai/chatgpt
 author_profile: true
-taxonomy: Spring 핵심 원리
+taxonomy: ChatGPT
 sidebar:
   nav: 'categories'
 ---
