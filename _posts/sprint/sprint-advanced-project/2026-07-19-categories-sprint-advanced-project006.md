@@ -42,7 +42,7 @@ sourceEventId + receiverId
 
 Kafka Consumer는 Service가 반환한 새 알림만 SSE로 전송한다. 즉, 중복 이벤트가 들어왔을 때 알림 저장과 실시간 재전송은 생략된다.
 
-```test
+```text
 Kafka 이벤트 수신
 ➡️ 이미 처리한 수신자 조회
 ➡️ 새로운 수신자의 알림만 저장
