@@ -42,7 +42,7 @@ STOMP 구독 횟수가 한 번에 2씩 증가한 현상도 코드를 보고 이�
 
 Timer 평균은 인스턴스별 평균을 다시 평균 내지 않았다. 서버마다 처리량이 다른데 같은 비중으로 계산하면 결과가 왜곡되기 때문이다. 전체 처리 시간의 합을 전체 처리 건수로 나누는 쿼리를 사용했다.
 
-```promql
+```text
 sum(rate(metric_seconds_sum[$__rate_interval]))
 /
 sum(rate(metric_seconds_count[$__rate_interval]))
