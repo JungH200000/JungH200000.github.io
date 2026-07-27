@@ -7,7 +7,7 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint 백엔드 초급 프로젝트]
 
-permalink: /categories/codeit-sprint/sprint-basic-project/sprint-basic-project008
+permalink: /categories/codeit-sprint/sprint-basic-project/sprint-basic-project009
 
 toc: true
 toc_sticky: true
