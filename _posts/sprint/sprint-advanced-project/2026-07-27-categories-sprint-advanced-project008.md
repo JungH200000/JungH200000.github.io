@@ -1,5 +1,5 @@
 ---
-title: '[Sprint 백엔드 고급 프로젝트] 개인 개발 리포트'
+title: '[Sprint 백엔드 고급 프로젝트] MOPL 개인 개발 리포트'
 excerpt: ''
 
 categories:
@@ -16,7 +16,7 @@ date: 2026-07-27
 last_modified_at: 2026-07-27
 ---
 
-# 개인 개발 리포트
+# MOPL 개인 개발 리포트
 
 - 프로젝트명: 모두의 플리(MOPL)
 - 작성자: 박정현
