@@ -76,6 +76,8 @@ Playlist Entity를 시작으로 아래의 기능들을 구현했다.
 
 수정·삭제 권한 검사는 `@PreAuthorize`와 `PlaylistAuthorizationEvaluator`로 분리했다. 접근 거부 예외가 500이 아닌 403으로 응답하도록 예외 처리도 보완했다.
 
+<br>
+
 ### 3.2 Kafka 기반 알림 이벤트 발행과 처리
 
 플레이리스트 구독이나 팔로우 같은 핵심 기능이 알림 저장 방식에 의존하지 않도록 처리 과정을 아래처럼 나눴다.
@@ -94,6 +96,8 @@ Playlist Entity를 시작으로 아래의 기능들을 구현했다.
 
 Kafka 발행은 `@TransactionalEventListener(phase = AFTER_COMMIT)`에서 수행했다. 도메인 트랜잭션이 롤백됐는데 알림 이벤트만 Kafka로 먼저 나가는 상황을 막기 위해서다. 커밋 이후 Kafka 발행이 실패했을 때 이벤트를 영구 보관하고 재처리하는 Outbox나 전용 DLT는 현재 구현 범위에 넣지 않았으며, 향후 개선 항목으로 남겼다.
 
+<br>
+
 ### 3.3 Kafka 중복 이벤트로 인한 알림 중복 방지
 
 Kafka는 같은 메시지를 다시 전달할 수 있다. 따라서 이벤트와 수신자에 대한 알림이 여러 번 생성되지 않도록 애플리케이션과 DB에서 중복을 막았다.
@@ -101,6 +105,8 @@ Kafka는 같은 메시지를 다시 전달할 수 있다. 따라서 이벤트와
 각 도메인 이벤트 ID를 `sourceEventId`로 저장하고, `sourceEventId + receiverId` 조합을 같은 알림인지 판단하는 기준으로 삼았다. 알림을 저장하기 전에 같은 `sourceEventId`로 Notification이 이미 저장된 수신자 ID를 조회해 저장 대상에서 제외했다. DB에도 같은 조합의 unique 제약을 설정했다. Consumer는 실제로 새로 저장된 `NotificationDto`만 실시간 전송 대상으로 넘겼다.
 
 중복 이벤트가 들어와도 기존 수신자에게 같은 알림 데이터가 추가되거나 SSE가 다시 전송되지 않게 했다.
+
+<br>
 
 ### 3.4 Redis Pub/Sub을 이용한 다중 App 인스턴스 실시간 알림 전달
 
@@ -121,11 +127,15 @@ Kafka Consumer Group은 알림 생성 작업을 한 App에 배분하고, Redis P
 
 SSE 연결은 각 App이 따로 관리하며, Redis는 메시지를 보관하지 않는다. 접속이 끊긴 동안 발생한 알림은 DB에서 미읽음 Notification을 조회해 복원한다. `mopl:notification:realtime` 채널은 Notification 실시간 전달에만 사용한다.
 
+<br>
+
 ### 3.5 SSE 연결 관리와 재연결 시 알림 복원
 
 한 사용자가 여러 브라우저 탭이나 기기에서 접속할 수 있어 사용자별로 여러 SSE 연결 객체를 관리했다. 주기적으로 heartbeat를 보내 연결 상태를 확인했다. 특정 연결에서 전송 예외가 발생하면 해당 연결만 저장소에서 제거하고, 나머지 연결과 다음 이벤트 처리는 계속했다.
 
 클라이언트가 `lastEventId` 쿼리 파라미터와 함께 다시 연결하면, 해당 시점 이후에 저장된 미읽음 Notification을 DB에서 조회해 다시 전송한다. App이 재시작되어 메모리의 연결 정보가 사라진 뒤에도 알림을 복원할 수 있다. 현재 복원에는 시간과 조회 건수 제한이 있다. Notification과 DM을 각각 조회해 전송하므로, 두 종류의 이벤트를 실제 발행 시각 순서대로 복원되지는 않는다. SSE 연결 직후 발생한 알림이 실시간 전송과 DB 복원에 모두 포함될 수 있으며. 이 구간의 중복을 별도로 처리하지는 않았다.
+
+<br>
 
 ### 3.6 커스텀 메트릭 구현과 Grafana 대시보드 구성
 
@@ -154,9 +164,19 @@ Prometheus는 `app`, `app-2` 두 App 인스턴스의 메트릭을 수집하도�
 
 Grafana에는 데이터 소스와 대시보드가 자동 등록되도록 구성했다. 팀 전체의 Batch·실시간 연결·채팅·세션·Redis 동기화 흐름을 7개 영역·26개 패널에서 확인할 수 있다. 여러 인스턴스의 Counter는 인스턴스별 증가량을 더했다. 현재 연결 수처럼 각 인스턴스가 따로 보유한 값은 메트릭 의미에 따라 합계 또는 최댓값으로 조회했다.
 
-!batch-row.png
+![batch-row](/assets/images/posts_img/advanced-project/batch-row.png)
 
-!websocket-stomp-row.png
+![notification-sse-row](/assets/images/posts_img/advanced-project/notification-sse-row.png)
+
+![redis-pubsub-row](/assets/images/posts_img/advanced-project/redis-pubsub-row.png)
+
+![websocket-stomp-row](/assets/images/posts_img/advanced-project/websocket-stomp-row.png)
+
+![watching-session-row](/assets/images/posts_img/advanced-project/watching-session-row.png)
+
+![dm-content-chat-row](/assets/images/posts_img/advanced-project/dm-content-chat-row.png)
+
+![domain-redis-sync-row](/assets/images/posts_img/advanced-project/domain-redis-sync-row.png)
 
 ---
 
@@ -180,6 +200,8 @@ Kafka Consumer에서 SSE 전송 책임을 분리하고, `NotificationRealtimePub
 
 Kafka는 알림 생성 작업을 배분하고, Redis는 모든 App에 전송 요청을 알리는 구조로 역할을 나눴다.
 
+<br>
+
 ### 4.2 Kafka 재전달로 Notification과 SSE가 중복되는 문제
 
 #### Situation
@@ -198,6 +220,8 @@ Kafka가 같은 이벤트를 다시 전달하면 이미 처리한 수신자에�
 
 같은 Kafka 이벤트가 다시 들어와도 기존 수신자는 Notification 저장과 SSE 전송 대상에서 제외됐다.
 
+<br>
+
 ### 4.3 삭제 중인 데이터에 offset 방식 조회를 사용한 문제
 
 #### Situation
@@ -215,6 +239,8 @@ Kafka가 같은 이벤트를 다시 전달하면 이미 처리한 수신자에�
 #### Result
 
 현재 Playlist 물리 삭제 Job은 cursor 기반으로 동작하며, 여러 chunk로 나누어 삭제하는 H2 Batch 테스트도 통과했다.
+
+<br>
 
 ### 4.4 App 재시작 후 Counter 증가량이 누락되는 문제
 
@@ -246,6 +272,8 @@ App을 재시작한 직후 아직 작업을 실행하지 않은 인스턴스에�
 
 Playlist는 User·Content·Security 영역의 기능을 사용한다. 공통 기능이 준비되기 전에는 임시 사용자 ID Header와 Playlist 전용 사용자 요약 DTO로 개발했다. 이후 Spring Security에서 인증 사용자 정보를 제공하는 `MoplUserDetails`와 공통 사용자 요약 DTO가 준비되자 기존 임시 구조를 교체했다.
 
+<br>
+
 ### 5.2 리뷰에서 발견된 조건을 이후 구현 기준으로 반영
 
 개발 기록과 코드 변경에서 확인한 리뷰 사항을 아래와 같이 반영했다.
@@ -256,9 +284,13 @@ Playlist는 User·Content·Security 영역의 기능을 사용한다. 공통 기
 - Kafka·SSE 부분 실패를 확인할 수 있도록 로그 추가
 - 관계 데이터 중복을 서비스 검사와 DB unique 제약으로 두 단계에서 방어
 
+<br>
+
 ### 5.3 팀원이 만든 메트릭을 하나의 대시보드로 통합
 
 팀원이 구현한 WebSocket·Watching Session·DM/Content Chat·Domain Redis Sync 메트릭의 이름과 태그를 확인하고, 애플리케이션 시작 시 초기값이 등록되도록 보완했다. 담당 영역이 다른 메트릭을 한 화면에서 비교할 수 있도록 Grafana의 행과 패널 구조, 설명, 조회 구간도 통일했다.
+
+<br>
 
 ### 5.4 대표 PR
 
@@ -279,17 +311,25 @@ Playlist는 User·Content·Security 영역의 기능을 사용한다. 공통 기
 
 요청 DTO에서는 형식 오류를 먼저 확인하고, 서비스에서는 상황에 맞는 도메인 예외를 반환했다. 동시에 들어오는 요청의 최종 정합성은 DB unique 제약으로 보호했다. 검증 책임을 한 계층에 몰아두지 않고 각 계층에 맞게 나눴다.
 
+<br>
+
 ### 6.2 목록 조회에서 안정적인 순서와 쿼리 수를 함께 고려
 
 Playlist 목록은 정렬값이 같은 경우에도 순서가 흔들리지 않도록 ID를 보조 정렬이자 커서 조건으로 사용했다. 제목·소유자·수정 시간처럼 DB에 저장된 값을 사용하는 조건은 `WHERE`절에서 처리하고, 구독자 수처럼 조회 중 계산되는 집계값 조건은 `GROUP BY` 이후 `HAVING`절에서 처리했다. 현재 페이지의 구독 여부와 콘텐츠 요약은 Playlist마다 반복 조회하지 않고 ID 목록으로 묶어 조회했다.
+
+<br>
 
 ### 6.3 사용자 요청과 실제 데이터 삭제 시점 분리
 
 Playlist 삭제 API에서는 데이터를 바로 제거하지 않고 논리 삭제한다. 보관 기간이 지나면 Batch가 물리 삭제한다. Notification도 읽음 처리와 실제 삭제 시점을 나눠, 읽은 뒤 보관 기간이 지난 데이터만 Batch에서 삭제한다.
 
+<br>
+
 ### 6.4 하나의 연결 실패가 전체 알림 전송을 막지 않도록 처리
 
 SSE 전송 중 특정 연결에서 예외가 발생하면 해당 연결만 종료·제거하고 나머지 연결에는 계속 전송했다. 한 브라우저 탭이나 기기의 연결 실패가 다른 연결이나 이후 알림 전송까지 막지 않도록 처리했다.
+
+<br>
 
 ### 6.5 처리 단계별 성공을 구분해 기록
 
@@ -302,6 +342,8 @@ Notification 저장, Redis 발행·수신·처리, 실제 `SseEmitter.send()` �
 ### 7.1 Notification Kafka 발행 실패 복구
 
 현재는 도메인 트랜잭션 커밋 이후 Kafka 발행이 실패하면 로그와 메트릭으로 확인할 수 있다. 그러나 실패 이벤트를 영구 저장해 자동으로 다시 처리하는 구조가 없다. 실제 실패 빈도와 운영 비용을 측정한 뒤 Transactional Outbox, producer 재시도 저장소, Notification DLT와 error handler를 비교해 도입할 필요가 있다.
+
+<br>
 
 ### 7.2 SSE 재연결 시 전달 순서와 중복 문제 개선
 
