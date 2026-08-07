@@ -3,7 +3,7 @@ title: 'Template'
 excerpt: ''
 
 categories:
-  - ChatGPT
+  - Java 기본
 tags:
   - [java]
 
@@ -12,6 +12,6 @@ permalink: /categories/java/basic/basic000
 toc: true
 toc_sticky: true
 
-date: 2026-07-11
-last_modified_at: 2026-03-11
+date: 2026-08-06
+last_modified_at: 2026-08-06
 ---
