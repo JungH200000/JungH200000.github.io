@@ -1,9 +1,7 @@
 ---
 layout: single-editorial
 title: '위클리 페이퍼12: 백엔드 네트워크 구조의 이해'
-display_title: '백엔드 네트워크 구조의 이해'
 excerpt: 'OSI 7계층과 TCP/IP 4계층을 비교하고, TCP와 UDP의 특성과 적합한 사용 사례를 정리합니다.'
-reading_minutes: 3
 
 categories:
   - Sprint Weekly Paper

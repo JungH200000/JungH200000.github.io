@@ -1,9 +1,7 @@
 ---
 layout: single-editorial
 title: '[Sprint 백엔드 고급 프로젝트] MOPL 프로젝트 회고록'
-display_title: 'MOPL 프로젝트 회고록'
 excerpt: 'Playlist·Notification·SSE를 구현하며 Kafka, Redis Pub/Sub, Spring Batch까지 확장한 과정과 기술적 선택을 돌아봅니다.'
-reading_minutes: 6
 
 categories:
   - Sprint 백엔드 고급 프로젝트

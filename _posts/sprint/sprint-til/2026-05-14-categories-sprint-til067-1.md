@@ -1,9 +1,7 @@
 ---
 layout: single-editorial
 title: '[TIL 67-1일 차] Spring Security 쿠키/세션 기반 인증/인가'
-display_title: 'Spring Security 쿠키·세션 기반 인증·인가'
 excerpt: 'Spring Security의 세션 기반 인증 흐름과 SecurityContext, 세션 관리 필터 및 주요 설정을 정리합니다.'
-reading_minutes: 13
 
 categories:
   - Sprint TIL

@@ -8,7 +8,7 @@ layout: default
   {% include page__hero_video.html %}
 {% endif %}
 
-{% assign editorial_title = page.display_title | default: page.title %}
+{% assign editorial_title = page.title %}
 
 <main id="main" class="editorial-post" tabindex="-1" itemscope itemtype="https://schema.org/BlogPosting">
   {% if editorial_title %}
@@ -16,35 +16,37 @@ layout: default
   {% endif %}
 
   <header class="editorial-post__hero">
-    <div class="editorial-post__hero-inner">
+    <div class="editorial-post__hero-inner{% unless page.toc %} editorial-post__hero-inner--without-toc{% endunless %}">
       <a class="editorial-post__back" href="{{ '/' | relative_url }}">
         <span aria-hidden="true">←</span> 글 목록
       </a>
 
-      {% include post/editorial-breadcrumb.html %}
-      {% include post/editorial-meta.html %}
+      <div class="editorial-post__hero-content">
+        {% include post/editorial-breadcrumb.html %}
+        {% include post/editorial-meta.html %}
 
-      {% if editorial_title %}
-        <h1 id="page-title" class="editorial-post__title" itemprop="headline">
-          {{ editorial_title | markdownify | remove: "<p>" | remove: "</p>" }}
-        </h1>
-      {% endif %}
+        {% if editorial_title %}
+          <h1 id="page-title" class="editorial-post__title" itemprop="headline">
+            {{ editorial_title | markdownify | remove: "<p>" | remove: "</p>" }}
+          </h1>
+        {% endif %}
 
-      {% include post/editorial-description.html %}
+        {% include post/editorial-description.html %}
 
-      {% if page.tags and page.tags.size > 0 %}
-        <div class="editorial-post__tags" aria-label="태그" itemprop="keywords">
-          {% for tag_entry in page.tags %}
-            {% if tag_entry.first %}
-              {% for tag in tag_entry %}
-                <span class="editorial-post__tag">{{ tag }}</span>
-              {% endfor %}
-            {% else %}
-              <span class="editorial-post__tag">{{ tag_entry }}</span>
-            {% endif %}
-          {% endfor %}
-        </div>
-      {% endif %}
+        {% if page.tags and page.tags.size > 0 %}
+          <div class="editorial-post__tags" aria-label="태그" itemprop="keywords">
+            {% for tag_entry in page.tags %}
+              {% if tag_entry.first %}
+                {% for tag in tag_entry %}
+                  <span class="editorial-post__tag">{{ tag }}</span>
+                {% endfor %}
+              {% else %}
+                <span class="editorial-post__tag">{{ tag_entry }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
     </div>
   </header>
 
@@ -77,7 +79,11 @@ layout: default
           </p>
         {% endif %}
       </section>
+    </div>
+  </div>
 
+  <div class="editorial-post__after-shell{% unless page.toc %} editorial-post__after-shell--without-toc{% endunless %}">
+    <div class="editorial-post__after">
       {% if page.share %}{% include social-share.html %}{% endif %}
       {% include post/editorial-pagination.html %}
       {% include post/editorial-related.html %}

@@ -3,7 +3,7 @@
 
 {% if page.id and page.related and editorial_related_posts.size > 1 %}
   <section class="editorial-related" aria-labelledby="editorial-related-title">
-    <h2 id="editorial-related-title">같이 읽을 글</h2>
+    <h2 id="editorial-related-title">같은 카테고리의 최신 글</h2>
     <div class="editorial-related__grid">
       {% assign editorial_related_count = 0 %}
       {% for post in editorial_related_posts %}
@@ -11,10 +11,9 @@
           {% continue %}
         {% endif %}
 
-        {% assign editorial_related_title = post.display_title | default: post.title %}
         <a class="editorial-related__card" href="{{ post.url | relative_url }}">
           <span>{{ post.date | date: "%Y.%m.%d" }}</span>
-          <strong>{{ editorial_related_title | markdownify | strip_html | strip }}</strong>
+          <strong>{{ post.title | markdownify | strip_html | strip }}</strong>
           {% assign editorial_related_excerpt = post.description | default: post.excerpt | markdownify | strip_html | strip %}
           {% if editorial_related_excerpt != empty %}
             <p>{{ editorial_related_excerpt | truncate: 100 }}</p>
