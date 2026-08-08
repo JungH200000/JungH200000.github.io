@@ -17,7 +17,12 @@
 
 .editorial-post {
   min-width: 0;
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
 }
 
 .editorial-post:focus-visible {
@@ -44,7 +49,7 @@
 .editorial-post__hero-content {
   min-width: 0;
   width: calc(100% + 48px);
-  margin-left: -48px;
+  margin-left: -80px;
 }
 
 .editorial-post__hero-inner--without-toc {
@@ -107,14 +112,19 @@
   position: absolute;
   left: -10px;
   color: var(--editorial-hairline);
-  content: "·";
+  content: '·';
 }
 
 .editorial-post__title {
   max-width: 900px;
   margin: 16px 0 0;
   color: var(--editorial-ink);
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   font-size: clamp(36px, 4.2vw, 48px);
   font-weight: 750;
   line-height: 1.1;
@@ -252,7 +262,12 @@
 .editorial-prose {
   min-width: 0;
   color: var(--editorial-body);
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   font-size: 17px;
   line-height: 1.88;
   overflow-wrap: break-word;
@@ -285,7 +300,12 @@
 .editorial-prose h3,
 .editorial-prose h4 {
   color: var(--editorial-ink);
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   font-weight: 750;
   letter-spacing: -0.025em;
   line-height: 1.35;
