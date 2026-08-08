@@ -1,7 +1,9 @@
 ---
 layout: single-editorial
 title: '[TIL 67-1일 차] Spring Security 쿠키/세션 기반 인증/인가'
-excerpt: '1.세션 기반 인증 ~ 3.세션 관리 설정과 커스터마이징'
+display_title: 'Spring Security 쿠키·세션 기반 인증·인가'
+excerpt: 'Spring Security의 세션 기반 인증 흐름과 SecurityContext, 세션 관리 필터 및 주요 설정을 정리합니다.'
+reading_minutes: 13
 
 categories:
   - Sprint TIL
@@ -17,7 +19,7 @@ date: 2026-05-14
 last_modified_at: 2026-05-14
 ---
 
-# <span style="background-color: #FFF9C4">1. 세션 기반 인증</span>
+# 1. 세션 기반 인증
 
 ## 1-01. 세션 기반 인증
 
@@ -128,7 +130,7 @@ server:
 
 ---
 
-# <span style="background-color: #FFF9C4">2. 세션 관리 핵심 컴포넌트</span>
+# 2. 세션 관리 핵심 컴포넌트
 
 ## 2-01. `SecurityContextHolder`와 `SecurityContext`
 
@@ -256,7 +258,7 @@ server:
 
 ---
 
-# <span style="background-color: #FFF9C4">3. 세션 관리 설정과 커스터마이징</span>
+# 3. 세션 관리 설정과 커스터마이징
 
 ## 3-01. 세션 생성 정책
 

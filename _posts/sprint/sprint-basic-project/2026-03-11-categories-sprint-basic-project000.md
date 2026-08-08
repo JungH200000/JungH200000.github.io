@@ -1,6 +1,7 @@
 ---
 title: '[Sprint 백엔드 초급 프로젝트 n일차] Template'
 excerpt: ''
+published: false
 
 categories:
   - Sprint 백엔드 초급 프로젝트

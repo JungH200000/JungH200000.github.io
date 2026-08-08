@@ -1,9 +1,13 @@
-{% assign editorial_words_per_minute = page.words_per_minute | default: site.words_per_minute | default: 200 %}
-{% assign editorial_words = content | strip_html | number_of_words %}
-{% if editorial_words < editorial_words_per_minute %}
-  {% assign editorial_reading_minutes = 1 %}
+{% if page.reading_minutes %}
+  {% assign editorial_reading_minutes = page.reading_minutes %}
 {% else %}
-  {% assign editorial_reading_minutes = editorial_words | divided_by: editorial_words_per_minute %}
+  {% assign editorial_words_per_minute = page.words_per_minute | default: site.words_per_minute | default: 200 %}
+  {% assign editorial_words = content | strip_html | number_of_words %}
+  {% if editorial_words < editorial_words_per_minute %}
+    {% assign editorial_reading_minutes = 1 %}
+  {% else %}
+    {% assign editorial_reading_minutes = editorial_words | divided_by: editorial_words_per_minute %}
+  {% endif %}
 {% endif %}
 
 {% assign editorial_published_date = page.date | date: "%Y-%m-%d" %}

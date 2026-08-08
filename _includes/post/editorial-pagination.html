@@ -1,0 +1,19 @@
+{% if page.previous or page.next %}
+  <nav class="editorial-pagination" aria-label="이전 글과 다음 글">
+    {% if page.previous %}
+      {% assign editorial_previous_title = page.previous.display_title | default: page.previous.title %}
+      <a href="{{ page.previous.url | relative_url }}" class="editorial-pagination__link editorial-pagination__link--previous">
+        <span>← 이전 글</span>
+        <strong>{{ editorial_previous_title | markdownify | strip_html | strip }}</strong>
+      </a>
+    {% endif %}
+
+    {% if page.next %}
+      {% assign editorial_next_title = page.next.display_title | default: page.next.title %}
+      <a href="{{ page.next.url | relative_url }}" class="editorial-pagination__link editorial-pagination__link--next">
+        <span>다음 글 →</span>
+        <strong>{{ editorial_next_title | markdownify | strip_html | strip }}</strong>
+      </a>
+    {% endif %}
+  </nav>
+{% endif %}

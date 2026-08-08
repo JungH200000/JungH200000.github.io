@@ -1,7 +1,4 @@
-{% assign editorial_description = page.excerpt | markdownify | strip_html | strip %}
-{% if editorial_description == empty %}
-  {% assign editorial_description = content | strip_html | strip | truncate: 160 %}
-{% endif %}
+{% assign editorial_description = page.description | default: page.excerpt | markdownify | strip_html | strip %}
 
 {% if editorial_description != empty %}
   <p class="editorial-post__description" itemprop="description">{{ editorial_description }}</p>

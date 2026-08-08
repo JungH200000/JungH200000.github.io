@@ -26,7 +26,7 @@ title_separator: '&#124;'
 subtitle: # site tagline that appears below site title in masthead
 name: 'Jung Hyun' # 블로그 닉네임 설정
 description: 'My DevLogs' # 블로그 설명
-url: 'https://JungH200000.github.io/' # 블로그 URL
+url: 'https://jungh200000.github.io' # 블로그 URL
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: 'JungH200000/JungH200000.github.io' # GitHub Repo 이름
 teaser: #

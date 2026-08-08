@@ -1,6 +1,7 @@
 ---
 title: '위클리페이퍼00: Template'
 excerpt: ''
+published: false
 
 categories:
   - Sprint Weekly Paper

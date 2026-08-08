@@ -1,6 +1,7 @@
 ---
 title: 'Template'
 excerpt: ''
+published: false
 
 categories:
   - Java 기본
