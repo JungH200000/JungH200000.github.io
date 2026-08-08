@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 67-1일 차] Spring Security 쿠키/세션 기반 인증/인가'
 excerpt: '1.세션 기반 인증 ~ 3.세션 관리 설정과 커스터마이징'
 

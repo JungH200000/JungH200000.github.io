@@ -9,6 +9,7 @@ $mark-highlight-color: #fcf8e3 !default;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
+@import "editorial-post"; // staged post-detail redesign
 
 @import url('https://fonts.googleapis.com/css2?family=Song+Myung&display=swap');
 

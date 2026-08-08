@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리 페이퍼12: 백엔드 네트워크 구조의 이해'
 excerpt: ''
 

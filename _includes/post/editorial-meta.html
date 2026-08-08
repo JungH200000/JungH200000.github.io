@@ -1,0 +1,32 @@
+{% assign editorial_words_per_minute = page.words_per_minute | default: site.words_per_minute | default: 200 %}
+{% assign editorial_words = content | strip_html | number_of_words %}
+{% if editorial_words < editorial_words_per_minute %}
+  {% assign editorial_reading_minutes = 1 %}
+{% else %}
+  {% assign editorial_reading_minutes = editorial_words | divided_by: editorial_words_per_minute %}
+{% endif %}
+
+{% assign editorial_published_date = page.date | date: "%Y-%m-%d" %}
+{% assign editorial_updated_date = page.last_modified_at | date: "%Y-%m-%d" %}
+
+<p class="editorial-post__meta">
+  {% if page.date %}
+    <span>
+      작성
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%Y.%m.%d" }}
+      </time>
+    </span>
+  {% endif %}
+
+  {% if page.last_modified_at and editorial_updated_date != editorial_published_date %}
+    <span>
+      수정
+      <time datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+        {{ page.last_modified_at | date: "%Y.%m.%d" }}
+      </time>
+    </span>
+  {% endif %}
+
+  <span aria-label="예상 읽기 시간">{{ editorial_reading_minutes }}분 읽기</span>
+</p>

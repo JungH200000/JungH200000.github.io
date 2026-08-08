@@ -1,0 +1,26 @@
+{% if page.id and page.related %}
+  {% if site.related_posts.size > 0 %}
+    {% assign editorial_related_posts = site.related_posts %}
+  {% else %}
+    {% assign editorial_related_posts = site.posts %}
+  {% endif %}
+
+  <section class="editorial-related page__related" aria-labelledby="editorial-related-title">
+    <h2 id="editorial-related-title" class="page__related-title">
+      {{ site.data.ui-text[site.locale].related_label | default: "함께 읽을 글" }}
+    </h2>
+    <div class="grid__wrapper">
+      {% assign editorial_related_count = 0 %}
+      {% for post in editorial_related_posts %}
+        {% if post.id == page.id %}
+          {% continue %}
+        {% endif %}
+        {% include archive-single.html type="grid" %}
+        {% assign editorial_related_count = editorial_related_count | plus: 1 %}
+        {% if editorial_related_count == 4 %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

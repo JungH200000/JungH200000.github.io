@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 고급 프로젝트] MOPL 프로젝트 회고록'
 excerpt: ''
 

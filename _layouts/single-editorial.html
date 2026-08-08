@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+<article class="editorial-post" itemscope itemtype="https://schema.org/BlogPosting">
+  {% if page.title %}
+    <meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">
+  {% endif %}
+
+  <header class="editorial-post__hero">
+    <div class="editorial-post__hero-inner">
+      <a class="editorial-post__back" href="{{ '/' | relative_url }}">
+        <span aria-hidden="true">←</span> 글 목록
+      </a>
+
+      {% include post/editorial-breadcrumb.html %}
+      {% include post/editorial-meta.html %}
+
+      {% if page.title %}
+        <h1 id="page-title" class="editorial-post__title" itemprop="headline">
+          {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}
+        </h1>
+      {% endif %}
+
+      {% include post/editorial-description.html %}
+
+      {% if page.tags and page.tags.size > 0 %}
+        <div class="editorial-post__tags" aria-label="태그" itemprop="keywords">
+          {% for tag_entry in page.tags %}
+            {% if tag_entry.first %}
+              {% for tag in tag_entry %}
+                <span class="editorial-post__tag">{{ tag }}</span>
+              {% endfor %}
+            {% else %}
+              <span class="editorial-post__tag">{{ tag_entry }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="editorial-post__shell{% unless page.toc %} editorial-post__shell--without-toc{% endunless %}">
+    {% if page.toc %}
+      <aside class="editorial-post__toc" aria-label="이 글의 목차">
+        <nav class="editorial-toc">
+          <p class="editorial-toc__title">이 글의 목차</p>
+          {% include toc.html sanitize=true html=content h_min=2 h_max=3 class="editorial-toc__menu" skip_no_ids=true %}
+        </nav>
+      </aside>
+
+      <details class="editorial-post__toc-mobile">
+        <summary>이 글의 목차</summary>
+        <nav aria-label="모바일 글 목차">
+          {% include toc.html sanitize=true html=content h_min=2 h_max=3 class="editorial-toc__menu" skip_no_ids=true %}
+        </nav>
+      </details>
+    {% endif %}
+
+    <div class="editorial-post__content">
+      <section class="editorial-prose" itemprop="articleBody">
+        {{ content }}
+
+        {% if page.link %}
+          <p>
+            <a href="{{ page.link }}" class="btn btn--primary">
+              {{ site.data.ui-text[site.locale].ext_link_label | default: "원문 보기" }}
+            </a>
+          </p>
+        {% endif %}
+      </section>
+
+      {% if page.share %}{% include social-share.html %}{% endif %}
+      {% include post_pagination.html %}
+      {% include post/editorial-related.html %}
+
+      {% if jekyll.environment == "production" and site.comments.provider and page.comments %}
+        {% include comments.html %}
+      {% endif %}
+    </div>
+  </div>
+</article>

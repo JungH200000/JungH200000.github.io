@@ -1,0 +1,18 @@
+{% assign current_category = page.categories | first %}
+{% assign category_url = site.category_archive.path | default: "/categories/" %}
+
+{% for navigation_group in site.data.navigation.categories %}
+  {% for navigation_item in navigation_group.children %}
+    {% if navigation_item.title == current_category %}
+      {% assign category_url = navigation_item.url %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% if current_category %}
+  <nav class="editorial-post__breadcrumb" aria-label="글 분류">
+    <a href="{{ '/categories/' | relative_url }}">카테고리</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ category_url | relative_url }}" aria-current="page">{{ current_category }}</a>
+  </nav>
+{% endif %}
