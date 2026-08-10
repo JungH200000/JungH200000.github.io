@@ -1,6 +1,7 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 고급 프로젝트] MOPL 개인 개발 리포트'
-excerpt: ''
+excerpt: 'Playlist·Notification·Kafka·Redis Pub/Sub·SSE 구현과 운영 지표 구성까지 담당한 작업과 기술적 성과를 정리합니다.'
 
 categories:
   - Sprint 백엔드 고급 프로젝트
@@ -82,7 +83,7 @@ Playlist Entity를 시작으로 아래의 기능들을 구현했다.
 
 플레이리스트 구독이나 팔로우 같은 핵심 기능이 알림 저장 방식에 의존하지 않도록 처리 과정을 아래처럼 나눴다.
 
-```
+```text
 도메인 트랜잭션
 ➡️ Spring Event
 ➡️ 트랜잭션 커밋 이후 비동기 Listener
@@ -114,7 +115,7 @@ SSE 연결 객체는 사용자가 접속한 App 인스턴스의 JVM 메모리에
 
 그래서 Notification 저장과 실시간 전송 요청을 분리했다. Kafka Consumer가 새 `Notification`을 저장하면 `NotificationRealtimePublisher`가 Redis의 `mopl:notification:realtime` 채널에 전송 요청을 발행한다. 모든 App 인스턴스의 Subscriber가 요청을 받고, 각 App은 자신의 `SseEmitterRepository`에서 해당 사용자의 연결을 찾았을 때만 SSE를 전송한다.
 
-```
+```text
 Kafka Consumer Group에서 선택된 한 App
 ➡️ Notification 저장
 ➡️ Redis 채널에 실시간 전송 요청 발행

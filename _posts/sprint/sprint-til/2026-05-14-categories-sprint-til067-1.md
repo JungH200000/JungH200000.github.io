@@ -83,7 +83,7 @@ Spring Security로 세션 기반 인증을 적용할 때, 내부적으로 **인�
 
 보안 속성(`HttpOnly`, `Secure`, `SameSite`)을 활용하여 보안성 강화
 
-```
+```text
 Set-Cookie: JSESSIONID=abc123; Path=/; HttpOnly; Secure; SameSite=Strict
 ```
 
