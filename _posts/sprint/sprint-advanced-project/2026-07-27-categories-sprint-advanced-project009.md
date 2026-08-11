@@ -1,7 +1,7 @@
 ---
 layout: single-editorial
 title: '[Sprint 백엔드 고급 프로젝트] MOPL 프로젝트 회고록'
-excerpt: 'Playlist·Notification·SSE를 구현하며 Kafka, Redis Pub/Sub, Spring Batch까지 확장한 과정과 기술적 선택을 돌아봅니다.'
+excerpt: ''
 
 categories:
   - Sprint 백엔드 고급 프로젝트
@@ -24,6 +24,8 @@ last_modified_at: 2026-07-27
 나는 Playlist, Notification, SSE 영역을 맡았다. 프로젝트를 시작할 때 각 영역의 기능을 구현하는 것에서 Kafka 이벤트 처리, Redis Pub/Sub을 이용한 다중 App 인스턴스 알림 전달, Spring Batch, 커스텀 메트릭과 Grafana 대시보드까지 담당 범위가 넓어졌다.
 
 더불어 트랜잭션이 끝난 뒤 이벤트가 제대로 발행되는지, 같은 메시지가 다시 와도 데이터가 한 건만 생기는지, 사용자가 다른 App 인스턴스에 연결돼 있어도 알림이 도착하는지까지도 확인했다.
+
+---
 
 ## 플레이리스트 API 구현에도 신경쓸 것들이 있었다.
 

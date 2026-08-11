@@ -1,7 +1,7 @@
 ---
 layout: single-editorial
 title: '[TIL 67-1일 차] Spring Security 쿠키/세션 기반 인증/인가'
-excerpt: 'Spring Security의 세션 기반 인증 흐름과 SecurityContext, 세션 관리 필터 및 주요 설정을 정리합니다.'
+excerpt: '1.세션 기반 인증 ~ 3.세션 관리 설정과 커스터마이징'
 
 categories:
   - Sprint TIL
@@ -29,7 +29,7 @@ last_modified_at: 2026-05-14
 
 #### 세션 workflow
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/session_workflow.png" width=350px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/session_workflow.png' | relative_url }}" style="width: 350px;">
 
 - 로그아웃하거나 세션이 만료되면 세션은 제거됨
 
@@ -45,7 +45,7 @@ last_modified_at: 2026-05-14
 
 Spring Security로 세션 기반 인증을 적용할 때, 내부적으로 **인증 정보는 SecurityContext에 저장**되고, SecurityContext는 다시 **HttpSession과 연결**되어 상태가 유지됨
 
-<img src="../../../assets/images/posts_img/til/sprint-til/66/authentication_workflow.png" width=850px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/66/authentication_workflow.png' | relative_url }}" style="width: 850px;">
 
 <br>
 
@@ -71,7 +71,7 @@ Spring Security로 세션 기반 인증을 적용할 때, 내부적으로 **인�
 
 ### 1) 로그인 후 세션 생성 과정
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/create_session.png" width=500px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/create_session.png' | relative_url }}" style="width: 500px;">
 
 - 브라우저는 서버에서 발급한 세션 ID를 쿠키(`JSESSION`)에 저장하고, 이후 요청마다 자동으로 함께 전송
 
@@ -124,7 +124,7 @@ server:
       timeout: 30m # 30분
 ```
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/session_timeout.png" width=350px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/session_timeout.png' | relative_url }}" style="width: 350px;">
 
 ---
 
@@ -132,7 +132,7 @@ server:
 
 ## 2-01. `SecurityContextHolder`와 `SecurityContext`
 
-<img src="../../../assets/images/posts_img/til/sprint-til/66/authentication_workflow.png" width=850px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/66/authentication_workflow.png' | relative_url }}" style="width: 850px;">
 
 ### 1) `SecurityContextHolder`
 
@@ -175,7 +175,7 @@ server:
 - `SessionManagementFilter`
 - `ConcurrentSessionFilter`
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/authentication_and_session_workflow.png" width=250px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/authentication_and_session_workflow.png' | relative_url }}" style="width: 250px;">
 
 <br>
 

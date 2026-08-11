@@ -81,7 +81,7 @@ public class SecurityConfig {
 
 공격자가 미리 발급받은 세션 ID를 피해자에게 강제로 사용하게 한 뒤, 해당 세션을 탈취하는 공격 기법
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/session_fixation_workflow.png" width=600px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/session_fixation_workflow.png' | relative_url }}" style="width: 600px;">
 
 - 핵심 문제는 **로그인 이후에도 세션 ID가 바뀌지 않고 그대로 유지**되는 상황
 
@@ -133,7 +133,7 @@ Remember-Me 기능은 **보안과 편의성 사이의 트레이드오프**를 �
 
 ### 2) Remember-Me workflow
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/remember-me-workflow.png" width=800px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/remember-me-workflow.png' | relative_url }}" style="width: 800px;">
 
 - ➡️ **쿠키를 이용한 인증 유지 메커니즘**
 
@@ -162,7 +162,7 @@ username:expiryTime:MD5(username + ":" + expiryTime + ":" + password + ":" + key
 
 #### workflow
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/TokenBasedRemeberMeServices.png" width=600px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/TokenBasedRemeberMeServices.png' | relative_url }}" style="width: 600px;">
 
 #### 비밀번호 변경 시 쿠키 무효화 원리
 
@@ -195,7 +195,7 @@ username:expiryTime:MD5(username + ":" + expiryTime + ":" + password + ":" + key
 
 #### workflow
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/PersistentTokenBasedRememberMeServices.png" width=550px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/PersistentTokenBasedRememberMeServices.png' | relative_url }}" style="width: 550px;">
 
 <br>
 
@@ -267,7 +267,7 @@ Remember-Me 기능에서 가장 치명적인 공격은 **XSS(Cross-Site Scriptin
 
 세션 기반 인증이 완료되면, 서버는 **세션(Session)** 안에 사용자 정보를 저장. 이후 사용자의 모든 요청은 세션에 담긴 정보를 통해 인가 과정을 거침
 
-<img src="../../../assets/images/posts_img/til/sprint-til/67/session_authorization.png" width=500px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/67/session_authorization.png' | relative_url }}" style="width: 500px;">
 
 <br>
 
