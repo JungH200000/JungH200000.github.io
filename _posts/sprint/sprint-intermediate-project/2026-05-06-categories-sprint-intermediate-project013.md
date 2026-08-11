@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트] Monew 개인 개발 리포트'
 excerpt: ''
 

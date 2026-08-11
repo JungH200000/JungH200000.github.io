@@ -17,3 +17,5 @@ toc_sticky: true
 date: 2026-08-06
 last_modified_at: 2026-08-06
 ---
+
+<img src="{{ '/assets/images/posts_img/' | relative_url }}" width=600px>

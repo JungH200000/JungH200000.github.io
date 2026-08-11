@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 78-3일 차] Spring 비동기 처리하기'
 excerpt: '5.Task Decorator를 활용한 비동기 작업 커스터마이징 ~ 7.실전 활용 패턴 및 모범 사례'
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 65-1일 차] 유저 관리 기능'
 excerpt: '3.기본 인증과 인코딩 ~ 4.Authorization 헤더와 토큰 기반 인증'
 

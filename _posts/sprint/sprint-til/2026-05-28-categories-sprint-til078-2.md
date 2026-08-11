@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 78-2일 차] Spring 비동기 처리하기'
 excerpt: '3.Spring Event 기반 비동기 처리 ~ 4.비동기 예외 처리와 AsyncUncaughtExceptionHandler'
 

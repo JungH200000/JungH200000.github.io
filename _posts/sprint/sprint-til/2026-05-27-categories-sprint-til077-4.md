@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 77-4일 차] Java 비동기 처리하기'
 excerpt: '6.CompletableFuture 기초 ~ 7.CompletableFuture 활용과 실전 패턴'
 
