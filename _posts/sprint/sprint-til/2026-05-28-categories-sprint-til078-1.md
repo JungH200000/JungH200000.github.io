@@ -34,13 +34,9 @@ last_modified_at: 2026-05-28
 
 ➡️ 스레드의 대시 시간이 줄어들고, 서버는 훨씬 많은 요청을 동시 처리 가능
 
-<br>
-
 ### 2) 사용자 경험(UX) 향상을 위한 응답 시간 최적화
 
 비동기 처리는 “응답”과 “처리”를 분리한 **“빠른 응답 + 백그라운드 처리”**로 UX와 성능을 개선
-
-<br>
 
 ## 1-02. Spring에서 비동기 처리 방식
 
@@ -49,8 +45,6 @@ Spring은 `@Async` 애너테이션을 기반으로 한 **고수준 비동기 처
 - 개발자는 스레드를 직접 생성하거나 `ExecutorService`를 직접 다루지 않고, 메서드에 `@Async`를 붙이는 **선언적(Declarative) 방식**으로 구현 가능
 - Java의 `CompletableFuture`과 달리, Spring은 **스레드 관리, 예외 처리, 트랜잭션 분리**를 자동으로 지원하기 때문에 비동기 로직을 더 쉽게 구현 가능
 
-<br>
-
 ### 1) Spring 비동기 처리 아키텍처
 
 Spring에서 `@Async`를 사용하면, 내부적으로 해당 Bean을 직접 호출하지 않고 **프록시(Proxy) 객체를 통해 메서드를 호출**
@@ -58,8 +52,6 @@ Spring에서 `@Async`를 사용하면, 내부적으로 해당 Bean을 직접 호
 프록시는 `@Async`가 붙은 메서드의 호출을 가로채고, 해당 작업을 별도의 스레드에서 실행하도록 `TaskExecutor`에 위임
 
 즉, 개발자는 일반 메서드처럼 호출하지만, 실제로는 Spring 프록시가 중간에서 비동기 실행을 처리
-
-<br>
 
 ### 2) 구성 요소
 
@@ -88,15 +80,11 @@ Spring은 기본적으로 `SimpleAsyncTaskExecutor` 구현체를 사용하지만
 
 비동기 메서드의 예외 처리 담당
 
-<br>
-
 ## 1-03 `@Async` 애너테이션 활용
 
 - 일반적으로 **Service 계층의 메서드**나 이벤트 Listener 객체에 적용
 - 클래스 레벨에도 적용 가능하지만 실무에서는 **특정 메서드 단위**로 지정하는 경우가 많음
   - 왜냐하면 클래스 전체에 비동기를 적용하면 예상치 못한 병렬 실행이 발생할 수 있음
-
-<br>
 
 ### 1) 반환 타입
 
@@ -123,13 +111,9 @@ Spring은 기본적으로 `SimpleAsyncTaskExecutor` 구현체를 사용하지만
   - 같은 클래스 내부에서 `@Async`가 명시된 메서드 호출 시 비동기 처리 되지 않음
   - 비동기로 동작시키려면 **별도의 Bean에서 호출하거나, 프록시를 통해 호출 필요**
 
-<br>
-
 ## 1-04. `@Async` 활용 시 제약 사항
 
 Spring의 `@Async`는 **프록시 기반 AOP 구조**로 동작하기 때문에, 몇 가지 제약사항이 존재
-
-<br>
 
 ### 1) 프록시 기반 동작
 
@@ -138,8 +122,6 @@ Spring의 `@Async`는 **AOP(Aspect-Oriented Programming)** 기술을 활용하�
 - 비동기 메서드가 호출될 때 **프록시 객체(Proxy)**가 메서드 실행을 가로채 스레드 풀에 비동기 작업 위임
 - 즉, `@Asycn`는 **프록시를 통해 호출되어야만** 비동기 실행이 이루어짐
 - 프록시를 거치지 않을 경우 일반 메서드 호출처럼 **동기적으로 실행됨**
-
-<br>
 
 ### 2) Self-Invocation(자기 호출) 문제
 
@@ -155,13 +137,9 @@ Spring의 `@Async`는 **같은 클래스 내부에서 메서드를 호출할 경
 
 - `@Async`의 프록시 호출이 보장되어 안전하게 비동기 동작 수행 가능
 
-<br>
-
 ### 3) 접근 제한자 제약
 
 Spring의 프록시가 public 메서드 호출만 가로채기 때문에 `@Async`는 **public 메서드**에만 적용됨
-
-<br>
 
 ### 4) 트랜잭션 전파 이슈
 
@@ -196,8 +174,6 @@ Spring은 비동기 작업을 `@Async`로 실행하는 것 외에도, 내부적�
 
 `TaskExecutor`는 “어떻게 실행할지”를 구현체를 통해 결정하고, **구현체**에서 스레드 풀, Queue 크기, 거부 정책 등 **실제 전략**이 적용됨
 
-<br>
-
 ### 1) `TaskExecutor` 인터페이스의 역할
 
 Java의 `Executor` 인터페이스를 확장하여, 스레드 실행을 좀 더 유연하고 관리하기 쉽게 만들어줌
@@ -207,8 +183,6 @@ Java의 `Executor` 인터페이스를 확장하여, 스레드 실행을 좀 더 
 - Java의 `ExecutorService`와 달리 Spring 환경에 최적화
   - Spring 컨테이너에서 Bean으로 관리 가능
   - `@Async`나 `@Scheduled` 등과 쉽게 연동 가능
-
-<br>
 
 ### 2) `TaskExecutor` 사용 이유
 
@@ -228,8 +202,6 @@ YAML/Java Config로 **환경별 다른 실행 전략**(개발/운영)을 쉽게 
 
 - `@Async`와 함께 사용 시 **비동기 예외 처리**(예: `AsyncUncaughtExceptionHandler`) 진입접이 명확해짐
 
-<br>
-
 ### 3) `TaskExecutor` 구현체 종류
 
 #### `SimpleAsyncTaskExecutor`
@@ -246,8 +218,6 @@ Spring에서 가장 일반적으로 사용하는 구현체
 
 - 내부적으로 Java의 `ThreadPoolExecutor`를 감싸서, **스레드 풀 재사용**과 **Queue 관리** 등의 기능 제공
 
-<br>
-
 ## 2-02. `ThreadPoolTaskExecutor` 구성
 
 `ThreadPoolTaskExecutor`는 **비동기 실행을 위한 스레드 풀 기반 실행기**
@@ -255,8 +225,6 @@ Spring에서 가장 일반적으로 사용하는 구현체
 - 내부적으로 **Java의** `ThreadPoolExecutor`를 감싸고 있고,
 - Spring 환경에 맞게 **설정·관리·모니터링 기능**을 제공
   - 스레드 풀 크기, Queue 용량, 스레드 이름 규칙 등을 자유롭게 제어할 수 있다.
-
-<br>
 
 ### 1) 기본 개념
 
@@ -274,8 +242,6 @@ Spring에서 가장 일반적으로 사용하는 구현체
 
 코어 스레드 유지, 최대 스레드 제한, Queue 용량 조절 등
 
-<br>
-
 ### 2) 주요 설정 항목
 
 ```java
@@ -291,8 +257,6 @@ executor.initialize();              // 초기화
 
 - **스레드 수와 Queue 용량 등의 조합**이 `ThreadPoolTaskExecutor`의 동작 방식을 결정
 
-<br>
-
 ## 2-03. `TaskExecutor` Bean 생성 및 활용
 
 `TaskExecutor`의 기본 구현체인 `SimpleAsyncTaskExecutor`는 매번 새로운 스레드를 생성하므로, 다수의 비동기 작업이 동시에 수행될 경우 메모리 및 CPU 자원을 과도하게 사용한다.
@@ -302,8 +266,6 @@ executor.initialize();              // 초기화
 - `Executor` 설정은 환경에 따라 다르기 때문에, 실제 트래픽을 기준으로 성능 측정 후 조정해야 한다.
 - `ThreadPoolTaskExecutor`는 스레드 풀을 재사용하기 위해 요청마다 새로 생성하지 않고, 싱글톤 Bean으로 등록하여 Spring 컨테이너에서 관리하도록 해야 한다.
   - 요청마다 새로 생성하면 스레드 풀이 재사용되지 않아 성능상 이점을 얻을 수 없다.
-
-<br>
 
 ### 1) 커스텀 `TaskExecutor` Bean 생성
 
@@ -339,8 +301,6 @@ public class AsyncConfig {
 }
 ```
 
-<br>
-
 ### 2) `@Async`에 커스텀 `TaskExecutor` 지정
 
 `@Async` 애너테이션이 적용된 메서드에 특정 `TaskExecutor`를 지정하지 않으면 기본 `Executor`인 `SimpleAsyncTaskExecutor`가 사용되므로, 커스텀 Bean 이름을 반드시 명시해야 한다.
@@ -355,8 +315,6 @@ public class NotificationService {
     }
 }
 ```
-
-<br>
 
 ### 3) 여러 `TaskExecutor` 활용 전략
 
