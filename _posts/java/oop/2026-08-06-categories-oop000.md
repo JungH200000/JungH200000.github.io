@@ -1,7 +1,8 @@
 ---
+layout: single-editorial
 title: 'Template'
 excerpt: ''
-published: false
+published: true
 
 categories:
   - 객체지향 프로그래밍

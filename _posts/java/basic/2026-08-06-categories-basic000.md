@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: 'Template'
 excerpt: ''
 published: false

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 n일차] Template'
 excerpt: ''
 published: false
