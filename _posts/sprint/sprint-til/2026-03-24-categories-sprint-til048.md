@@ -300,7 +300,7 @@ JUnit 5에서 테스트 클래스는 기본적으로 테스트 메서드마다 �
 #### 2) 테스트 전후 후킹 메서드 (Setup/Teardown)
 
 - 테스트 실행 전후에 특정 메서드 자동 실행해주는 후킹(Hook) 애너테이션
-- `@BeforeEach`, `@AfterEach`, `@BeforeAll`, `@AfterAll` - [설명 바로가기](#### 2) JUnit Jupiter)
+- `@BeforeEach`, `@AfterEach`, `@BeforeAll`, `@AfterAll` - [설명 바로가기](#2-junit-jupiter)
 
 <br>
 
