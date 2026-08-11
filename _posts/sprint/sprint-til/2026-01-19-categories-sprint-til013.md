@@ -358,17 +358,20 @@ public class Box<T extends Number> {
   - 기본 스트림(노드 스트림)과 보조 스트림(필터 스트림)으로 나뉨
 - 기본 스트림
   - 자바에서 데이터는 byte 단위로 다룸. 자바에서 문자는 2 byte가 기본.
-    | 목적 | 입력 스트림 | 출력 스트림 |
+
+    | 목적          | 입력 스트림   | 출력 스트림    |
     | ------------- | ------------- | -------------- |
     | 바이트 단위로 | `InputStream` | `OutputStream` |
-    | 문자 단위로 | `Reader` | `Writer` |
+    | 문자 단위로   | `Reader`      | `Writer`       |
+
 - 보조 스트림
-  | 기능 | 입력 | 출력 |
+
+  | 기능          | 입력                  | 출력                   |
   | ------------- | --------------------- | ---------------------- |
-  | 버퍼 처리 | `BufferedInputStream` | `BufferedOutputStream` |
-  | 문자 변환 | `InputStreamReader` | `OutputStreamWriter` |
-  | 기본형 처리 | `DataInputStream` | `DataOutputStream` |
-  | ⭐객체 직렬화 | `ObjectInputStream` | `ObjectOutputStream` |
+  | 버퍼 처리     | `BufferedInputStream` | `BufferedOutputStream` |
+  | 문자 변환     | `InputStreamReader`   | `OutputStreamWriter`   |
+  | 기본형 처리   | `DataInputStream`     | `DataOutputStream`     |
+  | ⭐객체 직렬화 | `ObjectInputStream`   | `ObjectOutputStream`   |
 
 ---
 
