@@ -76,7 +76,7 @@ last_modified_at: 2026-01-28
 
 - 도메인 모델 간 참조 관계를 참고하세요.
 
-   <img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/20/domain_reference.png' | relative_url }}" width=600px>
+   <img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/20/domain_reference.png' | relative_url }}" style="width: 600px;">
 
 - [x] 공통: 앞서 정의한 도메인 모델과 동일하게 공통 필드(`id`, `createdAt`, `updatedAt`)를 포함합니다.
 - [x] `ReadStatus`
@@ -127,7 +127,7 @@ last_modified_at: 2026-01-28
 - 의존성
   - 같은 레이어 간 의존성 주입은 순환 참조 방지를 위해 지양합니다. 다른 Service 대신 필요한 Repository 의존성을 주입해보세요.
 
-    <img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/20/userService_dependency.png' | relative_url }}" width=700px>
+    <img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/20/userService_dependency.png' | relative_url }}" style="width: 700px;">
 
 `//...`
 
