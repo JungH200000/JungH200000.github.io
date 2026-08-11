@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 42일 차] Sprint Mission6 - DTO 도입 ~ BinaryContent 저장 로직 고도화'
 excerpt: '2-6. DTO 적극 도입하기 ~ 2-7. BinaryContent 저장 로직 고도화'
 
@@ -82,7 +83,7 @@ last_modified_at: 2026-03-06
 
 `// ...`
 
-### 2-6. DTO 적극 도입하기
+## 2-6. DTO 적극 도입하기
 
 `// ...`
 
@@ -93,7 +94,7 @@ last_modified_at: 2026-03-06
 
 <br>
 
-### 2-7. BinaryContent 저장 로직 고도화
+## 2-7. BinaryContent 저장 로직 고도화
 
 데이터베이스에 이미지와 같은 파일을 저장하면 성능 상 불리한 점이 많습니다. 따라서 실제 바이너리 데이터는 별도의 공간에 저장하고, 데이터베이스에는 바이너리 데이터에 대한 메타 정보(파일명, 크기, 유형 등)만 저장하는 것이 좋습니다.
 
@@ -150,7 +151,7 @@ last_modified_at: 2026-03-06
 
 `// ...`
 
-### 3-4. MapStruct 적용
+## 3-4. MapStruct 적용
 
 - [x] Entity와 DTO를 매핑하는 보일러플레이트 코드를 [MapStruct](https://mapstruct.org/) 라이브러리를 활용해 간소화해보세요.
 

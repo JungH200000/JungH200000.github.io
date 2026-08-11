@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 40일 차] Sprint Mission6 - JPA 도입'
 excerpt: '2-4. 엔티티 정의하기 ~ 2-5. 레포지토리와 서비스에 JPA 도입하기'
 
@@ -97,7 +98,7 @@ public class ReadStatus extends BaseUpdatableEntity {...}
 
 `// ...`
 
-### 2-4. 엔티티 정의하기
+## 2-4. 엔티티 정의하기
 
 - [x] 클래스 다이어그램을 참고해 도메인 모델의 공통 속성을 추상 클래스로 정의하고 상속 관계를 구현하세요.
   - 이때 Serializable 인터페이스는 제외합니다.
@@ -138,7 +139,7 @@ public class ReadStatus extends BaseUpdatableEntity {...}
 
 <br>
 
-### 2-5. 레포지토리와 서비스에 JPA 도입하기
+## 2-5. 레포지토리와 서비스에 JPA 도입하기
 
 - [x] 기존의 Repository 인터페이스를 JPARepository로 정의하고 쿼리메서드로 대체하세요.
   - FileRepository와 JCFRepository 구현체는 삭제합니다.

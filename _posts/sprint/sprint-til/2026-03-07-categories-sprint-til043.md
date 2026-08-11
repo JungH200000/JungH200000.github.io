@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 43일 차] Sprint Mission6 - BinaryContent 저장 로직 고도화'
 excerpt: '2-7. BinaryContent 저장 로직 고도화'
 
@@ -108,7 +109,7 @@ last_modified_at: 2026-03-07
 
 `// ...`
 
-### 2-7. BinaryContent 저장 로직 고도화
+## 2-7. BinaryContent 저장 로직 고도화
 
 `// ...`
 
@@ -134,7 +135,7 @@ last_modified_at: 2026-03-07
 
 `// ...`
 
-### 3-4. MapStruct 적용
+## 3-4. MapStruct 적용
 
 - [x] Entity와 DTO를 매핑하는 보일러플레이트 코드를 [MapStruct](https://mapstruct.org/) 라이브러리를 활용해 간소화해보세요.
 

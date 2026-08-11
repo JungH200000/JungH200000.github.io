@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 60일 차] Sprint Mission8 - Docker Compose 구성 및 BinaryContentStorage 고도화'
 excerpt: '2-01.애플리케이션 컨테이너화 ~ 2-02.BinaryContentStorage 고도화 (AWS S3)'
 
@@ -191,7 +192,7 @@ public class S3BinaryContentStorage implements BinaryContentStorage {
 - [x] 앞서 작성한 테스트 메서드를 참고해 `S3BinaryContentStorage`를 구현하세요.
   - 클래스 다이어그램
 
-    <image src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=13951&version=1&directory=/evsb0sfio-image.png&name=evsb0sfio-image.png" width=400px>
+    <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=13951&version=1&directory=/evsb0sfio-image.png&name=evsb0sfio-image.png" width="400">
 
 - [x] `discodeit.storage.type` 값이 `s3`인 경우에만 Bean으로 등록되어야 합니다.
 - [ ] `S3BinaryContentStorageTest`를 함께 작성하면서 구현하세요.

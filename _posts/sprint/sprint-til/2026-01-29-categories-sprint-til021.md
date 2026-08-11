@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 21일 차] Sprint Mission3 - 디스코드:  `AuthService` 구현과 `ChannelService` 고도화'
 excerpt: ''
 
@@ -32,7 +33,7 @@ last_modified_at: 2026-01-29
 
 `// ...`
 
-#### 2) AuthService 구현
+## 2) AuthService 구현
 
 - `login`
   - [x] `username`, `password`과 일치하는 유저가 있는지 확인합니다.
@@ -46,7 +47,7 @@ last_modified_at: 2026-01-29
 
 <br>
 
-#### 3) ChannelService 고도화
+## 3) ChannelService 고도화
 
 - 고도화
   - `create`

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 38일 차] Spring Data JPA 도입하기'
 excerpt: 'Spring Data JPA 도입하기-ORM과 JPA의 이해 ~ Entity 연관관계 매핑'
 
@@ -7,7 +8,7 @@ categories:
 tags:
   - [Codeit Sprint, Codeit Sprint TIL]
 
-permalink: /categories/codeit-sprint/sprint-til/sprint-til037/
+permalink: /categories/codeit-sprint/sprint-til/sprint-til038/
 
 toc: true
 toc_sticky: true

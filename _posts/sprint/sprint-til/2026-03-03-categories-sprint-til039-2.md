@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 39-2일 차] Sprint Mission6 - 데이터베이스 환경 설정, table 생성, 의존성 설정'
 excerpt: '2-2. 데이터베이스 ~ 2-3. Spring Data JPA 적용하기'
 
@@ -53,7 +54,7 @@ spring:
 
 `// ...`
 
-### 2-2. 데이터베이스
+## 2-2. 데이터베이스
 
 - [x] 아래와 같이 데이터베이스 환경을 설정하세요.
   - 데이터베이스: `discodeit`
@@ -73,7 +74,7 @@ spring:
 
 <br>
 
-### 2-3. Spring Data JPA 적용하기
+## 2-3. Spring Data JPA 적용하기
 
 - [x] Spring Data JPA와 PostgreSQL을 위한 의존성을 추가하세요.
 - [x] 앞서 구성한 데이터베이스에 연결하기 위한 설정값을 `application.yaml` 파일에 작성하세요.

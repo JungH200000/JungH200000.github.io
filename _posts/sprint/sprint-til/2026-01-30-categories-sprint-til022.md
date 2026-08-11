@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 22일 차] Sprint Mission3 - 디스코드: `MessageService` 고도화와 `ReadStatusService`, `UserStatusService`, `BinaryContentService` 구현'
 excerpt: ''
 
@@ -47,7 +48,7 @@ last_modified_at: 2026-01-30
 
 `// ...`
 
-#### 4) MessageService 고도화
+## 4) MessageService 고도화
 
 - 고도화
   - `create`
@@ -69,7 +70,7 @@ last_modified_at: 2026-01-30
 
 <br>
 
-#### 5) ReadStatusService 구현
+## 5) ReadStatusService 구현
 
 - `create`
   - [x] DTO를 활용해 파라미터를 그룹화합니다.
@@ -92,7 +93,7 @@ last_modified_at: 2026-01-30
 
 <br>
 
-#### 6) UserStatusService 고도화
+## 6) UserStatusService 고도화
 
 - `create`
   - [x] DTO를 활용해 파라미터를 그룹화합니다.
@@ -117,7 +118,7 @@ last_modified_at: 2026-01-30
 
 <br>
 
-#### 7) BinaryContentService 구현
+## 7) BinaryContentService 구현
 
 - `create`
   - [x] DTO를 활용해 파라미터를 그룹화합니다.
@@ -135,7 +136,7 @@ last_modified_at: 2026-01-30
 
 <br>
 
-#### 8) 새로운 도메인 Repository 구현체 구현
+## 8) 새로운 도메인 Repository 구현체 구현
 
 - [x] 지금까지 인터페이스로 설계한 각각의 Repository를 JCF, File로 각각 구현하세요.
 
