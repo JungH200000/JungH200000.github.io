@@ -307,7 +307,7 @@ CREATE TABLE member (
   - 관계선 : 엔티티 간 선으로 연결, 관계명을 표시
   - 카디널리티 : 관계선 양 끝에 숫자나 기호로 표기
 
-<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/erd_relation.png" width=500px>
+  <img src="{{ '/assets/images/posts_img/til/sprint-til/00_existing/erd_relation.png' | relative_url }}" style="width: 500px;">
 
 <br>
 

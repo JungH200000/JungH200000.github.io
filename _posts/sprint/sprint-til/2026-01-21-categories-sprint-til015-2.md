@@ -72,7 +72,7 @@ Java EE(EJB를 포함한 기존 엔터프라이즈 자바 생태계)는 단순�
 
 Spring은 Java EE와는 다른 **철학적 접근**을 기반으로 개발되었다.
 
-<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/pojo_triangle.png" width=400px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/00_existing/pojo_triangle.png' | relative_url }}" style="width: 400px;">
 
 [그림] Spring 삼각형 - POJO 설명
 
@@ -97,7 +97,7 @@ Spring은 이러한 특징을 통해 복잡성을 제거하면서 기능성을 �
 
 **POJO**는 Martin Fowler가 EJB의 복잡성을 비판하면서 제안한 개념으로, 특정 기술이나 프레임워크에 종속되지 않는 순수한 자바 객체를 말한다.
 
-<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/pojo_triangle.png" width=400px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/00_existing/pojo_triangle.png' | relative_url }}" style="width: 400px;">
 
 [그림] Spring 삼각형 - POJO 설명
 

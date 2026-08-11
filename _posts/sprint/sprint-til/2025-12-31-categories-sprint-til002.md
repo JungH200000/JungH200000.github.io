@@ -35,7 +35,7 @@ last_modified_at: 2025-01-06
 
 ### JDK 구조
 
-<img src="../../../assets/images/posts_img/til/sprint-til/00_existing/jdk_structure.png" width=500px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/00_existing/jdk_structure.png' | relative_url }}" style="width: 500px;">
 
 | 구성 요소 | 설명                                                                               |
 | --------- | ---------------------------------------------------------------------------------- |

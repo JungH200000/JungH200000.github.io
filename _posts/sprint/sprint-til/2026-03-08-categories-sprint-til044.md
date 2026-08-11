@@ -101,7 +101,7 @@ last_modified_at: 2026-03-08
   - 패키지명: `com.sprint.mission.discodeit.dto.response`
   - 클래스 다이어그램
 
-    <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/wj4q7nhn3-image.png&name=wj4q7nhn3-image.png" width=300px>
+    <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/wj4q7nhn3-image.png&name=wj4q7nhn3-image.png" style="width: 300px;">
 
   - `content`: 실제 데이터입니다.
   - `number`: 페이지 번호입니다.
@@ -111,7 +111,7 @@ last_modified_at: 2026-03-08
 - [x] Slice 또는 Page 객체로부터 DTO를 생성하는 Mapper를 구현하세요.
   - 패키지명: `com.sprint.mission.discodeit.mapper`
 
-    <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/x7qjncxm0-image.png&name=x7qjncxm0-image.png" width=400px>
+    <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12178&version=1&directory=/x7qjncxm0-image.png&name=x7qjncxm0-image.png" style="width: 400px;">
 
   - 확장성을 위해 제네릭 메서드로 구현하세요.
 
@@ -145,7 +145,7 @@ last_modified_at: 2026-03-08
 - [x] 기존에 구현한 오프셋 페이지네이션을 커서 페이지네이션으로 리팩토링하세요.
   - PageResponse는 다음과 같이 변경하세요.
 
-      <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12179&version=1&directory=/73leqaemv-image.png&name=73leqaemv-image.png" width=300px>
+      <img src="https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12179&version=1&directory=/73leqaemv-image.png&name=73leqaemv-image.png" style="width: 300px;">
 
   - 다음의 API 명세를 준수하세요.
     - [API 스펙 v1.2](https://bakey-api.codeit.kr/api/files/resource?root=static&seqId=12179&version=1&directory=/%E1%84%86%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%20%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%82%E1%85%A2%20API%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%201.2.json&name=%E1%84%86%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%20%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%82%E1%85%A2%20API%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%89%E1%85%A5%201.2.json)
