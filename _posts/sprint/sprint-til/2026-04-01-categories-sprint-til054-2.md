@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 54일 차]  AWS: 계정 생성부터 S3, RDS 설정'
 excerpt: '1.AWS 핵심 개념과 보안 ~ 2.파일 저장소 S3의 이해와 실습'
 

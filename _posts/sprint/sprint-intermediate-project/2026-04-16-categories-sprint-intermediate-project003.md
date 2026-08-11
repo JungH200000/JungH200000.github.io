@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 3일차] Merge 기준을 정하고, 구현으로'
 excerpt: ''
 

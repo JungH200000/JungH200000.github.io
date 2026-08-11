@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 64일 차] 유저 관리 기능'
 excerpt: '1.유저 기능 이해와 인증 개념 ~ 2.쿠키와 세션 기반 인증'
 

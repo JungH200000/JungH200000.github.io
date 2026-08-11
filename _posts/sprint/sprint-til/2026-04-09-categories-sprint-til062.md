@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 62일 차] Sprint Mission8 - AWS ECR, ECS 구성 및 CI 파이프라인 구축'
 excerpt: '2-03.AWS를 활용한 배포 (AWS RDS, ECR, ECS), 3-02. GitHub Actions를 활용한 CI/CD 파이프라인 구축'
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 74일 차] Spring Security 토큰 기반 인증/인가'
 excerpt: '5.Refresh Token 패턴 구현'
 

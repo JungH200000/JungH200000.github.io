@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 1일 차] CLI와 GIT'
 excerpt: ''
 

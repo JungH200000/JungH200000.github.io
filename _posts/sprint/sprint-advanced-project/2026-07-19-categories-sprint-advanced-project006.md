@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 고급 프로젝트 4주차] 모두의 플리 4주차 회고'
 excerpt: ''
 

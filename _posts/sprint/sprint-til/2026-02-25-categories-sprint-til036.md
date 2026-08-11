@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 36일 차] SQL 이해하기 ~ 데이터베이스 설계'
 excerpt: 'SQL 이해하기 ~ 데이터베이스 설계-데이터베이스 설계의 필요성과 절차'
 

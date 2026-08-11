@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 29일 차] 좋은 웹 API 디자인이란 ~ RESTful APIs 설계와 구현'
 excerpt: 'API 품질 요소, REST의 이해와 실제 활용 ~ RESTful API 설계 원칙'
 

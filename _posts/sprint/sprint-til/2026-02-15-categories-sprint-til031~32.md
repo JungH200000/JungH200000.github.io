@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 31~32일 차] Sprint Mission5 - 구현한 API를 API 스펙에 맞춰 RESTful API로 다시 설계'
 excerpt: 'UserController와 AuthController 수정'
 

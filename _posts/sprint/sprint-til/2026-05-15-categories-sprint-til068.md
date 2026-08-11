@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 68일 차] Sprint Mission9'
 excerpt: '4-01.Spring Security 환경설정 ~ 4-02.CSRF 보호 설정하기'
 

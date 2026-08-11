@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 4일 차] 객체지향 프로그래밍의 이해'
 excerpt: '객체지향 프로그래밍의 4가지 핵심 개념 ~ SOLID 원칙'
 

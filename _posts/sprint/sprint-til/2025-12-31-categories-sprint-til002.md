@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 2일 차] Java 시작'
 excerpt: ''
 

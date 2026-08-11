@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼07: Spring Data JPA'
 excerpt: ''
 

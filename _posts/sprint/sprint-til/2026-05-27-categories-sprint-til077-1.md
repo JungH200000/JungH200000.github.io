@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 77-1일 차] Java 비동기 처리하기'
 excerpt: '1.비동기 처리의 개념과 필요성 ~ 2.Java 스레드의 이해'
 

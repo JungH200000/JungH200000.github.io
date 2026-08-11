@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 30일 차] RESTful APIs 설계와 구현'
 excerpt: 'RESTful API 구현: 기본 ~ API 문서화'
 

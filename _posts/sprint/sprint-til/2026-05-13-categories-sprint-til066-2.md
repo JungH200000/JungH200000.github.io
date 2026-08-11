@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 66-2일 차] Spring Security 기초'
 excerpt: '5.인가 아키텍처 - 인가 프로세스'
 

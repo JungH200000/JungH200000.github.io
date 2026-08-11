@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 55일 차] AWS: 계정 생성부터 S3, RDS 설정'
 excerpt: '4.데이터 베이스 RDS 이해와 실습, 7.EC2 기초와 환경 설정'
 

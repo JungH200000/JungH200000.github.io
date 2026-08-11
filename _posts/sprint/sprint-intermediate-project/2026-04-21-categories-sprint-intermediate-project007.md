@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 7일차] 뉴스 기사 view와 논리/물리 삭제 구현 및 뉴스 기사 목록 조회 Troubleshooting'
 excerpt: ''
 

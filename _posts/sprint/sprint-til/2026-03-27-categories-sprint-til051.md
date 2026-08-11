@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 51일 차] Sprint Mission7 - 예외 처리 고도화, Bean Validation 설정, Actuator 설정'
 excerpt: '2-3. 예외 처리 고도화 ~ 2-5. Actuator'
 

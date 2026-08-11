@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 19일 차] Sprint Mission3 - 디스코드: Bean 선언 및 Lombok 적용'
 excerpt: '2-1. Spring 프로젝트 초기화 ~ 2-4. Lombok 적용Permalink'
 

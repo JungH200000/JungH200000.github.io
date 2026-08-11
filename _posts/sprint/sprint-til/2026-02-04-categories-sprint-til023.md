@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 23일 차] Spring MVC: 비즈니스 로직'
 excerpt: '웹 애플리케이션 기초 - HTTP 프로토콜 기초'
 

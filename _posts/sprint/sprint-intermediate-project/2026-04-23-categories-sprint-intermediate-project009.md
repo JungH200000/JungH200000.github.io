@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 9일차] AWS ECS 수동 배포 시작'
 excerpt: ''
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 87일 차] Sprint Mission12'
 excerpt: '3.기본 요구사항'
 

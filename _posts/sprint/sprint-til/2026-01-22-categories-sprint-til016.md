@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 16일차] Spring 오버뷰 ~ Spring Boot: 코드레벨 아키텍처'
 excerpt: 'Spring의 핵심 개념, Spring Boot 프로젝트 구조 ~ Spring Boot 애플리케이션 시작'
 

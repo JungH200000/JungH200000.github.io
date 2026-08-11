@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 71일 차] Sprint Mission9'
 excerpt: '4-08.인가 - 권한 적용 ~ 5-01.세션 관리 고도화'
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 49일 차] Sprint Mission7 - 환경별 프로파일 분리 및 로그 정책 설정'
 excerpt: '2-1.프로파일 기반 설정 관리 ~ 2-2.로그 관리'
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 77-3일 차] Java 비동기 처리하기'
 excerpt: '5.Future와 Callable'
 

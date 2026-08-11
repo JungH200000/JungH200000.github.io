@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 15일차] Spring 오버뷰'
 excerpt: 'Spring Framework의 탄생 배경 ~ Spring의 핵심 개념'
 

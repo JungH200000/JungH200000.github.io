@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 초급 프로젝트 5일차] 지수 데이터 수정/삭제 로직 구현'
 excerpt: ''
 

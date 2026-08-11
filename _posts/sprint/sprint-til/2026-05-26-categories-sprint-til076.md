@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 76일 차] Sprint Mission10'
 excerpt: '4.심화 요구사항'
 

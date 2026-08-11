@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼03: 알고리즘과 자료 구조'
 excerpt: ''
 

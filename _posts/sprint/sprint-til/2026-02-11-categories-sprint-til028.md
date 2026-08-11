@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 28일 차] 좋은 웹 API 디자인이란'
 excerpt: 'API의 기본 이해 ~ API 버전 관리와 변경'
 

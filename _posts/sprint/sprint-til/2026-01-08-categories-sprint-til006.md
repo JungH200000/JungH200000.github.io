@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 6일 차] '
 excerpt: ''
 

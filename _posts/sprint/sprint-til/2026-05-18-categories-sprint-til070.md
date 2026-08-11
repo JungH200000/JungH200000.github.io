@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 70일 차] Sprint Mission9'
 excerpt: '4-04.인증 - 로그인 ~ 4-07.인가 - 권한 정의'
 

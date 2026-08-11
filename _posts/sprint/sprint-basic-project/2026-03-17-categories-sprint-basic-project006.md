@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 초급 프로젝트 6일차] PR 리뷰 및 테스트 후 QueryDSL기반 지수 데이터 조회 로직 구현'
 excerpt: ''
 

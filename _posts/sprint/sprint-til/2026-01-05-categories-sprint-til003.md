@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 3일 차] 객체지향 프로그래밍의 이해'
 excerpt: '객체지향 프로그래밍의 개념과 필요성 ~ Java의 클래스와 객체'
 

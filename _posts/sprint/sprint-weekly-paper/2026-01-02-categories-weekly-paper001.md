@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼01: Git을 통한 버전 관리'
 excerpt: ''
 

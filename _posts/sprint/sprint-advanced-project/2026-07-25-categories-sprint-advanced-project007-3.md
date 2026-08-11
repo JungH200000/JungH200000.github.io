@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 고급 프로젝트 5주차] 모두의 플리 5주차 회고(3) - Grafana 대시보드'
 excerpt: ''
 

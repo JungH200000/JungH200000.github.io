@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 고급 프로젝트 1일차] 모두의 플리 프로젝트 시작'
 excerpt: ''
 

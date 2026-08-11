@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼09-2: 클라우드 환경에 프로그램 배포하기'
 excerpt: ''
 

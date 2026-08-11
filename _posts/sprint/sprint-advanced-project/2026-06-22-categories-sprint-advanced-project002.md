@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 고급 프로젝트 2일차] 프로젝트 초기 설정과 GitHub Issue 작성'
 excerpt: ''
 

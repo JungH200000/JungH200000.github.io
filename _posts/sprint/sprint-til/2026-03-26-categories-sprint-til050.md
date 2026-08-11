@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 50일 차] Sprint Mission7 - 로깅 작성'
 excerpt: '2-2.로그 관리'
 

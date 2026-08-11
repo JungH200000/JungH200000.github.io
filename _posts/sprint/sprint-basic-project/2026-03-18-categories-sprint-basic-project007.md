@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 초급 프로젝트 7일차] 전체 테스트 및 결과물 작업 진행'
 excerpt: ''
 

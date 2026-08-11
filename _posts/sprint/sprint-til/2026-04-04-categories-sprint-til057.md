@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 57일 차] Sprint Mission7 - MDC를 활용한 로깅 고도화'
 excerpt: '3-1.MDC를 활용한 로깅 고도화'
 

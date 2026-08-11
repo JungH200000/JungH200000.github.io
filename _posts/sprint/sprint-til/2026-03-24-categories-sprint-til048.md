@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 48일 차] Spring TDD'
 excerpt: '1.Spring 테스트의 이해 ~ 4.Mockito 기초'
 

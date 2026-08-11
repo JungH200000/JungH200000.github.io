@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 72일 차] Sprint Mission9'
 excerpt: '5-01.세션 관리 고도화 ~ 5-03.권한 적용 고도화'
 

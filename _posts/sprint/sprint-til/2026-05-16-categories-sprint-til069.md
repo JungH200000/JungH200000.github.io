@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 69일 차] Sprint Mission9'
 excerpt: '4-03.회원가입 ~ 4-04.인증 - 로그인'
 

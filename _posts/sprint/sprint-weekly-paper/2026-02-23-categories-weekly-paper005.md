@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼05: RESTful APIs 구현하기'
 excerpt: ''
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼06: 데이터베이스 설계'
 excerpt: ''
 

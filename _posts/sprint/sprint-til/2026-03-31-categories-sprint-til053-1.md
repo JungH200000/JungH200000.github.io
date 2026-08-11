@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 53일 차] Docker: 빌드, 배포, 컨테이너 실행하기'
 excerpt: '1.컨테이너화가 필요한 이유 ~ 6.Dockerfile과 이미지 빌드 및 배포'
 

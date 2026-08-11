@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 4일차] 뉴스 기사 출처 목록과 뉴스 기사 목록 조회 구현'
 excerpt: ''
 

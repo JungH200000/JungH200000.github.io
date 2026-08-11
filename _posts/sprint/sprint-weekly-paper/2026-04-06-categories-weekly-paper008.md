@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼08: 테스트 주도 개발론(TDD)과 서비스 안정성'
 excerpt: ''
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 19일 차] Spring Beans의 이해와 활용'
 excerpt: '설정 정보 외부화 ~ Bean 순서 등록 제어'
 

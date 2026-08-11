@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 26일 차] Sprint Mission4 - 디스코드: Controller Layer 구현'
 excerpt: '3-1. 사용자 관리 ~ 3-4. 메시지 관리'
 

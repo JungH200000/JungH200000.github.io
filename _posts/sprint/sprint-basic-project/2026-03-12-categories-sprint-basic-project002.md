@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 초급 프로젝트 2일차] 요구사항 정의와 Todo 생성까지'
 excerpt: ''
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 33~35일 차] Sprint Mission5 - 구현한 API를 API 스펙에 맞춰 RESTful API로 다시 설계'
 excerpt: 'ChannelController, MessageController, ReadStatusController, BinaryController 수정'
 

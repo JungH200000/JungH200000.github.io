@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 39-1일 차] Spring Data JPA 도입하기 ~ Spring Transaction의 이해'
 excerpt: 'Spring Data JPA 도입하기-페이징과 정렬 ~ Spring Transaction의 이해'
 

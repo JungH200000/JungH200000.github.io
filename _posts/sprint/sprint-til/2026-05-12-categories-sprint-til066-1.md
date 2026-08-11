@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 66-1일 차] Spring Security 기초'
 excerpt: '2.Filter 아키텍처의 이해 ~ 3.인증 아키텍처 - 인증 프로세스'
 

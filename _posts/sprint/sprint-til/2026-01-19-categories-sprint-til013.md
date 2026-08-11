@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 13일차] 알고리즘과 자료구조 이해하기'
 excerpt: ''
 

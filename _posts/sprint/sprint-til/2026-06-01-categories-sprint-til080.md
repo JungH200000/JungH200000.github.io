@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 80일 차] Spring Cache'
 excerpt: '3.Spring Cache 추상화'
 

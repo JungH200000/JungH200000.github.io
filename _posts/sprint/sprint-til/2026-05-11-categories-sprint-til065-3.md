@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 65-3일 차] Spring Security 기초'
 excerpt: '1.Spring Security 소개와 설정'
 

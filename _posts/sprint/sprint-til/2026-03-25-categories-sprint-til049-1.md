@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 49일 차] Spring TDD'
 excerpt: '5.Spring 서비스 계층 테스트 ~ 8.테스트 주도 개발(TDD)'
 

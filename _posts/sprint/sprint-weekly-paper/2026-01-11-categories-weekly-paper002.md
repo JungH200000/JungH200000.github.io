@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼02: Java 고급 과정'
 excerpt: ''
 

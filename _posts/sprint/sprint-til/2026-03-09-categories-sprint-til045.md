@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 45일 차] Sprint Mission6 - Feedback'
 excerpt: ''
 

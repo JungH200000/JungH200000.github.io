@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 14일차] Sprint Mission2.2 - 디스코드: File IO를 통한 데이터 영속화와 레포지토리 설계 및 구현'
 excerpt: ''
 

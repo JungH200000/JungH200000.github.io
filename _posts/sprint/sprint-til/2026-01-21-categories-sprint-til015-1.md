@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 15일차] Sprint Mission2.2 - 디스코드: 관심사 분리를 통한 레이어 간 의존성 주입
 '
 excerpt: ''

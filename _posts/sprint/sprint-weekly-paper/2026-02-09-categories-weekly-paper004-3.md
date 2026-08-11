@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼04-3: Spring과 Spring Boot'
 excerpt: ''
 

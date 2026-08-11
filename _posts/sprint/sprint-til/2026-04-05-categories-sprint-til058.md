@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 58일 차] Sprint Mission7 - 테스트 커버리지 관리'
 excerpt: '3-3.테스트 커버리지 관리'
 

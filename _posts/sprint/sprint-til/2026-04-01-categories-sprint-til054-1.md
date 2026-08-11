@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 54일 차]  Docker: 빌드, 배포, 컨테이너 실행하기'
 excerpt: '7.Docker Compose 활용 ~ 8.Docker 실무 활용 팁'
 

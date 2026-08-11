@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 초급 프로젝트 1일차] 프로젝트 시작 전, 주제부터 역할, 규칙까지'
 excerpt: ''
 

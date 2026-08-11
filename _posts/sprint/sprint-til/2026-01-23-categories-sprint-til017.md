@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 17일 차] Spring Boot: 코드 레벨 아키텍처'
 excerpt: '애플리케이션 실행 프로세스 ~ Spring Boot 아키텍처 패턴'
 

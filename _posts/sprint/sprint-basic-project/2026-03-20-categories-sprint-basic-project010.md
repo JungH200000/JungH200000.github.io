@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 초급 프로젝트] Findex 개인 개발 리포트'
 excerpt: ''
 

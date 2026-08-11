@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 25일 차] Spring MVC: 비즈니스 로직'
 excerpt: '응답 처리 이해하기-응답 데이터 구성 및 활용하기 ~ Spring Web의 두 가지 스택 소개'
 

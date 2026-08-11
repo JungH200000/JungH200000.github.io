@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 11일차] 뉴스 기사 백업 배치 구현'
 excerpt: ''
 

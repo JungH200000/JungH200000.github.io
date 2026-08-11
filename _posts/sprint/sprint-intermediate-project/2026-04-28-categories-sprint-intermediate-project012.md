@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 12일차] 뉴스 기사 복구 시 관심사 연결 정보까지 복원하도록 개선하기'
 excerpt: ''
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리 페이퍼11: 대용량 트래픽 관리 - 1주차'
 excerpt: ''
 

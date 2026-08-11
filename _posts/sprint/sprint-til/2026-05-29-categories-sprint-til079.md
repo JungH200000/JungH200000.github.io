@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 79일 차] Spring Cache'
 excerpt: '1.캐시의 기본 개념과 필요성 ~ 2.캐시 아키텍처의 종류'
 

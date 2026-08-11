@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 1일차] 스프링 백엔드 중급 프로젝트 시작, 팀 규칙부터 정리'
 excerpt: ''
 

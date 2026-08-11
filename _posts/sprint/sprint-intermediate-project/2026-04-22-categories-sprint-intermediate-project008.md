@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 8일차] 무한 스크롤 트러블슈팅과 GitHub Actions 기반 Codecov 파이프라인 구축'
 excerpt: ''
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 10일차] AWS ECS 자동 배포 CD 파이프라인 구축'
 excerpt: ''
 

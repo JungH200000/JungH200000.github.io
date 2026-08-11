@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 78-1일 차] Spring 비동기 처리하기'
 excerpt: '1.Spring 비동기 처리 개요 및 @Async 소개 ~ 2.TaskExecutor와 ThreadPoolTaskExecutor'
 

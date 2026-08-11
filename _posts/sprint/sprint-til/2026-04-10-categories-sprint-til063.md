@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 63일 차] Sprint Mission8 - CD 구축'
 excerpt: '3-02. GitHub Actions를 활용한 CI/CD 파이프라인 구축'
 

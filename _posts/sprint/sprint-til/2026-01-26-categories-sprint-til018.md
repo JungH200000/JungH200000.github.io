@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 18일 차] Spring Beans의 이해와 활용'
 excerpt: 'Bean 개념과 IoC 컨테이너 ~ Bean 스코프와 라이프사이클'
 

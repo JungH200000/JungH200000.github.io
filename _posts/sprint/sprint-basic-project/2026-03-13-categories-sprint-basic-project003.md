@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 초급 프로젝트 3일차] 지수 데이터 수동 등록 로직 구현'
 excerpt: ''
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 66-3일 차] Spring Security 기초'
 excerpt: '7.커스텀 Filter 구현 ~ 8.주요 웹 보안 이슈와 Spring Security 방어 전략'
 

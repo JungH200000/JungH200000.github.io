@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '위클리페이퍼10: Spring 보안으로 안전한 시스템 구축하기 - 1주차'
 excerpt: ''
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 53일 차] Sprint Mission7 - Repository와 Controller 계층에서 주요 메서드 슬라이스 테스트'
 excerpt: '2-6.단위 테스트 ~ 2-7.슬라이스 테스트'
 

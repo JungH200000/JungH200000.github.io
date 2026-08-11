@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 초급 프로젝트 8일차] 결과물 제작'
 excerpt: ''
 

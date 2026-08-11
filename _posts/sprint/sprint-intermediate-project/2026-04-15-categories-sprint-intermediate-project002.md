@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[Sprint 백엔드 중급 프로젝트 2일차] 프로젝트 2일차, 프로젝트 구조와 방향 구체화'
 excerpt: ''
 
