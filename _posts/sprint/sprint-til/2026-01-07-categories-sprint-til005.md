@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 5일 차] 객체지향 프로그래밍의 이해'
 excerpt: '내부 클래스 ~ UML을 활용한 객체 지향 설계 시각화'
 

@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 52일 차] Sprint Mission7 - Service 계층에서 주요 메서드 단위 테스트'
 excerpt: '2-6.단위 테스트'
 

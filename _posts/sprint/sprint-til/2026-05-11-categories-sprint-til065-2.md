@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 65-2일 차] 유저 관리 기능'
 excerpt: '5.인가(Authorization)와 권한 관리 ~ 6.OAuth와 OpenID Connect'
 

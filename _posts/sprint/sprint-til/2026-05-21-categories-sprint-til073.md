@@ -1,4 +1,5 @@
 ---
+layout: single-editorial
 title: '[TIL 73일 차] Spring Security 토큰 기반 인증/인가'
 excerpt: '1.토큰 기반 인증의 개념과 필요성 ~ 2.JWT의 구조와 원리'
 
