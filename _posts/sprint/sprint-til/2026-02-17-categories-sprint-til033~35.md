@@ -70,7 +70,7 @@ last_modified_at: 2026-02-19
 ## 3. 기본 요구사항
 
 - [x] 스프린트 미션#4에서 구현한 API를 RESTful API로 다시 설계해보세요.
-  - [API 스펙](https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/requirements/sprint5/api-docs.json)을 확인하고 본인이 설계한 API와 비교해보세요.
+  - [API 스펙](/assets/images/posts_img/til/sprint-til/spring-mission/31~32/api-docs.json)을 확인하고 본인이 설계한 API와 비교해보세요.
   - [oasdiff](https://www.oasdiff.com/diff-calculator)를 활용하면 좀 더 수월하게 비교할 수 있어요.
   - API 설계에 정답은 없지만, 이어지는 요구사항과 미션을 원활히 수행하기 위해 제공된 API 스펙에 맞추어 구현해주세요.
   - 특히, 심화 요구사항에서 제공되는 프론트엔드 코드는 제공된 API 스펙을 준수해야 연동할 수 있습니다.
@@ -85,7 +85,7 @@ last_modified_at: 2026-02-19
 
 - [x] 다음의 정적 리소스를 서빙하여 프론트엔드와 통합해보세요. API 스펙을 준수했다면 잘 동작할거예요.
 
-  > [fe_1.0.0.zip](https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/requirements/sprint5/fe_1.0.0.zip)
+  > [fe_1.0.0.zip](/assets/images/posts_img/til/sprint-til/spring-mission/33~35/fe_1.0.0.zip)
 
   > [화면 가이드](https://codeit.notion.site/18f6fd228e8d80828264ca0b1fb4078f)
 

@@ -66,7 +66,7 @@ last_modified_at: 2026-01-30
 - 의존성
   - 같은 레이어 간 의존성 주입은 순환 참조 방지를 위해 지양합니다. 다른 Service 대신 필요한 Repository 의존성을 주입해보세요.
 
-  <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/requirements/sprint3/MessageService_dependency.png?raw=true" width=700px>
+  <img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/22/messageService_dependency.png' | relative_url }}" width=700px>
 
 <br>
 
@@ -89,7 +89,7 @@ last_modified_at: 2026-01-30
 - 의존성
   - 같은 레이어 간 의존성 주입은 순환 참조 방지를 위해 지양합니다. 다른 Service 대신 필요한 Repository 의존성을 주입해보세요.
 
-  <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/requirements/sprint3/ReadStatusService_dependency.png?raw=true" width=600px>
+  <img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/22/readStatusService_dependency.png' | relative_url }}" width=600px>
 
 <br>
 
@@ -114,7 +114,7 @@ last_modified_at: 2026-01-30
 - 의존성
   - 같은 레이어 간 의존성 주입은 순환 참조 방지를 위해 지양합니다. 다른 Service 대신 필요한 Repository 의존성을 주입해보세요.
 
-  <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/requirements/sprint3/UserStatusService_dependency.png?raw=true" width=400px>
+  <img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/22/userStatusService_dependency.png' | relative_url }}" width=600px>
 
 <br>
 
@@ -132,7 +132,7 @@ last_modified_at: 2026-01-30
 - 의존성
   - 같은 레이어 간 의존성 주입은 순환 참조 방지를 위해 지양합니다. 다른 Service 대신 필요한 Repository 의존성을 주입해보세요.
 
-  <img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/requirements/sprint3/BinaryContentService_dependency.png?raw=true" width=300px>
+  <img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/22/binaryContentService_dependency.png' | relative_url }}" width=300px>
 
 <br>
 
@@ -140,7 +140,7 @@ last_modified_at: 2026-01-30
 
 - [x] 지금까지 인터페이스로 설계한 각각의 Repository를 JCF, File로 각각 구현하세요.
 
-<img src="https://github.com/JungH200000/JungH200000.github.io/blob/categories-ver2/assets/images/posts_img/requirements/sprint3/repo_imple.png?raw=true" width=400px>
+<img src="{{ '/assets/images/posts_img/til/sprint-til/spring-mission/22/repo_imple.png' | relative_url }}" width=400px>
 
 ---
 
