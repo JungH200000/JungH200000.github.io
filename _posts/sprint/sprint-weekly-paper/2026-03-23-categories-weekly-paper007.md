@@ -38,13 +38,13 @@ N+1 문제는 연관 관계가 설정된 Entity를 조회한 후, 연관된 Enti
 
 특히 지연 로딩(LAZY)을 사용하는 경우 처음에는 연관된 Entity를 바로 조회하지 않고, 연관된 Entity의 데이터에 접근하는 시점에 쿼리를 실행합니다. 따라서 조회한 N개의 Entity를 순회하면서 각각의 연관된 Entity의 데이터에 접근하면 N번의 추가 쿼리가 발생할 수 있습니다.
 
-참고로, N+1 문제는 지연 로딩(LAZY)뿐만 아니라 즉시 로딩(EAGER)을 사용하는 경우에도 발생할 수 있습니다.
+참고로, N+1 문제는 지연 로딩(LAZY)뿐만 아니라 즉시 로딩(EAGER)을 사용하는 경우에도 발생할 수 있습니다. 즉시 로딩(EAGER)은 연관된 데이터를 로딩하는 시점에 대한 설정이라서 **무조건 JOIN 쿼리 한 번으로 조회하는 것이 아니기** 때문입니다.
 
 ```java
 @Entity
 class Post {
-  @OneToMany(mappedBy = "post")
-  List<Author> authors;
+  @ManyToOne(fetch = FetchType.LAZY)
+  private Author autor;
 }
 ```
 
