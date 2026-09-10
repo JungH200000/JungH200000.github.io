@@ -23,7 +23,7 @@ last_modified_at: 2026-09-10
 
 **경쟁 상태(Race Condition)**는 여러 스레드가 같은 공유 자원에 접근하고, 그 중 하나 이상의 스레드가 자원의 상태를 변경할 때, **스레드의 실행 순서나 타이밍에 따라 프로그램의 결과가 달라지는 문제**를 말한다.
 
-그 중에서 여러 스레드가 같은 데이터를 동시에 읽고 수정할 때 발생하기 쉽다.
+특히 여러 스레드가 같은 데이터를 동시에 읽고 수정할 때 발생하기 쉽다.
 
 예를 들어 아래의 코드가 있다고 가정해보자.
 
@@ -35,7 +35,7 @@ public void increment() {
 }
 ```
 
-이 코드는 아래의 과정으로 동작한다.
+`count++;`는 원자적 연산이 아니라 아래의 과정으로 동작한다.
 
 ```text
 1. count 값을 읽는다.
@@ -102,6 +102,9 @@ Thread B 진입
 
     ```java
     public void increment() {
+
+      doSomethingWithoutLock();
+
       synchronized (this) {
         count++;
       }
@@ -115,7 +118,7 @@ Thread B 진입
 대표적인 구현체가 `ReentrantLock`이다.
 
 ```java
-private final Lock lock = new ReentrantLock():
+private final Lock lock = new ReentrantLock();
 
 public void increment() {
   lock.lock();
@@ -136,7 +139,7 @@ public void increment() {
 그래서 **단순한 동기화라면** `synchronized`,  
 락 획득 과정이나 대기 정책 등을 세밀하게 제어해야 한다면 `Lock`을 고려할 수도 있다.
 
-그리고 `finally`에서 `unlock()`을 호출하는 이유는 임계 영역에서 예외가 발생하다라도 **락은 반드시 해제되어야 하기 때문이다.** 락이 반환되지 않는다면 다른 스레드들이 계속 기다리게 되는 문제가 발생한다.
+그리고 `finally`에서 `unlock()`을 호출하는 이유는 임계 영역에서 예외가 발생하더라도 **락은 반드시 해제되어야 하기 때문이다.** 락이 반환되지 않는다면 다른 스레드들이 계속 기다리게 되는 문제가 발생한다.
 
 #### Atomic 클래스
 
@@ -145,14 +148,14 @@ public void increment() {
 - 원자적 연산이란 중간에 다른 스레드가 끼어들 수 없는 연산을 말한다.
 
 ```java
-private final AtomicInteger = new AtomicInteger();
+private final AtomicInteger count = new AtomicInteger();
 
 public void increment() {
   count.incrementAndGet();
 }
 ```
 
-Atomic 클래스는 CAS(Compare-And_Swap) 계열의 원자적 연산을 활용해 값을 안전하게 변경한다.
+Atomic 클래스는 CAS(Compare-And-Swap) 계열의 원자적 연산을 활용해 값을 안전하게 변경한다.
 
 CAS는 기본적으로 아래처럼 동작한다.
 
@@ -188,11 +191,11 @@ ConcurrentLinkedQueue
 위 컬렉션을 사용하면 일반 `HashMap`을 여러 스레드에서 동시에 수정하는 대신 아래처럼 사용할 수 있다.
 
 ```java
-private final ConcurrentHashMap<String, Integer> counts = new CouncurrentHashMap<>();
+private final ConcurrentHashMap<String, Integer> counts = new ConcurrentHashMap<>();
 
 public void increment(String key) {
   counts.merge(key, 1, Integer::sum);
-  // 해다 key가 없다면 새로운 값을 넣고, 있으면 기존 값과 새 값을 합치는 기능
+  // 해당 key가 없다면 새로운 값을 넣고, 있으면 기존 값과 새 값을 합치는 기능
 }
 ```
 
@@ -276,7 +279,7 @@ http-nio-8080-exec-1
 ```text
 http-nio-8080-exec-1
  ⬇️
- ⬇️ `@Asycn` 호출
+ ⬇️ `@Async` 호출
  ⬇️
 task-1
 ```
@@ -310,7 +313,7 @@ SecurityContextHolder.getContext().getAuthentication()
 
 ### Q2-2. MDC란?
 
-MDC는 Mapped Diagnostic Context의 약자로, 하나의 요청이나 작업을 추적하기 위한 정보를 로그에 함께 넘길 때 사용한다.
+MDC는 Mapped Diagnostic Context의 약자로, 요청이나 작업을 식별할 수 있는 값을 현재 스레드의 컨텍스트에 저장하고 로그에 함께 기록할 때 사용한다.
 
 예를 들어 요청이 들어왔을 때 `requestId`를 MDC에 저장했다고 가정해보자.
 
@@ -334,7 +337,7 @@ MDC.put("requestId", "abc123");
 http-nio-1
 [abc123] 알림 요청 시작
  ⬇️
- ⬇️ `@Asycn` 호출
+ ⬇️ `@Async` 호출
  ⬇️
 task-1
 [      ] 알림 전송
@@ -424,11 +427,13 @@ public ThreadPoolTaskExecutor asyncExecutor() {
 
   executor.initialize();
 
-  return executor
+  return executor;
 }
 ```
 
 위 코드처럼 구현하면 해당 Executor를 이용해 실행되는 작업에는 `TaskDecorator`가 적용된다.
+
+만약 여러 Executor를 사용하는 환경이라면 `@Async("asyncExecutor")`처럼 비동기 작업이 `TaskDecorator`를 등록한 Executor를 사용하도록 지정해야 한다.
 
 ```text
 요청 Thread
@@ -465,14 +470,14 @@ SecurityContext
 
 그런데 비동기 스레드가 실행된다면 기본적으로 다른 스레드이기 때문에 현재 요청 스레드의 인증 정보가 그대로 존재할 수 없다.
 
-이 문제 또한 MDC와 동일한 방식으로 **`TaskDecorator`를 이용해 `SecurityContext`를 복사하고 전달**하면 된다.
+이 문제 또한 MDC와 동일한 방식으로 **`TaskDecorator`를 이용해 `SecurityContext`를 확보하고 비동기 스레드에 설정**하면 된다.
 
 ```java
-SecurityContext context = SeucurityContextHolder.getContext();
+SecurityContext context = SecurityContextHolder.getContext();
 
 return () -> {
   try {
-    SecurityCoontextHolder.setContext(context);
+    SecurityContextHolder.setContext(context);
 
     runnable.run();
   } finally {
