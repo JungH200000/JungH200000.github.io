@@ -88,7 +88,7 @@ lock 획득
   ⬇️
 count++
   ⬇️
-lock 반환
+lock 해제
   ⬇️
 Thread B 진입
 ```
@@ -145,7 +145,7 @@ public void increment() {
 
 단순한 값 증가처럼 하나의 변수에 대한 원자적 연산이 필요하다면 `AtomicInteger`, `AtomicLong` 같은 Atomic 클래스를 사용할 수 있다.
 
-- 원자적 연산이란 중간에 다른 스레드가 끼어들 수 없는 연산을 말한다.
+- 원자적 연산이란 하나의 연산 단위로 처리되어서 중간 상태가 다른 스레드에 노출되지 않는 연산을 말한다.
 
 ```java
 private final AtomicInteger count = new AtomicInteger();
@@ -209,7 +209,7 @@ if (!counts.containsKey(key)) {
 }
 ```
 
-`containsKey()`와 `put()` 사이에 다른 스레드가 끼어들 수 있기 때문에 `putIfAbsent()`, `compute()`, `computeIfAbsent()`, `merge()`처럼 원자적으로 제공되는 연산을 활용해야 한다.
+`containsKey()`와 `put()` 사이에 다른 스레드가 끼어들 수 있기 때문에 `putIfAbsent()`, `compute()`, `computeIfAbsent()`, `merge()`처럼 메서드 단위로 원자적을 보장하는 연산을 활용해야 한다.
 
 #### 공유 가변 상태 자체를 줄이기
 
@@ -262,7 +262,7 @@ Race Condition 가능성 감소
 
 ### Q2-1. 비동기 환경에서 컨텍스트 정보가 사라지는 이유
 
-Spring 에서 `@Async`를 사용하면 해당 메서드는 일반적으로 **요청을 처리하던 스레드가 아니라 별도의 스레드 풀에 있는 스레드에서 실행**된다.
+Spring에서 `@Async`를 사용하면 해당 메서드는 일반적으로 **요청을 처리하던 스레드가 아니라 별도의 스레드 풀에 있는 스레드에서 실행**된다.
 
 예를 들어 요청을 처리하는 스레드가 아래와 같다고 가정하자.
 
@@ -347,7 +347,7 @@ task-1
 
 ### Q2-3. `TaskDecorator`를 이용한 MDC 전달
 
-`TaskDecorator`에서 **작업을 실행하기 전에 호출 스레드의 MDC를 복사하고, 비동기 작업 스레드에 설정한 뒤 작업이 끝나면 정리**한다.
+`TaskDecorator`에서 **작업을 실행하기 전에 호출 스레드의 MDC를 복사하고, 비동기 작업을 실행하기 전에 작업 스레드에 설정한 뒤 작업이 끝나면 정리**한다.
 
 아래처럼 동작한다고 보면 된다.
 
