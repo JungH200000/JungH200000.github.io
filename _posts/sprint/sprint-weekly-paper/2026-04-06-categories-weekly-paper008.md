@@ -301,37 +301,346 @@ API 형식·기본 제약
 
 ## Q2. 테스트에서 사용되는 Mockito의 Mock, Stub, Spy 개념을 각각 설명하고, 어떤 상황에서 어떤 방식을 선택해야 하는지 구체적인 예시와 함께 설명하세요.
 
-### Q2-1. 답변
+### Q2-1. 테스트 대역(Test Double)이란?
 
-#### Mockito
+단위 테스트에서는 테스트 대상이 DB, 외부 API, 다른 서비스 같은 의존성과 연결되어 있을 수 있다.
 
-Java에서 널리 사용되는 Mocking 라이브러리로, Mock 객체를 만들어주는 도구이다.
+예를 들어
 
-#### Stub (스텁)
+```text
+`OrderService`
+⬇️
+`OrderRepository`
+⬇️
+Database
+```
 
-테스트 대상 객체가 의존하는 외부 컴포넌트의 동작을 미리 하드코딩하여, 요청에 대해 항상 고정된 응답(결과값)만을 반환하는 단순한 객체
+`OrderService`만 테스트하고 싶은데 실제 DB까지 사용하면 테스트가 느려지고, DB 상태에 따라 결과가 달라질 수 있다.
 
-- **선택 상황**
-  - 외부 시스템의 복잡한 로직을 무시하고, 단순한 조건이나 특정 고정된 결과값이 필요한 테스트 환경을 구축할 때 선택
-- **예시**
-  - `getBalance(userId)` 메서드 호출 시 무조건 10,000원을 반환하도록 `when(...).thenReturn(...)`(`given(…).willReturn(…)`) 설정하면 비즈니스 로직만 집중해서 테스트 가능
+그래서 실제 의존성을 대신하는 객체를 사용하는데, 이런 객체를 **테스트 대역(Test Double)**이라고 한다.
 
-#### Mock
+Mock, Stub, Spy도 테스트 대역의 종류라고 볼 수 있다.
 
-실제 객체처럼 동작하도록 조작하고, 테스트 중에 특정 메서드가 호출되었는지, 몇 번 호출되었는지, 어떤 파라미터가 호출되었는지 등의 행위(Behavior) 자체를 검증하는 가짜 객체
+### Q2-2. Mock
 
-- **선택 상황**
-  - 값을 반환하는 것을 넘어서 외부 시스템과의 연동 등 객체 간의 상호작용이 올바르게 일어났는지 검증할 때 선택
-- **예시**
-  - 회원가입 로직에서 회원가입이 완료되면 가입 환영 메일을 보내는 `EmailService`가 있을 때, `verify()`메서드를 이용해 `sendEmail()`메서드가 정확한 수신자와 제목으로 1회 호출되었는지 검증
+**Mock**은 실제 객체를 대신하는 가짜 객체를 만들고, 특히 **특정 메서드가 원하는 방식으로 호출되었는지 검증할 때** 많이 사용한다.
 
-#### Spy
+Mockito에서는 아래 코드처럼 만들 수 있다.
 
-가짜 객체를 완전히 대체하는 Mock과 달리, 실제 객체를 감싸(Wrapper) 기본적으로 실제 로직대로 동작하게 함으로써, 특정 일부 메서드만 가짜(Mocking) 동작으로 덮어씌워 대체하거나 호출 기록을 감시할 수 있는 객체
+```java
+PaymentClient paymentClient = mock(PaymentClient.class);
+```
 
-- **선택 상황**
-  - 객체의 모든 동작을 가짜로 만들지 않고, 대부분의 코드는 실제 시스템 로직을 그대로 사용하지만 특정 외부 연동 메서드 등 일부만 대체하여 테스트할 때 선택
-- **예시**
-  - 외부 결제 게이트웨이와 연동하는 시스템을 테스트할 때, 다른 비즈니스 로직은 그대로 사용하고 외부 게이트웨이와 통신하는 메서드만 가짜 응답을 반환하도록 조작
+별도로 Stubbing 하지 않은 메서드는 실제 구현을 실행하지 않고 Mockito가 제공하는 기본값을 반환한다.
 
----
+예를 들어 주문 결제 로직이 있다고 가정해보자.
+
+```java
+public class OrderService {
+
+  private final PaymentClient paymentClient;
+
+  public OrderService(PaymentClient paymentClient) {
+    this.paymentClient = paymentClient;
+  }
+
+  public void pay(Long orderId, int amount) {
+    paymentClient.requestPayment(orderId, amount);
+  }
+}
+```
+
+테스트에서는 실제 결제 API를 호출할 필요 없다.
+
+```java
+@Test
+void 결제를_요청한다() {
+
+  PaymentClient paymentClient = mock(PaymentClient.class);
+  OrderService orderService = new OrderService(paymentClient);
+
+  orderService.pay(1L, 10000);
+
+  verify(paymentClient).requestPayment(1L, 10000);
+}
+```
+
+여기서 관심 있는 것은 반환값보다 아래와 같은 **상호작용**이다.
+
+```text
+PaymentClient가 호출되었는가?
+어떤 인자로 호출되었는가?
+몇 번 호출되었는가?
+```
+
+예를 들어 아래처럼 검증할 수 있다.
+
+```java
+verify(paymentClient).requestPayment(1L, 10000);
+
+verify(paymentClient, times(1))
+  .requestPayment(1L, 10000);
+
+verify(paymentClient, never())
+  .cancelPayment(anyLong());
+```
+
+#### Mock은 언제 사용할까?
+
+외부 API, Repository, 메시지 발행기처럼 **실제 의존성을 호출하지 않고 테스트 대상을 격리하고 싶거나**, 그 의존성이 제대로 호출되었는지 확인해야 할 때 적합하다.
+
+### Q2-3. Stub
+
+**Stub**은 테스트에 필요한 상황을 만들기 위해 **특정 호출에 대해 미리 정해진 값을 반환하도록 설정하는 방식**이다.
+
+예를 들어 회원을 조회하는 서비스가 있다고 가정해보자.
+
+```java
+public class MemberService {
+
+  private final MemberRepository memberRepository;
+
+  public MemberService(MemberRepository memberRepository) {
+    this.memberRepository = memberRepository;
+  }
+
+  public String getMemberName(Long memberId) {
+    Member member = memberRepository.findById(memberId)
+      .orElseThrow();
+
+    return member.getName();
+  }
+}
+```
+
+실제 DB 없이 특정 회원이 존재하는 상황을 만들고 싶다면
+
+```java
+@Test
+void 회원_이름을_조회한다() {
+
+  MemberRepository memberRepository =
+    mock(MemberRepository.class);
+
+  Member member = new Member(1L, "홍길동");
+
+  when(memberRepository.findById(1L))
+    .thenReturn(Optional.of(member));
+
+  MemberService memberService =
+    new MemberService(memberRepository);
+
+  String result = memberService.getMemberName(1L);
+
+  assertEquals("홍길동", result);
+}
+```
+
+여기서
+
+```java
+when(memberRepository.findById(1L))
+  .thenReturn(Optional.of(member));
+```
+
+위 코드가 **Stubbing**이다.
+
+즉, 아래처럼 동작한다.
+
+```text
+`findById(1L)`이 호출되면
+⬇️
+실제 DB에 접근하지 않고
+⬇️
+미리 준비한 `member`를 반환
+```
+
+#### Stub은 언제 사용할까?
+
+테스트 대상의 동작을 확인하기 위해 **의존 객체가 특정 값을 반환하는 상황을 만들어야 할 때** 사용한다.
+
+예를 들면 아래의 테스트 상황을 만들 수 있다.
+
+```text
+회원이 존재하는 경우
+회원이 존재하지 않는 경우
+재고가 충분한 경우
+재고가 부족한 경우
+외부 API가 성공 응답을 반환하는 경우
+```
+
+### Q2-4. Mock과 Stub은 완전히 다른 객체인가?
+
+Mockito에서는 이 부분을 구분해서 이해하는 것이 중요하다.
+
+개념적으로 아래처럼 구분할 수 있다.
+
+- **Mock**: "어떻게 호출되었는가?"에 관심
+- **Stub**: "호출하면 무엇을 반환하는가?"에 관심
+
+하지만 Mockito에서는 보통 **같은 Mock 객체에 Stubbing과 Verification을 모두 수행할 수 있다.**
+
+```java
+MemberRepository repository = mock(MemberRepository.class);
+Member member = new Member(1L, "홍길동");
+MemberService memberService = new MemberService(repository);
+
+// Stub 역할
+when(repository.findById(1L))
+  .thenReturn(Optional.of(member));
+
+// 테스트 실행
+memberService.getMemberName(1L);
+
+// Mock 역할 - 상호작용 검증
+verify(repository).findById(1L);
+```
+
+그래서  
+**Stub**은 테스트에 필요한 반환값을 미리 지정하는 역할이고,  
+**Mock**은 호출 여부와 같은 상호작용 검증에 초점을 둔 개념이라고 할 수 있다.
+
+### Q2-5. Spy
+
+**Spy**는 **실제 객체를 기반으로 하며, 기본적으로 실제 메서드를 실행하지만 필요한 일부 메서드만 Stubbing할 수 있다.**
+
+예를 들어 실제 객체 `PriceCalculator`가 있다고 가정해보자.
+
+```java
+public class PriceCalculator {
+
+  public int calculate(int price) {
+    return price - discount(price);
+  }
+
+  public int discount(int price) {
+    return price / 10;
+  }
+}
+```
+
+Spy를 만들고 `discount()`만 Stubbing하면 아래처럼 작성할 수 있다.
+
+```java
+PriceCalculator calculator = spy(new PriceCalculator());
+
+doReturn(2000)
+  .when(calculator)
+  .discount(10000);
+
+int result = calculator.calculate(10000);
+
+assertEquals(8000, result);
+verify(calculator).discount(10000);
+```
+
+그러면 아래처럼 동작한다.
+
+```text
+calculate()
+➡️ 실제 코드 실행
+
+discount()
+➡️ 실제 코드 대신 2000 반환
+
+결과
+➡️ 10000 - 2000 = 8000
+```
+
+또한, Spy도 호출 여부를 검증할 수 있다.
+
+```java
+verify(calculator).discount(10000);
+```
+
+### Q2-6. Spy에서 `when()`보다 `doReturn()`을 사용하는 이유
+
+Spy에서는 중요한 주의점이 있다.
+
+아래처럼 작성하면
+
+```java
+when(calculator.discount(10000))
+  .thenReturn(2000);
+```
+
+`when()` 안에 있는 실제 메서드가 **Stubbing하는 시점에 먼저 실행될 수 있다.**
+
+Spy는 기본적으로 실제 객체이기 때문이다.
+
+그래서 실제 메서드 실행을 피하고 싶다면
+
+```java
+doReturn(2000)
+  .when(calculator)
+  .discount(10000);
+```
+
+위 코드처럼 `doReturn()` 방식을 사용하는 것이 안전하다.
+
+실제 메서드가 DB 접근, 상태 변경, 예외 발생 같은 동작을 포함한다면 이 차이는 중요하다.
+
+### Q2-7. 그렇다면 언제 무엇을 선택해야 할까?
+
+| 방식 | 핵심 관심사             | 사용 상황                                    |
+| ---- | ----------------------- | -------------------------------------------- |
+| Mock | 호출 여부와 상호작용    | 외부 API가 올바르게 호출됐는지 확인          |
+| Stub | 특정 입력에 대한 반환값 | Repository가 특정 데이터를 반환하는 상황     |
+| Spy  | 실제 구현 + 일부만 대체 | 대부분 실제 동작을 사용하고 특정 부분만 변경 |
+
+예를 들어 주문 서비스 테스트라면
+
+```text
+OrderService
+ ├─ OrderRepository
+ ├─ PaymentClient
+ └─ PriceCalculator
+```
+
+아래처럼 사용할 수 있다.
+
+```text
+OrderRepository
+➡️ Stub
+➡️ 특정 주문이나 상품 데이터를 반환하도록 설정
+
+PaymentClient
+➡️ Mock
+➡️ 결제 요청이 정확히 한 번 호출됐는지 검증
+
+PriceCalculator
+➡️ Spy
+➡️ 실제 가격 계산은 사용하되, 특정 할인 계산만 테스트용 값으로 변경
+```
+
+다만 실제 Mockito 코드에서는 `OrderRepository`도 `mock()`으로 생성한 뒤 `when().thenReturn()`을 사용하므로,  
+**Stub은 Mockito에서 별도의 객체 생성 방식이라기보다 Mock 객체에 특정 반환 동작을 설정한 역할로 이해하면 편하다.**
+
+### Q2-8. Spy는 많이 사용해도 되는가?
+
+Spy는 **우선적으로 선택할 방법은 아니다.**
+
+테스트 대상의 일부 동작을 Spy로 계속 바꿔야 한다면 객체의 책임이 너무 크거나 의존성 분리가 충분하지 않은 경우일 수 있다.
+
+예를 들어 하나의 Service를 아래처럼 테스트한다면
+
+```text
+메서드 A는 실제 실행
+메서드 B는 Spy로 가짜 처리
+메서드 C는 실제 실행
+메서드 D는 Spy로 가짜 처리
+```
+
+구현 세부사항에 테스트가 강하게 결합될 수 있다.
+
+가능하다면 필요한 의존성을 별도의 객체로 분리한 뒤 Mock으로 주입하는 것이 테스트하기 쉬운 구조일 수 있다.
+
+따라서
+
+```text
+필요한 의존성을 격리하고 반환값이나 호출 관계만 제어하면 되는 경우
+➡️ Mock / Stubbing을 우선으로 하고,
+
+실제 객체의 대부분의 동작을 유지하면서 일부 동작만 바꿔야 하는 경우
+➡️ Spy 고려
+```
