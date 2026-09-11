@@ -258,50 +258,389 @@ HTTP 캐시 활용
 
 ---
 
-## Q2. Spring Boot에서 @RestController로 들어온 HTTP 요청이 처리되어 응답으로 변환되는 전체 과정을 설명하세요. 특히 HTTP 메시지 컨버터가 동작하는 시점과 역할을 포함해서 설명하세요.
+## Q2. Spring Boot에서 `@RestController`로 들어온 HTTP 요청이 처리되어 응답으로 변환되는 전체 과정을 설명하세요. 특히 HTTP 메시지 컨버터가 동작하는 시점과 역할을 포함해서 설명하세요.
 
-### Q2-1.
+### Q2-1. 전체 흐름
 
-### Q2-
+Spring MVC에서 HTTP 요청이 들어와서 `@RestController`의 메서드가 실행되고 응답이 반환되는 과정은 아래처럼 볼 수 있다.
 
-### Q2-
+```text
+Client
+⬇️
+`DispatcherServlet`
+⬇️
+`HandlerMapping`
+⬇️
+`HandlerAdapter`
+⬇️
+Controller 메서드의 파라미터 처리
+⬇️
+`@RequestBody`가 있다면 `HttpMessageConverter`
+- HTTP Body ➡️ Java 객체
+⬇️
+Controller 메서드 실행
+⬇️
+Service 등 비즈니스 로직 실행
+⬇️
+Controller 반환값 생성
+⬇️
+`HttpMessageConverter`
+- Java 객체 ➡️ HTTP Body
+⬇️
+Client
+```
 
-### Q2-
+### Q2-2. 요청(Request)
 
-### Q2-
+#### 1. `DispatcherServlet`이 요청을 받는다.
 
-### Q2-
+클라이언트에서 HTTP 요청이 들어오면 Spring MVC에서는 먼저 **`DispatcherServlet`**이 요청을 받는다.
 
-### Q2-
+`DispatcherServlet`은 **Front Controller** 역할을 하며 웹 요청의 공통 진입점 역할을 한다.
 
-### Q2-
+아래의 요청이 들어왔다고 가정해보자.
 
-1. 요청 진입점: `DispatcherServlet`
-   - HTTP 요청은 `DispatcherServlet`에 가장 먼저 들어옴
-2. `RequestMappingHandlerMapping`를 통해 호출할 핸들러 메서드 찾음
-   - 요청 URI와 HTTP 메서드를 기준으로 찾음
-3. `RequestMappingHandlerAdapter`를 사용해 찾아낸 핸들러 메서드를 실행시킬 Adapter들을 찾음
-4. 핸들러 메서드의 파라미터에 따라 적합한 Adapter가 동작
-5. 이때 `@RequestBody` 애너테이션이 있는 경우, HTTP 메시지 컨버터가 동작하여 요청 본문을 Java 객체로 변환
-6. 그 후 비즈니스 로직 처리 후 반환 값이 생성된다.
-7. `@ResponseBody`나 `@RestController`가 존재할 경우, HTTP 메시지 컨버터가 동작해 반환 값을 HTTP 응답 본문으로 변환된다.
+```http
+POST /users
+Content-Type: application/json
 
-<br>
+{
+  "name": "박정현",
+  "email": "test@example.com"
+}
+```
 
-### Q2-2. 정리
+이 요청을 어떤 Controller의 어떤 메서드가 처리해야 하는지 `DispatcherServlet`이 직접 결정하지는 않는다.
 
-#### 요청의 시작과 컨트롤러 매핑
+적절한 Handler를 찾기 위해서 `HandlerMapping`을 사용한다.
 
-클라이언트로부터 HTTP 요청이 들어오면 가장 먼저 `DispatcherServlet`이 이를 받습니다. `DispatcherServlet`은 프론트 컨트롤러로서 모든 웹 요청의 진입점 역할을 합니다. 이후 RequestMappingHandlerMapping을 사용하여 요청 URL과 HTTP 메서드를 기반으로 적절한 컨트롤러 메서드를 찾습니다. 이 과정에서 해당 요청을 처리할 수 있는 핸들러 어댑터가 선택되어 실제 컨트롤러 메서드 호출을 준비합니다.
+#### 2. `HandlerMapping`이 요청을 처리할 Controller를 찾는다.
 
-#### 요청 데이터의 변환 과정
+`DispatcherServlet`은 `HandlerMapping`에 현재 요청을 처리할 Handler를 요청한다.
 
-컨트롤러 메서드가 선택된 후, 해당 메서드의 파라미터를 처리하는 과정이 시작됩니다. 특히 `@RequestBody` 애너테이션이 있는 경우, HTTP 메시지 컨버터가 동작하여 요청 본문을 Java 객체로 변환합니다. 이때 요청의 Content-Type 헤더를 확인하여 적절한 메시지 컨버터가 선택되는데, JSON 요청의 경우 일반적으로 `MappingJackson2HttpMessageConverter`가 사용됩니다. URL 경로 변수나 쿼리 파라미터도 이 시점에서 적절한 타입으로 변환되어 메서드 파라미터에 바인딩됩니다.
+Spring MVC에서는 일반적으로 `RequestMappingHandlerMapping`이 아래의 정보를 바탕으로 실행할 Controller를 찾는다.
 
-#### 응답 생성과 변환
+```text
+요청 URL
+HTTP Method
+`@RequestMapping`
+`@GetMapping`
+`@PostMapping`
+...
+```
 
-컨트롤러 메서드가 실행되어 비즈니스 로직을 처리한 후, 반환값이 생성됩니다. @RestController 애너테이션이 있거나 메서드에 `@ResponseBody`가 있는 경우, 반환된 객체는 뷰 리졸버를 거치지 않고 직접 HTTP 응답 본문으로 변환됩니다. 이때도 HTTP 메시지 컨버터가 동작하는데, 클라이언트의 Accept 헤더를 기반으로 적절한 메시지 컨버터가 선택됩니다. `ResponseEntity`를 사용하면 HTTP 상태 코드나 응답 헤더와 같은 세부적인 응답 제어가 가능합니다.
+예를 들어 아래와 같은 코드가 있다면
 
-#### HTTP 메시지 컨버터의 역할
+```java
+@RestController
+@RequestMapping("/users")
+public class UserController {
 
-HTTP 메시지 컨버터는 요청과 응답 과정에서 핵심적인 역할을 수행합니다. 요청 시에는 HTTP 요청 본문을 Java 객체로 역직렬화하고, 응답 시에는 Java 객체를 HTTP 응답 본문으로 직렬화합니다. 특히 Spring Boot에서는 Jackson 라이브러리를 기본으로 사용하여 JSON 형식의 데이터를 처리합니다. 메시지 컨버터는 Content-Type과 Accept 헤더를 기반으로 자동으로 선택되며, `@ResponseBody`와 `@RequestBody` 애너테이션과 긴밀하게 연동되어 동작합니다.
+  @PostMapping
+  public UserResponse create(
+    @RequestBody CreateUserRequest request
+  ) {
+    //...
+  }
+}
+```
+
+`POST /users` 요청과 연결되는 `create()` 메서드를 찾는다.
+
+#### 3. `HandlerAdapter`가 Controller 호출을 준비한다.
+
+처리할 Controller 메서드를 찾았다고 해서 `DispatcherServlet`이 직접 해당 메서드를 호출하는 것이 아니다.
+
+해당 Handler를 실행할 수 있는 **HandlerAdapter**를 사용한다.
+
+역할을 아래처럼 정리해볼 수 있다.
+
+```text
+`HandlerMapping`
+➡️ "어떤 Controller 메서드를 실행할 것인가?"
+
+`HandlerAdapter`
+➡️ "그 Controller 메서드를 어떻게 실행할 것인가?"
+```
+
+`HandlerAdapter`는 Controller 메서드를 호출하기 전에 메서드에 필요한 파라미터를 준비한다.
+
+#### 4. Controller 메서드의 파라미터를 처리한다.
+
+Controller를 실행하기 위해서는 먼저 Controller 메서드에 선언된 파라미터를 준비해야 한다.
+
+예를 들어 아래와 같은 코드가 있다면
+
+```java
+@PostMapping("/{userId}")
+public UserResponse update(
+  @PathVariable Long userId,
+  @RequestParam boolean notify,
+  @RequestBody UpdateUserRequest request
+) {
+  // ...
+}
+```
+
+Spring은 `@PathVariable`, `@RequestParam`, `@RequestBody`를 각각 해석해서 Controller 메서드의 인자로 전달해야 한다.
+
+#### 5. 요청에서 HTTP 메시지 컨버터가 동작하는 시점
+
+아래 코드와 같이 `@RequestBody`가 있다고 가정해보자.
+
+```java
+@PostMapping
+public UserResponse create(
+  @RequestBody CreateUserRequest request
+) {
+  // ...
+}
+```
+
+클라이언트는 Java 객체를 전송하는 것이 아니라 HTTP Body에 JSON 등의 데이터를 담아 전송한다.
+
+```JSON
+{
+  "name": "박정현",
+  "email": "test@example.com"
+}
+```
+
+하지만 Controller는 `CreateUserRequest request`라는 Java 객체를 필요로 한다.
+
+따라서 아래와 같은 변환이 필요하다.
+
+```text
+HTTP Request Body
+(JSON)
+⬇️
+HttpMessageConverter
+⬇️
+Java Object
+(CreateUserRequest)
+```
+
+이때 **HTTP 메시지 컨버터(`HttpMessageConverter`)가 동작한다.**
+
+#### 6. 어떤 HTTP 메시지 컨버터를 사용할지 어떻게 결정하는가?
+
+Spring은 요청의 `Content-Type`을 보고 데이터를 읽을 수 있는 메시지 컨버터를 선택한다.
+
+예를 들어 `Content-Type: application/json`이라면 JSON 데이터를 처리할 수 있는 메시지 컨버터가 필요하다.
+
+Spring Boot에서는 JSON 처리 시 일반적으로 `MappingJackson2HttpMessageConverter`가 사용되며, 내부적으로 Jackson을 이용해 JSON을 Java 객체로 변환한다.
+
+```text
+{
+  "name": "박정현"
+}
+⬇️
+⬇️ - Jackson / HttpMessageConverter
+⬇️
+CreateUserRequest(
+  name = "박정현"
+)
+```
+
+이 과정을 **역직렬화(Deserialization)**라고 한다.
+
+#### 7. `@PathVariable`, `@RequestParam`도 HTTP 메시지 컨버터가 처리하는가?
+
+**HTTP 메시지 컨버터가 직접 처리하는 핵심 대상은 HTTP Body**이다.
+
+```text
+`@RequestBody`
+➡️ `HttpMessageConverter`
+
+`@PathVariable`
+`@RequestParam`
+➡️ 별도의 Argument Resolver / 타입 변환 과정
+```
+
+즉, 아래와 같은 HTTP 요청에서
+
+```http
+GET /users/10?page=2
+```
+
+아래처럼 변환되는 것은
+
+```java
+@GetMapping("/{userId}")
+public UserResponse getUser(
+  @PathVariable Long userId,
+  @RequestParam int page
+) {
+  // ...
+}
+```
+
+`HttpMessageConverter`가 JSON을 변환하는 과정과는 다른 파라미터 바인딩 과정이다.
+
+#### 8. Controller 메서드 실행
+
+모든 파라미터가 준비되면 Controller 메서드가 실행된다.
+
+Controller 내부에서는 필요에 따라 Service를 호출하여 비즈니스 로직을 처리한다.
+
+이후 Controller는 응답으로 사용할 Java 객체를 반환한다.
+
+```java
+@PostMapping
+public UserResponse create(
+  @RequestBody CreateUserRequest request
+) {
+  User user = userService.create(request);
+
+  return UserResponse.from(user);
+}
+```
+
+### Q2-3. 응답(Response)
+
+#### 1. `@RestController`의 반환값은 어떻게 처리되는가?
+
+Controller가 아래의 객체를 반환한다고 해보자.
+
+```java
+new UserResponse(
+  1L,
+  "박정현"
+);
+```
+
+`@RestController`에서는 위 반환값을 View 이름으로 해석하는 것이 아니라 **HTTP Response Body에 넣을 데이터로 처리한다.**
+
+- `@RestController`
+  - REST API Controller에서 반환값을 Response Body로 처리하도록 사용하는 애너테이션으로,
+  - 일반적으로 `@Controller`와 `@ResponseBody`가 결합한 애너테이션으로 이해할 수 있다.
+
+#### 2. 응답에서도 HTTP 메시지 컨버터가 동작
+
+Controller의 반환값은 Java 객체이므로 그대로 HTTP 네트워크로 보낼 수 없다.
+
+그래서 이번에는 반대 방향으로의 변환이 필요하다.
+
+```text
+Java Object
+(UserResponse)
+⬇️
+HttpMessageConverter
+⬇️
+HTTP Response Body
+(JSON)
+```
+
+예를 들어
+
+```java
+new UserResponse(
+  1L,
+  "박정현"
+);
+```
+
+위 Java 객체가 아래의 JSON으로 변환된다.
+
+```json
+{
+  "id": 1,
+  "name": "박정현"
+}
+```
+
+이 과정을 **직렬화(Serialization)**라고 한다.
+
+즉, HTTP 메시지 컨버터는 요청과 응답에서 반대 방향으로 동작한다.
+
+```text
+[요청]
+HTTP Body ➡️ Java Object
+- 역직렬화
+
+[응답]
+Java Object ➡️ HTTP Body
+- 직렬화
+```
+
+#### 3. 응답에서는 어떤 메시지 컨버터를 선택하는가?
+
+응답 시에는 클라이언트가 받을 수 있는 데이터 형식을 고려해서 메시지 컨버터가 선택된다.
+
+예를 들어 `Accept: application/json`이라면 JSON 형식으로 응답할 수 있는 메시지 컨버터가 사용될 수 있다.
+
+즉, 아래와 같은 응답이 만들어진다.
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "박정현"
+}
+```
+
+#### 4. `ResponseEntity`를 사용한다면?
+
+단순히 객체만 반환할 수 있지만 `ResponseEntity`를 이용하면 아래의 데이터를 직접 제어할 수 있다.
+
+- HTTP Status
+- HTTP Header
+- HTTP Body
+
+예를 들어
+
+```java
+@PostMapping
+public ResponseEntity<UserResponse> create(
+  @RequestBody CreateUserRequest request
+) {
+  UserResponse response = userService.create(request);
+
+  return ResponseEntity
+      .status(HttpStatus.CREATED)
+      .body(response);
+}
+```
+
+위와 같은 코드가 동작하면 아래와 함께 JSON Body를 응답할 수 있다.
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "박정현"
+}
+```
+
+### Q2-4. 전체 과정 정리
+
+```text
+1. Client가 HTTP 요청 전송
+   ⬇️
+2. `DispatcherServlet`이 요청 수신
+   ⬇️
+3. `HandlerMapping`이 요청을 처리할 Controller 메서드 탐색
+   ⬇️
+4. `HandlerAdapter`가 Controller 호출 준비
+   ⬇️
+5. Controller 파라미터 준비
+   ⬇️
+6. `@RequestBody` 파라미터가 있다면
+  - 파라미터 처리과정에서 `HttpMessageConverter`가 HTTP Body ➡️ Java 객체로 역직렬화
+   ⬇️
+7. Controller 메서드 실행
+   ⬇️
+8. Service 등 비즈니스 로직 실행
+   ⬇️
+9. Controller가 Java 객체 반환
+   ⬇️
+10. `@RestController`이므로 `ViewResolver`를 거치지 않고 Response Body로 처리
+   ⬇️
+11. `HttpMessageConverter`가 Java 객체 ➡️ HTTP Body로 직렬화
+   ⬇️
+12. Client에게 HTTP Response 반환
+```
