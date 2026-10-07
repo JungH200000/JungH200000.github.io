@@ -18,4 +18,4 @@ date: 2026-08-06
 last_modified_at: 2026-08-06
 ---
 
-<img src="{{ '/assets/images/posts_img/' | relative_url }}" style="width: 600px;">
+<img src="../../../assets/images/posts_img/til/sprint-til/spring-mission/83/12.png" width=700px>

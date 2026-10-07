@@ -37,3 +37,8 @@ categories:
         url: /categories/java/basic
       - title: '객체지향 프로그래밍'
         url: /categories/java/oop
+
+  - title: 'Projects'
+    children:
+      - title: 'MoimQ'
+        url: /categories/projects/moimq
