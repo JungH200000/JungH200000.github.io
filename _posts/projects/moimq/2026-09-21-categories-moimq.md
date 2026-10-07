@@ -5,7 +5,7 @@ excerpt: ''
 published: true
 
 categories:
-  - Projects
+  - MoimQ
 tags:
   - [Projects, MoimQ, 개인 프로젝트]
 
