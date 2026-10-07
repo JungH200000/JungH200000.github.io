@@ -2,7 +2,7 @@
 layout: single-editorial
 title: 'Template'
 excerpt: ''
-published: true
+published: false
 
 categories:
   - MoimQ
